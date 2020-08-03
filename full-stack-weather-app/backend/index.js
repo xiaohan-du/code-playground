@@ -6,11 +6,10 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('This is a weather app')
+    res.send('This is a weather app server')
 });
 
 let port = process.env.PORT || 4001;
@@ -20,14 +19,6 @@ app.listen(port, () => {
 });
 
 let apiUrl;
-
-app.get('/search-location', (req, res) => {
-    res.send('This is the search location page')
-});
-
-app.listen(80, function () {
-    console.log('search location app listening on port 80');
-});
 
 app.post('/search-location', (req, res) => {
     console.log(req.body)
