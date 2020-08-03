@@ -34,7 +34,6 @@ app.post('/search-location', (req, res) => {
         })
         .catch(error => {
             console.log(error);
-
         });
 });
 
