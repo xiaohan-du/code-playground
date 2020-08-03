@@ -8,8 +8,8 @@ class FetchWeather extends React.Component {
     }
 
     static async getWeather() {
-        const weatherURL = `http://localhost:4000/weather`;
-        let response = await fetch(weatherURL),
+        const weatherAPI = `http://localhost:4000/weather`;
+        let response = await fetch(weatherAPI),
             body = await response.json();
         return body
     }

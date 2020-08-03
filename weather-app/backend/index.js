@@ -4,7 +4,7 @@ const app = express();
 const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
-const url = `http://api.openweathermap.org/data/2.5/weather?q=london,uk&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`;
+const api = `http://api.openweathermap.org/data/2.5/weather?q=london,uk&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`;
 app.use(cors());
 
 app.get('/', (req, res) => {
@@ -12,12 +12,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
-    axios.get(url)
-        .then(response => { res.json(response.data) })
+    axios.get(api)
+        .then(response => { 
+            res.json(response.data);
+        })
         .catch(error => {
             console.log(error);
         });
-})
+        
+});
 
 let port = process.env.PORT || 4001;
 
