@@ -70,29 +70,14 @@ class WeatherResult extends React.Component {
     fetchedUI() {
         return (
             <div>
-                <div className='columns'>
-                    <div className='column'>
-                        <p>Current temperature: </p>
-                        <p>Description: </p>
-                        <p>Humidity: </p>
-                        <p>Wind Speed: </p>
-                        <p>Location: </p>
-                        <p>Coordinates: </p>
-                        <p>Sunrise: </p>
-                        <p>Sunset: </p>
-                    </div>
-
-                    <div className='column'>
-                        <p>{this.state.currentTemp}</p>
-                        <p>{this.state.currentConditionDescription}</p>
-                        <p>{this.state.humidity}</p>
-                        <p>{this.state.wind}</p>
-                        <p>{this.state.cityName}</p>
-                        <p>{this.state.latitude} (lat), {this.state.longitude} (lon)</p>
-                        <p>{this.convertUnixTime(this.state.sunrise)}</p>
-                        <p>{this.convertUnixTime(this.state.sunset)}</p>
-                    </div>
-                </div>
+                <p>Current temperature: {this.state.currentTemp}</p>
+                <p>Description: {this.state.currentConditionDescription}</p>
+                <p>Humidity: {this.state.humidity}</p>
+                <p>Wind Speed: {this.state.wind}</p>
+                <p>Location: {this.state.cityName}</p>
+                <p>Coordinates: {this.state.latitude} (lat), {this.state.longitude} (lon)</p>
+                <p>Sunrise: {this.convertUnixTime(this.state.sunrise)}</p>
+                <p>Sunset: {this.convertUnixTime(this.state.sunset)}</p>
             </div >
         )
     }
