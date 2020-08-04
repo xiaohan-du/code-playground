@@ -7,12 +7,9 @@ class Weather extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            weatherFetched: false,
             addressData: [],
             coordinate: [],
             postcodeInput: '',
-            errors: {},
-            formIsValid: true,
             displayResult: false
         }
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -46,29 +43,14 @@ class Weather extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        if (this.handleValidation()) {
             this.getCoord();
-        };
     }
 
     handleInputChange(e) {
         this.setState({
             postcodeInput: e.target.value,
-            formIsValid: true,
             displayResult: false
         });
-    }
-
-    handleValidation() {
-        let errors = {},
-            inputFilled = true;
-        if (!this.state.postcodeInput) {
-            this.setState({ formIsValid: false });
-            errors['postcode'] = 'Postcode field cannot be empty';
-            inputFilled = false;
-        };
-        this.setState({ errors: errors });
-        return inputFilled;
     }
 
     render() {
@@ -83,13 +65,10 @@ class Weather extends React.Component {
                                 <div className="field">
                                     <label className="label">Postcode</label>
                                     <div className="control">
-                                        <input
-                                            className="input"
-                                            type="text"
-                                            placeholder="Type UK postcode here"
+                                        <input className="input" type="text" placeholder="Type UK postcode here"
                                             onChange={this.handleInputChange}
                                             required />
-                                        {this.state.formIsValid ? null : <span className='WeatherForm__input-error'>{this.state.errors["postcode"]}</span>}
+                                        {/* {this.state.formIsValid ? null : <span className='WeatherForm__input-error'>{this.state.errors["postcode"]}</span>} */}
                                     </div>
                                 </div>
                                 <div className="field">
