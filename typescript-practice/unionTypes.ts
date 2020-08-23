@@ -1,5 +1,7 @@
-let myNumber: string | number;
-myNumber = 'seven';
-myNumber = 7;
+let numberOfMember: number | string;
 
-console.log(myNumber);
+numberOfMember = 5;
+
+console.log(numberOfMember);
+
+function getLength(variable)

@@ -1,9 +1,7 @@
-;
 var Tom = {
     isMember: true,
-    name: 'Tom',
-    age: 3,
-    height: 180,
+    numberOfMember: 4,
+    nameOfMember: 'Tom',
     sex: 'male'
 };
 console.log(Tom);

@@ -1,3 +1,3 @@
-var myNumber;
-myNumber = 'seven';
-myNumber = 7;
+var numberOfMember;
+numberOfMember = 5;
+console.log(numberOfMember);

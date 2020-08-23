@@ -1,17 +1,15 @@
 interface Member {
     isMember: boolean,
-    name: string,
-    age: number,
-    height: number,
+    numberOfMember: number,
+    nameOfMember: string,
     sex?: string
-};
+}
 
 let Tom: Member = {
     isMember: true,
-    name: 'Tom',
-    age: 3,
-    height: 180,
-    sex: 'male',
+    numberOfMember: 4,
+    nameOfMember: 'Tom',
+    sex: 'male'
 }
 
 console.log(Tom);

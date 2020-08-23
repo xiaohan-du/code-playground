@@ -1,5 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { faWind, faTint } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ReactComponent as Sunrise } from '../../images/icons/sunrise.svg';
+import { ReactComponent as Sunset } from '../../images/icons/sunset.svg';
+import './WeatherResult.scss';
 
 class WeatherResult extends React.Component {
     constructor(props) {
@@ -15,7 +19,9 @@ class WeatherResult extends React.Component {
             longitude: '',
             latitude: '',
             sunrise: '',
-            sunset: ''
+            sunset: '',
+            icon: '',
+            iconUrl: ''
         }
     }
 
@@ -35,20 +41,18 @@ class WeatherResult extends React.Component {
                 sunrise: data.sys.sunrise,
                 sunset: data.sys.sunset
             })
-        })
+        });
+        this.setIconUrl();
+    }
+
+    setIconUrl() {
+        this.setState({
+            iconUrl: "http://openweathermap.org/img/wn/" + this.state.icon + ".png"
+        });
     }
 
     componentDidMount() {
         this.fetchWeather();
-    }
-
-    errorUI() {
-        return (
-            <div>
-                <p> Error with postcode. </p>
-                <Link to='/'><button>Try Again</button></Link>
-            </div>
-        )
     }
 
     convertUnixTime(unixTime) {
@@ -60,26 +64,58 @@ class WeatherResult extends React.Component {
         return formattedTime;
     }
 
-    fetchedUI() {
+    resultUI() {
         return (
-            <div>
-                <p>Current temperature: {this.state.currentTemp}</p>
-                <p>Description: {this.state.currentConditionDescription}</p>
-                <p>Humidity: {this.state.humidity}</p>
-                <p>Wind Speed: {this.state.wind}</p>
-                <p>Location: {this.state.cityName}</p>
-                <p>Coordinates: {this.state.latitude} (lat), {this.state.longitude} (lon)</p>
-                <p>Sunrise: {this.convertUnixTime(this.state.sunrise)}</p>
-                <p>Sunset: {this.convertUnixTime(this.state.sunset)}</p>
-            </div >
+            <div className={"card WeatherCard " + (this.props.displayResult ? 'WeatherCard__transition' : null)}>
+                <div className="card-content WeatherCard__content">
+                    <div className='columns is-mobile WeatherCard__content__columns'>
+                        <div className='column has-text-centered'>
+                            <div className='is-size-1 WeatherCard__content__city'>
+                                {this.state.cityName}
+                            </div>
+                            <div className='columns is-mobile'>
+                                <div className='column'>
+                                    <div>
+                                        <Sunrise className='WeatherCard__icon' />
+                                    </div>
+                                    {this.convertUnixTime(this.state.sunrise)}
+                                    <div>
+                                        <FontAwesomeIcon icon={faTint} />
+                                    </div>
+                                    {this.state.humidity}
+                                </div>
+                                <div className='column'>
+                                    <div>
+                                        <Sunset className='WeatherCard__icon' />
+                                    </div>
+                                    {this.convertUnixTime(this.state.sunset)}
+                                    <div>
+                                        <FontAwesomeIcon icon={faWind} />
+                                    </div>
+                                    {this.state.wind}
+                                </div>
+                            </div>
+                        </div>
+                        <div className='column has-text-centered'>
+                            <div className='WeatherCard__temp'>
+                                {this.state.currentTemp}
+                            </div>
+                            <div>
+                                <img className='WeatherCard__desc__img' alt='weather icon' src={this.state.iconUrl}></img>
+                                <div>
+                                    {this.state.currentConditionDescription}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 
     render() {
         return (
-            this.state.cityNotFound === 404
-                ? <div>{this.errorUI()}</div>
-                : <div>{this.fetchedUI()}</div>
+            <div>{this.resultUI()}</div>
         )
     }
 }
