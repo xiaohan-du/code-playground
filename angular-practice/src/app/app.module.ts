@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
+import { NgForComponent } from './ng-for/ng-for.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TwoWayBindingComponent
+    TwoWayBindingComponent,
+    NgForComponent
   ],
   imports: [
     BrowserModule,
