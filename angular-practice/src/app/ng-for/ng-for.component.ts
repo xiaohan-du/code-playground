@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-/* import { Hero } from '../hero'; */
-import { HEROES } from '../mock-heroes';
+import { IHero } from '../hero';
+/* import { HEROES } from '../mock-heroes'; */
 
 @Component({
   selector: 'app-ng-for',
@@ -9,8 +9,7 @@ import { HEROES } from '../mock-heroes';
 })
 
 export class NgForComponent implements OnInit {
-  heroes = HEROES;
-  /* heroes: Hero[] = [
+  heroes: IHero[] = [
     { id: 11, name: 'Dr Nice' },
     { id: 12, name: 'Narco' },
     { id: 13, name: 'Bombasto' },
@@ -21,7 +20,7 @@ export class NgForComponent implements OnInit {
     { id: 18, name: 'Dr IQ' },
     { id: 19, name: 'Magma' },
     { id: 20, name: 'Tornado' }
-  ] */
+  ]
   constructor() {
 
   }

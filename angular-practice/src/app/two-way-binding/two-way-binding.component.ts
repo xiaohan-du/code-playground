@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Hero} from '../hero'
+import { Component, OnInit } from '@angular/core';
+import { IHero } from '../hero'
 
 @Component({
   selector: 'app-two-way-binding',
@@ -9,12 +9,12 @@ import {Hero} from '../hero'
 
 export class TwoWayBindingComponent implements OnInit {
 
-  hero: Hero = {
+  hero: IHero = {
     id: 1,
     name: 'Antman'
   }
-  constructor(){}
-  ngOnInit () {
+  constructor() { }
+  ngOnInit() {
 
   }
 }
