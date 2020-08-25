@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 import { NgForComponent } from './ng-for/ng-for.component';
 import { ClickEventComponent } from './click-event/click-event.component';
+import { ClassBindingComponent } from './class-binding/class-binding.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ClickEventComponent } from './click-event/click-event.component';
     AppComponent,
     TwoWayBindingComponent,
     NgForComponent,
-    ClickEventComponent
+    ClickEventComponent,
+    ClassBindingComponent
   ],
   imports: [
     BrowserModule,
