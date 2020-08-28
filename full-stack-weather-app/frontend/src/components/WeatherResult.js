@@ -1,9 +1,9 @@
 import React from 'react';
-import { faWind, faTint } from "@fortawesome/free-solid-svg-icons";
+/* import { faWind, faTint } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReactComponent as Sunrise } from '../../images/icons/sunrise.svg';
 import { ReactComponent as Sunset } from '../../images/icons/sunset.svg';
-import './WeatherResult.scss';
+import './WeatherResult.scss'; */
 
 class WeatherResult extends React.Component {
     constructor(props) {
@@ -76,21 +76,21 @@ class WeatherResult extends React.Component {
                             <div className='columns is-mobile'>
                                 <div className='column'>
                                     <div>
-                                        <Sunrise className='WeatherCard__icon' />
+                                        {/* <Sunrise className='WeatherCard__icon' /> */}
                                     </div>
                                     {this.convertUnixTime(this.state.sunrise)}
                                     <div>
-                                        <FontAwesomeIcon icon={faTint} />
+                                        {/* <FontAwesomeIcon icon={faTint} /> */}
                                     </div>
                                     {this.state.humidity}
                                 </div>
                                 <div className='column'>
                                     <div>
-                                        <Sunset className='WeatherCard__icon' />
+                                        {/* <Sunset className='WeatherCard__icon' /> */}
                                     </div>
                                     {this.convertUnixTime(this.state.sunset)}
                                     <div>
-                                        <FontAwesomeIcon icon={faWind} />
+                                        {/* <FontAwesomeIcon icon={faWind} /> */}
                                     </div>
                                     {this.state.wind}
                                 </div>
