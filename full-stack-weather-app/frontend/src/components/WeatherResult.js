@@ -66,11 +66,11 @@ class WeatherResult extends React.Component {
 
     resultUI() {
         return (
-            <div className={"card WeatherCard " + (this.props.displayResult ? 'WeatherCard__transition' : null)}>
-                <div className="card-content WeatherCard__content">
-                    <div className='columns is-mobile WeatherCard__content__columns'>
+            <div className="card">
+                <div className="card-content">
+                    <div className='columns is-mobile'>
                         <div className='column has-text-centered'>
-                            <div className='is-size-1 WeatherCard__content__city'>
+                            <div className='is-size-1'>
                                 {this.state.cityName}
                             </div>
                             <div className='columns is-mobile'>
@@ -97,11 +97,11 @@ class WeatherResult extends React.Component {
                             </div>
                         </div>
                         <div className='column has-text-centered'>
-                            <div className='WeatherCard__temp'>
+                            <div className=''>
                                 {this.state.currentTemp}
                             </div>
                             <div>
-                                <img className='WeatherCard__desc__img' alt='weather icon' src={this.state.iconUrl}></img>
+                                <img className='' alt='weather icon' src={this.state.iconUrl}></img>
                                 <div>
                                     {this.state.currentConditionDescription}
                                 </div>

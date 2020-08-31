@@ -45,8 +45,8 @@ class Weather extends React.Component {
                     });
             });
         }
-        catch(e) {
-            this.setState({error: true});
+        catch (e) {
+            this.setState({ error: true });
             console.log(e);
         }
     }
@@ -77,33 +77,37 @@ class Weather extends React.Component {
 
     render() {
         return (
-            <article className="tile is-child notification is-warning">
+            <article className="tile is-child notification is-success">
                 <div className='columns'>
                     <div className="column">
-                        <form onSubmit={this.handleSubmit}>
-                            <p className="title">Weather</p>
-                            <p className="subtitle">Check UK weather by entering postcode</p>
-                            <div>
-                                <div className="field">
-                                    <label className="label">Postcode</label>
-                                    <div className="control">
-                                        <input className="input" type="text" placeholder="Type UK postcode here"
-                                            onChange={this.handleInputChange}
-                                            required />
-                                        {this.state.error ? <span>Please check your postcode input (no space is needed)</span> : null}
+                        <div className='card'>
+                            <div className="card-content">
+                                <form onSubmit={this.handleSubmit}>
+                                    <p className="title">Weather</p>
+                                    <p className="subtitle">Check UK weather by entering postcode</p>
+                                    <div>
+                                        <div className="field">
+                                            <label className="label">Postcode</label>
+                                            <div className="control">
+                                                <input className="input" type="text" placeholder="Type UK postcode here"
+                                                    onChange={this.handleInputChange}
+                                                    required />
+                                                {this.state.error ? <span>Please check your postcode input (no space is needed)</span> : null}
+                                            </div>
+                                        </div>
+                                        <div className="field">
+                                            <div className="control">
+                                                <input
+                                                    type='submit'
+                                                    className="button is-light is-large"
+                                                    value='Search'
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="field">
-                                    <div className="control">
-                                        <input
-                                            type='submit'
-                                            className="button is-light is-large"
-                                            value='Search'
-                                        />
-                                    </div>
-                                </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div className="column">
                         {this.state.displayResult ? <WeatherResult /> : null}
