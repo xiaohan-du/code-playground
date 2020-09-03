@@ -1,9 +1,9 @@
 import React from 'react';
-/* import { faWind, faTint } from "@fortawesome/free-solid-svg-icons";
+import { faWind, faTint } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ReactComponent as Sunrise } from '../../images/icons/sunrise.svg';
-import { ReactComponent as Sunset } from '../../images/icons/sunset.svg';
-import './WeatherResult.scss'; */
+import { ReactComponent as Sunrise } from '../images/icons/sunrise.svg';
+import { ReactComponent as Sunset } from '../images/icons/sunset.svg';
+import './WeatherCard.scss'; 
 
 class WeatherResult extends React.Component {
     constructor(props) {
@@ -39,7 +39,8 @@ class WeatherResult extends React.Component {
                 longitude: data.coord.lon,
                 latitude: data.coord.lat,
                 sunrise: data.sys.sunrise,
-                sunset: data.sys.sunset
+                sunset: data.sys.sunset,
+                icon: data.weather[0].icon
             })
         });
         this.setIconUrl();
@@ -66,7 +67,7 @@ class WeatherResult extends React.Component {
 
     resultUI() {
         return (
-            <div className={"card WeatherCard " + (this.props.displayResult ? 'WeatherCard__transition' : null)}>
+            <div className="card WeatherCard">
                 <div className="card-content WeatherCard__content">
                     <div className='columns is-mobile WeatherCard__content__columns'>
                         <div className='column has-text-centered'>
@@ -76,21 +77,21 @@ class WeatherResult extends React.Component {
                             <div className='columns is-mobile'>
                                 <div className='column'>
                                     <div>
-                                        {/* <Sunrise className='WeatherCard__icon' /> */}
+                                        <Sunrise className='WeatherCard__icon' />
                                     </div>
                                     {this.convertUnixTime(this.state.sunrise)}
                                     <div>
-                                        {/* <FontAwesomeIcon icon={faTint} /> */}
+                                        <FontAwesomeIcon icon={faTint} className='WeatherCard__icon'/>
                                     </div>
                                     {this.state.humidity}
                                 </div>
                                 <div className='column'>
                                     <div>
-                                        {/* <Sunset className='WeatherCard__icon' /> */}
+                                        <Sunset className='WeatherCard__icon' />
                                     </div>
                                     {this.convertUnixTime(this.state.sunset)}
                                     <div>
-                                        {/* <FontAwesomeIcon icon={faWind} /> */}
+                                        <FontAwesomeIcon icon={faWind} className='WeatherCard__icon'/>
                                     </div>
                                     {this.state.wind}
                                 </div>
