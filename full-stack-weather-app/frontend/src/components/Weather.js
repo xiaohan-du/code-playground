@@ -1,6 +1,7 @@
 import React from 'react';
 import WeatherResult from './WeatherResult';
 import axios from 'axios';
+import './WeatherCard.scss';
 
 class Weather extends React.Component {
 
@@ -80,8 +81,8 @@ class Weather extends React.Component {
             <article className="tile is-child notification is-success">
                 <div className='columns'>
                     <div className="column">
-                        <div className='card'>
-                            <div className="card-content">
+                        <div className='card WeatherCard'>
+                            <div className="card-content WeatherCard__content">
                                 <form onSubmit={this.handleSubmit}>
                                     <p className="title">Weather</p>
                                     <p className="subtitle">Check UK weather by entering postcode</p>
@@ -89,7 +90,9 @@ class Weather extends React.Component {
                                         <div className="field">
                                             <label className="label">Postcode</label>
                                             <div className="control">
-                                                <input className="input" type="text" placeholder="Type UK postcode here"
+                                                <input className="input"
+                                                    type="text"
+                                                    placeholder="Type UK postcode here"
                                                     onChange={this.handleInputChange}
                                                     required />
                                                 {this.state.error ? <span>Please check your postcode input (no space is needed)</span> : null}

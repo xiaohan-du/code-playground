@@ -1,9 +1,9 @@
 import React from 'react';
-/* import { faWind, faTint } from "@fortawesome/free-solid-svg-icons";
+import { faWind, faTint } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ReactComponent as Sunrise } from '../../images/icons/sunrise.svg';
-import { ReactComponent as Sunset } from '../../images/icons/sunset.svg';
-import './WeatherResult.scss'; */
+import { ReactComponent as Sunrise } from '../images/icons/sunrise.svg';
+import { ReactComponent as Sunset } from '../images/icons/sunset.svg';
+import './WeatherCard.scss'; 
 
 class WeatherResult extends React.Component {
     constructor(props) {
@@ -39,7 +39,8 @@ class WeatherResult extends React.Component {
                 longitude: data.coord.lon,
                 latitude: data.coord.lat,
                 sunrise: data.sys.sunrise,
-                sunset: data.sys.sunset
+                sunset: data.sys.sunset,
+                icon: data.weather[0].icon
             })
         });
         this.setIconUrl();
@@ -66,42 +67,42 @@ class WeatherResult extends React.Component {
 
     resultUI() {
         return (
-            <div className="card">
-                <div className="card-content">
-                    <div className='columns is-mobile'>
+            <div className="card WeatherCard">
+                <div className="card-content WeatherCard__content">
+                    <div className='columns is-mobile WeatherCard__content__columns'>
                         <div className='column has-text-centered'>
-                            <div className='is-size-1'>
+                            <div className='is-size-1 WeatherCard__content__city'>
                                 {this.state.cityName}
                             </div>
                             <div className='columns is-mobile'>
                                 <div className='column'>
                                     <div>
-                                        {/* <Sunrise className='WeatherCard__icon' /> */}
+                                        <Sunrise className='WeatherCard__icon' />
                                     </div>
                                     {this.convertUnixTime(this.state.sunrise)}
                                     <div>
-                                        {/* <FontAwesomeIcon icon={faTint} /> */}
+                                        <FontAwesomeIcon icon={faTint} className='WeatherCard__icon'/>
                                     </div>
                                     {this.state.humidity}
                                 </div>
                                 <div className='column'>
                                     <div>
-                                        {/* <Sunset className='WeatherCard__icon' /> */}
+                                        <Sunset className='WeatherCard__icon' />
                                     </div>
                                     {this.convertUnixTime(this.state.sunset)}
                                     <div>
-                                        {/* <FontAwesomeIcon icon={faWind} /> */}
+                                        <FontAwesomeIcon icon={faWind} className='WeatherCard__icon'/>
                                     </div>
                                     {this.state.wind}
                                 </div>
                             </div>
                         </div>
                         <div className='column has-text-centered'>
-                            <div className=''>
+                            <div className='WeatherCard__temp'>
                                 {this.state.currentTemp}
                             </div>
                             <div>
-                                <img className='' alt='weather icon' src={this.state.iconUrl}></img>
+                                <img className='WeatherCard__desc__img' alt='weather icon' src={this.state.iconUrl}></img>
                                 <div>
                                     {this.state.currentConditionDescription}
                                 </div>
