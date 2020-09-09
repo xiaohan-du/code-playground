@@ -1,0 +1,38 @@
+@import '../main.scss';
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    @include vertical-centered;
+}
+
+li {
+    float: right;
+    min-height: 5rem;
+    @include vertical-centered;
+    & a {
+        display: block;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 1.6rem;
+        letter-spacing: 0.2rem;
+        &:visited {
+            color: black;
+        }
+    }
+} 
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    min-height: 8rem;
+    &__logo {
+        min-width: 20rem;
+        &__container {
+            @include vertical-centered;
+        }
+    }
+}

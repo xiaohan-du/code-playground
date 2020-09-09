@@ -1,0 +1,9 @@
+@mixin vertical-centered {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@mixin horizontal-margined {
+    padding: 0 7.2rem;
+}

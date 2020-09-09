@@ -1,0 +1,18 @@
+@import '../main.scss';
+
+.banner {
+    top: -35rem;
+    position: relative;
+    z-index: 3;
+    &__title {
+        margin: 0;
+        font-size: 6rem;
+        font-weight: normal;
+        color: white;
+    }
+    &__subtitle {
+        font-size: 3rem;
+        font-weight: normal;
+        color: white;
+    }
+}
