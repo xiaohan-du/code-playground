@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import About from './pages/About';
 import Home from './pages/Home';
-import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 const Layout = () => {
     return (
