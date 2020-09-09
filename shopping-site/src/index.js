@@ -1,18 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Reducer from './Reducer'
+import Layout from './Layout';
 import * as serviceWorker from './serviceWorker';
-import TestUseState from './components/TestUseState';
-import TestUseReducer from './components/TestUseReducer';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    {/* <Reducer /> */}
-    {/* <TestUseState /> */}
-    <TestUseReducer />
+    <Layout />
   </React.StrictMode>,
   document.getElementById('root')
 );
