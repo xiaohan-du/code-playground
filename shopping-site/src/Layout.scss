@@ -1,0 +1,7 @@
+@import './main.scss';
+
+.main-page {
+    max-width: $max-page-width;
+    margin: 0 auto;
+    @include horizontal-margined;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
+import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import About from './pages/About';
-import Home from './pages/Home';
+import Contact from './pages/Contact';
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 const Layout = () => {
@@ -10,6 +11,9 @@ const Layout = () => {
             <Navbar />
 
             <Switch>
+                <Route path="/contact-us">
+                    <Contact />
+                </Route>
                 <Route path="/about-us">
                     <About />
                 </Route>

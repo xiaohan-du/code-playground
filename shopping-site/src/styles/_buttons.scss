@@ -1,0 +1,18 @@
+@import "./color.scss";
+
+.btn {
+    border: none;
+    border-radius: 4px;
+    &__light {
+        min-width: 8rem;
+        min-height: 4rem;
+        color: $steel-blue;
+        background-color: $alice-blue;
+    }
+    &__primary {
+        min-width: 9rem;
+        min-height: 4rem;
+        background-color: $steel-blue;
+        color: white;
+    }
+}
