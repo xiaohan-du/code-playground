@@ -8,7 +8,7 @@ import {ReactComponent as Logo} from '../images/Logo.svg';
 const Navbar = () => {
 
     return (
-        <nav className='main-page navbar'>
+        <nav className='center-content navbar'>
             <div className='navbar__logo__container'>
                 <Logo className='navbar__logo'/>
             </div>
