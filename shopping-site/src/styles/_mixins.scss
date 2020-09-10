@@ -1,9 +1,9 @@
-@mixin vertical-centered {
+@mixin vertically-centered {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-@mixin horizontal-margined {
+@mixin horizontally-margined {
     padding: 0 7.2rem;
 }

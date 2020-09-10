@@ -1,18 +1,30 @@
-@import '../main.scss';
+@import "../main.scss";
 
 .banner {
-    top: -35rem;
-    position: relative;
-    z-index: 3;
     &__title {
-        margin: 0;
-        font-size: 6rem;
+        margin-bottom: 1rem;
+        font-size: 5rem;
         font-weight: normal;
         color: white;
+        width: 50%;
     }
     &__subtitle {
-        font-size: 3rem;
+        margin-bottom: 2rem;
+        font-size: 2rem;
         font-weight: normal;
         color: white;
+        width: 50%;
+    }
+    &__img {
+        width: 100%;
+        height: 50rem;
+        background-size: cover;
+        background-position: 50% 25%;
+        box-shadow: inset 850px 0 500px -300px #292828;
+        &__content {
+            &.center-content {
+                padding-top: 16rem;
+            }
+        }
     }
 }
