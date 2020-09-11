@@ -5,3 +5,7 @@
     margin: 0 auto;
     @include horizontally-margined;
 }
+
+.center-vertically {
+    @include vertically-centered;
+}

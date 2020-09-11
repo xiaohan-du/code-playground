@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import './Layout.scss';
+import './main.scss';
 
 const Layout = () => {
     return (

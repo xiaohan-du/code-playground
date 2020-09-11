@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './Navbar.scss';
-import '../main.scss';
-import '../Layout.scss';
 import {ReactComponent as Logo} from '../images/Logo.svg';
 
 const Navbar = () => {
@@ -12,7 +10,7 @@ const Navbar = () => {
             <div className='navbar__logo__container'>
                 <Logo className='navbar__logo'/>
             </div>
-            <ul>
+            <ul className='navbar__links'>
                 <li>
                     <Link to="/">HOME</Link>
                 </li>

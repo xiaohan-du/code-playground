@@ -1,0 +1,53 @@
+@import "../main.scss";
+
+.tile {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    display: flex;
+    justify-content: space-between;
+
+    &__wrapper {
+        background-position: 50% 10%;
+    }
+
+    &__textbox {
+        width: 47%;
+        display: flex;
+        flex-direction: column;
+        &-bg {
+            box-sizing: border-box;
+            padding: 4rem;
+            background-color: $dim-gray;
+            color: white;
+        }
+        &__title {
+            font-size: 2.4rem;
+            margin-block-start: 0;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        &__content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+        &__list {
+            padding-inline-start: 20px;
+            margin-bottom: 3rem;
+            & li {
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+        }
+    }
+    &__imagebox {
+        text-align: end;
+        width: 47%;
+    }
+    &__image {
+        width: 100%;
+    }
+    
+}
