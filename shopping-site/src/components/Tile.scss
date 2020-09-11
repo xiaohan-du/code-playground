@@ -21,23 +21,20 @@
             color: white;
         }
         &__title {
-            font-size: 2.4rem;
+            font-size: $title-medium;
             margin-block-start: 0;
             margin-bottom: 2rem;
             font-weight: 300;
         }
         &__content {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            font-weight: 300;
+            @include content;
         }
         &__list {
-            padding-inline-start: 20px;
+            padding-inline-start: 2rem;
             margin-bottom: 3rem;
             & li {
                 margin-bottom: 1rem;
-                font-size: 1.2rem;
+                font-size: $content;
                 font-weight: 500;
             }
         }
