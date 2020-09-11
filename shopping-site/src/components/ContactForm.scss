@@ -1,0 +1,44 @@
+@import "../main.scss";
+
+.contact-form {
+    width: 50%;
+    margin: 6rem 0;
+    &__text {
+        @include content;
+    }
+    & label {
+        font-size: $font-small;
+    }
+    & input:not([type="checkbox"]) {
+        min-height: 3rem;
+        margin: 1rem 0 2rem 0;
+        border: 1px solid $white-smoke;
+    }
+    &__input {
+        &-medium {
+            width: 48%;
+        }
+        &-small {
+            width: 22%;
+        }
+    }
+    &__chain {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & .label-set {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    & .note {
+        color: $light-grey;
+        &-phone {
+            font-style: italic;
+        }
+    }
+    & .up-down-space {
+        margin: 1rem 0 2rem 0;
+    }
+}
