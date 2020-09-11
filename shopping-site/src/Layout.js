@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
@@ -23,6 +24,8 @@ const Layout = () => {
                     <Home />
                 </Route>
             </Switch>
+
+            <Footer />
         </Router>
     )
 }

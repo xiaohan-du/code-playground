@@ -6,16 +6,12 @@
     min-height: 8rem;
     &__logo {
         min-width: 20rem;
-        &__container {
-            @include vertically-centered;
-        }
     }
     &__links {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        @include vertically-centered;
         & li {
             float: right;
             min-height: 5rem;
