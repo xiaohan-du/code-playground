@@ -1,29 +1,4 @@
-@import '../main.scss';
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    @include vertically-centered;
-}
-
-li {
-    float: right;
-    min-height: 5rem;
-    @include vertically-centered;
-    & a {
-        display: block;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 1.6rem;
-        letter-spacing: 0.2rem;
-        &:visited {
-            color: black;
-        }
-    }
-} 
+@import "../main.scss";
 
 .navbar {
     display: flex;
@@ -33,6 +8,29 @@ li {
         min-width: 20rem;
         &__container {
             @include vertically-centered;
+        }
+    }
+    &__links {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        @include vertically-centered;
+        & li {
+            float: right;
+            min-height: 5rem;
+            @include vertically-centered;
+            & a {
+                display: block;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 1.6rem;
+                letter-spacing: 0.2rem;
+                &:visited {
+                    color: black;
+                }
+            }
         }
     }
 }
