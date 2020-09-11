@@ -23,9 +23,9 @@
             & a {
                 display: block;
                 text-align: center;
-                padding: 14px 16px;
+                padding: 1.4rem 1.6rem;
                 text-decoration: none;
-                font-size: 1.6rem;
+                font-size: $font-basic;
                 letter-spacing: 0.2rem;
                 &:visited {
                     color: black;

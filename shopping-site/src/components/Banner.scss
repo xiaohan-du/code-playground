@@ -3,14 +3,14 @@
 .banner {
     &__title {
         margin-bottom: 1rem;
-        font-size: 5rem;
+        font-size: $title-large;
         font-weight: normal;
         color: white;
         width: 50%;
     }
     &__subtitle {
         margin-bottom: 2rem;
-        font-size: 2rem;
+        font-size: $subtitle-large;
         font-weight: normal;
         color: white;
         width: 50%;
@@ -20,7 +20,7 @@
         height: 50rem;
         background-size: cover;
         background-position: 50% 25%;
-        box-shadow: inset 850px 0 500px -300px #292828;
+        box-shadow: inset 85rem 0 50rem -30rem #292828;
         &__content {
             &.center-content {
                 padding-top: 16rem;

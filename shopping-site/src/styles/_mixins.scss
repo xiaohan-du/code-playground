@@ -7,3 +7,10 @@
 @mixin horizontally-margined {
     padding: 0 7.2rem;
 }
+
+@mixin content {
+    font-size: $content;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
