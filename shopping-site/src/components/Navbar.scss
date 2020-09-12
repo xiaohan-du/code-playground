@@ -6,6 +6,9 @@
     min-height: 8rem;
     &__wrapper {
         border-bottom: 1px solid $white-smoke;
+        z-index: 3;
+        position: relative;
+        background-color: white;
     }
     &__logo {
         min-width: 20rem;

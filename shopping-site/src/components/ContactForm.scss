@@ -6,14 +6,6 @@
     &__text {
         @include content;
     }
-    & label {
-        font-size: $font-small;
-    }
-    & input:not([type="checkbox"]) {
-        min-height: 3rem;
-        margin: 1rem 0 2rem 0;
-        border: 1px solid $white-smoke;
-    }
     &__input {
         &-medium {
             width: 48%;
@@ -27,6 +19,19 @@
         justify-content: space-between;
     }
 
+    & label {
+        font-size: $font-small;
+    }
+    & input:not([type="checkbox"]) {
+        min-height: 3rem;
+        margin: 1rem 0 2rem 0;
+        @include input-area;
+    }
+    & textarea {
+        resize: none;
+        @include input-area;
+    }
+    
     & .label-set {
         display: flex;
         justify-content: space-between;
@@ -41,4 +46,15 @@
     & .up-down-space {
         margin: 1rem 0 2rem 0;
     }
+    & button {
+        & .icon {
+            height:1.5rem;
+            float: left;
+            margin-left: 1rem;
+        }
+        & span {
+            margin-right: 4rem;
+        }
+    }
+    
 }

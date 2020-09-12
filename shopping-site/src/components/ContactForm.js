@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ContactForm.scss';
+import { ReactComponent as PaperPlane } from '../images/Icon_Submit.svg';
 
 const ContactForm = () => {
+
+    const [showSecondNo, setShowSecondNo] = useState(false);
+    const [showAddress, setShowAddress] = useState(false);
+
+    const handleAddPhoneClick = () => {
+        setShowSecondNo(true);
+    }
+
+    const handleAddressClick = () => {
+        setShowAddress(true);
+    }
+
     return (
         <>
             <form className='contact-form'>
@@ -14,7 +27,7 @@ const ContactForm = () => {
                     <div className='contact-form__chain'>
                         <div className='flex-column contact-form__input-medium'>
                             <label>Full name</label>
-                            <input/>
+                            <input />
                         </div>
                         <div className='flex-column contact-form__input-medium'>
                             <label>Email address</label>
@@ -24,8 +37,12 @@ const ContactForm = () => {
                     <div className='flex-column'>
                         <label>Phone number 01<span className='note note-phone'> - optional</span></label>
                         <input />
-                        <button className='btn btn__light btn__full up-down-space'>Add new phone number</button>
                     </div>
+                    {showSecondNo ? <div className='flex-column'>
+                        <label>Phone number 02<span className='note note-phone'> - optional</span></label>
+                        <input />
+                    </div> : null}
+                    <button onClick={handleAddPhoneClick} className='btn btn__light btn__full up-down-space'>Add new phone number</button>
                     <div className='flex-column'>
                         <div className='label-set'>
                             <label>Message</label>
@@ -33,11 +50,11 @@ const ContactForm = () => {
                         </div>
                         <textarea name="message" rows="10" cols="30"></textarea>
                         <div className='flex-row up-down-space'>
-                            <input type="checkbox" id="address"></input>
+                            <input onClick={handleAddressClick} type="checkbox" id="address"></input>
                             <label for='address'>Add address details</label>
                         </div>
                     </div>
-                    <div>
+                    {showAddress ? <div>
                         <div className='contact-form__chain'>
                             <div className='flex-column contact-form__input-medium'>
                                 <label>Address line 1</label>
@@ -66,9 +83,12 @@ const ContactForm = () => {
                                 <input />
                             </div>
                         </div>
-                    </div>
+                    </div> : null}
                     <div>
-                        <button className='btn btn__primary btn__full'>Add new phone number</button>
+                        <button className='btn btn__primary btn__full'>
+                            <PaperPlane className='icon' />
+                            <span>Submit</span>
+                        </button>
                     </div>
 
                 </div>
