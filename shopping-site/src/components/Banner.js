@@ -10,34 +10,10 @@ const Banner = () => {
 
     const slides = [];
 
-    const bannerReducer = (state, action) => {
-        switch (action.type) {
-            case 'setTitle':
-                return {
-                    ...state,
-                    title: action.title
-                }
-            case 'setSubtitle':
-                return {
-                    ...state,
-                    subtitle: action.subtitle
-                }
-            case 'setImgUrl':
-                return {
-                    ...state,
-                    imgUrl: action.imgUrl
-                }
-            case 'setRenderBanner':
-                return {
-                    ...state,
-                    renderBanner: action.renderBanner
-                }
-            default:
-                return state
-        }
-    }
-
-    const [state, dispatch] = useReducer(bannerReducer, { title: [], subtitle: [], imgUrl: [], renderBanner: false });
+    const [state, setState] = useReducer(
+        (state, newState) => ({...state, ...newState}),
+        {title: [], subtitle: [], imgUrl: [], renderBanner: false}
+    );
 
     useEffect(() => {
         async function fetchData() {
@@ -52,10 +28,10 @@ const Banner = () => {
                 response.Details.forEach(e => _title.push(e.Title));
                 response.Details.forEach(e => _subtitle.push(e.Subtitle));
                 response.Details.forEach(e => _imgUrl.push(e.ImageUrl));
-                dispatch({ type: 'setTitle', title: _title });
-                dispatch({ type: 'setSubtitle', subtitle: _subtitle });
-                dispatch({ type: 'setImgUrl', imgUrl: _imgUrl });
-                dispatch({ type: 'setRenderBanner', renderBanner: true })
+                setState({title: _title});
+                setState({subtitle: _subtitle});
+                setState({imgUrl: _imgUrl});
+                setState({renderBanner: true});
             }
             catch (e) {
                 console.log(e);
