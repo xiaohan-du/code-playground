@@ -3,6 +3,9 @@
 .contact-form {
     width: 50%;
     margin: 6rem 0;
+    &__title {
+        font-weight: normal;
+    }
     &__text {
         @include content;
     }
@@ -31,6 +34,17 @@
         resize: none;
         @include input-area;
     }
+
+    & button {
+        & .icon {
+            height:1.5rem;
+            float: left;
+            margin-left: 1rem;
+        }
+        & span {
+            margin-right: 4rem;
+        }
+    }
     
     & .label-set {
         display: flex;
@@ -43,17 +57,13 @@
             font-style: italic;
         }
     }
-    & .up-down-space {
+    & .top-bottom-space {
         margin: 1rem 0 2rem 0;
     }
-    & button {
-        & .icon {
-            height:1.5rem;
-            float: left;
-            margin-left: 1rem;
-        }
-        & span {
-            margin-right: 4rem;
+    & .checkbox {
+        &__label {
+            line-height: 1.6;
+            margin-left: 0.5rem;
         }
     }
     

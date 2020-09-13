@@ -8,7 +8,9 @@ const Navbar = () => {
     return (
         <div className='navbar__wrapper'>
             <nav className='center-content center-vertically navbar'>
-                <Logo className='navbar__logo' />
+                <a href='#/'>
+                    <Logo className='navbar__logo' href='#' />
+                </a>
                 <ul className='navbar__links center-vertically'>
                     <li>
                         <Link to="/">HOME</Link>
