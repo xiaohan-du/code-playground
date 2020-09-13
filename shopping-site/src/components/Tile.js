@@ -6,7 +6,7 @@ const Tile = () => {
 
     return (
         <>
-            <div className='tile__wrapper center-vertically'>
+            <div className='tile__wrapper'>
                 <div className='center-content'>
                     <div className='tile'>
                         <div className='tile__textbox'>
@@ -43,7 +43,7 @@ const Tile = () => {
                     </div>
                 </div>
             </div>
-            <div style={{ backgroundImage: `url(${tileBg})` }} className='tile__wrapper center-vertically'>
+            <div style={{ backgroundImage: `url(${tileBg})` }} className='tile__wrapper'>
                 <div className='center-content'>
                     <div className='tile'>
                         <div className='tile__textbox tile__textbox-bg'>

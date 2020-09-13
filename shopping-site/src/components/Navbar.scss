@@ -4,6 +4,9 @@
     display: flex;
     justify-content: space-between;
     min-height: 8rem;
+    & a {
+        display: flex;
+    }
     &__wrapper {
         border-bottom: 1px solid $white-smoke;
         z-index: 3;
@@ -18,19 +21,22 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        & li {
-            float: right;
-            min-height: 5rem;
+        & ul {
             @include vertically-centered;
-            & a {
-                display: block;
-                text-align: center;
-                padding: 1.4rem 1.6rem;
-                text-decoration: none;
-                font-size: $font-basic;
-                letter-spacing: 0.2rem;
-                &:visited {
-                    color: black;
+            & li {
+                float: right;
+                min-height: 5rem;
+                @include vertically-centered;
+                & a {
+                    display: block;
+                    text-align: center;
+                    padding: 1.4rem 1.6rem;
+                    text-decoration: none;
+                    font-size: $font-basic;
+                    letter-spacing: 0.2rem;
+                    &:visited {
+                        color: black;
+                    }
                 }
             }
         }
@@ -40,11 +46,13 @@
 @include to-desktop {
     .navbar {
         &__links {
-            & li {
-                & a {
-                    letter-spacing: 0.1rem;
-                    padding: 1.4rem 0.9rem;
-                    font-size: $font-small;
+            & ul {
+                & li {
+                    & a {
+                        letter-spacing: 0.1rem;
+                        padding: 1.4rem 0.9rem;
+                        font-size: $font-small;
+                    }
                 }
             }
         }
@@ -53,7 +61,6 @@
 
 @include to-tablet-portrait {
     .navbar {
-        display: flex !important;
         justify-content: center;
         min-height: 6rem;
         &__links {

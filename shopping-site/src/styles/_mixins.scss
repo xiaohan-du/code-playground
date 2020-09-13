@@ -26,10 +26,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    @include to-tablet-portrait {
+        display: block;
+    }
 }
 
 @mixin horizontally-margined {
     padding: 0 7.2rem;
+    @include to-phone {
+        padding: 0 2rem;
+    }
 }
 
 @mixin content {

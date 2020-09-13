@@ -5,6 +5,8 @@
     border-top: 1px solid $white-smoke;
     flex-direction: row-reverse !important;
     padding: 0 !important;
+    @include vertically-centered;
+    
     &__text {
         color: $white-smoke;
         &__link {
