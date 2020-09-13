@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
+import { Link } from "react-router-dom";
 import 'swiper/swiper-bundle.css';
 import './Banner.scss';
 
@@ -11,8 +12,8 @@ const Banner = () => {
     const slides = [];
 
     const [state, setState] = useReducer(
-        (state, newState) => ({...state, ...newState}),
-        {title: [], subtitle: [], imgUrl: [], renderBanner: false}
+        (state, newState) => ({ ...state, ...newState }),
+        { title: [], subtitle: [], imgUrl: [], renderBanner: false }
     );
 
     useEffect(() => {
@@ -28,10 +29,10 @@ const Banner = () => {
                 response.Details.forEach(e => _title.push(e.Title));
                 response.Details.forEach(e => _subtitle.push(e.Subtitle));
                 response.Details.forEach(e => _imgUrl.push(e.ImageUrl));
-                setState({title: _title});
-                setState({subtitle: _subtitle});
-                setState({imgUrl: _imgUrl});
-                setState({renderBanner: true});
+                setState({ title: _title });
+                setState({ subtitle: _subtitle });
+                setState({ imgUrl: _imgUrl });
+                setState({ renderBanner: true });
             }
             catch (e) {
                 console.log(e);
@@ -47,17 +48,17 @@ const Banner = () => {
         for (let i = 0; i < 3; i += 1) {
             slides.push(
                 <SwiperSlide key={`slide-${i}`}>
-                    {state.renderBanner ? 
-                    <div className='banner__img'
-                        style={{ backgroundImage: `linear-gradient(to left, rgba(255, 0, 0, 0), rgba(41, 40, 40, 1)), url(${state.imgUrl[i]})` }}>
-                        <div className='center-content banner__content'>
-                            <div className='banner__title'>{state.title[i]}</div>
-                            <div className='banner__subtitle'>{state.subtitle[i]}</div>
-                            <div>
-                                <button className='btn btn__primary'>Contact us</button>
+                    {state.renderBanner ?
+                        <div className='banner__img'
+                            style={{ backgroundImage: `linear-gradient(to left, rgba(255, 0, 0, 0), rgba(41, 40, 40, 1)), url(${state.imgUrl[i]})` }}>
+                            <div className='center-content banner__content'>
+                                <div className='banner__title'>{state.title[i]}</div>
+                                <div className='banner__subtitle'>{state.subtitle[i]}</div>
+                                <button className='btn btn__primary'>
+                                    <Link to="/contact-us">Contact us</Link>
+                                </button>
                             </div>
-                        </div>
-                    </div> : null}
+                        </div> : null}
                 </SwiperSlide>
             )
         };

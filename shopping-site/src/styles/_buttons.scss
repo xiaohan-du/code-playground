@@ -7,6 +7,10 @@
     border-radius: 0.4rem;
     min-height: 5rem;
     font-weight: bold;
+    & a {
+        color: white;
+        text-decoration: none;
+    }
     &__light {
         min-width: 13rem;
         background-color: $alice-blue;

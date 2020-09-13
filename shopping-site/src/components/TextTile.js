@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './TextTile.scss';
 import './Tile.scss';
 
@@ -56,7 +57,9 @@ const TextTile = () => {
                                 ante nec leo malesuada porttitor sit amet et magna.
                             </p>
                         </div>
-                        <button className='btn btn__primary'>Contact us</button>
+                        <button className='btn btn__primary'>
+                            <Link to="/contact-us">Contact us</Link>
+                        </button>
                     </div>
                 </div>
             </div>

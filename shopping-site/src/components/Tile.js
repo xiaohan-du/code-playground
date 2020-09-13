@@ -1,6 +1,7 @@
 import React from 'react';
 import './Tile.scss';
 import tileBg from '../images/shutterstock_1302552622.jpg';
+import tileImg from '../images/shutterstock_696636415.jpg';
 
 const Tile = () => {
 
@@ -37,8 +38,8 @@ const Tile = () => {
                                 <button className='btn btn__primary'>Learn more</button>
                             </div>
                         </div>
-                        <div className='tile__imagebox'>
-                            <img className='tile__image' src={require('../images/shutterstock_696636415.jpg')} alt='tile' />
+                        <div style={{backgroundImage: `url(${tileImg})`}} className='tile__image'>
+                            {/* <img className='tile__image' src={require('../images/shutterstock_696636415.jpg')} alt='tile' /> */}
                         </div>
                     </div>
                 </div>
