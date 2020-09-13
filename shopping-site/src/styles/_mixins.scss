@@ -14,3 +14,9 @@
     margin-bottom: 3rem;
     font-weight: 300;
 }
+
+@mixin input-area {
+    border: 1px solid $white-smoke;
+    border-radius: 4px;
+    background-color: $ghost-white;
+}

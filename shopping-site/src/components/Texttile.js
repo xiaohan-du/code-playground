@@ -1,8 +1,8 @@
 import React from 'react';
-import './Texttile.scss';
+import './TextTile.scss';
 import './Tile.scss';
 
-const Texttile = () => {
+const TextTile = () => {
 
     return (
         <>
@@ -67,4 +67,4 @@ const Texttile = () => {
 
 }
 
-export default Texttile;
+export default TextTile;

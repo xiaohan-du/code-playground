@@ -1,0 +1,70 @@
+@import "../main.scss";
+
+.contact-form {
+    width: 50%;
+    margin: 6rem 0;
+    &__title {
+        font-weight: normal;
+    }
+    &__text {
+        @include content;
+    }
+    &__input {
+        &-medium {
+            width: 48%;
+        }
+        &-small {
+            width: 22%;
+        }
+    }
+    &__chain {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & label {
+        font-size: $font-small;
+    }
+    & input:not([type="checkbox"]) {
+        min-height: 3rem;
+        margin: 1rem 0 2rem 0;
+        @include input-area;
+    }
+    & textarea {
+        resize: none;
+        @include input-area;
+    }
+
+    & button {
+        & .icon {
+            height:1.5rem;
+            float: left;
+            margin-left: 1rem;
+        }
+        & span {
+            margin-right: 4rem;
+        }
+    }
+    
+    & .label-set {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    & .note {
+        color: $light-grey;
+        &-phone {
+            font-style: italic;
+        }
+    }
+    & .top-bottom-space {
+        margin: 1rem 0 2rem 0;
+    }
+    & .checkbox {
+        &__label {
+            line-height: 1.6;
+            margin-left: 0.5rem;
+        }
+    }
+    
+}

@@ -1,0 +1,12 @@
+.contact {
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    min-height: 105rem;
+    &__img {
+        position: relative;
+        top: -5.5rem;
+        width: 50%;
+        height: 100rem;
+    }
+}

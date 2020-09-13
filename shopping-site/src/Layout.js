@@ -12,7 +12,7 @@ const Layout = () => {
     return (
         <Router>
             <Navbar />
-
+            
             <Switch>
                 <Route path="/contact-us">
                     <Contact />
