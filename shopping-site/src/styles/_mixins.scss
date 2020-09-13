@@ -1,3 +1,27 @@
+@mixin to-desktop {
+    @media screen and (max-width: 1023px) {
+        @content;
+    }
+}
+
+@mixin to-tablet-portrait {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin to-phone {
+    @media screen and (max-width: 575px) {
+        @content;
+    }
+}
+
+@mixin to-extra-small-devices {
+    @media screen and (max-width: 320px) {
+        @content;
+    }
+}
+
 @mixin vertically-centered {
     display: flex;
     flex-direction: row;

@@ -11,20 +11,22 @@ const Navbar = () => {
                 <a href='#/'>
                     <Logo className='navbar__logo' href='#' />
                 </a>
-                <ul className='navbar__links center-vertically'>
-                    <li>
-                        <Link to="/">HOME</Link>
-                    </li>
-                    <li>
-                        <Link to="/about-us">ABOUT US</Link>
-                    </li>
-                    <li>
-                        <Link to="/contact-us">CONTACT US</Link>
-                    </li>
-                    <li>
-                        <button className='btn btn__light'>Log in</button>
-                    </li>
-                </ul>
+                <div className='navbar__links'>
+                    <ul className='center-vertically'>
+                        <li>
+                            <Link to="/">HOME</Link>
+                        </li>
+                        <li>
+                            <Link to="/about-us">ABOUT US</Link>
+                        </li>
+                        <li>
+                            <Link to="/contact-us">CONTACT US</Link>
+                        </li>
+                        <li>
+                            <button className='btn btn__light'>Log in</button>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </div>
     )

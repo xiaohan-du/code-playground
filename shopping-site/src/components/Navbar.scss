@@ -36,3 +36,28 @@
         }
     }
 }
+
+@include to-desktop {
+    .navbar {
+        &__links {
+            & li {
+                & a {
+                    letter-spacing: 0.1rem;
+                    padding: 1.4rem 0.9rem;
+                    font-size: $font-small;
+                }
+            }
+        }
+    }
+}
+
+@include to-tablet-portrait {
+    .navbar {
+        display: flex !important;
+        justify-content: center;
+        min-height: 6rem;
+        &__links {
+            display: none;
+        }
+    }
+}
