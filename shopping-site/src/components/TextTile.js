@@ -6,7 +6,7 @@ const TextTile = () => {
 
     return (
         <>
-            <div className='tile__wrapper center-vertically'>
+            <div className='tile__wrapper'>
                 <div className='center-content'>
                     <div className='tile texttile'>
                         <p className='texttile__title'>Sed libero justo, lobortis sit amet suscipit non</p>
@@ -56,9 +56,7 @@ const TextTile = () => {
                                 ante nec leo malesuada porttitor sit amet et magna.
                             </p>
                         </div>
-                        <div>
-                            <button className='btn btn__primary'>Contact us</button>
-                        </div>
+                        <button className='btn btn__primary'>Contact us</button>
                     </div>
                 </div>
             </div>

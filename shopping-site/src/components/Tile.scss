@@ -8,6 +8,7 @@
 
     &__wrapper {
         background-position: 50% 10%;
+        @include vertically-centered;
     }
 
     &__textbox {

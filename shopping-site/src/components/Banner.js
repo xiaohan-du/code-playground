@@ -47,9 +47,10 @@ const Banner = () => {
         for (let i = 0; i < 3; i += 1) {
             slides.push(
                 <SwiperSlide key={`slide-${i}`}>
-                    {state.renderBanner ? <div className='banner__img'
-                        style={{ backgroundImage: `url(${state.imgUrl[i]})` }}>
-                        <div className='center-content banner__img__content'>
+                    {state.renderBanner ? 
+                    <div className='banner__img'
+                        style={{ backgroundImage: `linear-gradient(to left, rgba(255, 0, 0, 0), rgba(41, 40, 40, 1)), url(${state.imgUrl[i]})` }}>
+                        <div className='center-content banner__content'>
                             <div className='banner__title'>{state.title[i]}</div>
                             <div className='banner__subtitle'>{state.subtitle[i]}</div>
                             <div>

@@ -1,15 +1,18 @@
 @import "../main.scss";
 
 .banner {
+    &__content {
+        width: 100%;
+    }
     &__title {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         font-size: $title-large;
         font-weight: normal;
         color: white;
         width: 50%;
     }
     &__subtitle {
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
         font-size: $subtitle-large;
         font-weight: normal;
         color: white;
@@ -20,11 +23,56 @@
         height: 50rem;
         background-size: cover;
         background-position: 50% 25%;
-        box-shadow: inset 85rem 0 50rem -30rem #292828;
-        &__content {
-            &.center-content {
-                padding-top: 16rem;
+        @include vertically-centered;
+    }
+}
+
+@include to-tablet-portrait {
+    .banner {
+        &__img {
+            display: flex;
+            background-position: 59% 25%;
+        }
+        &__title {
+            width: 100%;
+            font-size: 3.8rem;
+        }
+        &__subtitle {
+            width: 100%;
+        }
+    }
+}
+
+@include to-phone {
+    .banner {
+        &__title {
+            font-size: 3.5rem;
+        }
+        &__subtitle {
+            font-size: $font-basic;
+            margin-bottom: 3rem;
+        }
+    }
+
+    .swiper {
+        &-button {
+            &-prev {
+                opacity: 0;
             }
+            &-next {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+@include to-extra-small-devices {
+    .banner {
+        &__title {
+            font-size: 3rem;
+        }
+        &__subtitle {
+            font-size: $font-small;
         }
     }
 }

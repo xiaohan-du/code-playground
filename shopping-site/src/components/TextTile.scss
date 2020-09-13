@@ -27,3 +27,11 @@
         }
     }
 }
+
+@include to-tablet-portrait {
+    .texttile {
+        &__content {
+            column-count: 1;
+        }
+    }
+}

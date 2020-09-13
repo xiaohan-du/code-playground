@@ -7,12 +7,12 @@ const Navbar = () => {
 
     return (
         <div className='navbar__wrapper'>
-            <nav className='center-content center-vertically navbar'>
+            <nav className='center-content navbar'>
                 <a href='#/'>
                     <Logo className='navbar__logo' href='#' />
                 </a>
                 <div className='navbar__links'>
-                    <ul className='center-vertically'>
+                    <ul>
                         <li>
                             <Link to="/">HOME</Link>
                         </li>

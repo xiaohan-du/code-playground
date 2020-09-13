@@ -1,4 +1,6 @@
 @import "./color.scss";
+@import "./mixins.scss";
+@import "./variables.scss";
 
 .btn {
     border: none;
@@ -17,5 +19,12 @@
     }
     &__full {
         width: 100%;
+    }
+}
+
+@include to-tablet-portrait {
+    .btn {
+        width: 100%;
+        min-height: 4rem;
     }
 }
