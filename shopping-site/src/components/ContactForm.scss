@@ -1,14 +1,6 @@
 @import "../main.scss";
 
 .contact-form {
-    width: 45%;
-    margin: 4rem 0 6rem 0;
-    &__title {
-        font-weight: normal;
-    }
-    &__text {
-        @include content;
-    }
     &__input {
         &-medium {
             width: 48%;
