@@ -7,9 +7,9 @@
     justify-content: space-between;
 
     &__wrapper {
+        @include vertically-centered;
         background-position: 50% 10%; 
         background-size: cover;
-        @include vertically-centered;
     }
 
     &__textbox {
