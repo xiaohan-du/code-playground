@@ -1,12 +1,25 @@
+@import "../main.scss";
+
 .contact {
     display: flex;
     justify-content: space-between;
     z-index: 2;
-    min-height: 105rem;
+    min-height: 101rem;
     &__img {
-        position: relative;
-        top: -5.5rem;
-        width: 50%;
-        height: 100rem;
+        margin-left: 6rem;
+        width: 49%;
+        height: auto;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+@include to-desktop {
+    .contact {
+        min-height: auto;
+        &__img {
+            display: none;
+        }
     }
 }

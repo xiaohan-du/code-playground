@@ -102,20 +102,20 @@ const ContactForm = () => {
                                 <input onInput={e => setState({ AddressB: e.target.value })} id='AddressB' />
                             </div>
                         </div>
-                        <div className='contact-form__chain'>
-                            <div className='flex-column contact-form__input-small'>
+                        <div className='contact-form__chain contact-form__address'>
+                            <div className='flex-column contact-form__input-small col-a'>
                                 <label htmlFor='City'>City/Town</label>
                                 <input onInput={e => setState({ City: e.target.value })} id='City' />
                             </div>
-                            <div className='flex-column contact-form__input-small'>
+                            <div className='flex-column contact-form__input-small col-b'>
                                 <label htmlFor='State'>State/County</label>
                                 <input onInput={e => setState({ State: e.target.value })} id='State' />
                             </div>
-                            <div className='flex-column contact-form__input-small'>
+                            <div className='flex-column contact-form__input-small col-a'>
                                 <label htmlFor='Postcode'>Postcode</label>
                                 <input onInput={e => setState({ Postcode: e.target.value })} id='Postcode' />
                             </div>
-                            <div className='flex-column contact-form__input-small'>
+                            <div className='flex-column contact-form__input-small col-b'>
                                 <label htmlFor='Country'>Country</label>
                                 <input onInput={e => setState({ Country: e.target.value })} id='Country' />
                             </div>

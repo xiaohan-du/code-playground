@@ -1,8 +1,8 @@
 @import "../main.scss";
 
 .contact-form {
-    width: 50%;
-    margin: 6rem 0;
+    width: 45%;
+    margin: 4rem 0 6rem 0;
     &__title {
         font-weight: normal;
     }
@@ -67,4 +67,47 @@
         }
     }
     
+}
+
+@include to-desktop {
+    .contact-form {
+        width: 100%;
+    }
+}
+
+@include to-tablet-portrait {
+    .contact-form {
+        margin: 2rem 0 4rem 0;
+        &__chain {
+            display: block;
+        }
+        &__address {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        &__title {
+            font-size: $title-medium;
+        }
+        &__input {
+            &-medium {
+                width: 100%;
+            }
+            &-small {
+                width: auto;
+            }
+        }
+
+        & label {
+            font-size: 1rem;
+        }
+
+        & .col {
+            &-a {
+                padding-right: 1rem;
+            }
+            &-b {
+                padding-left: 1rem;
+            }
+        }
+    }
 }

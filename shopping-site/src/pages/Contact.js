@@ -8,7 +8,7 @@ const Contact = () => {
         <>
             <div className='center-content contact'>
                 <ContactForm />
-                <img /* className='contact__img' */ src={contactImg} alt='contact'/>
+                <div style={{backgroundImage: `url(${contactImg})`}} className='contact__img' ></div>
             </div>
         </>
     )

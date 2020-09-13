@@ -41,12 +41,10 @@
             }
         }
     }
-    &__imagebox {
+    &__image {
         text-align: end;
         width: 47%;
-    }
-    &__image {
-        width: 100%;
+        background-size: cover;
     }
 }
 
@@ -74,7 +72,8 @@
                 margin-bottom: 2rem;
             }
         }
-        &__imagebox {
+        &__image {
+            height: 25rem;
             width: 100%;
         }
     }
