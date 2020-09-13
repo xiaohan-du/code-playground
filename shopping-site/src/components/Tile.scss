@@ -7,7 +7,8 @@
     justify-content: space-between;
 
     &__wrapper {
-        background-position: 50% 10%;
+        background-position: 50% 10%; 
+        background-size: cover;
         @include vertically-centered;
     }
 
@@ -18,7 +19,7 @@
         &-bg {
             box-sizing: border-box;
             padding: 4rem;
-            background-color: $dim-gray;
+            background-color:rgba(0, 0, 0, 0.5);
             color: white;
         }
         &__title {
@@ -47,5 +48,34 @@
     &__image {
         width: 100%;
     }
-    
+}
+
+@include to-tablet-portrait {
+    .tile {
+        flex-direction: column-reverse;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        &__textbox {
+            width: 100%;
+            margin-top: 2rem;
+            &-bg {
+                padding: 2rem;
+                margin-top: 0;
+            }
+            &__title {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+            &__content {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+            &__list {
+                margin-bottom: 2rem;
+            }
+        }
+        &__imagebox {
+            width: 100%;
+        }
+    }
 }
