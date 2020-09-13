@@ -24,9 +24,9 @@
         & ul {
             @include vertically-centered;
             & li {
+                @include vertically-centered;
                 float: right;
                 min-height: 5rem;
-                @include vertically-centered;
                 & a {
                     display: block;
                     text-align: center;

@@ -1,12 +1,12 @@
-@import '../main.scss';
+@import "../main.scss";
 
 .footer {
+    @include vertically-centered;
     min-height: 8rem;
     border-top: 1px solid $white-smoke;
-    flex-direction: row-reverse !important;
-    padding: 0 !important;
-    @include vertically-centered;
-    
+    flex-direction: row-reverse;
+    padding: 0;
+
     &__text {
         color: $white-smoke;
         &__link {
@@ -14,5 +14,13 @@
                 color: $white-smoke;
             }
         }
+    }
+}
+
+@include to-tablet-portrait {
+    .footer {
+        display: flex;
+        justify-content: center;
+        margin: 0 2rem;
     }
 }
