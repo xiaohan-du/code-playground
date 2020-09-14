@@ -1,6 +1,7 @@
 @import "../main.scss";
 
 .banner {
+    min-height: $banner-height;
     &__content {
         width: 100%;
     }
