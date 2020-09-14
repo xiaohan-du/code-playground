@@ -2,7 +2,7 @@ import React from 'react';
 import './ContactForm.scss';
 import { ReactComponent as PaperPlane } from '../images/Icon_Submit.svg';
 
-const ContactForm = ({ setState, handleSubmit, toggleAddress, showPhoneB, showAddress }) => {
+const ContactForm = ({ setState, handleSubmit, toggleAddress, validateFields, showPhoneB, showAddress, EmailValid, PhoneAValid, PhoneBValid, MessageValid }) => {
 
     return (
         <>
@@ -12,20 +12,23 @@ const ContactForm = ({ setState, handleSubmit, toggleAddress, showPhoneB, showAd
                         <div className='contact-form__chain'>
                             <div className='flex-column contact-form__input-medium'>
                                 <label htmlFor='FullName'>Full name</label>
-                                <input onInput={e => setState({ FullName: e.target.value })} id='FullName' required/>
+                                <input onInput={e => setState({ FullName: e.target.value })} id='FullName' required />
                             </div>
                             <div className='flex-column contact-form__input-medium'>
                                 <label htmlFor='EmailAddress'>Email address</label>
-                                <input onInput={e => setState({ EmailAddress: e.target.value })} id='EmailAddress' required/>
+                                <input onInput={e => setState({ EmailAddress: e.target.value, EmailValid: true })} id='EmailAddress' required />
+                                {EmailValid ? null : <label className='error'>Invalid Email</label>}
                             </div>
                         </div>
                         <div className='flex-column'>
                             <label htmlFor='PhoneA'>Phone number 01<span className='note note-phone'> - optional</span></label>
-                            <input onInput={e => setState({ PhoneA: e.target.value })} id='PhoneA' />
+                            <input onInput={e => setState({ PhoneA: e.target.value, PhoneAValid: true })} id='PhoneA' />
+                            {PhoneAValid ? null : <label className='error'>Invalid phone number</label>}
                         </div>
                         {showPhoneB ? <div className='flex-column'>
                             <label htmlFor='PhoneB'>Phone number 02<span className='note note-phone'> - optional</span></label>
-                            <input onInput={e => setState({ PhoneB: e.target.value })} id='PhoneB' />
+                            <input onInput={e => setState({ PhoneB: e.target.value, PhoneBValid: true })} id='PhoneB' />
+                            {PhoneBValid ? null : <label className='error'>Invalid phone number</label>}
                         </div> : null}
                         <button type='button' onClick={() => setState({ showPhoneB: true })} className='btn btn__light btn__full top-bottom-space'>Add new phone number</button>
                         <div className='flex-column'>
@@ -34,12 +37,14 @@ const ContactForm = ({ setState, handleSubmit, toggleAddress, showPhoneB, showAd
                                 <label className='note'>Maximum text length is 500 characters</label>
                             </div>
                             <textarea
-                                onInput={e => setState({ Message: e.target.value })}
+                                onInput={e => setState({ Message: e.target.value, MessageValid: true })}
+                                className='contact-form__message'
                                 name="Message"
                                 rows="10"
                                 cols="30"
                                 id='Message'
                                 required></textarea>
+                            {MessageValid ? null : <label className='error'>Message cannot exceed 500 characters</label>}
                             <div className='flex-row top-bottom-space'>
                                 <input onClick={toggleAddress} type="checkbox" id="address"></input>
                                 <label className='checkbox__label' htmlFor='address'>Add address details</label>
@@ -76,7 +81,7 @@ const ContactForm = ({ setState, handleSubmit, toggleAddress, showPhoneB, showAd
                             </div>
                         </div> : null}
                         <div>
-                            <button className='btn btn__primary btn__full'>
+                            <button className='btn btn__primary btn__full' onClick={validateFields}>
                                 <PaperPlane className='icon' />
                                 <span>Submit</span>
                             </button>
