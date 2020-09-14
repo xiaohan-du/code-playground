@@ -1,0 +1,35 @@
+@import "../main.scss";
+
+.spinner {
+    border: 1.5rem solid $white-smoke;
+    border-top: 1.5rem solid $steel-blue;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    animation: spin 1s linear infinite;
+    &__wrapper {
+        width: 100%;
+        height: $banner-height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@include to-tablet-portrait {
+    .spinner {
+        border: 1rem solid $white-smoke;
+        border-top: 1rem solid $steel-blue;
+        width: 5rem;
+        height: 5rem;
+    }
+}
