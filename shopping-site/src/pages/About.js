@@ -32,9 +32,9 @@ const About = () => {
                             lacus Lorem ipsum dolor sit amet, consectetur adipiscing elit_ Curabitur a ligula vitae nisl blandit tempus ut sit amet urna Mauris convallis nisl a interdum semper Fusce interdum ullamcorper Purus sed
                             aliquam_ Fusce ut mollis nisi, quis lacinia quam. Donec ligula metus, volutpat a odic euismod, dapibus iaculis arcu. Ut lobortis magna vehicula Iaoreet feugiat.
                         </p>
-                        <h2>
+                        <h5>
                             Taria duo ut vis semper abhorreant:
-                        </h2>
+                        </h5>
                         <ul className='about__list'>
                             <li>
                                 Te pri efficiendi assueverit, id molestie suavitate per
