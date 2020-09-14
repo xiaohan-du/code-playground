@@ -28,6 +28,10 @@
 @include to-desktop {
     .contact {
         min-height: auto;
+        &__form {
+            width: 100%;
+            margin: 0;
+        }
         &__img {
             display: none;
         }

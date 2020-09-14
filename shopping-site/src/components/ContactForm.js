@@ -12,11 +12,11 @@ const ContactForm = ({ setState, handleSubmit, toggleAddress, showPhoneB, showAd
                         <div className='contact-form__chain'>
                             <div className='flex-column contact-form__input-medium'>
                                 <label htmlFor='FullName'>Full name</label>
-                                <input onInput={e => setState({ FullName: e.target.value })} id='FullName' />
+                                <input onInput={e => setState({ FullName: e.target.value })} id='FullName' required/>
                             </div>
                             <div className='flex-column contact-form__input-medium'>
                                 <label htmlFor='EmailAddress'>Email address</label>
-                                <input onInput={e => setState({ EmailAddress: e.target.value })} id='EmailAddress' />
+                                <input onInput={e => setState({ EmailAddress: e.target.value })} id='EmailAddress' required/>
                             </div>
                         </div>
                         <div className='flex-column'>
@@ -38,7 +38,8 @@ const ContactForm = ({ setState, handleSubmit, toggleAddress, showPhoneB, showAd
                                 name="Message"
                                 rows="10"
                                 cols="30"
-                                id='Message'></textarea>
+                                id='Message'
+                                required></textarea>
                             <div className='flex-row top-bottom-space'>
                                 <input onClick={toggleAddress} type="checkbox" id="address"></input>
                                 <label className='checkbox__label' htmlFor='address'>Add address details</label>

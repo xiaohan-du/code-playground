@@ -13,6 +13,24 @@
         align-items: center;
     }
     &__icon {
-        width: 4rem;
+        width: 3rem;
+        &-bg {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background-color: $yellow-green;
+            display: flex;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+    }
+    &__title {
+        font-size: $title-small;
+        margin-bottom: 1rem;
+    }
+    &__subtitle {
+        font-size: $subtitle-small;
+        margin-top: 0;
+        margin-bottom: 4rem;
     }
 }
