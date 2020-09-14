@@ -34,3 +34,9 @@
         margin-bottom: 4rem;
     }
 }
+
+@include to-tablet-portrait {
+    .contact-response {
+        margin-bottom: 4rem;
+    }
+}

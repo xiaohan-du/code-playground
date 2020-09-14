@@ -10,6 +10,7 @@ import './Layout.scss';
 const Layout = () => {
     return (
         <Router>
+            
             <Navbar />
             
             <Switch>

@@ -7,12 +7,15 @@
     min-height: 101rem;
     &__form {
         width: 45%;
-        margin: 4rem 0 6rem 0;
+        margin: 4rem 0 4rem 0;
         &__title {
+            font-size: $title-medium;
             font-weight: normal;
+            margin-bottom: 4rem;
         }
         &__subtitle {
             @include content;
+            font-weight: bold;
         }
     }
     &__img {
@@ -37,3 +40,4 @@
         }
     }
 }
+

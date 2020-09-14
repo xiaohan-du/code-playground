@@ -1,0 +1,53 @@
+@import "../main.scss";
+
+.about {
+    margin: 8rem 0;
+    &__title {
+        font-size: $title-medium;
+        font-weight: normal;
+        margin-bottom: 4rem;
+    }
+    &__subtitle {
+        font-size: $subtitle-small;
+        font-weight: bold;
+    }
+    &__content {
+        @include content;
+        &__link {
+            color: $light-steel-blue;
+            :visited {
+                color: $light-steel-blue;
+            }
+        }
+    }
+    &__img {
+        margin: 4rem auto;
+        width: 50%;
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 30%;
+    }
+    &__list {
+        padding-inline-start: 2rem;
+        margin: 2rem 0;
+        & li {
+            margin-bottom: 1rem;
+            font-size: $content;
+            font-weight: 500;
+        }
+    }
+}
+
+@include to-desktop {
+    .about {
+        margin: 2rem 0;
+    }
+}
+
+@include to-tablet-portrait {
+    .about {
+        &__img {
+            width: 100%;
+        }
+    }
+}
