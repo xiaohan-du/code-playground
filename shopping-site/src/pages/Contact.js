@@ -22,9 +22,33 @@ const Contact = () => {
             State: '',
             Postcode: '',
             Country: '',
-            showResponse: false
+            showResponse: false,
+            EmailValid: true,
+            PhoneAValid: true,
+            PhoneBValid: true,
+            MessageValid: true
+
         }
     )
+
+    const validateFields = () => {
+        const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/;
+        if (!state.EmailAddress.trim().length) {
+            setState({ EmailValid: true });
+        }
+        else {
+            setState({ EmailValid: emailRegex.test(state.EmailAddress.toLowerCase()) });
+        };
+        if (state.PhoneA != null) {
+            state.PhoneA.length > 20 || isNaN(state.PhoneA) ? state.PhoneAValid = false : state.PhoneAValid = true;
+        };
+        if (state.PhoneB != null) {
+            state.PhoneB.length > 20 || isNaN(state.PhoneB) ? state.PhoneBValid = false : state.PhoneBValid = true;
+        };
+        if (state.Message != null) {
+            state.Message.length > 500 ? state.MessageValid = false : state.MessageValid = true;
+        };
+    }
 
     const toggleAddress = () => {
         if (state.showAddress === false) {
@@ -66,6 +90,7 @@ const Contact = () => {
                             setState={setState}
                             handleSubmit={handleSubmit}
                             toggleAddress={toggleAddress}
+                            validateFields={validateFields}
                             showAddress={state.showAddress}
                             showPhoneB={state.showPhoneB}
                             FullName={state.FullName}
@@ -78,7 +103,11 @@ const Contact = () => {
                             City={state.City}
                             State={state.State}
                             Postcode={state.Postcode}
-                            Country={state.Country} />
+                            Country={state.Country}
+                            EmailValid={state.EmailValid}
+                            PhoneAValid={state.PhoneAValid}
+                            PhoneBValid={state.PhoneBValid}
+                            MessageValid={state.MessageValid} />
                     }
                 </div>
                 <div style={{ backgroundImage: `url(${contactImg})` }} className='contact__img' ></div>
