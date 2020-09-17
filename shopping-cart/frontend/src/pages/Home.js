@@ -52,18 +52,19 @@ const Home = () => {
 
     const changeItemQuantity = (id, itemQty, actionType) => {
         let _newState = [...quantity];
+        let _itemInfo = _newState.find(item => item.id === id);
         switch (actionType) {
             case 'add':
-                if (_newState.find(item => item.id === id) !== undefined) {
-                    _newState.find(item => item.id === id).itemQty += 1;
+                if (_itemInfo !== undefined) {
+                    _itemInfo.itemQty += 1;
                 } else {
                     _newState.push({ id: id, itemQty: itemQty + 1 });
                 };
                 _totalPrice = _totalPrice + dummyData[id - 1].price * itemQty;
                 break;
             case 'remove':
-                if (_newState.find(item => item.id === id) !== undefined) {
-                    _newState.find(item => item.id === id).itemQty -= 1;
+                if (_itemInfo !== undefined) {
+                    _itemInfo.itemQty -= 1;
                 } else {
                     _newState.push({ id: id, itemQty: itemQty - 1 });
                 };
