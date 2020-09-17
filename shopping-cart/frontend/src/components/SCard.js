@@ -38,8 +38,8 @@ const SCard = ({ id, title, subtitle, price, quantity, changeItemQuantity, itemT
                                     - 1
                                 </button>
                             </div>
-                            <button
-                                className='button is-warning is-large'>
+                            <button className='button is-warning is-large'
+                                onClick={() => changeItemQuantity(id, 0, 'clear')}>
                                 Clear
                             </button>
                         </div>

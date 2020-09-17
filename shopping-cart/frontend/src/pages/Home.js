@@ -73,6 +73,9 @@ const Home = () => {
                     _newState.find(item => item.id === id).itemQty = 0;
                 }
                 break;
+            case 'clear':
+                _itemInfo.itemQty = 0;
+                break;
             default:
                 break;
         };
