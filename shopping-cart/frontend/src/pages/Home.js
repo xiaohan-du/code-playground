@@ -50,16 +50,34 @@ const Home = () => {
     const [quantity, setQuantity] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
 
-    const addToCart = (id, itemQty) => {
-        let newState = [...quantity];
+    const changeItemQuantity = (id, itemQty, actionType) => {
+        let _newState = [...quantity];
+        let _itemInfo = _newState.find(item => item.id === id);
+        switch (actionType) {
+            case 'add':
+                if (_itemInfo !== undefined) {
+                    _itemInfo.itemQty += 1;
+                } else {
+                    _newState.push({ id: id, itemQty: itemQty + 1 });
+                };
+                _totalPrice = _totalPrice + dummyData[id - 1].price * itemQty;
+                break;
+            case 'remove':
+                if (_itemInfo !== undefined) {
+                    _itemInfo.itemQty -= 1;
+                } else {
+                    _newState.push({ id: id, itemQty: itemQty - 1 });
+                };
+                _totalPrice = _totalPrice - dummyData[id - 1].price * itemQty;
+                if (_newState.find(item => item.id === id).itemQty < 0) {
+                    _newState.find(item => item.id === id).itemQty = 0;
+                }
+                break;
+            default:
+                break;
+        };
 
-        if (newState.find(item => item.id === id) !== undefined) {
-            newState.find(item => item.id === id).itemQty += itemQty
-        } else {
-            newState.push({ id: id, itemQty: itemQty });
-        }
-        setQuantity(newState);
-        _totalPrice = _totalPrice + dummyData[id - 1].price * itemQty;
+        setQuantity(_newState);
         setTotalPrice(_totalPrice);
     }
 
@@ -69,7 +87,6 @@ const Home = () => {
                 (d) => {
                     const stateItem = quantity.find(item => item.id === d.id);
                     const itemQty = stateItem ? stateItem.itemQty : 0;
-
                     return (
                         <SCard
                             key={d.id}
@@ -78,7 +95,7 @@ const Home = () => {
                             subtitle={d.subtitle}
                             price={d.price}
                             quantity={itemQty}
-                            addToCart={addToCart}
+                            changeItemQuantity={changeItemQuantity}
                             itemTotalPrice={d.price * itemQty}
                         />
                     )
