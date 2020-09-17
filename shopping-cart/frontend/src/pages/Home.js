@@ -5,7 +5,7 @@ import SInfobar from '../components/SInfobar';
 import './Home.scss';
 
 const Home = () => {
-    const [readTotalPrice, writeTotalPrice] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
     const dummyData = [
         {
             id: 1,
@@ -85,7 +85,7 @@ const Home = () => {
                     const stateItem = quantity.find(item => item.id === d.id);
                     const itemQty = stateItem ? stateItem.itemQty : 0;
                     _totalPrice += d.price * itemQty;
-                    writeTotalPrice(_totalPrice);
+                    setTotalPrice(_totalPrice);
 
                     return (
                         <SCard
@@ -110,7 +110,7 @@ const Home = () => {
             <div className='home--cards'>
                 <RenderCards />
             </div>
-            <SInfobar totalPrice={readTotalPrice} />
+            <SInfobar totalPrice={totalPrice} />
         </>
     )
 };
