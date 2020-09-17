@@ -1,7 +1,10 @@
-import React from 'react';
-/* import { Link } from "react-router-dom"; */
-import ItemCard from '../components/ItemCard';
+import React, { useState } from 'react';
+import SCard from '../components/SCard';
+import SInfobar from '../components/SInfobar';
+
 import './Home.scss';
+
+let _totalPrice = 0;
 
 const Home = () => {
 
@@ -44,12 +47,40 @@ const Home = () => {
         }
     ];
 
-    const RenderCard = () => {
+    const [quantity, setQuantity] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    const addToCart = (id, itemQty) => {
+        let newState = [...quantity];
+
+        if (newState.find(item => item.id === id) !== undefined) {
+            newState.find(item => item.id === id).itemQty += itemQty
+        } else {
+            newState.push({ id: id, itemQty: itemQty });
+        }
+        setQuantity(newState);
+        _totalPrice = _totalPrice + dummyData[id - 1].price * itemQty;
+        setTotalPrice(_totalPrice);
+    }
+
+    const RenderCards = () => {
         return (
             dummyData.map(
                 (d) => {
+                    const stateItem = quantity.find(item => item.id === d.id);
+                    const itemQty = stateItem ? stateItem.itemQty : 0;
+
                     return (
-                        <ItemCard key={d.id} title={d.title} subtitle={d.subtitle} price={d.price}/>
+                        <SCard
+                            key={d.id}
+                            id={d.id}
+                            title={d.title}
+                            subtitle={d.subtitle}
+                            price={d.price}
+                            quantity={itemQty}
+                            addToCart={addToCart}
+                            itemTotalPrice={d.price * itemQty}
+                        />
                     )
                 }
             )
@@ -58,22 +89,10 @@ const Home = () => {
 
     return (
         <>
-            <h1>Shop</h1>
-            <h3>This is the shop page</h3>
-            {/* <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/details">Details</Link>
-                </li>
-                <li>
-                    <Link to="/summary">Summary</Link>
-                </li>
-            </ul> */}
             <div className='home--cards'>
-                <RenderCard />
+                <RenderCards />
             </div>
+            <SInfobar totalPrice={totalPrice} />
         </>
     )
 };
