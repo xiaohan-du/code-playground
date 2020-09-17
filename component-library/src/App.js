@@ -4,6 +4,7 @@ import CompOperateOnMappedObjects from './components/CompOperateOnMappedObjects'
 import PassStateToChild from './components/PassStateToChild';
 import ToggleOnOff from './components/ToggleOnOff';
 import './App.scss';
+import SendDataOutOfMap from './components/SendDataOutOfMap';
 
 const dummyData = [
   {
@@ -82,6 +83,10 @@ const App = () => {
       <div className='wrapper'>
         <h3>Toggle on and off with useReducer</h3>
         <ToggleOnOff />
+      </div>
+      <div className='wrapper'>
+        <h3>Pass data out of mapped objects</h3>
+        <SendDataOutOfMap />
       </div>
     </div>
   );

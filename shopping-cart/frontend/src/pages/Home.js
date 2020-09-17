@@ -4,10 +4,8 @@ import SInfobar from '../components/SInfobar';
 
 import './Home.scss';
 
-let _totalPrice = 0;
-
 const Home = () => {
-
+    const [totalPrice, setTotalPrice] = useState(0);
     const dummyData = [
         {
             id: 1,
@@ -48,7 +46,6 @@ const Home = () => {
     ];
 
     const [quantity, setQuantity] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
 
     const changeItemQuantity = (id, itemQty, actionType) => {
         let _newState = [...quantity];
@@ -60,7 +57,6 @@ const Home = () => {
                 } else {
                     _newState.push({ id: id, itemQty: itemQty + 1 });
                 };
-                _totalPrice = _totalPrice + dummyData[id - 1].price * itemQty;
                 break;
             case 'remove':
                 if (_itemInfo !== undefined) {
@@ -68,10 +64,9 @@ const Home = () => {
                 } else {
                     _newState.push({ id: id, itemQty: itemQty - 1 });
                 };
-                _totalPrice = _totalPrice - dummyData[id - 1].price * itemQty;
                 if (_newState.find(item => item.id === id).itemQty < 0) {
                     _newState.find(item => item.id === id).itemQty = 0;
-                }
+                };
                 break;
             case 'clear':
                 _itemInfo.itemQty = 0;
@@ -79,17 +74,19 @@ const Home = () => {
             default:
                 break;
         };
-
         setQuantity(_newState);
-        setTotalPrice(_totalPrice);
     }
 
     const RenderCards = () => {
+        let _totalPrice = 0;
         return (
             dummyData.map(
                 (d) => {
                     const stateItem = quantity.find(item => item.id === d.id);
                     const itemQty = stateItem ? stateItem.itemQty : 0;
+                    _totalPrice += d.price * itemQty;
+                    setTotalPrice(_totalPrice);
+
                     return (
                         <SCard
                             key={d.id}
@@ -106,8 +103,9 @@ const Home = () => {
             )
         )
     }
-
+    
     return (
+
         <>
             <div className='home--cards'>
                 <RenderCards />
