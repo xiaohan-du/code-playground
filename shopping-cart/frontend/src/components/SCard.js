@@ -1,7 +1,7 @@
 import React from 'react';
 import './SCard.scss';
 
-const SCard = ({ id, title, subtitle, price, quantity, addToCart, itemTotalPrice }) => {
+const SCard = ({ id, title, subtitle, price, quantity, changeItemQuantity, itemTotalPrice }) => {
 
     return (
         <>
@@ -29,12 +29,12 @@ const SCard = ({ id, title, subtitle, price, quantity, addToCart, itemTotalPrice
                             <div className='add-minus'>
                                 <button
                                     className='button is-primary is-large square'
-                                    onClick={() => addToCart(id, 1)}>
+                                    onClick={() => changeItemQuantity(id, 0, 'add')}>
                                     + 1
                                 </button>
                                 <button
                                     className='button is-primary is-large square'
-                                    onClick={() => addToCart(id, 1)}>
+                                    onClick={() => changeItemQuantity(id, 0, 'remove')}>
                                     - 1
                                 </button>
                             </div>
