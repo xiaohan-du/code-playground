@@ -1,0 +1,29 @@
+@import '../main.scss';
+
+.shop-card {
+    margin: 2rem 0;
+    display: inline-block;
+    width: 100%;
+    &--footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 4rem;
+    }
+    &--btn {
+        &-set {
+            min-width: 18rem;
+            display: flex;
+            justify-content: space-between;
+            & .add-minus {
+                min-width: 8.5rem;
+                display: flex;
+                justify-content: space-between;
+            }
+            & .square {
+                height: 3.75rem;
+                width: 3.75rem;
+            }
+        }
+    }
+}
