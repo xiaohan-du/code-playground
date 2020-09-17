@@ -1,0 +1,13 @@
+@import '../main.scss';
+
+.shop {
+    &-summarycard {
+        width: 100%;
+        display: flex;
+        margin: 1rem 0;
+        & .image {
+            width: 20rem;
+            height: 15rem;
+        }
+    }
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import Home from './pages/Home';
-import Details from './pages/Details';
 import Summary from './pages/Summary';
 import SNavbar from './components/SNavbar';
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
@@ -16,10 +15,6 @@ const Layout = () => {
             <SNavbar />
             
                 <Switch>
-
-                    <Route path="/details">
-                        <Details />
-                    </Route>
                     <Route path="/summary">
                         <Summary />
                     </Route>
