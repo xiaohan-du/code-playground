@@ -2,13 +2,13 @@
 
 import React from 'react';
 
-const CompOperateOnMappedObjects = ({ id, title, totalPrice, handleClick }) => {
+const CompOperateOnMappedObjects = ({ id, testid, title, totalPrice, handleClick }) => {
     return (
         <>
-            <div key={id}>
+            <div key={id} data-testid={testid}>
                 <p>{id}. {title}</p>
-                <p>{totalPrice}</p>
-                <button onClick={() => handleClick(id, 1)}>Click for add one</button>
+                <p className='total-price'>{totalPrice}</p>
+                <button className='add' onClick={() => handleClick(id, 1)}>Add 1</button>
             </div>
         </>
     )

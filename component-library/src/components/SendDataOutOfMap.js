@@ -1,65 +1,68 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import Infobar from './Infobar';
 
-const SendDataOutOfMap = () => {
-    const dummyData = [
-        {
-            id: 1,
-            title: 'hat',
-            price: 10
-        },
-        {
-            id: 2,
-            title: 'tshirt',
-            price: 11
-        }
-    ]
+const cards = [
+    {
+        id: 1,
+        title: 'hat',
+        price: 10
+    },
+    {
+        id: 2,
+        title: 'tshirt',
+        price: 11
+    }
+]
 
+const SendDataOutOfMap = () => {
+
+    const [totalPrice, setTotalPrice] = useState(0);
     const [quantity, setQuantity] = useState([]);
 
+    useEffect(() => {
+        const totalItemAmount = quantity.map(
+            ({ id, itemQty }) => cards.find(({ id: cardId }) => id === cardId)?.price * itemQty ?? 0
+        );
+
+        const totalCost = totalItemAmount.reduce(
+            (total, itemAmount) => total + itemAmount, 0
+        );
+
+        setTotalPrice(totalCost);
+    }, [quantity]);
+
     const changeItemQuantity = (id, itemQty) => {
-        let _newState = [...quantity];
-        let _itemInfo = _newState.find(item => item.id === id);
-        if (_itemInfo !== undefined) {
-            _itemInfo.itemQty += 1;
-        } else {
-            _newState.push({ id: id, itemQty: itemQty + 1 });
-        };
+        setQuantity((prev) => {
+            const exists = prev.find((item) => item.id === id);
+            if (exists)
+                return prev.map((item) =>
+                    item.id === id ? { ...item, itemQty: item.itemQty + 1 } : item
+                );
+            else return [...prev, { id, itemQty: itemQty + 1 }];
+        });
+    };
 
-        setQuantity(_newState);
-    }
-
-    const RenderCards = () => {
-        let _totalPrice = 0;
-        return (
-            dummyData.map(
-                (d) => {
-                    const stateItem = quantity.find(item => item.id === d.id);
-                    const itemQty = stateItem ? stateItem.itemQty : 0;
-                    _totalPrice += d.price * itemQty;
-                    console.log(_totalPrice);
-                    return (
-                        <Card
-                            key={d.id}
-                            id={d.id}
-                            title={d.title}
-                            price={d.price}
-                            quantity={itemQty}
-                            changeItemQuantity={changeItemQuantity}
-                            itemTotalPrice={d.price * itemQty}
-                        />
-                    )
-                }
-            )
-        )
-    }
     return (
         <>
-            <RenderCards/>
-            <Infobar totalPrice={0}/>
+            {cards.map(({ id, title, price }) => {
+                const stateItem = quantity.find((item) => item.id === id);
+                const itemQty = stateItem ? stateItem.itemQty : 0;
+                return (
+                    <Card
+                        key={id}
+                        id={id}
+                        title={title}
+                        price={price}
+                        quantity={itemQty}
+                        changeItemQuantity={changeItemQuantity}
+                        itemTotalPrice={price * itemQty}
+                    />
+                );
+            })}
+            <Infobar totalPrice={totalPrice} />
         </>
-    )
+    );
 }
 
 export default SendDataOutOfMap;

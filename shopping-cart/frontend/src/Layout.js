@@ -8,7 +8,7 @@ import './Layout.scss';
 const Layout = () => {
     return (
         <div className='center-content'>
-            <h1>Shop</h1>
+            <h1 className='is-size-1'>Shop</h1>
             
             <Router>
 

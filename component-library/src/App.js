@@ -3,8 +3,9 @@ import CompMapObjects from './components/CompMapObjects';
 import CompOperateOnMappedObjects from './components/CompOperateOnMappedObjects';
 import PassStateToChild from './components/PassStateToChild';
 import ToggleOnOff from './components/ToggleOnOff';
-import './App.scss';
+import TestMappedObjects from './components/TestMappedObjects';
 import SendDataOutOfMap from './components/SendDataOutOfMap';
+import './App.scss';
 
 const dummyData = [
   {
@@ -55,7 +56,7 @@ const App = () => {
           const stateItem = totalPrice.find(item => item.id === d.id); // return the item or undefined
           const qty = stateItem ? stateItem.qty : 0 // retreive qty from state by id or 0 if the product is not in the array
           return (
-            <CompOperateOnMappedObjects key={d.id} id={d.id} title={d.title} totalPrice={d.price * qty} handleClick={handleClick} />  //calculate the total    
+            <CompOperateOnMappedObjects key={d.id} id={d.id} testid={d.id} title={d.title} totalPrice={d.price * qty} handleClick={handleClick} />  //calculate the total    
           )
         }
       )
@@ -87,6 +88,10 @@ const App = () => {
       <div className='wrapper'>
         <h3>Pass data out of mapped objects</h3>
         <SendDataOutOfMap />
+      </div>
+      <div className='wrapper'>
+        <h3>Test mapped objects, this component aims to unit test its logic.</h3>
+        <TestMappedObjects />
       </div>
     </div>
   );
