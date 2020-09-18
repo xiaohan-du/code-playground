@@ -1,5 +1,17 @@
+@mixin to-desktop-large {
+    @media screen and (max-width: 1279px) {
+        @content;
+    }
+}
+
 @mixin to-desktop {
     @media screen and (max-width: 1023px) {
+        @content;
+    }
+}
+
+@mixin to-ipad-pro {
+    @media screen and (max-width: 833px) {
         @content;
     }
 }

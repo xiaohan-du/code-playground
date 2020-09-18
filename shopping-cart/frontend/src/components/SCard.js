@@ -1,14 +1,22 @@
 import React from 'react';
 import './SCard.scss';
+import camera from '../images/camera.png';
+import iphone from '../images/iphone.png';
+import headphone from '../images/headphone.png';
+import controller from '../images/controller.png';
+import laptop from '../images/laptop.png';
+import watch from '../images/watch.png';
 
-const SCard = ({ id, testid, title, subtitle, price, quantity, changeItemQuantity, itemTotalPrice }) => {
+const images = [camera, iphone, headphone, controller, laptop, watch];
+
+const SCard = ({ id, testid, title, subtitle, price, imgIndex, quantity, changeItemQuantity, itemTotalPrice }) => {
 
     return (
         <>
             <div className="card shop-card" key={id} data-testid={testid}>
                 <div className="card-image">
                     <figure className="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder" />
+                        <img src={images[imgIndex]} alt="Placeholder" />
                     </figure>
                 </div>
                 <div className="card-content">

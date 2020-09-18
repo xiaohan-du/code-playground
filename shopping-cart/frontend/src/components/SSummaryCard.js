@@ -1,13 +1,21 @@
 import React from 'react';
 import './SSummaryCard.scss';
+import camera from '../images/camera.png';
+import iphone from '../images/iphone.png';
+import headphone from '../images/headphone.png';
+import controller from '../images/controller.png';
+import laptop from '../images/laptop.png';
+import watch from '../images/watch.png';
 
-const SSummaryCard = ({id, title, subtitle, price, quantity, itemTotalPrice}) => {
+const images = [camera, iphone, headphone, controller, laptop, watch];
+
+const SSummaryCard = ({id, title, subtitle, price, imgIndex, quantity, itemTotalPrice}) => {
     return (
         <>
             <div className="card shop-summarycard" key={id}>
                 <div className="card-image">
                     <figure className="image is-4by3">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder" />
+                        <img src={images[imgIndex]} alt="Placeholder" />
                     </figure>
                 </div>
                 <div className="card-content">
@@ -18,7 +26,7 @@ const SSummaryCard = ({id, title, subtitle, price, quantity, itemTotalPrice}) =>
                         </div>
                     </div>
 
-                    <div className="shop-card--footer">
+                    <div className="shop-summarycard--footer">
                         <div>
                             <p>Price: £{price}</p>
                             <p>Quantity: {quantity}</p>

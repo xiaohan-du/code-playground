@@ -1,8 +1,8 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import { shallow, configure, mount } from 'enzyme';
+import { configure, mount } from 'enzyme';
 import Home from './Home';
-import { getAllByTestId, getByTestId, queryAllByTestId, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 configure({ adapter: new Adapter() });
@@ -13,10 +13,12 @@ describe('Test Home page functions', () => {
         expect(getByTestId('1')).toBeTruthy();
     })
 
-/*     it('should display the correct cost when add button is clicked', () => {
+    it('should display the correct cost when add button is clicked', () => {
         const wrapper = mount(<Router><Home /></Router>);
-        wrapper.find('.add').at(0).simulate('click');
-        expect(wrapper.find('.shop-card--total-price')[0].text()).toBe('Total price: 20');
-    }) */
+        expect(wrapper.find('.shop-card--total-price').at(0).text()).toBe('Total price: 0');
+        const buttons = wrapper.find('.add');
+        buttons.at(0).simulate('click');
+        expect(wrapper.find('.shop-card--total-price').at(0).text()).toBe('Total price: 10');
+    })
 
 })

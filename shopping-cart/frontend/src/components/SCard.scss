@@ -28,7 +28,33 @@
     }
     &--total {
         &-price {
-            font-size: 2rem;
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@include to-ipad-pro {
+    .shop-card {
+        display: flex;
+        & .image {
+            width: 25rem;
+            height: 10rem;
+        }
+        & .card-content {
+            margin: auto 0;
+        }
+        &--footer {
+            min-width: 30rem;
+        }
+    }
+}
+
+@include to-tablet-portrait {
+    .shop-card {
+        display: inline-block;
+        & .image {
+            width: auto;
+            height: auto;
         }
     }
 }
