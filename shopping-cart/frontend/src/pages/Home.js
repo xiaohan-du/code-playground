@@ -4,46 +4,47 @@ import SInfobar from '../components/SInfobar';
 
 import './Home.scss';
 
+const cardData = [
+    {
+        id: 1,
+        title: 'hat',
+        subtitle: 'striploin',
+        price: 10
+    },
+    {
+        id: 2,
+        title: 'breezer',
+        subtitle: 'tropical',
+        price: 11
+    },
+    {
+        id: 3,
+        title: 'wine',
+        subtitle: 'cabernet',
+        price: 12
+    },
+    {
+        id: 4,
+        title: 'cabbage',
+        subtitle: 'nappa',
+        price: 13
+    },
+    {
+        id: 5,
+        title: 'spring',
+        subtitle: 'cup',
+        price: 14
+    },
+    {
+        id: 6,
+        title: 'bread',
+        subtitle: 'malt',
+        price: 15
+    }
+];
+
 const Home = () => {
     const [totalPrice, setTotalPrice] = useState(0);
-    const dummyData = [
-        {
-            id: 1,
-            title: 'buffalo',
-            subtitle: 'striploin',
-            price: 10
-        },
-        {
-            id: 2,
-            title: 'breezer',
-            subtitle: 'tropical',
-            price: 11
-        },
-        {
-            id: 3,
-            title: 'wine',
-            subtitle: 'cabernet',
-            price: 12
-        },
-        {
-            id: 4,
-            title: 'cabbage',
-            subtitle: 'nappa',
-            price: 13
-        },
-        {
-            id: 5,
-            title: 'spring',
-            subtitle: 'cup',
-            price: 14
-        },
-        {
-            id: 6,
-            title: 'bread',
-            subtitle: 'malt',
-            price: 15
-        }
-    ];
 
     const [quantity, setQuantity] = useState([]);
 
@@ -80,7 +81,7 @@ const Home = () => {
     const RenderCards = () => {
         let _totalPrice = 0;
         return (
-            dummyData.map(
+            cardData.map(
                 (d) => {
                     const stateItem = quantity.find(item => item.id === d.id);
                     const itemQty = stateItem ? stateItem.itemQty : 0;
@@ -91,6 +92,7 @@ const Home = () => {
                         <SCard
                             key={d.id}
                             id={d.id}
+                            testid={d.id}
                             title={d.title}
                             subtitle={d.subtitle}
                             price={d.price}
@@ -103,7 +105,7 @@ const Home = () => {
             )
         )
     }
-    
+
     return (
 
         <>
