@@ -21,4 +21,31 @@ describe('Test Home page functions', () => {
         expect(wrapper.find('.shop-card--total-price').at(0).text()).toBe('Total price: 10');
     })
 
+    it('should not change the cost when remove button is clicked only', () => {
+        const wrapper = mount(<Router><Home /></Router>);
+        const removeBtns = wrapper.find('.remove');
+        removeBtns.at(0).simulate('click');
+        expect(wrapper.find('.shop-card--total-price').at(0).text()).toBe('Total price: 0');
+    })
+
+    it('should display the correct cost when remove button is clicked after clicking add button', () => {
+        const wrapper = mount(<Router><Home /></Router>);
+        const addBtns = wrapper.find('.add');
+        addBtns.at(0).simulate('click');
+        const removeBtns = wrapper.find('.remove');
+        removeBtns.at(0).simulate('click');
+        expect(wrapper.find('.shop-card--total-price').at(0).text()).toBe('Total price: 0');
+    })
+
+    it('should display the correct total cost when adding and removing different items', () => {
+        const wrapper = mount(<Router><Home /></Router>);
+        let addBtns = wrapper.find('.add');
+        addBtns.at(0).simulate('click');
+        addBtns = wrapper.find('.add');
+        addBtns.at(2).simulate('click');
+        expect(wrapper.find('.infobar--total-price').text()).toBe('Total Price: 22');
+        let removeBtns = wrapper.find('.remove');
+        removeBtns.at(0).simulate('click');
+        expect(wrapper.find('.infobar--total-price').text()).toBe('Total Price: 12');
+    })
 })

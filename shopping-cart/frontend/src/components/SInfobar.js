@@ -9,7 +9,7 @@ const SInfobar = ({totalPrice}) => {
             <div className="navbar-menu">
                 <div className="navbar-start">
 
-                    <div>Total Price: {totalPrice}</div>
+                    <div className='infobar--total-price'>Total Price: {totalPrice}</div>
 
                 </div>
                 <div className="navbar-end">
