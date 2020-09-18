@@ -11,3 +11,21 @@
         }
     }
 }
+
+@include to-phone {
+    .shop {
+        &-summarycard {
+            flex-direction: column;
+            & .image {
+                width: auto;
+                height: auto;
+            }
+            & .media {
+                text-align: center;
+            }
+            &--footer {
+                text-align: center;
+            }
+        }
+    }
+}

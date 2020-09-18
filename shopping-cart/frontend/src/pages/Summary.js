@@ -7,21 +7,24 @@ const Summary = () => {
     const dummyData = [
         {
             id: 1,
-            title: 'buffalo',
-            subtitle: 'striploin',
-            price: 10
+            title: 'Camera',
+            subtitle: 'Canon',
+            price: 10,
+            imgIndex: 0
         },
         {
             id: 3,
-            title: 'wine',
-            subtitle: 'cabernet',
-            price: 12
+            title: 'Headphone',
+            subtitle: 'Sony',
+            price: 12,
+            imgIndex: 2
         },
         {
             id: 5,
-            title: 'spring',
-            subtitle: 'cup',
-            price: 14
+            title: 'Laptop',
+            subtitle: 'Dell',
+            price: 14,
+            imgIndex: 4
         }
     ];
 
@@ -36,6 +39,7 @@ const Summary = () => {
                             title={d.title}
                             subtitle={d.subtitle}
                             price={d.price}
+                            imgIndex={d.imgIndex}
                             quantity={1}
                             itemTotalPrice={d.price * 1}
                         />

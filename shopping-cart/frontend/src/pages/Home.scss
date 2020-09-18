@@ -8,3 +8,19 @@
         margin-bottom: 7rem;
     }
 }
+
+@include to-desktop-large {
+    .home {
+        &--cards {
+            column-count: 2;
+        }
+    }
+}
+
+@include to-ipad-pro {
+    .home {
+        &--cards {
+            column-count: 1;
+        }
+    }
+}

@@ -7,39 +7,45 @@ import './Home.scss';
 const cardData = [
     {
         id: 1,
-        title: 'hat',
-        subtitle: 'striploin',
-        price: 10
+        title: 'Camera',
+        subtitle: 'Canon',
+        price: 10,
+        imgIndex: 0
     },
     {
         id: 2,
-        title: 'breezer',
-        subtitle: 'tropical',
-        price: 11
+        title: 'Mobile phone',
+        subtitle: 'Apple',
+        price: 11,
+        imgIndex: 1
     },
     {
         id: 3,
-        title: 'wine',
-        subtitle: 'cabernet',
-        price: 12
+        title: 'Headphone',
+        subtitle: 'Sony',
+        price: 12,
+        imgIndex: 2
     },
     {
         id: 4,
-        title: 'cabbage',
-        subtitle: 'nappa',
-        price: 13
+        title: 'Controller',
+        subtitle: 'Microsoft',
+        price: 13,
+        imgIndex: 3
     },
     {
         id: 5,
-        title: 'spring',
-        subtitle: 'cup',
-        price: 14
+        title: 'Laptop',
+        subtitle: 'Dell',
+        price: 14,
+        imgIndex: 4
     },
     {
         id: 6,
-        title: 'bread',
-        subtitle: 'malt',
-        price: 15
+        title: 'Watch',
+        subtitle: 'Apple',
+        price: 15,
+        imgIndex: 5
     }
 ];
 
@@ -96,6 +102,7 @@ const Home = () => {
                             title={d.title}
                             subtitle={d.subtitle}
                             price={d.price}
+                            imgIndex={d.imgIndex}
                             quantity={itemQty}
                             changeItemQuantity={changeItemQuantity}
                             itemTotalPrice={d.price * itemQty}
