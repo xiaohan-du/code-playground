@@ -17,13 +17,10 @@ const Navbar = () => {
                             <Link to="/">HOME</Link>
                         </li>
                         <li>
-                            <Link to="/about-us">ABOUT US</Link>
+                            <Link to="/about-us">COMPONENT LIBRARY</Link>
                         </li>
                         <li>
-                            <Link to="/contact-us">CONTACT US</Link>
-                        </li>
-                        <li>
-                            <button className='btn btn__light'>Log in</button>
+                            <Link to="/contact-us">CONTACT ME</Link>
                         </li>
                     </ul>
                 </div>
