@@ -12,26 +12,47 @@ const Banner = () => {
 
     const slides = [];
 
+    const personalDetails = [
+        {
+            id: 1,
+            title: 'Front end development with React JS',
+            subtitle: 'I focus on using React framework'
+        },
+        {
+            id: 2,
+            title: 'Responsive design',
+            subtitle: 'This website is responsive'
+        },
+        {
+            id: 3,
+            title: 'Software development',
+            subtitle: 'Version control with Git'
+        },
+        {
+            id: 4,
+            title: 'Scientific computing',
+            subtitle: 'I wrote 1000\'s of lines of code in MATLAB'
+        }
+    ]
+
+
+
     const [state, setState] = useReducer(
         (state, newState) => ({ ...state, ...newState }),
         { title: [], subtitle: [], imgUrl: [], renderBanner: false }
     );
 
+
+
     useEffect(() => {
         async function fetchData() {
             try {
-                const apiUrl = `https://interview-assessment.api.avamae.co.uk/api/v1/home/banner-details`;
-                let response = await fetch(apiUrl);
+                const imgApiUrl = `https://interview-assessment.api.avamae.co.uk/api/v1/home/banner-details`;
+                let response = await fetch(imgApiUrl);
                 if (!response.ok) throw new Error('API request failed.');
                 response = await response.json();
-                let _title = [];
-                let _subtitle = [];
                 let _imgUrl = [];
-                response.Details.forEach(e => _title.push(e.Title));
-                response.Details.forEach(e => _subtitle.push(e.Subtitle));
                 response.Details.forEach(e => _imgUrl.push(e.ImageUrl));
-                setState({ title: _title });
-                setState({ subtitle: _subtitle });
                 setState({ imgUrl: _imgUrl });
                 setState({ renderBanner: true });
             }
@@ -41,12 +62,21 @@ const Banner = () => {
             }
         }
         fetchData();
-
-    }, []);
+        
+        const setTitles = () => {
+            let _title = [];
+            let _subtitle = [];
+            personalDetails.forEach(e => _title.push(e.title))
+            personalDetails.forEach(e => _subtitle.push(e.subtitle));
+            setState({ title: _title });
+            setState({ subtitle: _subtitle });
+        };
+        setTitles();
+    }, [personalDetails]);
 
     const storeSlides = () => {
         if (state.renderBanner === true) {
-            for (let i = 0; i < 3; i += 1) {
+            for (let i = 0; i < personalDetails.length; i += 1) {
                 slides.push(
                     <SwiperSlide key={`slide-${i}`}>
                         <div className='banner__img'
@@ -55,7 +85,7 @@ const Banner = () => {
                                 <div className='banner__title'>{state.title[i]}</div>
                                 <div className='banner__subtitle'>{state.subtitle[i]}</div>
                                 <button className='btn btn__primary'>
-                                    <Link to="/contact-us">Contact us</Link>
+                                    <Link to="/contact-us">Contact me</Link>
                                 </button>
                             </div>
                         </div>

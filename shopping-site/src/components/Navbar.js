@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './Navbar.scss';
-import { ReactComponent as Logo } from '../images/Logo.svg';
+import Logo from '../images/Logo.png';
 
 const Navbar = () => {
 
@@ -9,7 +9,8 @@ const Navbar = () => {
         <div className='navbar__wrapper'>
             <nav className='center-content navbar'>
                 <a href='#/'>
-                    <Logo className='navbar__logo' href='#' />
+                    <img src={Logo} className='navbar__logo' href='#' />
+                    <p>Xiaohan Du</p>
                 </a>
                 <div className='navbar__links'>
                     <ul>
@@ -17,7 +18,7 @@ const Navbar = () => {
                             <Link to="/">HOME</Link>
                         </li>
                         <li>
-                            <Link to="/about-us">COMPONENT LIBRARY</Link>
+                            <Link to="/about-us">STATIC PAGE</Link>
                         </li>
                         <li>
                             <Link to="/contact-us">CONTACT ME</Link>
