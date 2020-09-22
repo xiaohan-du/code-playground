@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className='navbar__wrapper'>
             <nav className='center-content navbar'>
                 <a href='#/'>
-                    <img src={Logo} className='navbar__logo' href='#' />
+                    <img src={Logo} className='navbar__logo' href='#' alt='logo'/>
                     <p>Xiaohan Du</p>
                 </a>
                 <div className='navbar__links'>

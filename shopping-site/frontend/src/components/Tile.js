@@ -12,34 +12,28 @@ const Tile = () => {
                     <div className='tile'>
                         <div className='tile__textbox'>
                             <p className='tile__textbox__title'>
-                                Justo petentium te vix, scripta regione urbanitas
-                        </p>
+                                Professional skills
+                            </p>
                             <p className='tile__textbox__content'>
-                                Pcpulc facilisi nam no, dolor deleniti deseruisse ne rum, nam quodsi aliquam eligendi ne. Ferri
-                                euismod accusata te nm:, summo accumsan at uin Ad vix legere impetus, nam consequat
-                                reformidans "t, No sit consul integre voluptatibus, omnium lucilius ne meL Et ancillae recteque
-                                deterruisset sea, ea nec odio option, ferri assum eum et.
-                        </p>
+                                I have front end working experience with JavaScript, HTML and SCSS. I learned React JS through self-study and focus on using hooks. 
+                                I'm proficient with responsive design, percisely achieving the prototype and delivering a friendly user experience is my prioritised goal.  
+                            </p>
                             <ul className='tile__textbox__list'>
                                 <li>
-                                    Te pri efficiendi assueverit, id molestie suavitate per
-                            </li>
+                                    React JS and hooks
+                                </li>
                                 <li>
-                                    Te nam dolorem rationibus repudiandae, ne ius falli aliquip consetetur
-                            </li>
+                                    JavaScript (jQuery), HTML (CSHTML) and SCSS
+                                </li>
                                 <li>
-                                    Ut qui dicant copiosae interpretaris
-                            </li>
-                                <li>
-                                    ut indoctum patrioque voluptaria duo, ut vis semper abhorreant
-                            </li>
+                                    Responsive design with Bulma + Blazorise, or plain CSS
+                                </li>
                             </ul>
                             <div>
                                 <button className='btn btn__primary'>Learn more</button>
                             </div>
                         </div>
                         <div style={{backgroundImage: `url(${tileImg})`}} className='tile__image'>
-                            {/* <img className='tile__image' src={require('../images/shutterstock_696636415.jpg')} alt='tile' /> */}
                         </div>
                     </div>
                 </div>
@@ -49,14 +43,11 @@ const Tile = () => {
                     <div className='tile'>
                         <div className='tile__textbox tile__textbox-bg'>
                             <p className='tile__textbox__title'>
-                                Nulla sem urna, dictum sed nisi in, viverra rutrum neque
+                                Experienced in software development and design
                             </p>
                             <p className='tile__textbox__content'>
-                                Cras sit amet dapibus magna. Orci varius natoque penatibus et magnis dis parturient
-                                mantes, nascetur ridiculus mus. Donec finibus nulla quis lorem mollis lacinia. Fusce ut
-                                arcu ligula. pellentesque augue ex, pellentesque ut maximus nan, eleifend ut lorem,
-                                Vestibulum rutrum malesuada turpis, molestie matts velit maximus ac. Quisque iaculis
-                                hendrerit ex et tincidunt. Aenean eu magna ut nisi placerat fringilla in sed diam.
+                                Having worked in software company and digital agency, I gained experience in both software development and website design. 
+                                I enjoy working in an agile team, familiar with Scrum and Kanban. Git is my first choice for version control, see <a href='https://github.com/xiaohan-du'>here</a> for source code of this website and some other of my personal projects.
                             </p>
                             <div>
                                 <button className='btn btn__light'>Log in</button>
