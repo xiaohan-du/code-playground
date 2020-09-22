@@ -32,6 +32,7 @@ const Contact = () => {
     )
 
     const validateFields = () => {
+        // eslint-disable-next-line
         const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/;
         if (!state.EmailAddress.trim().length) {
             setState({ EmailValid: true });

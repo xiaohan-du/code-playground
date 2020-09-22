@@ -30,6 +30,9 @@
         }
         &__content {
             @include content;
+            & a {
+                color: white;
+            }
         }
         &__list {
             padding-inline-start: 2rem;

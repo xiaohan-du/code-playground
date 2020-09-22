@@ -1,59 +1,66 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useCallback } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import Spinner from './Spinner';
 import { Link } from "react-router-dom";
 import 'swiper/swiper-bundle.css';
 import './Banner.scss';
+import { shuffleArray } from '../functions/shuffleArray';
 
 SwiperCore.use([Navigation, Pagination]);
+
+const personalDetails = [
+    {
+        id: 1,
+        title: 'Front end development with React JS',
+        subtitle: 'I focus on using React framework'
+    },
+    {
+        id: 2,
+        title: 'Responsive design',
+        subtitle: 'This website is responsive'
+    },
+    {
+        id: 3,
+        title: 'Software development',
+        subtitle: 'Version control with Git'
+    },
+    {
+        id: 4,
+        title: 'Scientific computing',
+        subtitle: 'I hold a PhD degree in computational mechanics'
+    }
+]
 
 const Banner = () => {
 
     const slides = [];
-
-    const personalDetails = [
-        {
-            id: 1,
-            title: 'Front end development with React JS',
-            subtitle: 'I focus on using React framework'
-        },
-        {
-            id: 2,
-            title: 'Responsive design',
-            subtitle: 'This website is responsive'
-        },
-        {
-            id: 3,
-            title: 'Software development',
-            subtitle: 'Version control with Git'
-        },
-        {
-            id: 4,
-            title: 'Scientific computing',
-            subtitle: 'I wrote 1000\'s of lines of code in MATLAB'
-        }
-    ]
-
-
 
     const [state, setState] = useReducer(
         (state, newState) => ({ ...state, ...newState }),
         { title: [], subtitle: [], imgUrl: [], renderBanner: false }
     );
 
-
+    const setTitles = useCallback(() => {
+        let _title = [];
+        let _subtitle = [];
+        personalDetails.forEach(e => _title.push(e.title))
+        personalDetails.forEach(e => _subtitle.push(e.subtitle));
+        setState({ title: _title });
+        setState({ subtitle: _subtitle });
+    }, []);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const imgApiUrl = `https://interview-assessment.api.avamae.co.uk/api/v1/home/banner-details`;
+                const imgApiUrl = 'http://localhost:4000/image';
                 let response = await fetch(imgApiUrl);
                 if (!response.ok) throw new Error('API request failed.');
                 response = await response.json();
                 let _imgUrl = [];
-                response.Details.forEach(e => _imgUrl.push(e.ImageUrl));
-                setState({ imgUrl: _imgUrl });
+                response.forEach(e => _imgUrl.push(e.urls.raw));
+                let _imgUrlShuffle = shuffleArray(_imgUrl);
+                setState({ imgUrl: _imgUrlShuffle });
                 setState({ renderBanner: true });
             }
             catch (e) {
@@ -63,16 +70,8 @@ const Banner = () => {
         }
         fetchData();
         
-        const setTitles = () => {
-            let _title = [];
-            let _subtitle = [];
-            personalDetails.forEach(e => _title.push(e.title))
-            personalDetails.forEach(e => _subtitle.push(e.subtitle));
-            setState({ title: _title });
-            setState({ subtitle: _subtitle });
-        };
         setTitles();
-    }, [personalDetails]);
+    }, [setTitles]);
 
     const storeSlides = () => {
         if (state.renderBanner === true) {
