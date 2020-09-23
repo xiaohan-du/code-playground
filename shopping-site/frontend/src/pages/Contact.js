@@ -1,7 +1,6 @@
 import React, { useReducer } from 'react';
 import ContactForm from '../components/ContactForm';
 import ContactResponse from '../components/ContactResponse';
-import contactImg from '../images/Img_Contact.png';
 import './Contact.scss';
 
 const Contact = () => {
@@ -80,12 +79,27 @@ const Contact = () => {
         <>
             <div className='center-content contact'>
                 <div className='contact__form'>
-                    <h1 className='contact__form__title'>Contact us</h1>
-                    <p className='contact__form__subtitle'>
-                        Populo facilisi nam no, dolor deleniti deseruisse ne cum, nam quodsi aliquam eligendi ne. Ferri
-                        euismod accusata te net, summo accumsan at vix.
-                    </p>
-
+                    <div className='contact-form__chain'>
+                        <div className='contact__form__column'>
+                            <h1 className='contact__form__title'>Contact me</h1>
+                            <p className='contact__form__subtitle'>
+                                Please use the following form to contact me regarding: <br />
+                                What you think of this website? <br />
+                                Job opportunities and collaboration <br /> Thank you!
+                            </p>
+                        </div>
+                        <div className='contact__form__column'>
+                        <h1 className='contact__form__title'>&shy;</h1>
+                            <a href='https://github.com/xiaohan-du' className='btn btn__zoom-in btn__log-in'>
+                                <img src={require('../images/logos/github.svg')} alt='github' />
+                                <p>My GitHub</p>
+                            </a>
+                            <a href='https://www.linkedin.com/in/xiaohan-du-055a0713a/' className='btn btn__zoom-in btn__log-in'>
+                                <img src={require('../images/logos/linkedin.png')} alt='github' />
+                                <p>My Linkedin</p>
+                            </a>
+                        </div>
+                    </div>
                     {state.showResponse ? <ContactResponse />
                         : <ContactForm
                             setState={setState}
@@ -111,7 +125,6 @@ const Contact = () => {
                             MessageValid={state.MessageValid} />
                     }
                 </div>
-                <div style={{ backgroundImage: `url(${contactImg})` }} className='contact__img' ></div>
             </div>
         </>
     )

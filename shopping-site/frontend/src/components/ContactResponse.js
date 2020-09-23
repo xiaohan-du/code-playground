@@ -1,6 +1,6 @@
 import React from 'react';
 import './ContactResponse.scss';
-import { ReactComponent as Valid } from '../images/Icon_Valid.svg';
+import { ReactComponent as Valid } from '../images/icons/Icon_Valid.svg';
 
 const ContactResponse = () => {
     return (

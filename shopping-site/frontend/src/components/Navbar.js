@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './Navbar.scss';
-import Logo from '../images/Logo.png';
+import Logo from '../images/logos/Logo.png';
 
 const Navbar = () => {
 
@@ -15,13 +15,16 @@ const Navbar = () => {
                 <div className='navbar__links'>
                     <ul>
                         <li>
-                            <Link to="/">HOME</Link>
+                            <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/about-us">STATIC PAGE</Link>
+                            <Link to="/about-us">My Career</Link>
                         </li>
                         <li>
-                            <Link to="/contact-us">CONTACT ME</Link>
+                            <Link to="/phd">My PhD</Link>
+                        </li>
+                        <li>
+                            <Link to="/contact-us">Contact Me</Link>
                         </li>
                     </ul>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Tile.scss';
-import tileBg from '../images/shutterstock_1302552622.jpg';
-import tileImg from '../images/shutterstock_696636415.jpg';
+import tileBg from '../images/side.jpg';
+import tileImg from '../images/design.jpg';
 
 const Tile = () => {
 
@@ -29,9 +29,6 @@ const Tile = () => {
                                     Responsive design with Bulma + Blazorise, or plain CSS
                                 </li>
                             </ul>
-                            <div>
-                                <button className='btn btn__primary'>Learn more</button>
-                            </div>
                         </div>
                         <div style={{backgroundImage: `url(${tileImg})`}} className='tile__image'>
                         </div>
@@ -49,9 +46,6 @@ const Tile = () => {
                                 Having worked in software company and digital agency, I gained experience in both software development and website design. 
                                 I enjoy working in an agile team, familiar with Scrum and Kanban. Git is my first choice for version control, see <a href='https://github.com/xiaohan-du'>here</a> for source code of this website and some other of my personal projects.
                             </p>
-                            <div>
-                                <button className='btn btn__light'>Log in</button>
-                            </div>
                         </div>
                     </div>
                 </div>
