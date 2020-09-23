@@ -10,55 +10,40 @@ const TextTile = () => {
             <div className='tile__wrapper'>
                 <div className='center-content'>
                     <div className='tile texttile'>
-                        <p className='texttile__title'>Sed libero justo, lobortis sit amet suscipit non</p>
-                        <p className='texttile__subtitle'>taria duo ut vis semper abhorreant</p>
+                        <p className='texttile__title'>Personal profile</p>
+                        <p className='texttile__subtitle'>I'm a front end developer with a PhD degree</p>
                         <div className='texttile__content'>
                             <p className='texttile__content-strong'>
-                                Pellentesque ac condimentum felis. Suspendisse vel suscipit
-                                dolor, nec Iaoreet nulla. Nam auctor ultricies dapibus. Donec
-                                ac interdum dui, quis finibus lectus. Cras in ultrices neque.
-                                Curabitur eget turpis iaculis diam tongue sagittis a vel ligula.
-                                Mauris ut arcu ex. Nullam quis orci ante. Nunc felis massa,
-                                posuere non gravida in, commodo in arcu. In feugiat magna
-                                non volutpat faucibus. Nam aliquam justo nec aliquam iaculis.
-                                Integer laoreet pulvinar elit pulvinar fermentum. Morbi
-                                vehicula sodales nunc ac varius. Proin porttitor porttitor libero
-                                vel pharetra.
+                                I’m always learning and keen to gain more tech experience.
+                                Working in an agile team is my favourite.
+                                Worked as the front end developer in many tech companies,
+                                I strive to apply cutting edge technologies and frameworks to help the
+                                company to achieve higher business goals.
+                                Thinking from clients’ perspective,
+                                I am able to create user-friendly, reactive and easy-to-use web applications.
+                                I pay attention to details, care for UX, and have a sense of beauty.
                             </p>
                             <p>
-                                Cras sit amet dapibus magna Orci varius natoque penatibus et
-                                magnis dis parturient mantes, nascetur ridiculus mus Donec
-                                magnis dis parturient mantes, nascetur ridiculus mus Donec
-                                finibus nulla quis lorem mcllis lacinia Fusce ut arcu ligula,
-                                Pellentesque augue ex, pellentesque ut maximus nan, eleifend
-                                ut lorem. Vestibulum rutrum malesuada turpis, molestie mattis
-                                velit maximus ac Quisque iaculis hendrerit ex et tincidunt.
-                                Aenean eu magna ut nisi placerat fringilla in sed diam.
-                                Suspendisse tristique vel dui nec imperdiet. Cras mattis ligula
-                                quis fermentum suscipit Proin et elementum arcu, sit amet
-                                porttitor diam Curabitur euismod, eratvitae tristique volutpat,
-                                augue lectus dignissim justo, at faucibus orri est a elit.
+                                During my time in UpriseVSI I finished the majority of front end work of a booking website to serve the new COVID-19 normal.
+                                My work included front end development using Blazor framework, responsive website design with Blazorise (Bulma).
+                                I worked closely with UX/UIdesigner, tester and focused on precisely achieving the design as well as delivering a friendly user experience.
                             </p>
                             <p>
-                                Sed sed sapien pretium, maximus felis vel, mollis elit_ Sed libero
-                                justo, lobortis sit amet suscipit nan, auctor non libero. Maecenas
-                                quis nisl eget enim porta blandit a nec sapien. Mauris porttitor
-                                lorem ut egestas euismccl Donec molestie tempor nibh, nec
-                                venenatis arcu ullamccrper sit amet Nulla facilisL Proin cursus
-                                neque ut tortor scelerisque, at iaculis nunc ornare_ Pellentesque
-                                non nunc nulla_ Interdum et malesuada fames ac ante ipsum
-                                primis in faucibuq Aenean et scdales diatn Lorem ipsum dolor
-                                sit amet, consectetur adipiscing elit. Fusce porttitor magna
-                                augue, non auctor quam placerat nec_ Nulla sem urna, dictum
-                                sed nisi in, viverra rutrum negue_ Aliquam ipsum nunc, porta a
-                                augue nec, fringilla mollis arcu_ In a vehicula odio_ Praesent
-                                vulputate turpis eleifend egestas ultrices_ Proin nec sagittis nibh.
-                                Curabitur fringilla felis a porttitor maxims Vestibulum aliquet
-                                ante nec leo malesuada porttitor sit amet et magna.
+                                Prior to UpriseVSI, I worked as a Front End Software Engineer in W2 Global Data Limited.
+                                I was involved in the development and UI design of several projects.
+                                My role included front end development, software application development, fixing support tickets, etc.
+                                I Worked on multiple projects and support tickets using JavaScript (jQuery) in .NET MVC framework. 
+                                I also have experience in CI/CD with Azure DevOps, Version control with Git, JavaScript unit test with Jasmine + Karma,
+                                JavaScript package management using NPM. I Worked in an agile environment with a good understanding of Scrum / Kanban.
+                            </p>
+                            <p>
+                                Prior to W2 Global Data, I worked as a Trainee Product Consultant in Ebase Technology Limited. 
+                                In this short period I began my journey of frontend web development and quickly found it enjoyable. 
+                                I also provided pre-sales support for company's Verj.io platform, on-site software installation, configuration etc. 
                             </p>
                         </div>
                         <button className='btn btn__primary'>
-                            <Link to="/contact-us">Contact us</Link>
+                            <Link to="/contact-us">Contact me</Link>
                         </button>
                     </div>
                 </div>

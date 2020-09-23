@@ -4,7 +4,7 @@ const app = express();
 const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
-const api = `https://api.unsplash.com/photos/?client_id=${process.env.UNSPLASH_API_ACCESS_KEY}`;
+const api = `https://api.unsplash.com/search/photos/?query=office&client_id=${process.env.UNSPLASH_API_ACCESS_KEY}`;
 app.use(cors());
 app.get('/', (req, res) => {
   res.send('go to /image to see image')

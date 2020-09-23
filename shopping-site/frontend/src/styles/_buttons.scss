@@ -24,6 +24,32 @@
     &__full {
         width: 100%;
     }
+    &__zoom-in {
+        border: none;
+        min-height: 2rem;
+        line-height: 2rem;
+        appearance: button;
+        text-decoration: none;
+        padding: 1rem;
+        @include ease-out-shadow;
+    }
+    &__log-in {
+        @include ease-out-shadow;
+        min-width: 13rem;
+        max-height: 3rem;
+        display: flex;
+        align-items: center;
+        &:visited {
+            color: black;
+        } 
+        & img {
+            max-height: 2rem;
+            min-width: 2.4rem;
+        }
+        & p {
+            margin-left: 1rem;
+        }
+    }
 }
 
 @include to-tablet-portrait {

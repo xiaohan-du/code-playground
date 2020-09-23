@@ -18,12 +18,12 @@ const personalDetails = [
     {
         id: 2,
         title: 'Responsive design',
-        subtitle: 'This website is responsive'
+        subtitle: 'This website is responsive, shrink the page to see it'
     },
     {
         id: 3,
         title: 'Software development',
-        subtitle: 'Version control with Git'
+        subtitle: 'Version control with Git, agile with Scrum and Kanban'
     },
     {
         id: 4,
@@ -58,7 +58,7 @@ const Banner = () => {
                 if (!response.ok) throw new Error('API request failed.');
                 response = await response.json();
                 let _imgUrl = [];
-                response.forEach(e => _imgUrl.push(e.urls.raw));
+                response.results.forEach(e => _imgUrl.push(e.urls.raw));
                 let _imgUrlShuffle = shuffleArray(_imgUrl);
                 setState({ imgUrl: _imgUrlShuffle });
                 setState({ renderBanner: true });

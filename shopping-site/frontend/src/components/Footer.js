@@ -6,7 +6,7 @@ const Footer = () => {
         <>
             <footer className='center-content footer'>
                 <div className='footer__wrapper'>
-                    <div className='footer__text'>Website Development by <a className='footer__text__link' href='https://www.avamae.co.uk/'>AVAMAE</a></div>
+                    <a className='footer__text' href='#/'>Website Development by Xiaohan Du, site under construction</a>
                 </div>
             </footer>
         </>

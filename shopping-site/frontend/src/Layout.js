@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PhD from './pages/PhD';
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import './Layout.scss';
 
@@ -16,6 +17,9 @@ const Layout = () => {
             <Switch>
                 <Route path="/contact-us">
                     <Contact />
+                </Route>
+                <Route path="/phd">
+                    <PhD />
                 </Route>
                 <Route path="/about-us">
                     <About />
