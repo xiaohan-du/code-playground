@@ -4,15 +4,61 @@ import ImageGrid from '../components/ImageGrid';
 
 
 const images = [
-    { id: 1, path: require('../images/phd/img1.png') },
-    { id: 2, path: require('../images/phd/img2.png') },
-    { id: 3, path: require('../images/phd/img3.png') },
-    { id: 4, path: require('../images/phd/img4.png') },
-    { id: 5, path: require('../images/phd/img5.png') },
-    { id: 6, path: require('../images/phd/img6.png') },
-    { id: 7, path: require('../images/phd/img7.png') },
-    { id: 8, path: require('../images/phd/img8.png') },
-    { id: 9, path: require('../images/phd/img9.png') },];
+    {
+        id: 1,
+        path: require('../images/phd/img1.png'),
+        title: 'Latin Hypercube Sampling',
+        content: 'Latin hypercube sampling (LHS) is a statistical method for generating a near-random sample of parameter values from a multidimensional distribution.'
+    },
+    {
+        id: 2,
+        path: require('../images/phd/img2.png'),
+        title: 'Speed comparison 1',
+        content: 'Maximum error decay speed between conventional Greedy method and Latin Hypercube sampling'
+    },
+    {
+        id: 3,
+        path: require('../images/phd/img3.png'),
+        title: 'Error response surfaces',
+        content: '2D error response surfaces and magic points generated from Greedy method'
+    },
+    {
+        id: 4,
+        path: require('../images/phd/img4.png'),
+        title: 'Vector product matrix',
+        content: 'The displacement vector product matrix increases its dimension with the enrichment of the reduced basis'
+    },
+    {
+        id: 5,
+        path: require('../images/phd/img5.png'),
+        title: 'Speed comparison 2',
+        content: 'Maximum error decay speed between referenced, proposed POD-Greedy method and Latin Hypercube sampling'
+    },
+    {
+        id: 6,
+        path: require('../images/phd/img6.png'),
+        title: 'Effect of initial refinement',
+        content: 'Initial refinement increases the accuracy of proposed POD-Greedy method'
+    },
+    {
+        id: 7,
+        path: require('../images/phd/img7.png'),
+        title: 'I beam model',
+        content: 'I beam model, external force and boundary condition'
+    },
+    {
+        id: 8,
+        path: require('../images/phd/img8.png'),
+        title: 'Meshed model',
+        content: 'I beam model meshed in Abaqus'
+    },
+    {
+        id: 9,
+        path: require('../images/phd/img9.png'),
+        title: 'Reduced bassis vectors',
+        content: 'Reduced bassis vectors represented in dynamic modes (y-displacements)'
+    }
+];
 
 
 const About = () => {
@@ -25,7 +71,6 @@ const About = () => {
                         Title: Accuracy Control and Nonintrusive Implementation of Adaptive Reduced Order Modelling Based on Greedy Sampling for
                         Elasto-dynamics
                     </p>
-
                     <div>
                         <p className='about__content'>
                             Summary: parametric problems have been widely studied and many researches
@@ -56,6 +101,11 @@ const About = () => {
                         </p>
                         <p className='about__subtitle'>Still confused? check these Wikipedia links to help you understand</p>
                         <div className='about__btn-set'>
+                            <a href='https://en.wikipedia.org/wiki/Latin_hypercube_sampling'
+                                className='btn btn__light btn__zoom-in'
+                                type='button'>
+                                Latin Hypercube Sampling (LHS)
+                            </a>
                             <a href='https://en.wikipedia.org/wiki/Model_order_reduction'
                                 className='btn btn__light btn__zoom-in'
                                 type='button'>
@@ -64,13 +114,17 @@ const About = () => {
                             <a href='https://en.wikipedia.org/wiki/Principal_component_analysis'
                                 className='btn btn__light btn__zoom-in'
                                 type='button'>
-                                POD (Proper Orthogonal Decomposition)
+                                Proper Orthogonal Decomposition (POD)
                             </a>
                             <a href='https://en.wikipedia.org/wiki/Greedy_algorithm'
                                 className='btn btn__light btn__zoom-in'
                                 type='button'>
                                 Greedy algorithm
                             </a>
+                        </div>
+                        <div className='about__download'>
+                            <a href='http://orca.cf.ac.uk/117800/1/2018DuXPhD.pdf'
+                                className='about__subtitle btn btn__zoom-in'>Download my thesis here</a>
                         </div>
                     </div>
                 </div>
