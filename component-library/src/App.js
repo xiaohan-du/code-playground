@@ -5,6 +5,7 @@ import PassStateToChild from './components/PassStateToChild';
 import ToggleOnOff from './components/ToggleOnOff';
 import TestMappedObjects from './components/TestMappedObjects';
 import SendDataOutOfMap from './components/SendDataOutOfMap';
+import FlipCard from './components/FlipCard';
 import './App.scss';
 
 const dummyData = [
@@ -70,28 +71,32 @@ const App = () => {
   return (
     <div className="App">
       <div className='wrapper'>
-        <h3>Map objects array</h3>
+        <h3 className='is-size-3'>Map objects array</h3>
         <RenderMappedObjects />
       </div>
       <div className='wrapper'>
-        <h3>Individualize mapped components</h3>
+        <h3 className='is-size-3'>Individualize mapped components</h3>
         <RenderCompOperateOnMappedObjects />
       </div>
       <div className='wrapper'>
-        <h3>Pass data from parent to child</h3>
+        <h3 className='is-size-3'>Pass data from parent to child</h3>
         <PassStateToChild country={country} />
       </div>
       <div className='wrapper'>
-        <h3>Toggle on and off with useReducer</h3>
+        <h3 className='is-size-3'>Toggle on and off with useReducer</h3>
         <ToggleOnOff />
       </div>
       <div className='wrapper'>
-        <h3>Pass data out of mapped objects</h3>
+        <h3 className='is-size-3'>Pass data out of mapped objects</h3>
         <SendDataOutOfMap />
       </div>
       <div className='wrapper'>
-        <h3>Test mapped objects, this component aims to unit test its logic.</h3>
+        <h3 className='is-size-3'>Test mapped objects, this component aims to unit test its logic.</h3>
         <TestMappedObjects />
+      </div>
+      <div className='wrapper'>
+        <h3 className='is-size-3'>A flip card, hover to see the effect</h3>
+        <FlipCard />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import './ImageGrid.scss';
+import FlipCard from '../components/FlipCard';
 
 const ImageGrid = ({ colNo, images }) => {
 
@@ -11,7 +12,11 @@ const ImageGrid = ({ colNo, images }) => {
                     images.map(
                         (image) => {
                             return (
-                                <img key={image.id} className='image-grid--img' src={image.path} alt='test' />
+                                <FlipCard key={image.id}
+                                    imgPath={image.path}
+                                    title={image.title}
+                                    content={image.content}
+                                />
                             )
                         }
                     )

@@ -1,13 +1,13 @@
 import React, { useEffect, useReducer, useCallback } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import Spinner from './Spinner';
 import { Link } from "react-router-dom";
 import 'swiper/swiper-bundle.css';
 import './Banner.scss';
 import { shuffleArray } from '../functions/shuffleArray';
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const personalDetails = [
     {
@@ -110,7 +110,7 @@ const Banner = () => {
                         onReachEnd={() => console.log('End reached')}
                         navigation
                         pagination
-                    >
+                        autoplay={true}>
                         {slides}
                     </Swiper>
                     :
