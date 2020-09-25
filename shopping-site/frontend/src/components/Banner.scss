@@ -4,6 +4,7 @@
     min-height: $banner-height;
     &__content {
         width: 100%;
+        max-width: 105.6rem !important;
     }
     &__title {
         margin-bottom: 2rem;

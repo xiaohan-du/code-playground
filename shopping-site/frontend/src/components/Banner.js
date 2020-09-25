@@ -110,7 +110,7 @@ const Banner = () => {
                         onReachEnd={() => console.log('End reached')}
                         navigation
                         pagination
-                        autoplay={true}>
+                        /* autoplay={true} */>
                         {slides}
                     </Swiper>
                     :

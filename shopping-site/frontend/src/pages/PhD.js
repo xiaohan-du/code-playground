@@ -66,7 +66,7 @@ const About = () => {
         <>
             <div className='about'>
                 <div className='center-content'>
-                    <h1 className='about__title'>I hold a PhD in computational mechanics</h1>
+                    <h1 className='about__title'>I have a PhD in computational mechanics</h1>
                     <p className='about__subtitle'>
                         Title: Accuracy Control and Nonintrusive Implementation of Adaptive Reduced Order Modelling Based on Greedy Sampling for
                         Elasto-dynamics
