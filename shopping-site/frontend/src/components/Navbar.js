@@ -1,35 +1,45 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from "react-router-dom";
 import './Navbar.scss';
 import Logo from '../images/logos/Logo.png';
 
 const Navbar = () => {
 
+    const burgerRef = useRef();
+
+    const handleClick = () => {
+        burgerRef.current.checked = false;
+    }
+
     return (
-        <div className='navbar__wrapper'>
-            <nav className='center-content navbar'>
-                <a href='#/'>
-                    <img src={Logo} className='navbar__logo' href='#' alt='logo'/>
-                    <p>Xiaohan Du</p>
-                </a>
-                <div className='navbar__links'>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/about-us">My Career</Link>
-                        </li>
-                        <li>
-                            <Link to="/phd">My PhD</Link>
-                        </li>
-                        <li>
-                            <Link to="/contact-us">Contact Me</Link>
-                        </li>
-                    </ul>
+        <nav className='navbar is-fixed-top' role="navigation" aria-label="main navigation">
+            <div className='center-content navbar__wrapper'>
+                <div className="navbar-brand">
+                    <a href='#/'>
+                        <img src={Logo} className='navbar__logo' href='#' alt='logo' />
+                        <p>Xiaohan Du</p>
+                    </a>
+                    <label role="button"
+                        className="navbar-burger burger"
+                        aria-label="menu"
+                        aria-expanded="false"
+                        htmlFor="nav-toggle-state">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </label>
                 </div>
-            </nav>
-        </div>
+                <input type="checkbox" id="nav-toggle-state" ref={burgerRef} />
+                <div className="navbar-menu">
+                    <div className='navbar-end'>
+                        <Link className="navbar-item" onClick={handleClick} to="/">Home</Link>
+                        <Link className="navbar-item" onClick={handleClick} to="/about-us">My Career</Link>
+                        <Link className="navbar-item" onClick={handleClick} to="/phd">My PhD</Link>
+                        <Link className="navbar-item" onClick={handleClick} to="/contact-us">Contact Me</Link>
+                    </div>
+                </div>
+            </div>
+        </nav>
     )
 }
 

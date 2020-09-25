@@ -1,13 +1,16 @@
 @import "../main.scss";
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    min-height: 8rem;
+    & #nav-toggle-state {
+        display: none;
+    }
     & a {
         display: flex;
         align-items: center;
         text-decoration: none;
+        font-size: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
         &:visited {
             color: black;
         }
@@ -18,14 +21,14 @@
         }
     }
     &__wrapper {
-        border-bottom: 1px solid $white-smoke;
-        z-index: 3;
-        position: relative;
-        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        min-height: 8rem;
+        width: 100%;
     }
     &__logo {
         max-width: 8rem;
-        margin-left: -1.5rem;
+        margin-left: -2.5rem;
     }
     &__links {
         list-style-type: none;
@@ -54,10 +57,32 @@
             }
         }
     }
+    &-menu {
+        box-shadow: none;
+    }
 }
 
 @include to-desktop {
     .navbar {
+        flex-direction: column;
+
+        & #nav-toggle-state {
+            &:checked ~ {
+                & .navbar-menu {
+                    display: block;
+                }
+            }
+        }
+
+        & #nav-toggle-state {
+            display: none;
+            &:checked ~ {
+                & .navbar-menu {
+                    display: block;
+                }
+            }
+        }
+
         &__links {
             & ul {
                 & li {
@@ -68,6 +93,18 @@
                     }
                 }
             }
+        }
+        &-brand {
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        &-item {
+            display: flex;
+            justify-content: flex-end;
+        }
+        &__wrapper {
+            display: block;
         }
     }
 }

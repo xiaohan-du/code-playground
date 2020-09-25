@@ -17,12 +17,6 @@
     }
 }
 
-@include to-desktop {
-    .footer {
-        margin-top: 4rem !important;
-    }
-}
-
 @include to-tablet-portrait {
     .footer {
         display: flex;
