@@ -4,14 +4,16 @@
     display: flex;
     justify-content: space-between;
     z-index: 2;
-    min-height: 101rem;
+    min-height: 90rem;
+    margin: 8rem auto !important;
+
     &__form {
         width: 80%;
         margin: 4rem auto;
         &__title {
             font-size: $title-medium;
             font-weight: normal;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
         }
         &__subtitle {
             @include content;

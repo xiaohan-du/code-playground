@@ -12,23 +12,27 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 const personalDetails = [
     {
         id: 1,
-        title: 'Front end development with React JS',
-        subtitle: 'I focus on using React framework'
+        title: ' React JS development',
+        subtitle: 'I specialise in web development using React JS',
+        imgUrl: require('../images/business.jpg')
     },
     {
         id: 2,
         title: 'Responsive design',
-        subtitle: 'This website is responsive, shrink the page to see it'
+        subtitle: 'I understand the art of responsive design',
+        imgUrl: require('../images/desktop.jpg')
     },
     {
         id: 3,
         title: 'Software development',
-        subtitle: 'Version control with Git, agile with Scrum and Kanban'
+        subtitle: 'I\'m an experienced software developer',
+        imgUrl: require('../images/office.jpg')
     },
     {
         id: 4,
         title: 'Scientific computing',
-        subtitle: 'I hold a PhD degree in computational mechanics'
+        subtitle: 'I have a PhD degree in computational mechanics',
+        imgUrl: require('../images/xps.jpg')
     }
 ]
 
@@ -44,33 +48,18 @@ const Banner = () => {
     const setTitles = useCallback(() => {
         let _title = [];
         let _subtitle = [];
+        let _imgUrl = [];
         personalDetails.forEach(e => _title.push(e.title))
         personalDetails.forEach(e => _subtitle.push(e.subtitle));
+        personalDetails.forEach(e => _imgUrl.push(e.imgUrl));
         setState({ title: _title });
         setState({ subtitle: _subtitle });
+        setState({ imgUrl: shuffleArray(_imgUrl) });
     }, []);
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const imgApiUrl = 'http://localhost:4000/image';
-                let response = await fetch(imgApiUrl);
-                if (!response.ok) throw new Error('API request failed.');
-                response = await response.json();
-                let _imgUrl = [];
-                response.results.forEach(e => _imgUrl.push(e.urls.raw));
-                let _imgUrlShuffle = shuffleArray(_imgUrl);
-                setState({ imgUrl: _imgUrlShuffle });
-                setState({ renderBanner: true });
-            }
-            catch (e) {
-                console.log(e);
-                return
-            }
-        }
-        fetchData();
-        
         setTitles();
+        setState({ renderBanner: true });
     }, [setTitles]);
 
     const storeSlides = () => {
@@ -79,7 +68,7 @@ const Banner = () => {
                 slides.push(
                     <SwiperSlide key={`slide-${i}`}>
                         <div className='banner__img'
-                            style={{ backgroundImage: `linear-gradient(to left, rgba(255, 0, 0, 0), rgba(41, 40, 40, 1)), url(${state.imgUrl[i]})` }}>
+                            style={{ backgroundImage: `url(${state.imgUrl[i]})` }}>
                             <div className='center-content banner__content'>
                                 <div className='banner__title'>{state.title[i]}</div>
                                 <div className='banner__subtitle'>{state.subtitle[i]}</div>

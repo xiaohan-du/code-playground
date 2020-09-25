@@ -6,7 +6,8 @@
     border: none;
     border-radius: 0.4rem;
     min-height: 5rem;
-    font-weight: bold;
+    font-weight: normal;
+    font-size: $font-medium;
     & a {
         color: white;
         text-decoration: none;
