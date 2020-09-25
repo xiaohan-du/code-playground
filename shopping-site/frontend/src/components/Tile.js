@@ -15,7 +15,7 @@ const Tile = () => {
                                 Professional skills
                             </p>
                             <p className='tile__textbox__content'>
-                                I have front end working experience with JavaScript, HTML and SCSS. I learned React JS through self-study and focus on using hooks. 
+                                I have front end working experience with JavaScript, HTML and SCSS. I learn React JS through self-study and focus on using hooks. 
                                 I'm proficient with responsive design, percisely achieving the prototype and delivering a friendly user experience is my prioritised goal.  
                             </p>
                             <ul className='tile__textbox__list'>
@@ -40,7 +40,7 @@ const Tile = () => {
                     <div className='tile'>
                         <div className='tile__textbox tile__textbox-bg'>
                             <p className='tile__textbox__title'>
-                                Experienced in software development and design
+                                Experience in software development and design
                             </p>
                             <p className='tile__textbox__content'>
                                 Having worked in software company and digital agency, I gained experience in both software development and website design. 

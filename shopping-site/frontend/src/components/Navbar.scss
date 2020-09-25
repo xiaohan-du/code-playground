@@ -25,12 +25,14 @@
     }
     &__logo {
         max-width: 8rem;
+        margin-left: -1.5rem;
     }
     &__links {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
+        display: flex;
         & ul {
             @include vertically-centered;
             & li {
@@ -44,6 +46,7 @@
                     text-decoration: none;
                     font-size: $font-basic;
                     letter-spacing: 0.2rem;
+                    color: black;
                     &:visited {
                         color: black;
                     }
@@ -61,7 +64,7 @@
                     & a {
                         letter-spacing: 0.1rem;
                         padding: 1.4rem 0.9rem;
-                        font-size: $font-small;
+                        font-size: $font-medium;
                     }
                 }
             }
