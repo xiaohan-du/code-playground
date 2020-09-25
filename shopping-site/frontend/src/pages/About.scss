@@ -50,14 +50,9 @@
     }
 }
 
-@include to-desktop {
-    .about {
-        margin: 2rem 0;
-    }
-}
-
 @include to-tablet-portrait {
     .about {
+        margin: 8rem 0;
         &__img {
             width: 100%;
         }

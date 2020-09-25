@@ -19,7 +19,7 @@
         font-size: $subtitle-large;
         font-weight: normal;
         color: white;
-        width: 50%;
+        width: 60%;
     }
     &__img {
         @include vertically-centered;
@@ -34,7 +34,7 @@
     .banner {
         &__img {
             display: flex;
-            background-position: 59% 25%;
+            background-position: 0 -45%;
         }
         &__title {
             width: 100%;

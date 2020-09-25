@@ -5,7 +5,6 @@ import Spinner from './Spinner';
 import { Link } from "react-router-dom";
 import 'swiper/swiper-bundle.css';
 import './Banner.scss';
-import { shuffleArray } from '../functions/shuffleArray';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -14,25 +13,25 @@ const personalDetails = [
         id: 1,
         title: ' React JS development',
         subtitle: 'I specialise in web development using React JS',
-        imgUrl: require('../images/business.jpg')
+        imgUrl: require('../images/trooper.jpg')
     },
     {
         id: 2,
         title: 'Responsive design',
         subtitle: 'I understand the art of responsive design',
-        imgUrl: require('../images/desktop.jpg')
+        imgUrl: require('../images/responsive.jpg')
     },
     {
         id: 3,
         title: 'Software development',
         subtitle: 'I\'m an experienced software developer',
-        imgUrl: require('../images/office.jpg')
+        imgUrl: require('../images/code.jpg')
     },
     {
         id: 4,
         title: 'Scientific computing',
         subtitle: 'I have a PhD degree in computational mechanics',
-        imgUrl: require('../images/xps.jpg')
+        imgUrl: require('../images/dashboard.jpg')
     }
 ]
 
@@ -54,7 +53,7 @@ const Banner = () => {
         personalDetails.forEach(e => _imgUrl.push(e.imgUrl));
         setState({ title: _title });
         setState({ subtitle: _subtitle });
-        setState({ imgUrl: shuffleArray(_imgUrl) });
+        setState({ imgUrl: _imgUrl });
     }, []);
 
     useEffect(() => {

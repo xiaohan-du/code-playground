@@ -9,7 +9,7 @@
 
     &__form {
         width: 80%;
-        margin: 4rem auto;
+        margin: 0 auto;
         &__title {
             font-size: $title-medium;
             font-weight: normal;
@@ -26,14 +26,6 @@
         &__column {
             width: 48%;
         }
-    }
-    &__img {
-        margin-left: 6rem;
-        width: 49%;
-        height: auto;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
     }
     &__sidebar {
         width: 15%;
@@ -54,8 +46,17 @@
             width: 100%;
             margin: 0;
         }
-        &__img {
-            display: none;
+    }
+}
+
+@include to-tablet-portrait {
+    .contact {
+        &__form {
+            &__column {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
         }
     }
 }

@@ -81,7 +81,7 @@ const Contact = () => {
                 <div className='contact__form'>
                     <div className='contact-form__chain'>
                         <div className='contact__form__column'>
-                            <h1 className='contact__form__title'>Contact me</h1>
+                            <h1 className='contact__form__title hide-on-mobile'>Contact me</h1>
                             <p className='contact__form__subtitle'>
                                 Please use the following form to contact me regarding: <br />
                                 What you think of this website? <br />
@@ -89,7 +89,7 @@ const Contact = () => {
                             </p>
                         </div>
                         <div className='contact__form__column'>
-                        <h1 className='contact__form__title'>&shy;</h1>
+                        <h1 className='contact__form__title hide-on-mobile'>&shy;</h1>
                             <a href='https://github.com/xiaohan-du' className='btn btn__zoom-in btn__log-in'>
                                 <img src={require('../images/logos/github.svg')} alt='github' />
                                 <p>My GitHub</p>

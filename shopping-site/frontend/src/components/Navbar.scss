@@ -116,5 +116,10 @@
         &__links {
             display: none;
         }
+        & a {
+            & p {
+                font-size: 3rem;
+            }
+        }
     }
 }
