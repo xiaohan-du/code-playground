@@ -32,7 +32,7 @@
 
     & button {
         & .icon {
-            height:1.5rem;
+            height: 2.5rem;
             float: left;
             margin-left: 1rem;
         }
@@ -40,7 +40,7 @@
             margin-right: 4rem;
         }
     }
-    
+
     & .label-set {
         display: flex;
         justify-content: space-between;
@@ -64,7 +64,6 @@
     & .error {
         color: red;
     }
-    
 }
 
 @include to-desktop {

@@ -2,7 +2,6 @@ import React from 'react';
 import './About.scss';
 import ImageGrid from '../components/ImageGrid';
 
-
 const images = [
     {
         id: 1,
@@ -81,7 +80,7 @@ const About = () => {
                             parametric problems in an “online” stage with cheap cost.
                             (POD -) Greedy sampling algorithm is a powerful tool to obtain those pre-computations.
                         </p>
-                        <div className='center-content'>
+                        <div className='image-grid__wrapper'>
                             <ImageGrid colNo={3} images={images} />
                         </div>
                         <p className='about__content'>
