@@ -31,19 +31,21 @@ const TextTile = () => {
                                 Prior to the digital agency, I worked as a Front End Software Engineer in a FinTech company.
                                 I was involved in the development and UI design of several projects.
                                 My role included front end development, software application development, fixing support tickets, etc.
-                                I Worked across multiple projects and support tickets using JavaScript (jQuery) in .NET MVC framework. 
+                                I Worked across multiple projects and support tickets using JavaScript (jQuery) in .NET MVC framework.
                                 I also have experience in CI/CD with Azure DevOps, Version control with Git, JavaScript unit test with Jasmine + Karma,
                                 JavaScript package management using NPM. I Worked in agile teams with a good understanding of Scrum / Kanban.
                             </p>
                             <p>
-                                Prior to the FinTech company, I worked as a Trainee Product Consultant in a Saas company. 
-                                In this short period I began my journey of frontend web development and quickly fell in love with it. 
-                                I also provided pre-sales support for company's Verj.io platform, on-site software installation, configuration etc. 
+                                Prior to the FinTech company, I worked as a Trainee Product Consultant in a Saas company.
+                                In this short period I began my journey of frontend web development and quickly fell in love with it.
+                                I also provided pre-sales support for company's Verj.io platform, on-site software installation, configuration etc.
                             </p>
                         </div>
-                        <button className='btn btn__primary'>
-                            <Link to="/contact-us">Contact me</Link>
-                        </button>
+                        <Link to="/contact-us">
+                            <button className='btn btn__primary'>
+                                Contact me
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

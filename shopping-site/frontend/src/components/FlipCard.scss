@@ -1,3 +1,5 @@
+@import "../main.scss";
+
 .flipcard {
     background-color: transparent;
     width: 100%;
@@ -40,5 +42,61 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    &__title {
+        font-weight: bold;
+        font-size: $title-medium;
+    }
+}
+
+@include to-desktop-large {
+    .flipcard {
+        height: 217px;
+        &__title {
+            font-size: $font-basic;
+        }
+        &__content {
+            font-size: $font-small;
+        }
+        & .media {
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+@include to-desktop {
+    .flipcard {
+        height: 190px;
+    }
+}
+
+@include to-tablet-portrait {
+    .flipcard {
+        height: 170px;
+        &__title {
+            font-size: $font-small;
+        }
+        &__content {
+            font-size: $font-small;
+            line-height: 1.6rem;
+        }
+    }
+}
+
+@media screen and (max-width: 671px) {
+    .flipcard {
+        height: 215px;
+        &__title {
+            font-size: $font-basic;
+        }
+        &__content {
+            line-height: 2rem;
+        }
+    }
+}
+
+@include to-phone {
+    .flipcard {
+        height: 250px;
     }
 }

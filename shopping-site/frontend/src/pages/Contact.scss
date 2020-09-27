@@ -25,6 +25,10 @@
         }
         &__column {
             width: 48%;
+            & a {
+                margin-right: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
         }
     }
     &__sidebar {

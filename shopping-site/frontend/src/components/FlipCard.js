@@ -18,11 +18,11 @@ const FlipCard = ({ imgId, imgPath, title, content }) => {
                         <div className="card-content">
                             <div className="media">
                                 <div className="media-content">
-                                    <p className="title is-3">{title}</p>
+                                    <p className="flipcard__title">{title}</p>
                                 </div>
                             </div>
 
-                            <div className="content">
+                            <div className="flipcard__content">
                                 {content}
                             </div>
                         </div>

@@ -71,9 +71,11 @@ const Banner = () => {
                             <div className='center-content banner__content'>
                                 <div className='banner__title'>{state.title[i]}</div>
                                 <div className='banner__subtitle'>{state.subtitle[i]}</div>
-                                <button className='btn btn__primary'>
-                                    <Link to="/contact-us">Contact me</Link>
-                                </button>
+                                <Link to="/contact-us">
+                                    <button className='btn btn__primary'>
+                                        Contact me
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -98,7 +100,7 @@ const Banner = () => {
                         onReachEnd={() => console.log('End reached')}
                         navigation
                         pagination
-                        /* autoplay={true} */>
+                        autoplay={true}>
                         {slides}
                     </Swiper>
                     :

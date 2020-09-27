@@ -40,13 +40,26 @@
     &__btn {
         &-set {
             display: flex;
+            flex-wrap: wrap;
             & a {
-                margin: 0 1rem;
+                margin: 1rem 1rem 1rem 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                min-height: 5rem;
             }
         }
     }
     &__download {
         margin-top: 3rem;
+        & a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 5rem;
+        }
     }
 }
 
