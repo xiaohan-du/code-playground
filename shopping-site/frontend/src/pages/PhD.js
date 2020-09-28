@@ -2,6 +2,7 @@ import React from 'react';
 import './About.scss';
 import ImageGrid from '../components/ImageGrid';
 import { Helmet } from "react-helmet";
+import { ScrollToTopOnMount } from '../functions/ScrollToTopOnMount';
 
 const images = [
     {
@@ -64,6 +65,7 @@ const images = [
 const About = () => {
     return (
         <>
+            <ScrollToTopOnMount />
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>My PhD - Xiaohan Du</title>

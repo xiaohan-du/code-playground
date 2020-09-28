@@ -3,6 +3,7 @@ import ContactForm from '../components/ContactForm';
 import ContactResponse from '../components/ContactResponse';
 import './Contact.scss';
 import { Helmet } from "react-helmet";
+import { ScrollToTopOnMount } from '../functions/ScrollToTopOnMount';
 
 const Contact = () => {
 
@@ -78,6 +79,7 @@ const Contact = () => {
 
     return (
         <>
+            <ScrollToTopOnMount />
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Contact Me - Xiaohan Du</title>
