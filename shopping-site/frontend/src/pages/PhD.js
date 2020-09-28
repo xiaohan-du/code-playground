@@ -1,6 +1,7 @@
 import React from 'react';
 import './About.scss';
 import ImageGrid from '../components/ImageGrid';
+import { Helmet } from "react-helmet";
 
 const images = [
     {
@@ -63,6 +64,10 @@ const images = [
 const About = () => {
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>My PhD - Xiaohan Du</title>
+            </Helmet>
             <div className='about'>
                 <div className='center-content'>
                     <h1 className='about__title'>I have a PhD in computational mechanics</h1>

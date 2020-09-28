@@ -33,9 +33,9 @@ const Navbar = () => {
                 <div className="navbar-menu">
                     <div className='navbar-end'>
                         <Link className="navbar-item" onClick={handleClick} to="/">Home</Link>
-                        <Link className="navbar-item" onClick={handleClick} to="/about-us">My Career</Link>
-                        <Link className="navbar-item" onClick={handleClick} to="/phd">My PhD</Link>
-                        <Link className="navbar-item" onClick={handleClick} to="/contact-us">Contact Me</Link>
+                        <Link className="navbar-item" onClick={handleClick} to="/my-career">My Career</Link>
+                        <Link className="navbar-item" onClick={handleClick} to="/my-phd">My PhD</Link>
+                        <Link className="navbar-item" onClick={handleClick} to="/contact-me">Contact Me</Link>
                     </div>
                 </div>
             </div>

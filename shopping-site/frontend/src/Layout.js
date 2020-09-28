@@ -15,13 +15,13 @@ const Layout = () => {
             <Navbar />
             
             <Switch>
-                <Route path="/contact-us">
+                <Route path="/contact-me">
                     <Contact />
                 </Route>
-                <Route path="/phd">
+                <Route path="/my-phd">
                     <PhD />
                 </Route>
-                <Route path="/about-us">
+                <Route path="/my-career">
                     <About />
                 </Route>
                 <Route path="/">
