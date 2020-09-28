@@ -71,7 +71,7 @@ const Banner = () => {
                             <div className='center-content banner__content'>
                                 <div className='banner__title'>{state.title[i]}</div>
                                 <div className='banner__subtitle'>{state.subtitle[i]}</div>
-                                <Link to="/contact-us">
+                                <Link to="/contact-me">
                                     <button className='btn btn__primary'>
                                         Contact me
                                     </button>

@@ -41,7 +41,7 @@ const TextTile = () => {
                                 I also provided pre-sales support for company's Verj.io platform, on-site software installation, configuration etc.
                             </p>
                         </div>
-                        <Link to="/contact-us">
+                        <Link to="/contact-me">
                             <button className='btn btn__primary'>
                                 Contact me
                             </button>

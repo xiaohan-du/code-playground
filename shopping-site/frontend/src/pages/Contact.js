@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import ContactForm from '../components/ContactForm';
 import ContactResponse from '../components/ContactResponse';
 import './Contact.scss';
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
 
@@ -77,6 +78,10 @@ const Contact = () => {
 
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Contact Me - Xiaohan Du</title>
+            </Helmet>
             <div className='center-content contact'>
                 <div className='contact__form'>
                     <div className='contact-form__chain'>
@@ -89,7 +94,7 @@ const Contact = () => {
                             </p>
                         </div>
                         <div className='contact__form__column'>
-                        <h1 className='contact__form__title hide-on-mobile'>&shy;</h1>
+                            <h1 className='contact__form__title hide-on-mobile'>&shy;</h1>
                             <a href='https://github.com/xiaohan-du' className='btn btn__zoom-in btn__log-in'>
                                 <img src={require('../images/logos/github.svg')} alt='github' />
                                 <p>My GitHub</p>
