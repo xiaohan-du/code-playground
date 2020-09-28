@@ -3,10 +3,12 @@ import aboutImg from '../images/desktop.jpg'
 import './About.scss';
 import TextTile from '../components/TextTile';
 import Helmet from "react-helmet";
+import { ScrollToTopOnMount } from '../functions/ScrollToTopOnMount';
 
 const About = () => {
     return (
         <>
+            <ScrollToTopOnMount />
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>My Career - Xiaohan Du</title>

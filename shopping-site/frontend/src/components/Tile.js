@@ -1,6 +1,6 @@
 import React from 'react';
 import './Tile.scss';
-import tileBg from '../images/medium.jpg';
+import tileBg from '../images/passion.jpg';
 import tileImg from '../images/design.jpg';
 import tileImg1 from '../images/xps.jpg';
 
@@ -36,7 +36,7 @@ const Tile = () => {
                     </div>
                 </div>
             </div>
-            <div style={{ backgroundImage: `url(${tileBg})` }} className='tile__wrapper'>
+            <div style={{ backgroundImage: `url(${tileBg})` }} className='tile__wrapper tile__bg'>
                 <div className='center-content tile__full-width'>
                     <div className='tile'>
                         <div className='tile__textbox tile__textbox-bg'>

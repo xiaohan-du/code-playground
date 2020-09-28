@@ -56,6 +56,10 @@
         background-size: cover;
         background-position: center;
     }
+
+    &__bg {
+        background-position: 30% 55%;
+    }
 }
 
 @include to-tablet-portrait {
