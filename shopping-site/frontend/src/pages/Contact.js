@@ -4,6 +4,7 @@ import ContactResponse from '../components/ContactResponse';
 import './Contact.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../functions/ScrollToTopOnMount';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
 
@@ -23,12 +24,12 @@ const Contact = () => {
             State: '',
             Postcode: '',
             Country: '',
+            Subject: '',
             showResponse: false,
             EmailValid: true,
             PhoneAValid: true,
             PhoneBValid: true,
             MessageValid: true
-
         }
     )
 
@@ -54,27 +55,38 @@ const Contact = () => {
 
     const toggleAddress = () => {
         if (state.showAddress === false) {
-            setState({ AddressA: '', AddressB: '', City: '', State: '', Postcode: '', Country: '' });
+            setState({ AddressA: '', AddressB: '', City: '', State: '', Postcode: '', Country: '', Subject: '' });
         };
         setState({ showAddress: !state.showAddress });
     }
 
     const handleSubmit = (e) => {
+
+
         e.preventDefault();
-        fetch('https://interview-assessment.api.avamae.co.uk/api/v1/contact-us/submit', {
-            method: 'POST',
-            body: JSON.stringify(state),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }
-        }).then(response => {
-            console.log(response);
-            response.ok === true ? setState({ showResponse: true }) : setState({ showResponse: false });
-            return response.json();
-        }).then(data => {
-            console.log(data);
-        })
+
+        const emailParameters = {
+            from_name: state.FullName,
+            to_name: 'Xiaohan',
+            subject: state.Subject,
+            message: state.Message,
+            email: state.EmailAddress,
+            phoneA: state.PhoneA,
+            phoneB: state.PhoneB,
+            addressA: state.AddressA,
+            addressB: state.AddressB,
+            city: state.City,
+            county: state.State,
+            postcode: state.Postcode,
+            country: state.Country
+        }
+        emailjs.send('service_jas6kd9', 'template_01fh4ho', emailParameters, 'user_aRVETyULWNuBVasxNLEFn')
+            .then((result) => {
+                console.log(result.status, result.text);
+                result.status === 200 ? setState({ showResponse: true }) : setState({ showResponse: false });
+            }, (error) => {
+                console.log(error.text);
+            });
     }
 
     return (
@@ -126,6 +138,7 @@ const Contact = () => {
                             State={state.State}
                             Postcode={state.Postcode}
                             Country={state.Country}
+                            Subject={state.Subject}
                             EmailValid={state.EmailValid}
                             PhoneAValid={state.PhoneAValid}
                             PhoneBValid={state.PhoneBValid}

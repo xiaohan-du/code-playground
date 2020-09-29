@@ -2,12 +2,13 @@ import React from 'react';
 import './ContactForm.scss';
 import { ReactComponent as PaperPlane } from '../images/icons/Icon_Submit.svg';
 
-const ContactForm = ({ setState, handleSubmit, toggleAddress, validateFields, showPhoneB, showAddress, EmailValid, PhoneAValid, PhoneBValid, MessageValid }) => {
+const ContactForm = ({ setState, handleSubmit, toggleAddress, validateFields,
+    showPhoneB, showAddress, EmailValid, PhoneAValid, PhoneBValid, MessageValid }) => {
 
     return (
         <>
             <div className='contact-form'>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} id='contact-form'>
                     <div>
                         <div className='contact-form__chain'>
                             <div className='flex-column contact-form__input-medium'>
@@ -19,6 +20,10 @@ const ContactForm = ({ setState, handleSubmit, toggleAddress, validateFields, sh
                                 <input onInput={e => setState({ EmailAddress: e.target.value, EmailValid: true })} id='EmailAddress' required />
                                 {EmailValid ? null : <label className='error'>Invalid Email</label>}
                             </div>
+                        </div>
+                        <div className='flex-column'>
+                            <label htmlFor='Subject'>Subject</label>
+                            <input onInput={e => setState({ Subject: e.target.value })} id='Subject' required />
                         </div>
                         <div className='flex-column'>
                             <label htmlFor='PhoneA'>Phone number 01<span className='note note-phone'> - optional</span></label>
@@ -80,6 +85,7 @@ const ContactForm = ({ setState, handleSubmit, toggleAddress, validateFields, sh
                                 </div>
                             </div>
                         </div> : null}
+                        <div className="g-recaptcha" data-sitekey="6LcqftEZAAAAADRm6QgnD3mxlU8-p8TVRZRSDi91"></div>
                         <div>
                             <button className='btn btn__primary btn__full' onClick={validateFields}>
                                 <PaperPlane className='icon' />
