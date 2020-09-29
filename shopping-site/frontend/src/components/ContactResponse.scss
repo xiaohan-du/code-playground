@@ -33,6 +33,9 @@
         margin-top: 0;
         margin-bottom: 4rem;
     }
+    & a {
+        margin-bottom: 4rem;
+    }
 }
 
 @include to-tablet-portrait {

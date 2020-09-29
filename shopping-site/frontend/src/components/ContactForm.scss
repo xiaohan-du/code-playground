@@ -64,6 +64,9 @@
     & .error {
         color: red;
     }
+    & .g-recaptcha {
+        margin-bottom: 2rem;
+    }
 }
 
 @include to-desktop {
