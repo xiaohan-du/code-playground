@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import PhD from './pages/PhD';
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import './Layout.scss';
+import Projects from './pages/Projects';
 
 const Layout = () => {
     return (
@@ -17,6 +18,9 @@ const Layout = () => {
             <Switch>
                 <Route path="/contact-me">
                     <Contact />
+                </Route>
+                <Route path="/my-projects">
+                    <Projects />
                 </Route>
                 <Route path="/my-phd">
                     <PhD />

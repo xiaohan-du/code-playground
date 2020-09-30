@@ -1,0 +1,74 @@
+@import "../../main.scss";
+
+.TFCard {
+  background-color: white;
+  min-width: 30rem;
+  height: 23rem;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  border-radius: 1.5rem;
+  transition: box-shadow 0.1s ease-in-out;
+  &:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  &__content {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  &__footer {
+    height: 30%;
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  &__front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    color: black;
+  }
+
+  &__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+  }
+
+  &__header {
+    &__title {
+      padding-left: 1.5rem;
+    }
+  }
+
+  &__answer-btn {
+    &__show {
+      display: block;
+    }
+    &__hide {
+      display: none;
+    }
+  }
+}
+
+@include for-up-to-tablet-portrait {
+  .TFCard {
+    min-width: 26.2rem;
+  }
+}
