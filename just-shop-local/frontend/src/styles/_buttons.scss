@@ -5,11 +5,10 @@
 .btn {
     border: none;
     border-radius: 0.4rem;
-    min-height: 5rem;
+    min-height: 2rem;
     font-weight: normal;
     font-size: $font-medium;
     display: block;
-    cursor: pointer;
     & a {
         color: white;
         text-decoration: none;
@@ -58,7 +57,7 @@
 @include to-tablet-portrait {
     .btn {
         width: 100%;
-        min-height: 4rem;
+        min-height: 2rem;
         padding: 0;
     }
 }

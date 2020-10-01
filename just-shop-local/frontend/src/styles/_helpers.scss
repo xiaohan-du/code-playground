@@ -1,0 +1,15 @@
+.center-content {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 7.2rem;
+}
+
+@include to-tablet-portrait {
+    .center-content {
+        padding: 0 1rem;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+}
