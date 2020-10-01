@@ -5,6 +5,7 @@ import './Contact.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../functions/ScrollToTopOnMount';
 import emailjs from 'emailjs-com';
+import Spinner from '../components/Spinner';
 
 const Contact = () => {
 
@@ -26,6 +27,7 @@ const Contact = () => {
             Country: '',
             Subject: '',
             showResponse: false,
+            showSpinner: false,
             EmailValid: true,
             PhoneAValid: true,
             PhoneBValid: true,
@@ -62,8 +64,9 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
 
-
         e.preventDefault();
+
+        setState({ showSpinner: true });
 
         const emailParameters = {
             from_name: state.FullName,
@@ -83,10 +86,52 @@ const Contact = () => {
         emailjs.send('service_jas6kd9', 'template_01fh4ho', emailParameters, 'user_aRVETyULWNuBVasxNLEFn')
             .then((result) => {
                 console.log(result.status, result.text);
-                result.status === 200 ? setState({ showResponse: true }) : setState({ showResponse: false });
+                result.status === 200 ? setState({ showResponse: true, showSpinner: false }) : setState({ showResponse: false });
             }, (error) => {
                 console.log(error.text);
             });
+
+    }
+
+    const renderContactForm = () => {
+        if (!state.showSpinner && !state.showResponse) {
+            return (
+                <ContactForm
+                    setState={setState}
+                    handleSubmit={handleSubmit}
+                    toggleAddress={toggleAddress}
+                    validateFields={validateFields}
+                    showAddress={state.showAddress}
+                    showPhoneB={state.showPhoneB}
+                    FullName={state.FullName}
+                    EmailAddress={state.EmailAddress}
+                    PhoneA={state.PhoneA}
+                    PhoneB={state.PhoneB}
+                    Message={state.Message}
+                    AddressA={state.AddressA}
+                    AddressB={state.AddressB}
+                    City={state.City}
+                    State={state.State}
+                    Postcode={state.Postcode}
+                    Country={state.Country}
+                    Subject={state.Subject}
+                    EmailValid={state.EmailValid}
+                    PhoneAValid={state.PhoneAValid}
+                    PhoneBValid={state.PhoneBValid}
+                    MessageValid={state.MessageValid} />
+            )
+        }
+        else if (state.showSpinner && !state.showResponse) {
+            return (
+                <div className='spinner__wrapper'>
+                    <Spinner />
+                </div>
+            )
+        }
+        else if (!state.showSpinner && state.showResponse)
+            return (
+                <ContactResponse />
+            )
     }
 
     return (
@@ -119,31 +164,7 @@ const Contact = () => {
                             </a>
                         </div>
                     </div>
-                    {state.showResponse ? <ContactResponse />
-                        : <ContactForm
-                            setState={setState}
-                            handleSubmit={handleSubmit}
-                            toggleAddress={toggleAddress}
-                            validateFields={validateFields}
-                            showAddress={state.showAddress}
-                            showPhoneB={state.showPhoneB}
-                            FullName={state.FullName}
-                            EmailAddress={state.EmailAddress}
-                            PhoneA={state.PhoneA}
-                            PhoneB={state.PhoneB}
-                            Message={state.Message}
-                            AddressA={state.AddressA}
-                            AddressB={state.AddressB}
-                            City={state.City}
-                            State={state.State}
-                            Postcode={state.Postcode}
-                            Country={state.Country}
-                            Subject={state.Subject}
-                            EmailValid={state.EmailValid}
-                            PhoneAValid={state.PhoneAValid}
-                            PhoneBValid={state.PhoneBValid}
-                            MessageValid={state.MessageValid} />
-                    }
+                    {renderContactForm()}
                 </div>
             </div>
         </>
