@@ -19,3 +19,5 @@ yarn-debug.log*
 yarn-error.log*
 
 ./weather-app/.env
+# Local Netlify folder
+.netlify
