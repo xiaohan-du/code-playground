@@ -1,0 +1,73 @@
+@import "../main.scss";
+
+.about {
+    margin: 8rem 0;
+    &__title {
+        font-size: $title-medium;
+        font-weight: normal;
+        margin-bottom: 2rem;
+    }
+    &__subtitle {
+        font-size: $subtitle-medium;
+        font-weight: bold;
+        margin-bottom: 2rem;
+    }
+    &__content {
+        @include content;
+        &__link {
+            color: $light-steel-blue;
+            :visited {
+                color: $light-steel-blue;
+            }
+        }
+    }
+    &__img {
+        margin: 4rem auto;
+        width: 50%;
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 30%;
+    }
+    &__list {
+        padding-inline-start: 2rem;
+        margin: 2rem 0;
+        & li {
+            margin-bottom: 1rem;
+            font-size: $content;
+            font-weight: 500;
+        }
+    }
+    &__btn {
+        &-set {
+            display: flex;
+            flex-wrap: wrap;
+            & a {
+                margin: 1rem 1rem 1rem 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                min-height: 5rem;
+            }
+        }
+    }
+    &__download {
+        margin-top: 3rem;
+        & a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 5rem;
+        }
+    }
+}
+
+@include to-tablet-portrait {
+    .about {
+        margin: 8rem 0;
+        &__img {
+            width: 100%;
+        }
+    }
+}

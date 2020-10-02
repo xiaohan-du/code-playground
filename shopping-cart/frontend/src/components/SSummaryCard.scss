@@ -1,0 +1,31 @@
+@import '../main.scss';
+
+.shop {
+    &-summarycard {
+        width: 100%;
+        display: flex;
+        margin: 1rem 0;
+        & .image {
+            width: 20rem;
+            height: 15rem;
+        }
+    }
+}
+
+@include to-phone {
+    .shop {
+        &-summarycard {
+            flex-direction: column;
+            & .image {
+                width: auto;
+                height: auto;
+            }
+            & .media {
+                text-align: center;
+            }
+            &--footer {
+                text-align: center;
+            }
+        }
+    }
+}
