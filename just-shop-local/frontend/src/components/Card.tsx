@@ -6,32 +6,32 @@ interface Props {
     store: IStores
 }
 
-const Card = ({ store }: Props) => {
+const Card = ({ store: {id, title, imgPath, address, postcode, messageA, messageB, btnText, terms} }: Props) => {
     return (
         <>
-            <div className="card" key={store.id}>
+            <div className="card" key={id}>
                 <div className='card-body'>
                     <h5 className="card-title">
-                        {store.title}
+                        {title}
                     </h5>
-                    <img className="card-img card-img-top" src={store.imgPath} alt="Card cap" />
+                    <img className="card-img card-img-top" src={imgPath} alt="Card cap" />
                     <h6 className="card-text">
-                        {store.address}
+                        {address}
                     </h6>
                     <p className='card-text'>
-                        {store.postcode}
+                        {postcode}
                     </p>
                     <p className="card-text">
-                        {store.messageA}
+                        {messageA}
                     </p>
                     <p className='card-text'>
-                        {store.messageB}
+                        {messageB}
                     </p>
                 </div>
                 <div className='card-footer'>
-                    <a href="#/" className="btn  btn-outline-primary">{store.btnText}</a>
+                    <a href="#/" className="btn  btn-outline-primary">{btnText}</a>
                     <p className='card-terms'>
-                        * {store.terms}
+                        * {terms}
                     </p>
                 </div>
             </div>

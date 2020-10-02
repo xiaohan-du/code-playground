@@ -25,6 +25,17 @@ const storeDetails: IStores[] = [
         messageB: 'When you redeem Loyalty points',
         btnText: 'Redeem',
         terms: 'exclusions and minimum spend terms apply'
+    },
+    {
+        id: 3,
+        title: 'KTA Premier Shop',
+        imgPath: require('../images/kta_general.png'),
+        address: '45 Margaret St, Abercynon, Mountain Ash',
+        postcode: 'CF45 4RB',
+        messageA: 'Get £5 off your next shopping',
+        messageB: 'When you redeem Loyalty points',
+        btnText: 'Redeem',
+        terms: 'exclusions and minimum spend terms apply'
     }
 ]
 
@@ -38,7 +49,7 @@ const Home = () => {
                         storeDetails.map(
                             (d) => {
                                 return (
-                                    <Card store={d} />
+                                    <Card store={d} key={d.id}/>
                                 )
                             }
                         )
