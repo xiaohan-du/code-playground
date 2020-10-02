@@ -1,0 +1,92 @@
+@import "../main.scss";
+
+.tile {
+    display: flex;
+    justify-content: space-between;
+
+    &__full-width {
+        width: 100%;
+    }
+
+    &__wrapper {
+        @include vertically-centered;
+        background-position: 50% 10%; 
+        background-size: cover;
+    }
+
+    &__textbox {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        padding-right: 2rem;
+        &-bg {
+            box-sizing: border-box;
+            padding: 4rem;
+            background-color:rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+        &__title {
+            font-size: $title-medium;
+            margin-block-start: 0;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        &__content {
+            @include content;
+            & a {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+        &__list {
+            padding-inline-start: 2rem;
+            margin-bottom: 3rem;
+            list-style: disc;
+            & li {
+                margin-bottom: 1rem;
+                font-size: $content;
+                font-weight: 500;
+            }
+        }
+    }
+    &__image {
+        text-align: end;
+        width: 50%;
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__bg {
+        background-position: 30% 55%;
+    }
+}
+
+@include to-tablet-portrait {
+    .tile {
+        flex-direction: column-reverse;
+        &__textbox {
+            width: 100%;
+            margin-top: 2rem;
+            &-bg {
+                padding: 2rem;
+                margin-top: 0;
+            }
+            &__title {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+            &__content {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+            &__list {
+                margin-bottom: 2rem;
+            }
+        }
+        &__image {
+            height: 25rem;
+            width: 100%;
+        }
+    }
+}

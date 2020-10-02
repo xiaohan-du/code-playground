@@ -1,0 +1,125 @@
+@import "../main.scss";
+
+.navbar {
+    & #nav-toggle-state {
+        display: none;
+    }
+    & a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        &:visited {
+            color: black;
+        }
+        & p {
+            margin: 0 auto;
+            font-size: 4rem;
+            font-weight: 800;
+        }
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        min-height: 8rem;
+        width: 100%;
+    }
+    &__logo {
+        max-width: 8rem;
+        margin-left: -2.5rem;
+    }
+    &__links {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        & ul {
+            @include vertically-centered;
+            & li {
+                @include vertically-centered;
+                float: right;
+                min-height: 5rem;
+                & a {
+                    display: block;
+                    text-align: center;
+                    padding: 1.4rem 1.6rem;
+                    text-decoration: none;
+                    font-size: $font-basic;
+                    letter-spacing: 0.2rem;
+                    color: black;
+                    &:visited {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+    &-menu {
+        box-shadow: none;
+    }
+}
+
+@include to-desktop {
+    .navbar {
+        flex-direction: column;
+
+        & #nav-toggle-state {
+            &:checked ~ {
+                & .navbar-menu {
+                    display: block;
+                }
+            }
+        }
+
+        & #nav-toggle-state {
+            display: none;
+            &:checked ~ {
+                & .navbar-menu {
+                    display: block;
+                }
+            }
+        }
+
+        &__links {
+            & ul {
+                & li {
+                    & a {
+                        letter-spacing: 0.1rem;
+                        padding: 1.4rem 0.9rem;
+                        font-size: $font-medium;
+                    }
+                }
+            }
+        }
+        &-brand {
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        &-item {
+            display: flex;
+            justify-content: flex-end;
+        }
+        &__wrapper {
+            display: block;
+        }
+    }
+}
+
+@include to-tablet-portrait {
+    .navbar {
+        justify-content: center;
+        min-height: 6rem;
+        &__links {
+            display: none;
+        }
+        & a {
+            & p {
+                font-size: 3rem;
+            }
+        }
+    }
+}
