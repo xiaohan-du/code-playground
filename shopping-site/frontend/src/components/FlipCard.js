@@ -1,16 +1,16 @@
 import React from 'react';
 import './FlipCard.scss';
 
-const FlipCard = ({ imgId, imgPath, title, content }) => {
+const FlipCard = ({img: { id, path, title, content }}) => {
 
     return (
         <>
-            <div key={imgId} className="card flipcard">
+            <div key={id} className="card flipcard">
                 <div className='flipcard__inner'>
                     <div className='flipcard__front'>
                         <div className="card-image">
                             <figure className="image is-square">
-                                <img src={imgPath} alt="Placeholder" />
+                                <img src={path} alt="Placeholder" />
                             </figure>
                         </div>
                     </div>

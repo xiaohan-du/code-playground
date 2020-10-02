@@ -101,24 +101,7 @@ const Contact = () => {
                     handleSubmit={handleSubmit}
                     toggleAddress={toggleAddress}
                     validateFields={validateFields}
-                    showAddress={state.showAddress}
-                    showPhoneB={state.showPhoneB}
-                    FullName={state.FullName}
-                    EmailAddress={state.EmailAddress}
-                    PhoneA={state.PhoneA}
-                    PhoneB={state.PhoneB}
-                    Message={state.Message}
-                    AddressA={state.AddressA}
-                    AddressB={state.AddressB}
-                    City={state.City}
-                    State={state.State}
-                    Postcode={state.Postcode}
-                    Country={state.Country}
-                    Subject={state.Subject}
-                    EmailValid={state.EmailValid}
-                    PhoneAValid={state.PhoneAValid}
-                    PhoneBValid={state.PhoneBValid}
-                    MessageValid={state.MessageValid} />
+                    stateInput={state} />
             )
         }
         else if (state.showSpinner && !state.showResponse) {
