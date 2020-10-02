@@ -13,9 +13,7 @@ const ImageGrid = ({ colNo, images }) => {
                         (image) => {
                             return (
                                 <FlipCard key={image.id}
-                                    imgPath={image.path}
-                                    title={image.title}
-                                    content={image.content}
+                                    img={image}
                                 />
                             )
                         }
