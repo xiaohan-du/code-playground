@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Card from '../components/Card';
 import IStores from '../interfaces/IStores';
 import './Home.scss';
@@ -36,25 +36,49 @@ const storeDetails: IStores[] = [
         messageB: 'When you redeem Loyalty points',
         btnText: 'Redeem',
         terms: 'exclusions and minimum spend terms apply'
+    },
+    {
+        id: 4,
+        title: 'Kairali Spices Centre',
+        imgPath: require('../images/Kairali_spices_centre.png'),
+        address: '23, Pen-y-lan Road, Roath, Cardiff',
+        postcode: 'CF24 3PG',
+        messageA: 'Get FREE 2pk of Crisps (£1 value)',
+        messageB: 'When you redeem Loyalty points',
+        btnText: 'Redeem',
+        terms: 'exclusions and minimum spend terms apply'
     }
 ]
 
 const Home = () => {
+
+    let cardRows: Array<object> = [];
+
+    for (let i: number = 0; i < storeDetails.length; i = i + 2) {
+        cardRows.push(
+            <div className='row no-gutters' key={i}>
+                {
+                    storeDetails.slice(i, i + 2).map(
+                        (d) => {
+                            return (
+                                <div className='col d-flex justify-content-center' key={d.id} >
+                                    <Card store={d} key={d.id} />
+                                </div>
+                            )
+                        }
+                    )
+                }
+            </div>
+        )
+    }
+
     return (
         <>
             <div className='center-content home'>
-                <h1>Just shop local</h1>
-                <div className='home-cards'>
-                    {
-                        storeDetails.map(
-                            (d) => {
-                                return (
-                                    <Card store={d} key={d.id}/>
-                                )
-                            }
-                        )
-                    }
-                </div>
+                <img className='home-logo' src={require('../images/just_shop_local_logo.png')} alt='logo' />
+                {
+                    cardRows
+                }
             </div>
         </>
     )

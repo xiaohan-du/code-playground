@@ -7,6 +7,7 @@ interface Props {
 }
 
 const Card = ({ store: {id, title, imgPath, address, postcode, messageA, messageB, btnText, terms} }: Props) => {
+
     return (
         <>
             <div className="card" key={id}>
