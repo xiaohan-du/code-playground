@@ -6,7 +6,7 @@ interface Props {
     store: IStores
 }
 
-const Card = ({ store: {id, title, imgPath, address, postcode, messageA, messageB, btnText, terms} }: Props) => {
+const Card = ({ store: { id, title, imgPath, address, postcode, messageA, messageB, btnText, terms } }: Props) => {
 
     return (
         <>
@@ -30,7 +30,9 @@ const Card = ({ store: {id, title, imgPath, address, postcode, messageA, message
                     </p>
                 </div>
                 <div className='card-footer'>
-                    <a href="#/" className="btn  btn-outline-primary">{btnText}</a>
+                    <a href="#/" className="btn btn-outline-primary">
+                        <span className='h3 mb-0'>{btnText}</span>
+                    </a>
                     <p className='card-terms'>
                         * {terms}
                     </p>

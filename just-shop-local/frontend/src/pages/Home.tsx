@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import IStores from '../interfaces/IStores';
 import './Home.scss';
 
@@ -79,6 +80,7 @@ const Home = () => {
             <div className='center-content home'>
                 {cardRows}
             </div>
+            <Footer />
         </>
     )
 }
