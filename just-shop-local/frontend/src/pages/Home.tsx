@@ -1,5 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Card from '../components/Card';
+import Navbar from '../components/Navbar';
 import IStores from '../interfaces/IStores';
 import './Home.scss';
 
@@ -74,11 +75,9 @@ const Home = () => {
 
     return (
         <>
+            <Navbar />
             <div className='center-content home'>
-                <img className='home-logo' src={require('../images/just_shop_local_logo.png')} alt='logo' />
-                {
-                    cardRows
-                }
+                {cardRows}
             </div>
         </>
     )
