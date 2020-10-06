@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import IStores from '../interfaces/IStores';
 import './Card.scss';
+import ScanQR from '../functions/ScanQR';
 
 interface Props {
     store: IStores
 }
 
 const Card = ({ store: { id, title, imgPath, address, postcode, messageA, messageB, btnText, terms } }: Props) => {
+
+    const [showCam, setShowCam] = useState(false);
 
     return (
         <>
@@ -30,12 +33,13 @@ const Card = ({ store: { id, title, imgPath, address, postcode, messageA, messag
                     </p>
                 </div>
                 <div className='card-footer'>
-                    <a href="#/" className="btn btn-outline-primary">
+                    <a href="#/" className="btn btn-outline-primary" onClick={() => setShowCam(true)}>
                         <span className='h3 mb-0'>{btnText}</span>
                     </a>
                     <p className='card-terms'>
                         * {terms}
                     </p>
+                    {ScanQR(showCam)}
                 </div>
             </div>
         </>

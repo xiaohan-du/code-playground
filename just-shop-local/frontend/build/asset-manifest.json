@@ -1,26 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.22c6575c.chunk.css",
-    "main.js": "/static/js/main.18ca5e52.chunk.js",
-    "main.js.map": "/static/js/main.18ca5e52.chunk.js.map",
+    "main.css": "/static/css/main.0578fc16.chunk.css",
+    "main.js": "/static/js/main.5723b50c.chunk.js",
+    "main.js.map": "/static/js/main.5723b50c.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.40e1bd6a.js",
     "runtime-main.js.map": "/static/js/runtime-main.40e1bd6a.js.map",
     "static/css/2.d9ad5f5c.chunk.css": "/static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.978495b0.chunk.js": "/static/js/2.978495b0.chunk.js",
-    "static/js/2.978495b0.chunk.js.map": "/static/js/2.978495b0.chunk.js.map",
+    "static/js/2.4d8db34b.chunk.js": "/static/js/2.4d8db34b.chunk.js",
+    "static/js/2.4d8db34b.chunk.js.map": "/static/js/2.4d8db34b.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2d0c48d2645a81482513faf9d39eb36f.js": "/precache-manifest.2d0c48d2645a81482513faf9d39eb36f.js",
+    "precache-manifest.5b0327d7d241d1c231daf32e8923ec5d.js": "/precache-manifest.5b0327d7d241d1c231daf32e8923ec5d.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.d9ad5f5c.chunk.css.map": "/static/css/2.d9ad5f5c.chunk.css.map",
-    "static/css/main.22c6575c.chunk.css.map": "/static/css/main.22c6575c.chunk.css.map",
-    "static/js/2.978495b0.chunk.js.LICENSE.txt": "/static/js/2.978495b0.chunk.js.LICENSE.txt",
-    "static/media/beddau_stores.png": "/static/media/beddau_stores.ec9a6da3.png"
+    "static/css/main.0578fc16.chunk.css.map": "/static/css/main.0578fc16.chunk.css.map",
+    "static/js/2.4d8db34b.chunk.js.LICENSE.txt": "/static/js/2.4d8db34b.chunk.js.LICENSE.txt",
+    "static/media/Kairali_spices_centre.png": "/static/media/Kairali_spices_centre.974cc059.png",
+    "static/media/beddau_stores_v2.png": "/static/media/beddau_stores_v2.974186ac.png",
+    "static/media/just_shop_local_logo.png": "/static/media/just_shop_local_logo.72710871.png",
+    "static/media/kta_general.png": "/static/media/kta_general.f2bade42.png"
   },
   "entrypoints": [
     "static/js/runtime-main.40e1bd6a.js",
     "static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.978495b0.chunk.js",
-    "static/css/main.22c6575c.chunk.css",
-    "static/js/main.18ca5e52.chunk.js"
+    "static/js/2.4d8db34b.chunk.js",
+    "static/css/main.0578fc16.chunk.css",
+    "static/js/main.5723b50c.chunk.js"
   ]
 }
