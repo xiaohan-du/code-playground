@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import QrReader from 'react-qr-reader';
 import ICamera from '../interfaces/ICamera';
+import './ScanQR.scss';
 
 const ScanQR = (showCam: boolean) => {
     const [result, setResult] = useState<ICamera>({ result: 'No result' });
@@ -19,14 +20,14 @@ const ScanQR = (showCam: boolean) => {
         <>
             {
                 showCam ?
-                    <div> 
+                    <div className='scanqr mt-5'> 
                         <QrReader
                         delay={300}
                         onError={handleError}
                         onScan={handleScan}
                         style={{ width: '100%' }}
                     />
-                        <p>{result.result}</p>
+                        <p className='scanqr-result'>{result.result}</p>
                     </div>
                     : null
             }
