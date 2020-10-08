@@ -9,6 +9,8 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     &__text {
         color: $white-smoke;
         text-decoration: none;
