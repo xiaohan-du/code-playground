@@ -61,6 +61,15 @@
             min-height: 5rem;
         }
     }
+    &__float {
+        &-list {
+            & li {
+                @include ease-out-shadow;
+                width: fit-content;
+                margin-top: 1rem;
+            }
+        }
+    }
 }
 
 @include to-tablet-portrait {

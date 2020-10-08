@@ -1,12 +1,13 @@
 import React from 'react';
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import './Layout.scss';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import PhD from './pages/PhD';
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import './Layout.scss';
+import Medium from './pages/Medium';
 import Projects from './pages/Projects';
 
 const Layout = () => {
@@ -18,6 +19,9 @@ const Layout = () => {
             <Switch>
                 <Route path="/contact-me">
                     <Contact />
+                </Route>
+                <Route path="/my-medium">
+                    <Medium />
                 </Route>
                 <Route path="/my-projects">
                     <Projects />
