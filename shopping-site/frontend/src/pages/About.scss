@@ -3,9 +3,11 @@
 .about {
     margin: 8rem 0;
     &__title {
-        font-size: $title-medium;
+        font-size: 4rem;
         font-weight: normal;
-        margin-bottom: 2rem;
+        text-align: center;
+        margin-top: 12rem;
+        margin-bottom: 5rem;
     }
     &__subtitle {
         font-size: $subtitle-medium;
@@ -61,11 +63,23 @@
             min-height: 5rem;
         }
     }
+    &__float {
+        &-list {
+            & li {
+                @include ease-out-shadow;
+                width: fit-content;
+                margin-top: 1rem;
+            }
+        }
+    }
 }
 
 @include to-tablet-portrait {
     .about {
         margin: 8rem 0;
+        &__title {
+            font-size: $title-medium;
+        }
         &__img {
             width: 100%;
         }
