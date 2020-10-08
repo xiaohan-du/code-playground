@@ -2,10 +2,16 @@
 
 .footer {
     @include vertically-centered;
-    min-height: 8rem;
+    height: 4rem;
     border-top: 1px solid $white-smoke;
     flex-direction: row-reverse;
     background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 7.2rem;
     &__text {
         color: $white-smoke;
         text-decoration: none;
@@ -21,8 +27,10 @@
     .footer {
         display: flex;
         justify-content: center;
-        min-height: 6rem;
+        height: 3rem;
         margin: 0 !important;
+        padding: 0;
+        text-align: center;
         &__text {
             font-size: 1.2rem;
         }

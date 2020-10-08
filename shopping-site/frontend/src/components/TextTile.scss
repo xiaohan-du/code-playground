@@ -6,9 +6,10 @@
     align-items: center;
     margin-block-start: 0;
     &__title {
-        font-size: $title-medium;
+        font-size: 4rem;
         margin-block-start: 0;
-        margin-bottom: 2rem;
+        margin-top: 4rem;
+        margin-bottom: 5rem;
     }
     &__subtitle {
         font-size: $subtitle-medium;

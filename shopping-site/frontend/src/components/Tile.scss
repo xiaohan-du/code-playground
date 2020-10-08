@@ -10,7 +10,7 @@
 
     &__wrapper {
         @include vertically-centered;
-        background-position: 50% 10%; 
+        background-position: 50% 10%;
         background-size: cover;
     }
 
@@ -22,7 +22,7 @@
         &-bg {
             box-sizing: border-box;
             padding: 4rem;
-            background-color:rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
         }
         &__title {
@@ -34,6 +34,12 @@
         }
         &__content {
             @include content;
+            margin-bottom: 3rem;
+
+            &:last-child {
+                margin-bottom: 6rem;
+            }
+
             & a {
                 color: black;
                 text-decoration: underline;
@@ -78,7 +84,7 @@
             }
             &__content {
                 font-size: 1.1rem;
-                margin-bottom: 1rem;
+                margin-bottom: 4rem;
             }
             &__list {
                 margin-bottom: 2rem;
