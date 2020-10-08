@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import IStores from '../interfaces/IStores';
 import './Card.scss';
-import ScanQR from '../functions/ScanQR';
 
 interface Props {
-    store: IStores
+    store: IStores;
+    handleClick: () => void;
 }
 
-const Card = ({ store: { id, title, imgPath, address, postcode, messageA, messageB, btnText, terms } }: Props) => {
-
-    const [showCam, setShowCam] = useState(false);
+const Card = ({ store: { id, title, imgPath, address, postcode, messageA, messageB, btnText, terms }, handleClick }: Props) => {
 
     return (
         <>
             <div className="card" key={id}>
                 <div className='card-body'>
-                    <h5 className="card-title">
+                    <h5 className="card-title"> 
                         {title}
                     </h5>
                     <img className="card-img card-img-top" src={imgPath} alt="Card cap" />
@@ -33,13 +31,12 @@ const Card = ({ store: { id, title, imgPath, address, postcode, messageA, messag
                     </p>
                 </div>
                 <div className='card-footer'>
-                    <a href="#/" className="btn btn-outline-primary" onClick={() => setShowCam(true)}>
+                    <a href="#/" className="btn btn-outline-primary" onClick={handleClick}>
                         <span className='h3 mb-0'>{btnText}</span>
                     </a>
                     <p className='card-terms'>
                         * {terms}
                     </p>
-                    {ScanQR(showCam)}
                 </div>
             </div>
         </>

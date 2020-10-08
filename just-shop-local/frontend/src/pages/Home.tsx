@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '../components/Card';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import IStores from '../interfaces/IStores';
 import './Home.scss';
+import ScanQR from '../functions/ScanQR';
 
 const storeDetails: IStores[] = [
     {
@@ -56,6 +57,12 @@ const Home = () => {
 
     let cardRows: Array<object> = [];
 
+    const [showCam, setShowCam] = useState(false);
+
+    const handleClick = () => {
+        setShowCam(true);
+    }
+
     for (let i: number = 0; i < storeDetails.length; i = i + 2) {
         cardRows.push(
             <div className='row no-gutters' key={i}>
@@ -64,7 +71,7 @@ const Home = () => {
                         (d) => {
                             return (
                                 <div className='col d-flex justify-content-center' key={d.id} >
-                                    <Card store={d} key={d.id} />
+                                    <Card store={d} key={d.id} handleClick={handleClick}/>
                                 </div>
                             )
                         }
@@ -77,7 +84,8 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <div className='center-content home'>
+            {ScanQR(showCam)}
+            <div className='center-content home mt-5'>
                 {cardRows}
             </div>
             <Footer />
