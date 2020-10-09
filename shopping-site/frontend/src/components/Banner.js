@@ -95,9 +95,6 @@ const Banner = () => {
                         spaceBetween={0}
                         slidesPerView={1}
                         loop={true}
-                        onSlideChange={(swiper) => console.log('slide ' + swiper.activeIndex)}
-                        onSwiper={(swiper) => console.log('slide ' + swiper.activeIndex)}
-                        onReachEnd={() => console.log('End reached')}
                         navigation
                         pagination
                         autoplay={true}>
