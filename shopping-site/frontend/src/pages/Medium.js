@@ -19,11 +19,11 @@ const Medium = () => {
                     </p>
                     <p className='about__content'>
                         According to <a href='https://en.wikipedia.org/wiki/Medium_(website)'>Wikipedia Medium page</a>:
-                        Medium is an online publishing platform developed by Evan Williams and launched in August 2012. 
+                        <i> Medium is an online publishing platform developed by Evan Williams and launched in August 2012. 
                         It is owned by A Medium Corporation. 
                         The platform is an example of social journalism, 
                         having a hybrid collection of amateur and professional people and publications, 
-                        or exclusive blogs or publishers on Medium, and is regularly regarded as a blog host.
+                        or exclusive blogs or publishers on Medium, and is regularly regarded as a blog host.</i>
                     </p>
                     <p className='about__subtitle'>
                         Here is a list of Medium articles I published
