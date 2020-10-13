@@ -6,13 +6,17 @@ import Reducer from './Reducer'
 import * as serviceWorker from './serviceWorker';
 import TestUseState from './components/TestUseState';
 import TestUseReducer from './components/TestUseReducer';
+import Reducer1 from './components/Reducer1';
+import Reducer2 from './components/Reducer2';
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <Reducer /> */}
     {/* <TestUseState /> */}
-    <TestUseReducer />
+    {/* <TestUseReducer /> */}
+    {/* <Reducer1 /> */}
+    <Reducer2 />
   </React.StrictMode>,
   document.getElementById('root')
 );
