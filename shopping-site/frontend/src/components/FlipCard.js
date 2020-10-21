@@ -10,7 +10,7 @@ const FlipCard = ({img: { id, path, title, content }}) => {
                     <div className='flipcard__front'>
                         <div className="card-image">
                             <figure className="image is-square">
-                                <img src={path} alt="Placeholder" />
+                                <img src={path.default} alt="Placeholder" />
                             </figure>
                         </div>
                     </div>
