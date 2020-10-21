@@ -88,7 +88,7 @@ const ContactForm = ({ setState, handleSubmit, toggleAddress, validateFields,
                         <div className="g-recaptcha" data-sitekey="6LcqftEZAAAAADRm6QgnD3mxlU8-p8TVRZRSDi91"></div>
                         <div>
                             <button className='btn btn__primary btn__full' onClick={validateFields}>
-                                <PaperPlane className='icon' />
+                            <img src={require('../images/icons/Icon_Submit.svg').default} className='icon' alt='PaperPlane' />
                                 <span>Submit</span>
                             </button>
                         </div>

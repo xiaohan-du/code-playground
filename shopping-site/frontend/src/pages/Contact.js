@@ -138,11 +138,11 @@ const Contact = () => {
                         <div className='contact__form__column'>
                             <h1 className='contact__form__title hide-on-mobile'>&shy;</h1>
                             <a href='https://github.com/xiaohan-du' className='btn btn__zoom-in btn__log-in'>
-                                <img src={require('../images/logos/github.svg')} alt='github' />
+                                <img src={require('../images/logos/github.svg').default} alt='github' />
                                 <p>My GitHub</p>
                             </a>
                             <a href='https://www.linkedin.com/in/xiaohan-du-055a0713a/' className='btn btn__zoom-in btn__log-in'>
-                                <img src={require('../images/logos/linkedin.png')} alt='github' />
+                                <img src={require('../images/logos/linkedin.png').default} alt='github' />
                                 <p>My Linkedin</p>
                             </a>
                         </div>

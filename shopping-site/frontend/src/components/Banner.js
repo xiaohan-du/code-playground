@@ -40,7 +40,7 @@ const Banner = ({ props }) => {
                 slides.push(
                     <SwiperSlide key={`slide-${i}`}>
                         <div className='banner__img'
-                            style={{ backgroundImage: `url(${state.imgUrl[i]})` }}>
+                            style={{ backgroundImage: `url(${state.imgUrl[i].default})` }}>
                             <div className='center-content banner__content'>
                                 <div className='banner__title'>{state.title[i]}</div>
                                 <div className='banner__subtitle'>{state.subtitle[i]}</div>
