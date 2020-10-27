@@ -5,27 +5,15 @@
     width: 100%;
     height: 100%;
     margin: 3rem auto;
+    display: flex;
     &__wrapper {
-        max-width: 120rem;
+        max-width: 70rem;
         margin: 0 auto;
-        padding: 0 7.2rem;
+        padding: 0;
+        margin-bottom: 3rem;
     }
-}
-
-@include to-desktop-large {
-    .image-grid {
-        &__wrapper {
-            padding: 0;
-            max-width: 70rem;
-        }
-    }
-}
-
-@include to-desktop {
-    .image-grid {
-        &__wrapper {
-            max-width: 60rem;
-        }
+    .card:last-child {
+        column-span: all;
     }
 }
 
@@ -34,26 +22,16 @@
         &__wrapper {
             max-width: 53rem;
         }
-    }
-}
-
-@media screen and (max-width: 671px) {
-    .image-grid {
-        column-count: 2 !important;
         .card:last-child {
             column-span: all;
             height: 215px;
             width: 215px;
-        }
-        &__wrapper {
-            max-width: 45rem;
         }
     }
 }
 
 @include to-phone {
     .image-grid {
-        column-count: 1 !important;
         .card:last-child {
             column-span: all;
             height: 250px;
