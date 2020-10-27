@@ -14,6 +14,11 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     devtool: 'hidden-source-map',
+    devServer: {
+        host: '192.168.0.16',
+        port: 8080,
+        disableHostCheck: true,
+    },
     module: {
         rules: [
             {
