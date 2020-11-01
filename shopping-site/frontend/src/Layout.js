@@ -8,7 +8,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import PhD from './pages/PhD';
 import Medium from './pages/Medium';
-import Projects from './pages/Projects';
+import Hooks from './pages/Hooks';
+import Components from './pages/Components';
 
 const Layout = () => {
     return (
@@ -23,8 +24,11 @@ const Layout = () => {
                 <Route path="/my-medium">
                     <Medium />
                 </Route>
-                <Route path="/my-projects">
-                    <Projects />
+                <Route path="/my-projects/custom-hooks">
+                    <Hooks />
+                </Route>
+                <Route path="/my-projects/components-library">
+                    <Components />
                 </Route>
                 <Route path="/my-phd">
                     <PhD />
