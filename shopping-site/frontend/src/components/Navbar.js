@@ -36,6 +36,20 @@ const Navbar = () => {
                         <Link className="navbar-item" onClick={handleClick} to="/my-career">My Career</Link>
                         <Link className="navbar-item" onClick={handleClick} to="/my-phd">My PhD</Link>
                         <Link className="navbar-item" onClick={handleClick} to="/my-medium">My Medium</Link>
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <div className="navbar-link">
+                                My Projects
+                            </div>
+
+                            <div className="navbar-dropdown">
+                                <Link className="navbar-item" onClick={handleClick} to="/my-projects/custom-hooks">
+                                    Custom Hooks
+                                </Link>
+                                <Link className="navbar-item" onClick={handleClick} to="/my-projects/components-library">
+                                    Components Library
+                                </Link>
+                            </div>
+                        </div>
                         <Link className="navbar-item" onClick={handleClick} to="/contact-me">Contact Me</Link>
                     </div>
                 </div>

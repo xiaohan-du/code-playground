@@ -4,11 +4,11 @@
     & #nav-toggle-state {
         display: none;
     }
-    & a {
+    &-item {
         display: flex;
         align-items: center;
         text-decoration: none;
-        font-size: 2rem;
+        font-size: 1.6rem;
         padding-left: 1rem;
         padding-right: 1rem;
         &:visited {
@@ -60,6 +60,27 @@
     &-menu {
         box-shadow: none;
     }
+    &-brand {
+        & a {
+            display: flex;
+            align-items: center;
+            &:visited {
+                color: black;
+            }
+            & p {
+                font-size: 4rem;
+                font-weight: 800;
+            }
+        }
+    }
+    &-dropdown {
+        background-color: $snow-white;
+        border-top: 1px solid $gains-boro;
+        border-bottom: 1px solid $gains-boro;
+    }
+    &-link {
+        color: black;
+    }
 }
 
 @include to-desktop {
@@ -101,10 +122,24 @@
         }
         &-item {
             display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            &.is-hoverable {
+                &:hover {
+                    & .navbar-dropdown {
+                        display: block;
+                    }
+                }
+            }
+        }
+        &-link {
             justify-content: flex-end;
         }
         &__wrapper {
             display: block;
+        }
+        &-dropdown {
+            display: none;
         }
     }
 }
