@@ -14,7 +14,7 @@ const Hooks = () => {
             </Helmet>
             <div className='about'>
                 <div className='center-content'>
-                    <h1 className='about__title'>Custom Hooks</h1>
+                    <h1 className='about__title'>Custom Hooks (UNDER CONSTRUCTION)</h1>
                     <p className='about__subtitle'>
                         Here are some custom hooks which can be really useful
                     </p>
