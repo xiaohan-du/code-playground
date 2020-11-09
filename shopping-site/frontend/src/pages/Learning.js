@@ -16,6 +16,8 @@ const Learning = () => {
             <div className='learning'>
                 <div className='center-content'>
                     <h1 className='learning-title'>I learnt React through the following path, you may want to try it too</h1>
+                    <p className='learning-content'>Code can be found
+                        in <a href='https://github.com/xiaohan-du/code-playground/tree/master/learning-path/my-app'>my Github page</a>.</p>
                     <details>
                         <summary className='learning-subtitle'>
                             Compare React (a JS library) with Angular, Vue, Ember (JS frameworks)
@@ -53,15 +55,31 @@ npm start`} />
                             see the page being deployed at <code>http://localhost:3000/</code>.
                         </p>
                         <p className='learning-content'>
-                            The file structure is like this: <br />
+                            The initial file structure is like this: <br />
                             <img src={require('../images/learning/tree.png').default} alt='tree' /> <br />
-                            where <code>index.js</code> calls <code>App.js</code>, and <code>App.js</code> renders what we see on the page.
-                            Try modifying <code>App.js</code>, save and see the change in the page.
+                            where <code>index.js</code> invokes <code>App.js</code>, and <code>App.js</code> renders what
+                            we are seeing on the page.
+                            Try modifying <code>App.js</code>, save and see the change in the page taking effect almost immediately.
                         </p>
                         <p className='learning-content'>
                             Open <code>index.html</code> and you'll see <code>&lt;div id='root'&gt;&lt;/div&gt;</code>. ReactDOM finds <code>root</code>
                             element and renders it in <code>index.js</code>.
                         </p>
+                    </details>
+
+                    <details>
+                        <summary className='learning-subtitle'>
+                            Rendering Elements
+                        </summary>
+                        <p className='learning-content'>
+                            ReactDOM picks up the 'root' DOM and renders it in <code>index.js</code>.
+                            Any other elements rendered needs to be passed into
+                            the <code>ReactDOM.render()</code> method as follows:
+                        </p>
+                        <CodeBlock
+                            language='react'
+                            code={`ReactDOM.render(<App />, document.getElementById('root'));`}
+                        />
                     </details>
 
                     <details>
@@ -106,7 +124,7 @@ class HelloWorld extends React.Component {
     }
 }
 export default HelloWorld;`}
-                            title='Function component (left) VS class Component (right)'
+                            title='Function component (left) VS class component (right)'
                         />
 
                         <p className='learning-content'>
@@ -132,7 +150,7 @@ export default App;`}
                         </p>
                         <h1 className='learning-section-title'>Two types of components</h1>
                         <p className='learning-content'>
-                            The actual <code>HelloWorld</code> component can be a function component (left), or a class component (right).
+                            The actual <code>HelloWorld</code> component can be a function component or a class component.
                             You may have already noticed the difference between these two types of components.
                             My recommendation is to use function component, for the following reasons:
                         </p>
@@ -148,10 +166,10 @@ export default App;`}
                             </li>
                         </ul>
                         <p className='learning-content'>
-                            You may have read elsewhere that React added Hooks in version 16.8.
-                            React is all about states, and hooks let you use state and other React feature in function components without writing a class.
-                            This is another reason I think there is no need to use class components at all if you are using React v16.8 and later.
-                            However, if you are using pre v16.8, you'll still need class components for using state.
+                            React added Hooks in version 16.8. React is all about states, and hooks let you use state
+                            and other features in function components without writing a class.
+                            This is another reason I think there is no need to use class components any more if you are using React v16.8 and later.
+                            However, if you are using pre v16.8, you'll still need class components for state management.
                         </p>
                         <h1 className='learning-section-title'>Basic styling</h1>
                         <p className='learning-content'>
@@ -211,20 +229,7 @@ export default App;`}
 }`}
                         />
                     </details>
-                    <details>
-                        <summary className='learning-subtitle'>
-                            Rendering Elements
-                        </summary>
-                        <p className='learning-content'>
-                            You may have noticed that there is a 'root' DOM in <code>index.html</code>, and ReactDOM picks it up and renders it
-                            (This is done in <code>index.js</code>). Any other elements rendered needs to be passed into
-                            the <code>ReactDOM.render()</code> method as follows:
-                        </p>
-                        <CodeBlock
-                            language='react'
-                            code={`ReactDOM.render(<App />, document.getElementById('root'));`}
-                        />
-                    </details>
+
                     <details>
                         <summary className='learning-subtitle'>
                             State VS Props
@@ -257,12 +262,13 @@ const Counter = () => {
 export default Counter;`}
                         />
                         <p className='learning-content'>
-                            Don't forget to import and use <code>Counter</code> component in <code>App.js</code>. Click
+                            Don't forget to import and use <code>Counter</code> in <code>App.js</code>. Click
                             the button to see count increases. In this example we imported a
                             hook <code>useState</code>, which allows function component <code>Counter</code> to use
                             state. <code>const [count, setCount] = useState(0)</code> accepts two parameters:
                             <code>count</code> (state) and <code>setCount</code> (function). An initial value 0
-                            is set to <code>count</code>. We will cover React hooks later.
+                            is set to <code>count</code>. There are several built-in hooks and we can even define our own hooks.
+                            We will cover React hooks later.
                         </p>
                         <p className='learning-content'>
                             In the button element, an <code>onClick</code> event handler is used to increase the count. It invokes
@@ -296,12 +302,39 @@ export default Counter;`}
 }`}
                             title='Passing props from parent to child component'
                         />
+                        <p className='learning-content'>
+                            In the above example the data flows from parent (<code>App.js</code>) to child (<code>Welcome.js</code>).
+                            This is called unidirectional data flow. In other frameworks this may be known as one-way binding,
+                            which is opposite to two-way bindning. My experience is the data should always be flown from parent
+                            to child component, even if sometimes you feel that data should be flown from child to parent,
+                            you should think twice, resist the urge to do so and think how you could make data flow from parent to child.
+                            See <a href='https://medium.com/@duxiaohan_34311/react-pass-data-from-child-to-parent-ba466139a652'>my article</a> for
+                            some discussion.
+                        </p>
                         <h1 className='learning-section-title'>Destructuring Props is your friend</h1>
                         <p className='learning-content'>
                             The above component <code>Welcome.js</code> contains <code>props.name</code>, which could introduce
-                            a lot of repetition in the code. the solution is to use Destructuring Props. Check the following code:
+                            a lot of repetition in the code. Imagine there are many properties in <code>props</code>, you
+                            would not want to write <code>props.</code> in front of each property.
+                            The solution is to use Destructuring Props. Check the following code:
                         </p>
-
+                        <CodeBlock
+                            language='react'
+                            title='Welcome.js with destructuring props'
+                            code={`const Welcome = (props) => {
+    const { name, title } = props;
+    return (
+        <>
+            <h1>Hello, {name}</h1>
+            <p>Your title is {title}</p>
+        </>
+    )
+}`}
+                        />
+                        <p className='learning-content'>
+                            With destructuring props, you can avoid repetition by directly using
+                            property name like <code>&#123;name&#125;</code> and <code>&#123;title&#125;</code>.
+                        </p>
                     </details>
                 </div>
             </div>
