@@ -42,8 +42,8 @@ const Navbar = () => {
                             </div>
 
                             <div className="navbar-dropdown">
-                            <Link className="navbar-item" onClick={handleClick} to="/my-projects/learning-path">
-                                    A React Learning Path
+                                <Link className="navbar-item" onClick={handleClick} to="/my-projects/learn-react">
+                                    Learn React
                                 </Link>
                                 <Link className="navbar-item" onClick={handleClick} to="/my-projects/custom-hooks">
                                     Custom Hooks

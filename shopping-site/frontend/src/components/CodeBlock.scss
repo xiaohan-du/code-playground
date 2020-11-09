@@ -1,0 +1,9 @@
+@import "../main.scss";
+
+.code-block {
+    &-title {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+}
