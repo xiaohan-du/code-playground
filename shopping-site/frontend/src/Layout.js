@@ -10,6 +10,7 @@ import PhD from './pages/PhD';
 import Medium from './pages/Medium';
 import Hooks from './pages/Hooks';
 import Components from './pages/Components';
+import Learning from './pages/Learning';
 
 const Layout = () => {
     return (
@@ -23,6 +24,9 @@ const Layout = () => {
                 </Route>
                 <Route path="/my-medium">
                     <Medium />
+                </Route>
+                <Route path="/my-projects/learn-react">
+                    <Learning />
                 </Route>
                 <Route path="/my-projects/custom-hooks">
                     <Hooks />

@@ -1,0 +1,12 @@
+@import "../main.scss";
+
+.code-block-row {
+    display: flex;
+    &-unit {
+        width: 50%;
+        border: 2px solid $cultured-pearl;
+    }
+    & pre {
+        background: white;
+    }
+}

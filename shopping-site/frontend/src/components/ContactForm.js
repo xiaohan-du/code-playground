@@ -1,6 +1,5 @@
 import React from 'react';
 import './ContactForm.scss';
-import { ReactComponent as PaperPlane } from '../images/icons/Icon_Submit.svg';
 
 const ContactForm = ({ setState, handleSubmit, toggleAddress, validateFields, 
     stateInput: {EmailValid, PhoneAValid, PhoneBValid, showPhoneB, MessageValid, showAddress} }) => {
