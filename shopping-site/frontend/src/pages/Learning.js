@@ -306,7 +306,7 @@ export default Counter;`}
                             In the above example the data flows from parent (<code>App.js</code>) to child (<code>Welcome.js</code>).
                             This is called unidirectional data flow. In other frameworks this may be known as one-way binding,
                             which is opposite to two-way binding. My experience is the data should always be flown from parent
-                            to child component, even if sometimes you feel that data should be flown from child to parent,
+                            to child component, even if sometimes you feel that data needs to be flown from child to parent,
                             you should think twice, resist the urge to do so and think how you could make data flow from parent to child.
                             See <a href='https://medium.com/@duxiaohan_34311/react-pass-data-from-child-to-parent-ba466139a652'>my article</a> for
                             some discussion.
