@@ -2,19 +2,16 @@ import './App.css';
 import HelloWorld from './components/HelloWorld';
 import Counter from './components/Counter';
 import Welcome from './components/Welcome';
+import Card from './components/Card';
 
-const team = [
-  {
-    id: 1,
-    name: 'John',
-    age: 20
-  },
-  {
-    id: 2,
-    name: 'Tom',
-    age: 30
+const props = {
+  name: 'John',
+  address: {
+    address1: '50, 5th Ave',
+    address2: 'NY 10118',
+    city: 'New York'
   }
-]
+}
 
 const App = () => {
   return (
@@ -22,6 +19,7 @@ const App = () => {
       <HelloWorld />
       <Counter />
       <Welcome name='Sara' title='Engineer' />
+      <Card props={props} />
     </div>
   );
 }

@@ -332,9 +332,45 @@ export default Counter;`}
 }`}
                         />
                         <p className='learning-content'>
-                            With destructuring props, you can avoid repetition by directly using
+                            With destructuring props, repetition is avoided by directly using
                             property name like <code>&#123;name&#125;</code> and <code>&#123;title&#125;</code>.
                         </p>
+                        <h1 className='learning-section-title'>Nested destructuring</h1>
+                        <p className='learning-content'>
+                            Sometimes the properties in an object can be nested, 
+                            destructuring props can still be utilised. 
+                            Check the following example:
+                        </p>
+                        <CodeBlockRow
+                            language1='react'
+                            code1={`const Card = ({ props: { name, address: { address1, address2, city } } }) => {
+    return (
+        <>
+            <div>
+                {name} lives in {address1}, {address2}, {city}
+            </div>
+        </>
+    )
+}`}
+                            language2='react'
+                            code2={`const props = {
+  name: 'John',
+  address: {
+    address1: '50, 5th Ave',
+    address2: 'NY 10118',
+    city: 'New York'
+  }
+}
+
+const App = () => {
+  return (
+    <div className="App">
+      <Card props={props} />
+    </div>
+  );
+}`}
+                            title='Nested destructuring'
+                        />
                     </details>
                 </div>
             </div>
