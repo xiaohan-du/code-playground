@@ -1,0 +1,6 @@
+@import "../../main.scss";
+
+.paragraph {
+    @include content;
+        margin-bottom: 1rem;
+}
