@@ -1,0 +1,8 @@
+@import "../../main.scss";
+
+.code-demo {
+    cursor: pointer;
+    @include ease-out-shadow;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
