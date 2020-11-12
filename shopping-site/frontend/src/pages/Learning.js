@@ -2,7 +2,9 @@ import React from 'react';
 import './Learning.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../functions/ScrollToTopOnMount';
-import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow } from '../components/CMS/index.js';
+import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../components/CMS/index.js';
+import { Counter, FormUseState } from '../components/tutorial/index.js';
+
 
 const Learning = () => {
     return (
@@ -64,7 +66,7 @@ npm start`} />
                             Try modifying <code>App.js</code>, save and see the change in the page taking effect almost immediately.
                         </Paragraph>
                         <Paragraph>
-                            Open <code>index.html</code> and you'll see <code>&lt;div id='root'&gt;&lt;/div&gt;</code>. ReactDOM 
+                            Open <code>index.html</code> and you'll see <code>&lt;div id='root'&gt;&lt;/div&gt;</code>. ReactDOM
                             finds <code>root</code> element and renders it in <code>index.js</code>.
                         </Paragraph>
                     </details>
@@ -168,7 +170,7 @@ export default App;`}
                             </li>
                         </ul>
                         <Paragraph>
-                            React added Hooks in version 16.8. React is all about states, and hooks let you use state
+                            React added Hooks in version 16.8. React is all about states, and Hooks let you use state
                             and other features in function components without writing a class.
                             This is another reason I think there is no need to use class components any more if you are using React v16.8 and later.
                             However, if you are using pre v16.8, you'll still need class components for state management.
@@ -255,8 +257,9 @@ export default App;`}
                         </Paragraph>
                         <SectionTitle>State</SectionTitle>
                         <Paragraph>
-                            Let's look at an example of a component state from <a href='https://reactjs.org/docs/hooks-state.html'>React hooks docs</a>: create
-                            <code>Counter.js</code> in <code>./src/components</code>:
+                            Let's look at an example of a component state
+                            from <a href='https://reactjs.org/docs/hooks-state.html'>React Hooks docs</a>:
+                            create <code>Counter.js</code> in <code>./src/components</code>:
                         </Paragraph>
                         <CodeBlock
                             language='react'
@@ -275,21 +278,26 @@ const Counter = () => {
 }
 export default Counter;`}
                         />
+                        <CodeDemo demoComponent={<Counter />}/>
                         <Paragraph>
                             Don't forget to import and use <code>Counter</code> in <code>App.js</code>. Click
                             the button to see count increases. In this example we imported a
-                            hook <code>useState</code>, which allows function component <code>Counter</code> to use
+                            Hook <code>useState</code>, which allows function component <code>Counter</code> to use
                             state. <code>const [count, setCount] = useState(0)</code> accepts two parameters:
                             <code>count</code> (state) and <code>setCount</code> (function). An initial value 0
-                            is set to <code>count</code>. There are several built-in hooks and we can even define our own hooks.
-                            We will cover React hooks later.
+                            is set to <code>count</code>. There are several built-in Hooks and we can even define our own Hooks.
+                            We will cover React Hooks later.
                         </Paragraph>
                         <Paragraph>
                             In the button element, an <code>onClick</code> event handler is used to increase the count. It invokes
                             the <code>setCount</code> function to update <code>count</code> state on each click. The updated
                             state is presented in <code>&#123;count&#125;</code>.
                         </Paragraph>
-
+                        <Paragraph>
+                            So what is state? React state is an object of observable properties that control the behaviour
+                            of the component. When the state changes, the component re-renders. As the name implies,
+                            a state is the internal state of a component, while props is the external input to a component.
+                        </Paragraph>
                         <SectionTitle>Props</SectionTitle>
                         <Paragraph>
                             Let's look at an example of passing props from <a href='https://reactjs.org/docs/components-and-props.html'>React components and props doc</a>.
@@ -385,6 +393,151 @@ const App = () => {
 }`}
                             title='Nested destructuring'
                         />
+                    </details>
+
+                    <details>
+                        <summary className='learning-subtitle'>
+                            Hooks
+                        </summary>
+                        <Paragraph>
+                            <a href='https://reactjs.org/docs/hooks-intro.html'>Hooks</a> are a new addition in React 16.8. They let you use
+                            state and other React features without writing a class. Hooks are introduced aheaded of other concepts because I
+                            think Hooks are one of the most important concept post v16.8. Hooks enables the full power of function components.
+                            There are several built-in Hooks such
+                            as <code>useState</code>, <code>useEffect</code>, <code>useContext</code>, <code>useReducer</code>, <code>useRef</code>, etc.
+                            You can even build your own Hooks!
+                        </Paragraph>
+                        <SectionTitle>
+                            Rules
+                        </SectionTitle>
+                        <Paragraph>
+                            There are several rules to follow when using Hooks:
+                        </Paragraph>
+                        <ul>
+                            <li>
+                                A Hook always starts with <b>use</b>. This is how Hooks are differentiated from other React functions.
+                                </li>
+                            <li>
+                                Hooks don't work in class components, they only work in function components.
+                                </li>
+                            <li>
+                                Hooks should only be called at the top level, i.e. not inside loops, conditions or nested functions.
+                                Do not call Hooks from regular JS functions.
+                                </li>
+                        </ul>
+                        <SectionTitle>
+                            useState: the state Hook
+                        </SectionTitle>
+                        <Paragraph>
+                            <code>useState</code> Hook is used to introduce state to function components. Let's look at the difference
+                            between class and function component when there is a state:
+                        </Paragraph>
+                        <CodeBlockRow
+                            language1='react'
+                            code1={`const Counter = () => {
+    const [count, setCount] = useState(0);
+    return (
+        <>
+            <p>You clicked {count} times</p>
+            <button onClick={() => { setCount(count + 1) }}>
+                Click me
+            </button>
+        </>
+    )
+}`}
+                            language2='react'
+                            code2={`class Counter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { count: 0 };
+    }
+    render() {
+        return (
+            <>
+                <p>You clicked {this.state.count} times</p>
+                <button onClick={() => this.setState({count: this.state.count + 1})}>
+                    Click me
+            </button>
+            </> 
+        )
+    }
+}`}
+                            title='Class and function component state'
+                        />
+                        <Paragraph>
+                            As you can see, using a class component significantly needs more code. A set of syntax rule is also
+                            required, thus making class component prone to errors. Especially the need of
+                            <code>constructor</code> and keyword <code>this</code> is a burden. On the other hand, we can see
+                            how simple function component is.
+                        </Paragraph>
+                        <Paragraph>
+                            In a function component, there is no <code>this</code>, so we use <code>useState</code> Hook.
+                            The <code>useState</code> Hook declares a 'state variable' <code>count</code>, which is equivalent
+                            to <code>this.state</code> in a class component. The only parameter passed into
+                            the <code>useState</code> Hook is the initial state 0. The initial state does not need
+                            to be an object like in class component, it can be a number, a string, a boolean or an array.
+                        </Paragraph>
+                        <Paragraph>
+                            The <code>useState</code> Hook returns a pair of values: the current state and a function.
+                            This is reflected in <code>const [count, setcount] = useState(0)</code>,
+                            where <code>count</code> and <code>setCount</code> are equivalent to <code>this.state.count</code> and
+                            <code>this.setState</code>, respectively. When the user clicks the
+                            button, <code>setCount</code> is called and updates <code>count</code>. React re-renders the component
+                            with the updated <code>count</code> value.
+                        </Paragraph>
+                        <SectionTitle>
+                            What if there are many states?
+                        </SectionTitle>
+                        <Paragraph>
+                            Imagine there is a case when several states are needed, we would not want to repeatedly writing useState.
+                            Check the following code for a form with multiple input fields (this example is similar to two-way binding):
+                        </Paragraph>
+                        <CodeBlock
+                            language='react'
+                            title='Handle multiple states with useState Hook'
+                            code={`const initialState = {
+    name: 'John',
+    age: 25
+};
+const FormUseState = () => {
+    const [formState, setFormState] = useState(initialState);
+    const handleChange = (e) => {
+        setFormState({
+            ...formState,
+            [e.target.name]: e.target.value
+        });
+    };
+    const {name, age} = formState;
+    return (
+        <>
+            <form onSubmit={(e) => e.preventDefault()}>
+                <label htmlFor='name'>Name: </label>
+                <input type='text' id='name' name='name' placeholder={name} onChange={handleChange} />
+                <p>The person's name is {name}.</p>
+                <br />
+                <label htmlFor='age'>Age: </label>
+                <input type='text' id='age' name='age' placeholder={age} onChange={handleChange} />
+                <p>His/her age is {age}.</p>
+            </form>
+        </>
+    )
+}`}
+                        />
+                        <CodeDemo demoComponent={<FormUseState />} />
+                        <SectionTitle>
+                            useReducer: action Hook
+                        </SectionTitle>
+                        <Paragraph>
+                            The <code>useReducer</code> is considered to be an additional Hook and an alternative to
+                            the <code>useState</code> Hook. It is also used to manage state but more preferable to
+                            the <code>useState</code> Hook when there is complex state logic.
+                        </Paragraph>
+                        <Paragraph>
+                            The syntax is:
+                        </Paragraph>
+                        <div className='learning-content'>
+                            <pre children={`const [state, dispatch] = useReducer(reducer, initialArg, init);`} />
+                        </div>
                     </details>
                 </div>
             </div>

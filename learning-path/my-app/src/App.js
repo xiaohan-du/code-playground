@@ -3,6 +3,9 @@ import HelloWorld from './components/HelloWorld';
 import Counter from './components/Counter';
 import Welcome from './components/Welcome';
 import Card from './components/Card';
+import FormUseState from './components/FormUseState';
+import CounterUseReducer from './components/CounterUseReducer';
+import FormUseReducer from './components/FormUseReducer';
 
 const props = {
   name: 'John',
@@ -20,6 +23,12 @@ const App = () => {
       <Counter />
       <Welcome name='Sara' title='Engineer' />
       <Card props={props} />
+      <p>useState</p>
+      <FormUseState />
+      <p>useReducer</p>
+      <FormUseReducer />
+      <CounterUseReducer />
+
     </div>
   );
 }
