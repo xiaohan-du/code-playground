@@ -677,10 +677,10 @@ const FormUseReducer = () => {
                             title='useState VS useReducer'
                         />
                     <Paragraph>
-                        The side-by-side example highlighted the difference 
+                        The side-by-side example highlights the difference 
                         between <code>useState</code> and <code>useReducer</code> in the same scenario. In the same 
-                        <code>handleChange</code> function, <code>useState</code> updated the state 
-                        with <code>setFormState</code> method, while <code>useReducer</code> updated the same state 
+                        <code>handleChange</code> function, <code>useState</code> updates the state 
+                        with <code>setFormState</code> method, while <code>useReducer</code> updates the same state 
                         with <code>dispatch</code> method, with some help from the <code>reducer</code> function. 
                     </Paragraph>
                     </details>
