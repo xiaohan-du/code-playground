@@ -44,7 +44,7 @@ const Learning = () => {
                             it provides a complete set up for a React application including an initial project structure.
                         </Paragraph>
                         <Paragraph>
-                            For convenience, this tutorial is going to be based on an React app created via Create React App.
+                            For convenience, this tutorial is going to be based on a React app created via Create React App.
                             Now let's walk through the very basics. Say the app is named as 'my-app',
                             open a terminal in the path where you want to place your React app,
                             type the following commands:
