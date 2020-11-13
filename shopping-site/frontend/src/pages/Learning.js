@@ -20,7 +20,7 @@ const Learning = () => {
                         I learnt React through the following path, you may want to try it too
                         </h1>
                     <Paragraph>
-                        Code can be found in <a href="https://github.com/xiaohan-du/code-pla     yground/tree/master/learning-path/my-app">my Github page</a>
+                        Code can be found in <a href="https://github.com/xiaohan-du/code-playground/tree/master/learning-path/my-app">my Github page</a>
                     </Paragraph>
                     <details>
                         <summary className='learning-subtitle'>
@@ -329,7 +329,7 @@ export default Counter;`}
                             This is called unidirectional data flow. In other frameworks this may be known as one-way binding,
                             which is opposite to two-way binding. My experience is that the data should always be flown from parent
                             to child component, even if sometimes you feel that data needs to be flown from child to parent,
-                            you should think twice, resist the urge to do so and think how you could make data flow from parent to child.
+                            you should think twice, resist the temptation to do so and think how you could make data flow from parent to child.
                             See <a href='https://medium.com/@duxiaohan_34311/react-pass-data-from-child-to-parent-ba466139a652'>my article</a> for
                             some discussion.
                         </Paragraph>
