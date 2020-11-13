@@ -7,12 +7,13 @@ const initialState = {
 const FormUseState = () => {
     const [formState, setFormState] = useState(initialState);
     const handleChange = (e) => {
+        const { name, value } = e.target;
         setFormState({
             ...formState,
-            [e.target.name]: e.target.value
+            [name]: value
         });
     };
-    const {name, age} = formState;
+    const { name, age } = formState;
     return (
         <>
             <form onSubmit={(e) => e.preventDefault()}>
@@ -28,4 +29,4 @@ const FormUseState = () => {
     )
 }
 
-export default FormUseState;
+export default FormUseState;  

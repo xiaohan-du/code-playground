@@ -45,12 +45,12 @@ const Navbar = () => {
                                 <Link className="navbar-item" onClick={handleClick} to="/my-projects/learn-react">
                                     Learn React
                                 </Link>
-                                <Link className="navbar-item" onClick={handleClick} to="/my-projects/custom-hooks">
+                                {/* <Link className="navbar-item" onClick={handleClick} to="/my-projects/custom-hooks">
                                     Custom Hooks
                                 </Link>
                                 <Link className="navbar-item" onClick={handleClick} to="/my-projects/components-library">
                                     Components Library
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                         <Link className="navbar-item" onClick={handleClick} to="/contact-me">Contact Me</Link>
