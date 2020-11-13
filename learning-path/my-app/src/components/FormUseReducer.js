@@ -1,11 +1,17 @@
 import React, { useReducer } from 'react';
 
+const initialState = {
+    name: 'John',
+    age: 25
+};
+
 const reducer = (state, action) => {
-    switch (action.type) {
+    const { type, name, value } = action;
+    switch (type) {
         case 'change':
             return {
                 ...state,
-                [action.name]: action.value
+                [name]: value
             }
         default:
             return state
@@ -13,24 +19,22 @@ const reducer = (state, action) => {
 }
 
 const FormUseReducer = () => {
-    const [state, dispatch] = useReducer(reducer, {
-        name: 'John',
-        age: 25
-    });
+    const [formState, dispatch] = useReducer(reducer, initialState);
     const handleChange = (e) => {
-        const {name, value} = e.currentTarget;
-        dispatch({type: 'change', name, value});
+        const { name, value } = e.target;
+        dispatch({ type: 'change', name, value });
     }
+    const { name, age } = formState;
     return (
         <>
             <form onSubmit={(e) => e.preventDefault()}>
                 <label htmlFor='name'>Name: </label>
-                <input type='text' id='name' name='name' placeholder={state.name} onChange={handleChange} />
-                <p>The person's name is {state.name}.</p>
+                <input type='text' id='name' name='name' placeholder={name} onChange={handleChange} />
+                <p>The person's name is {name}.</p>
                 <br />
                 <label htmlFor='age'>Age: </label>
-                <input type='text' id='age' name='age' placeholder={state.age} onChange={handleChange} />
-                <p>His/her age is {state.age}.</p>
+                <input type='text' id='age' name='age' placeholder={age} onChange={handleChange} />
+                <p>His/her age is {age}.</p>
             </form>
         </>
     )

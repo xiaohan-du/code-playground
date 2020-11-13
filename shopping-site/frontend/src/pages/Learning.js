@@ -3,7 +3,7 @@ import './Learning.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../functions/ScrollToTopOnMount';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../components/CMS/index.js';
-import { Counter, FormUseState } from '../components/tutorial/index.js';
+import { Counter, FormUseState, CounterUseReducer } from '../components/tutorial/index.js';
 
 
 const Learning = () => {
@@ -278,9 +278,9 @@ const Counter = () => {
 }
 export default Counter;`}
                         />
-                        <CodeDemo demoComponent={<Counter />}/>
+                        <CodeDemo demoComponent={<Counter />} />
                         <Paragraph>
-                            Don't forget to import and use <code>Counter</code> in <code>App.js</code>. Click
+                            Don't forget to import and use <code>Counter</code> component in <code>App.js</code>. Click
                             the button to see count increases. In this example we imported a
                             Hook <code>useState</code>, which allows function component <code>Counter</code> to use
                             state. <code>const [count, setCount] = useState(0)</code> accepts two parameters:
@@ -401,9 +401,9 @@ const App = () => {
                         </summary>
                         <Paragraph>
                             <a href='https://reactjs.org/docs/hooks-intro.html'>Hooks</a> are a new addition in React 16.8. They let you use
-                            state and other React features without writing a class. Hooks are introduced aheaded of other concepts because I
-                            think Hooks are one of the most important concept post v16.8. Hooks enables the full power of function components.
-                            There are several built-in Hooks such
+                            state and other React features without writing a class. Hooks are introduced in this tutorial before other concepts 
+                            because I think Hooks are one of the most important concept post v16.8. 
+                            Hooks enables the full power of function components. There are several built-in Hooks such
                             as <code>useState</code>, <code>useEffect</code>, <code>useContext</code>, <code>useReducer</code>, <code>useRef</code>, etc.
                             You can even build your own Hooks!
                         </Paragraph>
@@ -465,10 +465,8 @@ const App = () => {
                             title='Class and function component state'
                         />
                         <Paragraph>
-                            As you can see, using a class component significantly needs more code. A set of syntax rule is also
-                            required, thus making class component prone to errors. Especially the need of
-                            <code>constructor</code> and keyword <code>this</code> is a burden. On the other hand, we can see
-                            how simple function component is.
+                            As you can see, using a class component significantly requires more code. Class components 
+                            also forces the use of certain syntax rules, making class component prone to errors. 
                         </Paragraph>
                         <Paragraph>
                             In a function component, there is no <code>this</code>, so we use <code>useState</code> Hook.
@@ -489,8 +487,10 @@ const App = () => {
                             What if there are many states?
                         </SectionTitle>
                         <Paragraph>
-                            Imagine there is a case when several states are needed, we would not want to repeatedly writing useState.
-                            Check the following code for a form with multiple input fields (this example is similar to two-way binding):
+                            Imagine there is a case when several states are needed, we would not want to repeatedly 
+                            writing <code>useState</code>. In this case an <code>initialState</code> object can be set as the initial value
+                            of <code>useState</code> Hook. Check the following code for a form with multiple
+                            input fields (this is similar to two-way binding):
                         </Paragraph>
                         <CodeBlock
                             language='react'
@@ -502,12 +502,13 @@ const App = () => {
 const FormUseState = () => {
     const [formState, setFormState] = useState(initialState);
     const handleChange = (e) => {
+        const { name, value } = e.target;
         setFormState({
             ...formState,
-            [e.target.name]: e.target.value
+            [name]: value
         });
     };
-    const {name, age} = formState;
+    const { name, age } = formState;
     return (
         <>
             <form onSubmit={(e) => e.preventDefault()}>
@@ -528,16 +529,160 @@ const FormUseState = () => {
                             useReducer: action Hook
                         </SectionTitle>
                         <Paragraph>
-                            The <code>useReducer</code> is considered to be an additional Hook and an alternative to
+                            The <code>useReducer</code> Hook is considered to be an additional Hook and an alternative to
                             the <code>useState</code> Hook. It is also used to manage state but more preferable to
-                            the <code>useState</code> Hook when there is complex state logic.
-                        </Paragraph>
-                        <Paragraph>
-                            The syntax is:
+                            the <code>useState</code> Hook when there is complex state logic. The syntax is:
                         </Paragraph>
                         <div className='learning-content'>
                             <pre children={`const [state, dispatch] = useReducer(reducer, initialArg, init);`} />
                         </div>
+                        <Paragraph>
+                            Let's take a look at an example from
+                            the <a href='https://reactjs.org/docs/hooks-reference.html#usereducer'>official document</a>:
+                        </Paragraph>
+                        <CodeBlock
+                            language='react'
+                            title='useReducer Hook'
+                            code={`const reducer = (state, action) => {
+    switch (action.type) {
+        case 'increment':
+            return { count: state.count + 1 }
+        case 'decrement':
+            return { count: state.count - 1 }
+        default:
+            throw new Error();
+    }
+}
+
+const CounterUseReducer = () => {
+    const [state, dispatch] = useReducer(reducer, {count: 0});
+    return (
+        <>
+            Count: {state.count}
+            <br />
+            <button onClick={() => dispatch({type: 'increment'})}>+</button>
+            <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+        </>
+    )
+}`}>
+
+                        </CodeBlock>
+                        <CodeDemo demoComponent={<CounterUseReducer />} />
+                        <Paragraph>
+                            In this example we first defined a <code>reducer</code> function which contains different cases.
+                            This function was then passed into the <code>useReducer</code> Hook with an initial
+                            value <code>&lt;count: 0&gt;</code>. The <code>useReducer</code> Hook returned the current
+                            state with a <code>dispatch</code> method, which was used in the <code>onClick</code> event
+                            to handle different cases.
+                        </Paragraph>
+                        <SectionTitle>
+                            <code>useReducer</code> VS <code>useState</code>
+                        </SectionTitle>
+                        <Paragraph>
+                            Now we can see how <code>useReducer</code> is different from <code>useState</code> in terms of
+                            state management. With the above example, <code>useState</code> would need to set up
+                            separately to manage 'increment' and 'decrement' states, while <code>useReducer</code> combines
+                            both scenarios in one <code>reducer</code> function. As code complexity increases, the advantage
+                            of <code>useReducer</code> over <code>useState</code> rises as the latter might be scattered
+                            in the code, while the former gathers states in one <code>switch</code> statement.
+                        </Paragraph>
+                        <SectionTitle>
+                            What if there are many states? (<code>useReducer</code> version)
+                        </SectionTitle>
+                        <Paragraph>
+                            In the previous section we showed how <code>useState</code> can be used when there are many
+                            states. Let's do a side-by-side comparison to see how the same example can be 
+                            re-written with <code>useReducer</code> Hook:
+                        </Paragraph>
+                        <CodeBlockRow
+                            language1='react'
+                            code1={`const initialState = {
+    name: 'John',
+    age: 25
+};
+const FormUseState = () => {
+    const [formState, setFormState] = useState(initialState);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormState({
+            ...formState,
+            [name]: value
+        });
+    };
+
+
+
+
+
+
+
+
+
+    // identical code blow
+    const { name, age } = formState;
+    return (
+        <>
+            <form onSubmit={(e) => e.preventDefault()}>
+                <label htmlFor='name'>Name: </label>
+                <input type='text' id='name' name='name' placeholder={name} onChange={handleChange} />
+                <p>The person's name is {name}.</p>
+                <br />
+                <label htmlFor='age'>Age: </label>
+                <input type='text' id='age' name='age' placeholder={age} onChange={handleChange} />
+                <p>His/her age is {age}.</p>
+            </form>
+        </>
+    )
+}
+`}
+                            language2='react'
+                            code2={`const initialState = {
+    name: 'John',
+    age: 25
+};
+const reducer = (state, action) => {
+    const { type, name, value } = action;
+    switch (type) {
+        case 'change':
+            return {
+                ...state,
+                [name]: value
+            }
+        default:
+            return state
+    }
+}
+const FormUseReducer = () => {
+    const [formState, dispatch] = useReducer(reducer, initialState);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        dispatch({ type: 'change', name, value });
+    }
+    // identical code below
+    const { name, age } = formState;
+    return (
+        <>
+            <form onSubmit={(e) => e.preventDefault()}>
+                <label htmlFor='name'>Name: </label>
+                <input type='text' id='name' name='name' placeholder={name} onChange={handleChange} />
+                <p>The person's name is {name}.</p>
+                <br />
+                <label htmlFor='age'>Age: </label>
+                <input type='text' id='age' name='age' placeholder={age} onChange={handleChange} />
+                <p>His/her age is {age}.</p>
+            </form>
+        </>
+    )
+}`}
+                            title='useState VS useReducer'
+                        />
+                    <Paragraph>
+                        The side-by-side example highlighted the difference 
+                        between <code>useState</code> and <code>useReducer</code> in the same scenario. In the same 
+                        <code>handleChange</code> function, <code>useState</code> updated the state 
+                        with <code>setFormState</code> method, while <code>useReducer</code> updated the same state 
+                        with <code>dispatch</code> method, with some help from the <code>reducer</code> function. 
+                    </Paragraph>
                     </details>
                 </div>
             </div>
