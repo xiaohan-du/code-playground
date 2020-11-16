@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 import ContactForm from '../components/ContactForm';
 import ContactResponse from '../components/ContactResponse';
 import './Contact.scss';
@@ -9,40 +9,40 @@ import Spinner from '../components/Spinner';
 
 const Contact = () => {
 
-    const [state, setState] = useReducer(
-        (state, newState) => ({ ...state, ...newState }),
-        {
-            showAddress: false,
-            showPhoneB: false,
-            FullName: '',
-            EmailAddress: '',
-            PhoneA: null,
-            PhoneB: null,
-            Message: '',
-            AddressA: '',
-            AddressB: '',
-            City: '',
-            State: '',
-            Postcode: '',
-            Country: '',
-            Subject: '',
-            showResponse: false,
-            showSpinner: false,
-            EmailValid: true,
-            PhoneAValid: true,
-            PhoneBValid: true,
-            MessageValid: true
-        }
-    )
+    const initialState = {
+        showAddress: false,
+        showPhoneB: false,
+        FullName: '',
+        EmailAddress: '',
+        PhoneA: null,
+        PhoneB: null,
+        Message: '',
+        AddressA: '',
+        AddressB: '',
+        City: '',
+        State: '',
+        Postcode: '',
+        Country: '',
+        Subject: '',
+        showResponse: false,
+        showSpinner: false,
+        showError: false,
+        EmailValid: true,
+        PhoneAValid: true,
+        PhoneBValid: true,
+        MessageValid: true
+    };
+
+    const [state, setState] = useState(initialState);
 
     const validateFields = () => {
         // eslint-disable-next-line
         const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/;
         if (!state.EmailAddress.trim().length) {
-            setState({ EmailValid: true });
+            setState({ ...state, EmailValid: true });
         }
         else {
-            setState({ EmailValid: emailRegex.test(state.EmailAddress.toLowerCase()) });
+            setState({ ...state, EmailValid: emailRegex.test(state.EmailAddress.toLowerCase()) });
         };
         if (state.PhoneA != null) {
             state.PhoneA.length > 20 || isNaN(state.PhoneA) ? state.PhoneAValid = false : state.PhoneAValid = true;
@@ -57,16 +57,16 @@ const Contact = () => {
 
     const toggleAddress = () => {
         if (state.showAddress === false) {
-            setState({ AddressA: '', AddressB: '', City: '', State: '', Postcode: '', Country: '', Subject: '' });
+            setState({ ...state, AddressA: '', AddressB: '', City: '', State: '', Postcode: '', Country: '', Subject: '' });
         };
-        setState({ showAddress: !state.showAddress });
+        setState({ ...state, showAddress: !state.showAddress });
     }
 
     const handleSubmit = (e) => {
 
         e.preventDefault();
 
-        setState({ showSpinner: true });
+        setState({ ...state, showSpinner: true });
 
         const emailParameters = {
             from_name: state.FullName,
@@ -86,8 +86,9 @@ const Contact = () => {
         emailjs.send('service_jas6kd9', 'template_01fh4ho', emailParameters, 'user_aRVETyULWNuBVasxNLEFn')
             .then((result) => {
                 console.log(result.status, result.text);
-                result.status === 200 ? setState({ showResponse: true, showSpinner: false }) : setState({ showResponse: false });
+                result.status === 200 ? setState({ ...state, showResponse: true, showSpinner: false }) : setState({ ...state, showResponse: false });
             }, (error) => {
+                setState({ ...state, showSpinner: false, showError: true })
                 console.log(error.text);
             });
 
@@ -97,11 +98,19 @@ const Contact = () => {
         if (!state.showSpinner && !state.showResponse) {
             return (
                 <ContactForm
+                    state={state}
                     setState={setState}
                     handleSubmit={handleSubmit}
                     toggleAddress={toggleAddress}
                     validateFields={validateFields}
                     stateInput={state} />
+            )
+        }
+        else if (state.showError) {
+            return (
+                <div>
+                    <p>Email error, please message me on Linkedin, thank you.</p>
+                </div>
             )
         }
         else if (state.showSpinner && !state.showResponse) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import Spinner from './Spinner';
@@ -12,27 +12,29 @@ const Banner = ({ props }) => {
 
     const slides = [];
 
-    const [state, setState] = useReducer(
-        (state, newState) => ({ ...state, ...newState }),
-        { title: [], subtitle: [], imgUrl: [], renderBanner: false }
-    );
+    const initialState = {
+        title: [],
+        subtitle: [],
+        imgUrl: [],
+        renderBanner: false
+    };
 
-    const setTitles = useCallback(() => {
+    const [state, setState] = useState(initialState);
+
+    const setTitles = () => {
         let _title = [];
         let _subtitle = [];
         let _imgUrl = [];
         props.forEach(e => _title.push(e.title))
         props.forEach(e => _subtitle.push(e.subtitle));
         props.forEach(e => _imgUrl.push(e.imgUrl));
-        setState({ title: _title });
-        setState({ subtitle: _subtitle });
-        setState({ imgUrl: _imgUrl });
-    }, [props]);
-
-    useEffect(() => {
-        setTitles();
-        setState({ renderBanner: true });
-    }, [setTitles]);
+        setState({ 
+            title: _title,
+            subtitle: _subtitle,
+            imgUrl: _imgUrl, 
+            renderBanner: true
+        });
+    }
 
     const storeSlides = () => {
         if (state.renderBanner === true) {
@@ -57,6 +59,10 @@ const Banner = ({ props }) => {
         }
 
     }
+
+    useEffect(() => {
+        setTitles();
+    }, []);
 
     storeSlides();
 

@@ -7,6 +7,8 @@ import FormUseState from './components/FormUseState';
 import CounterUseReducer from './components/CounterUseReducer';
 import FormUseReducer from './components/FormUseReducer';
 import FetchApiClass from './components/FetchApiClass';
+import UseStateExample from './components/UseStateExample';
+import UseStateExample1 from './components/UseStateExample1';
 
 const props = {
   name: 'John',
@@ -30,6 +32,8 @@ const App = () => {
       <FormUseReducer />
       <CounterUseReducer />
       <FetchApiClass />
+      <UseStateExample />
+      <UseStateExample1 />
     </div>
   );
 }
