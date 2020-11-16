@@ -6,6 +6,7 @@ import Card from './components/Card';
 import FormUseState from './components/FormUseState';
 import CounterUseReducer from './components/CounterUseReducer';
 import FormUseReducer from './components/FormUseReducer';
+import FetchApiClass from './components/FetchApiClass';
 
 const props = {
   name: 'John',
@@ -28,7 +29,7 @@ const App = () => {
       <p>useReducer</p>
       <FormUseReducer />
       <CounterUseReducer />
-
+      <FetchApiClass />
     </div>
   );
 }

@@ -248,6 +248,79 @@ export default App;`}
 
                     <details>
                         <summary className='learning-subtitle'>
+                            Component Lifecycle for Class Components
+                        </summary>
+                        <Paragraph>
+                            Each component has a lifecycle which contains 3 main phases: Mounting,
+                            Updating, Unmounting:
+                        </Paragraph>
+                        <ul>
+                            <li>
+                                Mounting: putting components in the DOM. The <code>componentDidMount()</code> method is
+                                called immediately after mounting a component
+                            </li>
+                            <li>
+                                Updating: a component is updated whenever the component <code>state</code> or <code>props</code> is
+                                changed. The <code>componentDidUpdate()</code> method is called when updating a component
+                            </li>
+                            <li>
+                                Unmounting: when a component is removed (unmounted) from the DOM. The <code>componentWillUnmount()</code> method
+                                is called when the component is about to be unmounted from the DOM.
+                            </li>
+                        </ul>
+                        <Paragraph>
+                            For each lifecycle method, one code example is given below
+                        </Paragraph>
+                        <CodeBlock
+                            language='react'
+                            title='Fetch api on component mounting'
+                            code={`class FetchApiClass extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            userId: null,
+            title: '',
+            err: null
+        }
+    }
+    componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        userId: result.userId,
+                        title: result.title
+                    });
+                },
+                (err) => {
+                    this.setState({
+                        err
+                    })
+                }
+            )
+    }
+    render() {
+        const { err, userId, title } = this.state;
+        if (err) {
+            return <div>Error: {err}</div>
+        }
+        else {
+            return (
+                <div>
+                    <p>Your user ID is {userId}</p>
+                    <p>Your title is {title}</p>
+                </div>
+            )
+        }
+    }
+}`}>
+
+                        </CodeBlock>
+                    </details>
+
+                    <details>
+                        <summary className='learning-subtitle'>
                             State VS Props
                         </summary>
                         <Paragraph>
@@ -401,8 +474,8 @@ const App = () => {
                         </summary>
                         <Paragraph>
                             <a href='https://reactjs.org/docs/hooks-intro.html'>Hooks</a> are a new addition in React 16.8. They let you use
-                            state and other React features without writing a class. Hooks are introduced in this tutorial before other concepts 
-                            because I think Hooks are one of the most important concept post v16.8. 
+                            state and other React features without writing a class. Hooks are introduced in this tutorial before other concepts
+                            because I think Hooks are one of the most important concept post v16.8.
                             Hooks enables the full power of function components. There are several built-in Hooks such
                             as <code>useState</code>, <code>useEffect</code>, <code>useContext</code>, <code>useReducer</code>, <code>useRef</code>, etc.
                             You can even build your own Hooks!
@@ -465,8 +538,8 @@ const App = () => {
                             title='Class and function component state'
                         />
                         <Paragraph>
-                            As you can see, using a class component significantly requires more code. Class components 
-                            also forces the use of certain syntax rules, making class component prone to errors. 
+                            As you can see, using a class component significantly requires more code. Class components
+                            also forces the use of certain syntax rules, making class component prone to errors.
                         </Paragraph>
                         <Paragraph>
                             In a function component, there is no <code>this</code>, so we use <code>useState</code> Hook.
@@ -487,7 +560,7 @@ const App = () => {
                             What if there are many states?
                         </SectionTitle>
                         <Paragraph>
-                            Imagine there is a case when several states are needed, we would not want to repeatedly 
+                            Imagine there is a case when several states are needed, we would not want to repeatedly
                             writing <code>useState</code>. In this case an <code>initialState</code> object can be set as the initial value
                             of <code>useState</code> Hook. Check the following code for a form with multiple
                             input fields (this is similar to two-way binding):
@@ -526,7 +599,7 @@ const FormUseState = () => {
                         />
                         <CodeDemo demoComponent={<FormUseState />} />
                         <SectionTitle>
-                            useReducer: action Hook
+                            useReducer: the action Hook
                         </SectionTitle>
                         <Paragraph>
                             The <code>useReducer</code> Hook is considered to be an additional Hook and an alternative to
@@ -576,7 +649,7 @@ const CounterUseReducer = () => {
                             to handle different cases.
                         </Paragraph>
                         <SectionTitle>
-                            <code>useReducer</code> VS <code>useState</code>
+                            useReducer VS useState
                         </SectionTitle>
                         <Paragraph>
                             Now we can see how <code>useReducer</code> is different from <code>useState</code> in terms of
@@ -587,11 +660,11 @@ const CounterUseReducer = () => {
                             in the code, while the former gathers states in one <code>switch</code> statement.
                         </Paragraph>
                         <SectionTitle>
-                            What if there are many states? (<code>useReducer</code> version)
+                            What if there are many states? (useReducer version)
                         </SectionTitle>
                         <Paragraph>
                             In the previous section we showed how <code>useState</code> can be used when there are many
-                            states. Let's do a side-by-side comparison to see how the same example can be 
+                            states. Let's do a side-by-side comparison to see how the same example can be
                             re-written with <code>useReducer</code> Hook:
                         </Paragraph>
                         <CodeBlockRow
@@ -676,13 +749,23 @@ const FormUseReducer = () => {
 }`}
                             title='useState VS useReducer'
                         />
-                    <Paragraph>
-                        The side-by-side example highlights the difference 
-                        between <code>useState</code> and <code>useReducer</code> in the same scenario. In the same 
-                        <code>handleChange</code> function, <code>useState</code> updates the state 
-                        with <code>setFormState</code> method, while <code>useReducer</code> updates the same state 
-                        with <code>dispatch</code> method, with some help from the <code>reducer</code> function. 
-                    </Paragraph>
+                        <Paragraph>
+                            The side-by-side example highlights the difference
+                            between <code>useState</code> and <code>useReducer</code> in the same scenario. In the
+                            same <code>handleChange</code> function, <code>useState</code> updates the state
+                            with <code>setFormState</code> method, while <code>useReducer</code> updates the same state
+                            with <code>dispatch</code> method, with some help from the <code>reducer</code> function.
+                        </Paragraph>
+                        <SectionTitle>
+                            useEffect: the side effect Hook
+                        </SectionTitle>
+                        <Paragraph>
+                            The <code>useEffect</code> Hook lets you perform side effects in function components. The code
+                            in <code>componentDidMount</code>, <code>componentDidUpdate</code>, <code>componentWillUnmount</code> can
+                            now be placed in <code>useEffect</code>. The <code>useEffect</code> Hook can be used in
+                            the following scenarios: fetch data when a component mounts, run code when state changes, set up
+                            timers, etc.
+                        </Paragraph>
                     </details>
                 </div>
             </div>
