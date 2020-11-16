@@ -575,10 +575,10 @@ const App = () => {
 const FormUseState = () => {
     const [formState, setFormState] = useState(initialState);
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { targetName, targetValue } = e.target;
         setFormState({
             ...formState,
-            [name]: value
+            [targetName]: targetValue
         });
     };
     const { name, age } = formState;
