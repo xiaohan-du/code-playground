@@ -3,7 +3,7 @@ const Welcome = (props) => {
     const { name, title } = props
     return (
         <>
-            <h1>Hello, {name}</h1>
+            <h3>Hello, {name}</h3>
             <p>Your title is {title}</p>
         </>
     )

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-const Counter = () => {
+const UseStateCounter = () => {
     const [count, setCount] = useState(0);
     return (
         <>
-            <p>You clicked {count} times</p>
+            <div>You clicked {count} times</div>
             <button onClick={() => { setCount(count + 1) }}>
                 Click me
             </button>
         </>
     )
 }
-export default Counter;
+export default UseStateCounter;

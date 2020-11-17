@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const UseStateExample1 = () => {
+const UseStateManageMultiState = () => {
     const initialState = {
         name: 'Tom',
         age: 30
@@ -28,4 +28,4 @@ const UseStateExample1 = () => {
     )
 }
 
-export default UseStateExample1;
+export default UseStateManageMultiState;
