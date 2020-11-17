@@ -272,7 +272,7 @@ export default App;`}
                             Component lifecycle is important for both class and function components, and the way they work 
                             in these two component types is different. Although function components are the future, I 
                             think it is beneficial to understand how component lifecycle works in class components. 
-                            Let's start with class components. For each lifecycle method, one code example is given below
+                            Let's start with class components. For each lifecycle method, one code example is given below:
                         </Paragraph>
                         <CodeBlock
                             language='react'
