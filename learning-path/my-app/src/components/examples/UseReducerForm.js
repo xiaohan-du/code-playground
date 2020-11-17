@@ -18,7 +18,7 @@ const reducer = (state, action) => {
     }
 }
 
-const FormUseReducer = () => {
+const UseReducerForm = () => {
     const [formState, dispatch] = useReducer(reducer, initialState);
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -40,4 +40,4 @@ const FormUseReducer = () => {
     )
 }
 
-export default FormUseReducer;
+export default UseReducerForm;

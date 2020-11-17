@@ -1,0 +1,11 @@
+.component-block {
+    &-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    &-content {
+        margin: 10px;
+        padding: 10px;
+        background-color: aliceblue;
+    }
+}

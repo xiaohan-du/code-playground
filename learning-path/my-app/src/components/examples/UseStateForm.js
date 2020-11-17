@@ -4,7 +4,7 @@ const initialState = {
     name: 'John',
     age: 25
 };
-const FormUseState = () => {
+const UseStateForm = () => {
     const [formState, setFormState] = useState(initialState);
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,4 +29,4 @@ const FormUseState = () => {
     )
 }
 
-export default FormUseState;  
+export default UseStateForm;  

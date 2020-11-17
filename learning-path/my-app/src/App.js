@@ -1,14 +1,15 @@
 import './App.css';
-import HelloWorld from './components/HelloWorld';
-import Counter from './components/Counter';
-import Welcome from './components/Welcome';
-import Card from './components/Card';
-import FormUseState from './components/FormUseState';
-import CounterUseReducer from './components/CounterUseReducer';
-import FormUseReducer from './components/FormUseReducer';
-import FetchApiClass from './components/FetchApiClass';
-import UseStateExample from './components/UseStateExample';
-import UseStateExample1 from './components/UseStateExample1';
+import ComponentBlock from './components/ComponentBlock';
+import './components/ComponentBlock.scss';
+import HelloWorld from './components/examples/HelloWorld';
+import UseStateCounter from './components/examples/UseStateCounter';
+import Welcome from './components/examples/Welcome';
+import Card from './components/examples/Card';
+import UseStateForm from './components/examples/UseStateForm';
+import UseReducerCounter from './components/examples/UseReducerCounter';
+import UseReducerForm from './components/examples/UseReducerForm';
+import ComponentDidMountFetchApi from './components/examples/ComponentDidMountFetchApi';
+import UseStateManageMultiState from './components/examples/UseStateManageMultiState';
 
 const props = {
   name: 'John',
@@ -22,18 +23,24 @@ const props = {
 const App = () => {
   return (
     <div className="App">
-      <HelloWorld />
-      <Counter />
-      <Welcome name='Sara' title='Engineer' />
-      <Card props={props} />
-      <p>useState</p>
-      <FormUseState />
-      <p>useReducer</p>
-      <FormUseReducer />
-      <CounterUseReducer />
-      <FetchApiClass />
-      <UseStateExample />
-      <UseStateExample1 />
+      <ComponentBlock title={'First component'}
+        component={<HelloWorld />} />
+      <ComponentBlock title={'Counter with useState Hook'}
+        component={<UseStateCounter />} />
+      <ComponentBlock title={'Pass props from parent to child component'}
+        component={<Welcome name='Sara' title='Engineer' />} />
+      <ComponentBlock title={'Nested destructuring'}
+        component={<Card props={props} />} />
+      <ComponentBlock title={'Manage state with useState Hook'}
+        component={<UseStateForm />} />
+      <ComponentBlock title={'Manage state with useReducer Hook'}
+        component={<UseReducerForm />} />
+      <ComponentBlock title={'Counter with useReducer Hook'}
+        component={<UseReducerCounter />} />
+      <ComponentBlock title={'Fetch API in componentDidMount method'}
+        component={<ComponentDidMountFetchApi />} />
+      <ComponentBlock title={'Manage multiple states with useState Hook'}
+        component={<UseStateManageMultiState />} />
     </div>
   );
 }

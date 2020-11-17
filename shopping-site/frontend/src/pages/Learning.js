@@ -257,11 +257,11 @@ export default App;`}
                         <ul>
                             <li>
                                 Mounting: putting components in the DOM. The <code>componentDidMount()</code> method is
-                                called immediately after mounting a component
+                                called immediately after mounting a component.
                             </li>
                             <li>
-                                Updating: a component is updated whenever the component <code>state</code> or <code>props</code> is
-                                changed. The <code>componentDidUpdate()</code> method is called when updating a component
+                                Updating: a component is updated whenever the component state or props is
+                                changed. The <code>componentDidUpdate()</code> method is called when updating a component.
                             </li>
                             <li>
                                 Unmounting: when a component is removed (unmounted) from the DOM. The <code>componentWillUnmount()</code> method
@@ -269,11 +269,14 @@ export default App;`}
                             </li>
                         </ul>
                         <Paragraph>
-                            For each lifecycle method, one code example is given below
+                            Component lifecycle is important for both class and function components, and the way they work 
+                            in these two component types is different. Although function components are the future, I 
+                            think it is beneficial to understand how component lifecycle works in class components. 
+                            Let's start with class components. For each lifecycle method, one code example is given below
                         </Paragraph>
                         <CodeBlock
                             language='react'
-                            title='Fetch api on component mounting'
+                            title='Fetch api on component mounting. Data is fetched with componentDidMount().'
                             code={`class FetchApiClass extends React.Component {
     constructor(props) {
         super(props);
