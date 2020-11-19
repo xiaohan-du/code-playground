@@ -3,9 +3,12 @@ import './Learning.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../functions/ScrollToTopOnMount';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../components/CMS/index.js';
-import { UseStateCounter, UseStateForm, UseReducerCounter, ComponentDidUpdateDemo } from '../components/tutorial/index.js';
-import ComponentWillUnmountDemo from '../components/tutorial/ComponentWillUnmountDemo';
-
+import UseStateCounter from '../components/tutorial/UseStateCounter'; 
+import UseStateForm from '../components/tutorial/UseStateForm'; 
+import UseReducerCounter from '../components/tutorial/UseReducerCounter';
+import ComponentDidUpdateDemo from '../components/tutorial/ComponentDidUpdateDemo'; 
+import ComponentWillUnmountDemo from '../components/tutorial/ComponentWillUnmountDemo.js';
+import ComponentDidMountFetchApi from '../components/tutorial/ComponentDidMountFetchApi';
 
 const Learning = () => {
     const [age, setAge] = useState(30);
@@ -331,6 +334,7 @@ export default App;`}
     }
 }`}>
                         </CodeBlock>
+                        <CodeDemo demoComponent={<ComponentDidMountFetchApi />} />
                         <SectionTitle>
                             Updating: componentDidUpdate()
                         </SectionTitle>
@@ -435,9 +439,9 @@ return (
                             <button onClick={() => { setShowUnmount(false) }}>Remove</button>
                         </details>
                         <Paragraph>
-                            In the above example, a button is set below to remove the component. When the tutorial is loaded, the 
-                            example component is also rendered and the console logs 'Mount'; if the button is clicked, the component 
-                            is removed (or destroyed, unmounted) and the console logs 'Unmount'. 
+                            In the above example, a button is set below to remove the component. When the tutorial is loaded, the
+                            example component is also rendered and the console logs 'Mount'; if the button is clicked, the component
+                            is removed (or destroyed, unmounted) and the console logs 'Unmount'.
                         </Paragraph>
                     </details>
 
