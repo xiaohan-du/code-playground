@@ -1,6 +1,6 @@
 import React from 'react';
 
-class FetchApiClass extends React.Component {
+class ComponentDidMountFetchApi extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,4 +42,4 @@ class FetchApiClass extends React.Component {
     }
 }
 
-export default FetchApiClass;
+export default ComponentDidMountFetchApi;

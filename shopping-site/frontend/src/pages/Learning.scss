@@ -9,6 +9,15 @@
         margin-top: 12rem;
         margin-bottom: 1rem;
     }
+    &-section {
+        &-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+    }
     &-subtitle {
         font-size: $subtitle-medium;
         font-weight: bold;

@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Learning.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../functions/ScrollToTopOnMount';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../components/CMS/index.js';
-import { Counter, FormUseState, CounterUseReducer } from '../components/tutorial/index.js';
+import { UseStateCounter, UseStateForm, UseReducerCounter, ComponentDidUpdateDemo } from '../components/tutorial/index.js';
+import ComponentWillUnmountDemo from '../components/tutorial/ComponentWillUnmountDemo';
 
 
 const Learning = () => {
+    const [age, setAge] = useState(30);
+    const [showUnmount, setShowUnmount] = useState(true);
     return (
         <>
             <ScrollToTopOnMount />
@@ -18,10 +21,14 @@ const Learning = () => {
                 <div className='center-content'>
                     <h1 className='learning-title'>
                         I learnt React through the following path, you may want to try it too
-                        </h1>
+                    </h1>
                     <Paragraph>
                         Code can be found in <a href="https://github.com/xiaohan-du/code-playground/tree/master/learning-path/my-app">my Github page</a>
                     </Paragraph>
+                    <h3 className='learning-section-title'>
+                        React Basics
+                    </h3>
+
                     <details>
                         <summary className='learning-subtitle'>
                             Compare React (a JS library) with Angular, Vue, Ember (JS frameworks)
@@ -247,12 +254,16 @@ export default App;`}
                     </details>
 
                     <details>
+
                         <summary className='learning-subtitle'>
                             Component Lifecycle for Class Components
                         </summary>
                         <Paragraph>
-                            Each component has a lifecycle which contains 3 main phases: Mounting,
-                            Updating, Unmounting:
+                            Each component has a lifecycle which contains 3 main phases: Mounting, Updating, Unmounting.
+                            Component lifecycle is important for both class and function components, and the way they work
+                            in these two component types is different. Although function component is the trend, I
+                            think it is beneficial to understand how component lifecycle works in class components.
+                            Let's look at the three phases:
                         </Paragraph>
                         <ul>
                             <li>
@@ -268,16 +279,17 @@ export default App;`}
                                 is called when the component is about to be unmounted from the DOM.
                             </li>
                         </ul>
+                        <SectionTitle>
+                            Mounting: componentDidMount()
+                        </SectionTitle>
                         <Paragraph>
-                            Component lifecycle is important for both class and function components, and the way they work 
-                            in these two component types is different. Although function components are the future, I 
-                            think it is beneficial to understand how component lifecycle works in class components. 
-                            Let's start with class components. For each lifecycle method, one code example is given below:
+                            The following example fetches data from an API immediately after the component is mounted.
+                            A function which operates on component mount should be placed in <code>componentDidMount()</code> method.
                         </Paragraph>
                         <CodeBlock
                             language='react'
-                            title='Fetch api on component mounting. Data is fetched with componentDidMount().'
-                            code={`class FetchApiClass extends React.Component {
+                            title='Fetch api on component mounting'
+                            code={`class ComponentDidMountFetchApi extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -318,8 +330,116 @@ export default App;`}
         }
     }
 }`}>
-
                         </CodeBlock>
+                        <SectionTitle>
+                            Updating: componentDidUpdate()
+                        </SectionTitle>
+                        <Paragraph>
+                            <code>componentDidUpdate()</code> is invoked everytime after the component is updated, i.e. state or props is changed.
+                            Initial rendering does not invoke this method. It takes three
+                            parameters: <code>prevProps</code>, <code>prevState</code> and <code>snapshot</code>. The third parameter is rarely used
+                            so we are going to demo with the first two parameters. Let's take a look at the following simple example:
+                        </Paragraph>
+                        <CodeBlockRow
+                            language1='react'
+                            code1={`class ComponentDidUpdateDemo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: 'John'
+        };
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('prevState is ', prevState);
+        console.log('prevProps is ', prevProps);
+    }
+
+    render() {
+        const { name } = this.state;
+        return (
+            <>
+                <div>The name is {name}</div>
+                <label htmlFor='prevstate'>Type here to see prevState in console: </label>
+                <input id='prevstate' onChange={(e) => { this.setState({ name: e.target.value }) }} />
+                <div>The age is {this.props.age}</div>
+            </>
+        )
+    }
+}`}
+                            language2='react'
+                            code2={`const App = () => {
+    const [age, setAge] = useState(30);
+    return (
+        <div className="App">
+            <ComponentDidUpdateDemo age={age}/>
+            <label htmlFor='prevprops'>Type here to see prevProps in console: </label>
+            <input id='prevprops' onChange={(e) => {setAge(e.target.value)}} />
+        </div>
+    );
+}`}
+                            title='Understand componentDidUpdate lifecycle method'
+                        />
+                        <details className='code-demo'>
+                            <summary>Demo, please open the browser console</summary>
+                            <ComponentDidUpdateDemo age={age} />
+                            <label htmlFor='prevprops'>Type here to see prevProps in console: </label>
+                            <input id='prevprops' onChange={(e) => { setAge(e.target.value) }} />
+                        </details>
+                        <Paragraph>
+                            The above example updates its inner <code>state</code> and accepts a <code>props</code> from the parent
+                            component. When typing in the first input field, the parameter <code>prevState</code> is updated, which as
+                            its name implies, logs value of the previous state. The first time it updates with the initial value of the state,
+                            the second time it updates with the first input value, the third time with the second input value, etc.
+                            Similarly, when typing in the second input field, the <code>prevProps</code> is updated in the same pattern.
+                            Notice that <code>componentDidUpdate</code> is not invoked after the initial rendering.
+                        </Paragraph>
+                        <SectionTitle>
+                            Unmounting: componentWillUnmount()
+                        </SectionTitle>
+                        <Paragraph>
+                            <code>componentWillUnmount()</code> is invoked immediately <b>before</b> a component is
+                            unmounted and destroyed. Let's look at the following simple example:
+                        </Paragraph>
+                        <CodeBlockRow
+                            language1='react'
+                            code1={`class ComponentWillUnmountDemo extends React.Component {
+    componentDidMount() {
+        console.log('Mount');
+    };
+    componentWillUnmount() {
+        console.log('Unmount');
+    }
+    render() {
+        return(
+            <>
+                <div>Click the button to remove the element</div>
+            </>
+        )
+    }
+}`}
+                            language2='react'
+                            code2={`const App = () => {
+const [showUnmount, setShowUnmount] = useState(true);
+return (
+    <div className="App">
+        {showUnmount ? <ComponentWillUnmountDemo /> : null}
+        <button onClick={() => {setShowUnmount(false)}}>Remove</button>
+    </div>
+);
+}`}
+                            title='componentWillUnmount method is invoked before the component is destroyed'
+                        />
+                        <details className='code-demo'>
+                            <summary>Demo, please open the browser console</summary>
+                            {showUnmount ? <ComponentWillUnmountDemo /> : null}
+                            <button onClick={() => { setShowUnmount(false) }}>Remove</button>
+                        </details>
+                        <Paragraph>
+                            In the above example, a button is set below to remove the component. When the tutorial is loaded, the 
+                            example component is also rendered so console logs 'Mount'; if the button is clicked, the component 
+                            is removed (or destroyed, unmounted) and console logs 'Unmount'. 
+                        </Paragraph>
                     </details>
 
                     <details>
@@ -335,13 +455,13 @@ export default App;`}
                         <Paragraph>
                             Let's look at an example of a component state
                             from <a href='https://reactjs.org/docs/hooks-state.html'>React Hooks docs</a>:
-                            create <code>Counter.js</code> in <code>./src/components</code>:
+                            create <code>UseStateCounter.js</code> in <code>./src/components</code>:
                         </Paragraph>
                         <CodeBlock
                             language='react'
-                            title='Counter.js'
+                            title='UseStateCounter.js'
                             code={`import React, {useState} from 'react';
-const Counter = () => {
+const UseStateCounter = () => {
     const [count, setCount] = useState(0);
     return (
         <>
@@ -352,13 +472,13 @@ const Counter = () => {
         </>
     )
 }
-export default Counter;`}
+export default UseStateCounter;`}
                         />
-                        <CodeDemo demoComponent={<Counter />} />
+                        <CodeDemo demoComponent={<UseStateCounter />} />
                         <Paragraph>
-                            Don't forget to import and use <code>Counter</code> component in <code>App.js</code>. Click
+                            Don't forget to import and use <code>UseStateCounter</code> component in <code>App.js</code>. Click
                             the button to see count increases. In this example we imported a
-                            Hook <code>useState</code>, which allows function component <code>Counter</code> to use
+                            Hook <code>useState</code>, which allows the function component <code>UseStateCounter</code> to use
                             state. <code>const [count, setCount] = useState(0)</code> accepts two parameters:
                             <code>count</code> (state) and <code>setCount</code> (function). An initial value 0
                             is set to <code>count</code>. There are several built-in Hooks and we can even define our own Hooks.
@@ -575,7 +695,7 @@ const App = () => {
     name: 'John',
     age: 25
 };
-const FormUseState = () => {
+const UseStateForm = () => {
     const [formState, setFormState] = useState(initialState);
     const handleChange = (e) => {
         const { targetName, targetValue } = e.target;
@@ -600,7 +720,7 @@ const FormUseState = () => {
     )
 }`}
                         />
-                        <CodeDemo demoComponent={<FormUseState />} />
+                        <CodeDemo demoComponent={<UseStateForm />} />
                         <SectionTitle>
                             useReducer: the action Hook
                         </SectionTitle>
@@ -630,7 +750,7 @@ const FormUseState = () => {
     }
 }
 
-const CounterUseReducer = () => {
+const UseReducerCounter = () => {
     const [state, dispatch] = useReducer(reducer, {count: 0});
     return (
         <>
@@ -643,7 +763,7 @@ const CounterUseReducer = () => {
 }`}>
 
                         </CodeBlock>
-                        <CodeDemo demoComponent={<CounterUseReducer />} />
+                        <CodeDemo demoComponent={<UseReducerCounter />} />
                         <Paragraph>
                             In this example we first defined a <code>reducer</code> function which contains different cases.
                             This function was then passed into the <code>useReducer</code> Hook with an initial
@@ -676,7 +796,7 @@ const CounterUseReducer = () => {
     name: 'John',
     age: 25
 };
-const FormUseState = () => {
+const UseStateForm = () => {
     const [formState, setFormState] = useState(initialState);
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -768,6 +888,26 @@ const FormUseReducer = () => {
                             now be placed in <code>useEffect</code>. The <code>useEffect</code> Hook can be used in
                             the following scenarios: fetch data when a component mounts, run code when state changes, set up
                             timers, etc.
+                        </Paragraph>
+                    </details>
+
+                    <h3 className='learning-section-title'>
+                        Advanced
+                    </h3>
+                    <details>
+                        <summary className='learning-subtitle'>
+                            React PureComponent
+                        </summary>
+                        <Paragraph>
+                            TBC
+                        </Paragraph>
+                    </details>
+                    <details>
+                        <summary className='learning-subtitle'>
+                            Unidirection Data flow
+                        </summary>
+                        <Paragraph>
+                            TBC
                         </Paragraph>
                     </details>
                 </div>

@@ -17,12 +17,12 @@ const UseStateForm = () => {
     return (
         <>
             <form onSubmit={(e) => e.preventDefault()}>
-                <label htmlFor='name'>Name: </label>
-                <input type='text' id='name' name='name' placeholder={name} onChange={handleChange} />
+                <label htmlFor='state-name'>Name: </label>
+                <input type='text' id='state-name' name='name' placeholder={name} onChange={handleChange} />
                 <p>The person's name is {name}.</p>
                 <br />
-                <label htmlFor='age'>Age: </label>
-                <input type='text' id='age' name='age' placeholder={age} onChange={handleChange} />
+                <label htmlFor='state-age'>Age: </label>
+                <input type='text' id='state-age' name='age' placeholder={age} onChange={handleChange} />
                 <p>His/her age is {age}.</p>
             </form>
         </>

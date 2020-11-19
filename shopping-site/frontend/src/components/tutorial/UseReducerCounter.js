@@ -11,7 +11,7 @@ const reducer = (state, action) => {
     }
 }
 
-const CounterUseReducer = () => {
+const UseReducerCounter = () => {
     const [state, dispatch] = useReducer(reducer, {count: 0});
     return (
         <>
@@ -23,4 +23,4 @@ const CounterUseReducer = () => {
     )
 }
 
-export default CounterUseReducer;
+export default UseReducerCounter;
