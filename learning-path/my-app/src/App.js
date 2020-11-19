@@ -10,6 +10,9 @@ import UseReducerCounter from './components/examples/UseReducerCounter';
 import UseReducerForm from './components/examples/UseReducerForm';
 import ComponentDidMountFetchApi from './components/examples/ComponentDidMountFetchApi';
 import UseStateManageMultiState from './components/examples/UseStateManageMultiState';
+import ComponentDidUpdateDemo from './components/examples/ComponentDidUpdateDemo';
+import ComponentWillUnmountDemo from './components/examples/ComponentWillUnmountDemo';
+import React, { useState } from 'react';
 
 const props = {
   name: 'John',
@@ -21,6 +24,8 @@ const props = {
 }
 
 const App = () => {
+  const [age, setAge] = useState(30);
+  const [showUnmount, setShowUnmount] = useState(true);
   return (
     <div className="App">
       <ComponentBlock title={'First component'}
@@ -41,6 +46,13 @@ const App = () => {
         component={<ComponentDidMountFetchApi />} />
       <ComponentBlock title={'Manage multiple states with useState Hook'}
         component={<UseStateManageMultiState />} />
+      <ComponentBlock title={'Update state and props with componentDidUpdate method'}
+        component={<ComponentDidUpdateDemo age={age} />} />
+      <label htmlFor='prevprops'>Type here to see prevProps in console: </label>
+      <input id='prevprops' onChange={(e) => { setAge(e.target.value) }} />
+      {showUnmount ? <ComponentBlock title={'Stop the timer before unmounting the component'}
+        component={<ComponentWillUnmountDemo />} /> : null}
+        <button onClick={() => {setShowUnmount(false)}}>Remove</button>
     </div>
   );
 }

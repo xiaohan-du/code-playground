@@ -1,9 +1,13 @@
-import Counter from './Counter';
-import FormUseState from './FormUseState';
-import CounterUseReducer from './CounterUseReducer';
+import UseStateCounter from './UseStateCounter';
+import UseStateForm from './UseStateForm';
+import UseReducerCounter from './UseReducerCounter';
+import ComponentDidUpdateDemo from './ComponentDidUpdateDemo';
+import ComponentWillUpdateDemo from './ComponentWillUnmountDemo';
 
 export {
-    Counter,
-    FormUseState,
-    CounterUseReducer
+    UseStateCounter,
+    UseStateForm,
+    UseReducerCounter,
+    ComponentDidUpdateDemo,
+    ComponentWillUpdateDemo
 };
