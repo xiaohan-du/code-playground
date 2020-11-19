@@ -256,13 +256,13 @@ export default App;`}
                     <details>
 
                         <summary className='learning-subtitle'>
-                            Component Lifecycle for Class Components
+                            Component Lifecycle Methods for Class Components
                         </summary>
                         <Paragraph>
                             Each component has a lifecycle which contains 3 main phases: Mounting, Updating, Unmounting.
                             Component lifecycle is important for both class and function components, and the way they work
                             in these two component types is different. Although function component is the trend, I
-                            think it is beneficial to understand how component lifecycle works in class components.
+                            think it is beneficial to understand how component lifecycle methods work in class components.
                             Let's look at the three phases:
                         </Paragraph>
                         <ul>
@@ -284,7 +284,7 @@ export default App;`}
                         </SectionTitle>
                         <Paragraph>
                             The following example fetches data from an API immediately after the component is mounted.
-                            A function which operates on component mount should be placed in <code>componentDidMount()</code> method.
+                            A function which operates on component mounting should be placed in <code>componentDidMount()</code> method.
                         </Paragraph>
                         <CodeBlock
                             language='react'
@@ -392,7 +392,6 @@ export default App;`}
                             its name implies, logs value of the previous state. The first time it updates with the initial value of the state,
                             the second time it updates with the first input value, the third time with the second input value, etc.
                             Similarly, when typing in the second input field, the <code>prevProps</code> is updated in the same pattern.
-                            Notice that <code>componentDidUpdate</code> is not invoked after the initial rendering.
                         </Paragraph>
                         <SectionTitle>
                             Unmounting: componentWillUnmount()
@@ -437,8 +436,8 @@ return (
                         </details>
                         <Paragraph>
                             In the above example, a button is set below to remove the component. When the tutorial is loaded, the 
-                            example component is also rendered so console logs 'Mount'; if the button is clicked, the component 
-                            is removed (or destroyed, unmounted) and console logs 'Unmount'. 
+                            example component is also rendered and the console logs 'Mount'; if the button is clicked, the component 
+                            is removed (or destroyed, unmounted) and the console logs 'Unmount'. 
                         </Paragraph>
                     </details>
 
@@ -904,7 +903,7 @@ const FormUseReducer = () => {
                     </details>
                     <details>
                         <summary className='learning-subtitle'>
-                            Unidirection Data flow
+                            Unidirectional Data flow
                         </summary>
                         <Paragraph>
                             TBC
