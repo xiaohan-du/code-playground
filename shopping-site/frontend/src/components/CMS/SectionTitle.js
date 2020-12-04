@@ -1,9 +1,9 @@
 import React from 'react';
 import './SectionTitle.scss';
 
-const SectionTitle = ({children}) => {
+const SectionTitle = ({children, type}) => {
     return (
-        <h1 className='section-title'>
+        <h1 className={`section-${type}`}>
             {children}
         </h1>
     )

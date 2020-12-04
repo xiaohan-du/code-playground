@@ -1,5 +1,13 @@
-.section-title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+.section {
+    &-title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    &-subtitle {
+        font-size: 1.8rem;
+        font-weight: 600;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+    }
 }
