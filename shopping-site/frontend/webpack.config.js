@@ -15,7 +15,7 @@ module.exports = {
     },
     devtool: 'hidden-source-map',
     devServer: {
-        host: '192.168.0.16',
+        host: '127.0.0.1',
         port: 8080,
         disableHostCheck: true,
     },

@@ -10,7 +10,7 @@ import PhD from './pages/PhD';
 import Medium from './pages/Medium';
 import Hooks from './pages/Hooks';
 import Components from './pages/Components';
-import Learning from './pages/Learning';
+import Learning from './pages/learning/Learning';
 
 const Layout = () => {
     return (

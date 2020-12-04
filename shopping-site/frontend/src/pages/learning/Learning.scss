@@ -1,4 +1,4 @@
-@import "../main.scss";
+@import "../../main.scss";
 
 .learning {
     margin: 8rem 0;
@@ -38,6 +38,11 @@
         &-row {
             display: flex;
         }
+    }
+    &-references{
+        @include ease-out-shadow;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
     }
     & pre {
         margin-bottom: 1rem;
