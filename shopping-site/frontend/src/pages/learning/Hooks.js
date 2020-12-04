@@ -17,8 +17,7 @@ const Hooks = () => {
             </summary>
             <Paragraph>
                 <a href='https://reactjs.org/docs/hooks-intro.html'>Hooks</a> are a new addition in React 16.8. They let you use
-                state and other React features without writing a class. Hooks are introduced in this tutorial before other concepts
-                because I think Hooks are one of the most important concept post v16.8.
+                state and other React features without writing a class. I think Hooks are one of the most important concept post v16.8.
                 Hooks enables the full power of function components. There are several built-in Hooks such
                 as <code>useState</code>, <code>useEffect</code>, <code>useContext</code>, <code>useReducer</code>, <code>useRef</code>, etc.
                 You can even build your own Hooks!
@@ -95,10 +94,10 @@ const Hooks = () => {
                 also forces the use of certain syntax rules, making class component prone to errors.
             </Paragraph>
             <Paragraph>
-                In a function component, there is no <code>this</code>, so we use <code>useState</code> Hook.
+                In a function component, there is no <code>this</code>, so we use <code>useState</code> Hook to assign values to state.
                 The <code>useState</code> Hook declares a 'state variable' <code>count</code>, which is equivalent
                 to <code>this.state</code> in a class component. The only parameter passed into
-                the <code>useState</code> Hook is the initial state 0. The initial state does not need
+                the <code>useState</code> Hook is the initial state. The initial state does not need
                 to be an object like in class component, it can be a number, a string, a boolean or an array.
             </Paragraph>
             <Paragraph>
@@ -121,7 +120,7 @@ const Hooks = () => {
                 The <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax'>spread operator</a> is
                 also necessary to preserve and avoid repeating states. In other words, without spreading the root state object, any values
                 not explicitly set in the new object will be lost. Check the following code example which has three
-                different states (try removing the <code>...state</code> to see the side effect):
+                different states (try removing the <code>...state</code> to see the issue caused):
             </Paragraph>
             <CodeBlock
                 language='react'
@@ -165,7 +164,7 @@ const Hooks = () => {
                 useState is different from setState
             </SectionTitle>
             <Paragraph>
-                The function component <code>useState</code> Hook is different from class component <code>setState</code> method.
+                The <code>useState</code> Hook is different from class component <code>setState</code> method.
                 As shown in the above example, <code>useState</code> Hook overwrites the previous state without any merging. To preserve
                 the previous state, <code>...state</code> has to be used or the entire state object has to be passed.
                 The <code>setState</code> method merges the previous state with the new one, so no need to pass the entire object.
@@ -196,6 +195,9 @@ const Hooks = () => {
 }`}
             />
             <CodeDemo demoComponent={<SetStateMultiState />} />
+            <Paragraph>
+                In the above example, both state values are preserved after updating one key/value pair.
+            </Paragraph>
             <SectionTitle type={'subtitle'}>
                 Each render has its own event handlers
             </SectionTitle>
@@ -232,7 +234,7 @@ const Hooks = () => {
                 the <code>count</code> state, which causes a re-render. Each React render has its
                 own <code>handleAlertClick</code>. Therefore when clicking the 'Alert' button after the fourth click of '+1',
                 the <code>handleAlertClick</code> which belongs to the fourth state update is executed and shows '4'.
-                This has nothing to do with the eighth click of '+1'.
+                This has nothing to do with the eighth button click.
             </Paragraph>
             <SectionTitle type={'title'}>
                 useReducer: the action Hook
@@ -618,7 +620,7 @@ const updateUserProfile = () => {
             <Paragraph>
                 Using <code>[]</code> instead of <code>[userId, userName]</code> stops the profile update. 
                 Passing <code>[]</code> as deps means nothing changes in the update, so <code>useEffect</code> would not 
-                execute even if <code>userId</code> and <code>userName</code> change. React linter should give 
+                execute even if <code>userId</code> and <code>userName</code> update. React linter should give 
                 the following warning for ignoring the deps:
             </Paragraph>
             <div className='learning-content'>
@@ -671,8 +673,9 @@ const updateUserProfile = () => {
             />
             <Paragraph>
                 The difference between those two cases are that <code>useState</code> causes re-render, while <code>useRef</code> does not.
-                In the first case, when the component is mounted, <code>useEffect</code> is invoked thus <code>setIntervalId</code> is invoked too.
-                However as <code>setIntervalId</code> causes re-render, <code>useEffect</code> is called again thus an infinite loop 
+                In the first case, when the component is rendered for the first time, <code>useEffect</code> is invoked 
+                thus <code>setIntervalId</code> is invoked too. However as <code>setIntervalId</code> causes 
+                re-render, <code>useEffect</code> is called for the second time and so on, thus an infinite loop 
                 happens. As there is no deps being passed to <code>useEffect</code>, it is okay to add a <code>[]</code> to eliminate 
                 the infinite loop and make the code work, otherwise this console error shows:
             </Paragraph>
@@ -684,8 +687,7 @@ but useEffect either doesn't have a dependency array, or one of the dependencies
                 The <code>useRef</code> Hook does not cause re-render, thus <code>[]</code> is not needed. Another difference is
                 that <code>useState</code> is asynchronous and <code>useRef</code> is synchronous. This can be seen from the second console log
                 of each case: the first case logs <code>undefined</code> and second case logs the actual value. In most cases when dealing
-                with state, <code>useState</code> should be used as it is declarative. <code>useRef</code> should only be used when re-render
-                needs to be avoided.
+                with state, <code>useState</code> should be used as it is declarative. 
             </Paragraph>
             <Paragraph>
                 Another example which addresses the re-render difference is as follows:
@@ -744,8 +746,8 @@ but useEffect either doesn't have a dependency array, or one of the dependencies
             </CodeBlock>
             <Paragraph>
                 The first console logs <code>undefined</code> as nothing is passed into <code>useRef</code>. After
-                clicking the button, <code>inputRef.current</code> becomes the input element. The input's properties can
-                then be modified.
+                clicking the button, <code>inputRef.current</code> becomes the input element. Properties of the input 
+                can then be modified.
             </Paragraph>
         </details>
     )
