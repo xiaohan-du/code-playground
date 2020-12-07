@@ -5,7 +5,7 @@ const FirstComponent = () => {
     return (
         <details>
             <summary className='learning-subtitle'>
-                First component
+                First Component
             </summary>
             <Paragraph>
                 Just like other JS frameworks like Angular or Vue, components in React are independent and reusable code pieces.

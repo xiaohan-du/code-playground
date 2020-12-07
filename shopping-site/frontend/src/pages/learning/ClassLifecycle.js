@@ -42,7 +42,7 @@ const ClassLifecycle = () => {
             </Paragraph>
             <CodeBlock
                 language='react'
-                title='Fetch api on component mounting'
+                title='Fetch API on component mounting'
                 code={`class ComponentDidMountFetchApi extends React.Component {
     constructor(props) {
         super(props);
@@ -133,7 +133,7 @@ const ClassLifecycle = () => {
         </div>
     );
 }`}
-                title='Understand componentDidUpdate lifecycle method'
+                title='Understand componentDidUpdate method'
             />
             <details className='code-demo'>
                 <summary>Demo, please open the browser console</summary>

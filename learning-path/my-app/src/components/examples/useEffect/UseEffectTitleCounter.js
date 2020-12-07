@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 const UseEffectTitleCounter = () => {
     const [count, setCount] = useState(0);
     useEffect(() => {
-        setCount(c => c + 1)
-    }, []);
+        document.title = `You clicked ${count} times`;
+    });
     return (
         <>
-            The count is {count}
+            <button onClick={() => {setCount(count + 1)}}>+1</button>
         </>
     )
 }

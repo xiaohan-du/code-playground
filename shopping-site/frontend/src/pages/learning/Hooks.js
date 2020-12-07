@@ -253,7 +253,7 @@ const Hooks = () => {
             </Paragraph>
             <CodeBlock
                 language='react'
-                title='useReducer Hook'
+                title='Counter with useReducer Hook'
                 code={`const reducer = (state, action) => {
     switch (action.type) {
         case 'increment':

@@ -21,7 +21,7 @@ const StateVsProps = () => {
             </Paragraph>
             <CodeBlock
                 language='react'
-                title='UseStateCounter.js'
+                title='Counter with useState Hook'
                 code={`import React, {useState} from 'react';
 const UseStateCounter = () => {
     const [count, setCount] = useState(0);
@@ -80,7 +80,7 @@ export default UseStateCounter;`}
         </>
     )
 }`}
-                title='Passing props from parent to child component'
+                title='Pass props from parent to child component'
             />
             <Paragraph>
                 In the above example the data flows from parent (<code>App.js</code>) to child (<code>Welcome.js</code>).
