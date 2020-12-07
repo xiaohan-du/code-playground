@@ -4,25 +4,19 @@ import React, { useEffect, useState } from 'react';
 // useState causes re-render
 // setting state is asynchronous
 
-const UseStateVsUseRef = () => {
+const UseStateCase = () => {
     const [intervalId, setIntervalId] = useState();
     useEffect(() => {
         const id = setInterval(() => {
             console.log('Hi');
         }, 3000);
         setIntervalId(id);
+        // console.log(intervalId);
         return () => {
             clearInterval(c => c)
         };
     }, []);
-    const [count, setCount] = useState(0);
-    return (
-        <>
-            <div>{intervalId}</div>
-            <div>{count}</div>
-            <button onClick={() => setCount(count + 1)}>+1</button>
-        </>
-    )
+    return ( <></> )
 }
 
-export default UseStateVsUseRef;
+export default UseStateCase;
