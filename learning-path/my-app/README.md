@@ -7,3 +7,4 @@
 `npm start` in `./code-playground/learning-path/my-app`
 
 ## The code examples follow the order of the tutorial
+On the bottom of the examples are code I play with, not the tutorial demos. 
