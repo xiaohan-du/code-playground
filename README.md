@@ -3,7 +3,7 @@ Code playground to demo different projects
 
 ## shopping-site
 
-My portfolio website
+My portfolio website (Yes I know it's named as shopping-site, because it was originally designed as a shopping site.)
 
 ## shopping-cart
 
