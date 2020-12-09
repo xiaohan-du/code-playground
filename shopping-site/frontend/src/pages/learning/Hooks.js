@@ -8,6 +8,7 @@ import Counter from '../../components/tutorial/useEffect/Counter';
 import SetStateMultiState from '../../components/tutorial/useState/SetStateMultiState';
 import UseEffectGreet from '../../components/tutorial/useEffect/Greeting';
 import SetUserProfileDemo from '../../components/tutorial/useEffect/SetUserProfileDemo';
+import Panel from '../../components/tutorial/useContext/Panel';
 
 const Hooks = () => {
     return (
@@ -26,7 +27,7 @@ const Hooks = () => {
                 Change Your Mindset!
             </SectionTitle>
             <Paragraph>
-                Before reading this section, I suggest you 
+                Before reading this section, I suggest you
                 read <a href='https://overreacted.io/a-complete-guide-to-useeffect/'>A Complete Guide to useEffect</a> from
                 the great Dan Abramov. This article is about the <code>useEffect</code> Hook which will be introduced in
                 this section, but you can read the beginning and TL;DR first. An important note I took from the article
@@ -618,9 +619,9 @@ const updateUserProfile = () => {
             />
             <CodeDemo demoComponent={<SetUserProfileDemo />} />
             <Paragraph>
-                Using <code>[]</code> instead of <code>[userId, userName]</code> stops the profile update. 
-                Passing <code>[]</code> as deps means nothing changes in the update, so <code>useEffect</code> would not 
-                execute even if <code>userId</code> and <code>userName</code> update. React linter should give 
+                Using <code>[]</code> instead of <code>[userId, userName]</code> stops the profile update.
+                Passing <code>[]</code> as deps means nothing changes in the update, so <code>useEffect</code> would not
+                execute even if <code>userId</code> and <code>userName</code> update. React linter should give
                 the following warning for ignoring the deps:
             </Paragraph>
             <div className='learning-content'>
@@ -673,10 +674,10 @@ const updateUserProfile = () => {
             />
             <Paragraph>
                 The difference between those two cases are that <code>useState</code> causes re-render, while <code>useRef</code> does not.
-                In the first case, when the component is rendered for the first time, <code>useEffect</code> is invoked 
-                thus <code>setIntervalId</code> is invoked too. However as <code>setIntervalId</code> causes 
-                re-render, <code>useEffect</code> is called for the second time and so on, thus an infinite loop 
-                happens. As there is no deps being passed to <code>useEffect</code>, it is okay to add a <code>[]</code> to eliminate 
+                In the first case, when the component is rendered for the first time, <code>useEffect</code> is invoked
+                thus <code>setIntervalId</code> is invoked too. However as <code>setIntervalId</code> causes
+                re-render, <code>useEffect</code> is called for the second time and so on, thus an infinite loop
+                happens. As there is no deps being passed to <code>useEffect</code>, it is okay to add a <code>[]</code> to eliminate
                 the infinite loop and make the code work, otherwise this console error shows:
             </Paragraph>
             <div className='learning-content'>
@@ -687,7 +688,7 @@ but useEffect either doesn't have a dependency array, or one of the dependencies
                 The <code>useRef</code> Hook does not cause re-render, thus <code>[]</code> is not needed. Another difference is
                 that <code>useState</code> is asynchronous and <code>useRef</code> is synchronous. This can be seen from the second console log
                 of each case: the first case logs <code>undefined</code> and second case logs the actual value. In most cases when dealing
-                with state, <code>useState</code> should be used as it is declarative. 
+                with state, <code>useState</code> should be used as it is declarative.
             </Paragraph>
             <Paragraph>
                 Another example which addresses the re-render difference is as follows:
@@ -746,8 +747,210 @@ but useEffect either doesn't have a dependency array, or one of the dependencies
             </CodeBlock>
             <Paragraph>
                 The first console logs <code>undefined</code> as nothing is passed into <code>useRef</code>. After
-                clicking the button, <code>inputRef.current</code> becomes the input element. Properties of the input 
+                clicking the button, <code>inputRef.current</code> becomes the input element. Properties of the input
                 can then be modified.
+            </Paragraph>
+            <SectionTitle type={'title'}>
+                useContext: the context Hook
+            </SectionTitle>
+            <Paragraph>
+                Imagine there is a four-layer nested component <code>Note</code>, it renders <code>Section</code>, <code>Section</code> renders
+                <code>Card</code>, <code>Card</code> renders <code>Title</code>. Some title data is stored in <code>Note</code> and passed
+                to <code>Title</code>. What could be happening is <i>prop drilling</i>, i.e. props <code>title</code> drills from top parent
+                level <code>Note</code> to bottom child level <code>Title</code> like the folloing example:
+            </Paragraph>
+            <CodeBlock
+                language='react'
+                title='Prop drilling'
+                code={`const Note = () => {
+    return (
+        <Section title={'Nested component'} />
+    )
+}
+const Section = ({ title }) => {
+    return (
+        <Card title={title} />
+    )
+}
+const Card = ({ title }) => {
+    return (
+        <Title title={title} />
+    )
+}
+const Title = ({ title }) => {
+    return (
+        <>
+            <h2>{title}</h2>
+        </>
+    )
+}`}>
+            </CodeBlock>
+            <Paragraph>
+                This could lead to a few problems: <code>Section</code> and <code>Card</code> components do not use <code>title</code> prop
+                at all but they still need to pass it; adding any middle layer becomes cumbersome as <code>title</code> is needed in the
+                new layer too; modifying <code>title</code> requires change in all related components. To deal with this, we can
+                use <code>useContext</code> Hook to provide a context to share some <b>global</b> data among components without
+                prop drilling. These data could be a global theme, language, etc. With <code>useContext</code> Hook, the above
+                example becomes:
+            </Paragraph>
+            <CodeBlock
+                language='react'
+                title='Share data among components to avoid prop drilling'
+                code={`const AppContext = React.createContext({});
+const Note = () => {
+    return (
+        <AppContext.Provider value={{ title: 'Nested component' }}>
+            <Section />
+        </AppContext.Provider>
+    )
+}
+const Section = () => {
+    return (
+        <Card />
+    )
+}
+const Card = () => {
+    return (
+        <Title />
+    )
+}
+const Title = () => {
+    const { title } = useContext(AppContext);
+    return (
+        <>
+            <h2>{title}</h2>
+        </>
+    )
+}`}>
+            </CodeBlock>
+            <Paragraph>
+                The first step is using React context API to establish a Context outside of components. Inside the parent
+                component <code>Note</code>, <code>AppContext.Provider</code> provides a Context object, which can be shared by
+                the child components. In the bottom level component, we use <code>useContext</code> Hook to hook in
+                the <code>Context</code> object and create the <code>title</code> property.
+            </Paragraph>
+            <Paragraph>
+                The <code>title</code> property can be hooked into any child component with <code>useContext</code> Hook, take
+                the <code>Card</code> component above as an example, let's pass <code>title</code> inside <code>Card</code>:
+            </Paragraph>
+            <CodeBlock
+                language='react'
+                title='Pass title into any child component'
+                code={`const Card = () => {
+    const { title } = useContext(AppContext);
+    return (
+        <>
+            <div>{title}</div>
+            <Title />
+        </>
+    )
+}`}>
+            </CodeBlock>
+            <Paragraph>
+                You can even pass multiple values to a child component with a Context:
+            </Paragraph>
+            <CodeBlock
+                language='react'
+                title='Pass two values to a child component'
+                code={`const AppContext = React.createContext({});
+const Note = () => {
+    return (
+        <AppContext.Provider value={{ title: 'Nested component', name: 'Tom' }}>
+            <Section />
+        </AppContext.Provider>
+    )
+}
+const Title = () => {
+    const { title } = useContext(AppContext);
+    const { name } = useContext(AppContext);
+    return (
+        <>
+            <h2>{title}</h2>
+            <div>{name}</div>
+        </>
+    )
+}`}>
+            </CodeBlock>
+            <Paragraph>
+                React <code>Context</code> API and <code>useContext</code> Hook can also be used to set a theme, where the theme
+                is global with no hierarchy presented. Say we have a <code>Panel</code> component, which renders a <code>GlassBox</code> component.
+                The <code>GlassBox</code> component renders a <code>TextBox</code> component. A theme is applied globally to those components
+                and a button is used to switch between the light and dark theme. Check the following example 
+                (left: <code>theme.js</code>, right: <code>Panel.js</code>):
+            </Paragraph>
+            <CodeBlockRow
+                language1='react'
+                code1={`import React from 'react';
+export const themes = {
+    light: {
+        enable: 'dark',
+        bgColor: '#ffffff',
+        fontColor: '#000000',
+        glassColor: 'rgba(0, 0, 0, 0.1)'
+    },
+    dark: {
+        enable: 'light',
+        bgColor: 'rgba(0, 0, 0, 0.1)',
+        fontColor: '#ffffff',
+        glassColor: 'rgba(0, 0, 0, 0.5)'
+    }
+}
+export const ThemeContext = React.createContext (
+    themes.light
+)`}
+                language2='react'
+                code2={`import React, { useContext, useState } from 'react';
+import { ThemeContext, themes } from './theme';
+import './Panel.scss';
+const Panel = () => {
+    const [theme, setTheme] = useState(themes.light);
+    const toggleTheme = () => {
+        setTheme (theme === themes.light ? themes.dark : themes.light)
+    };
+    return (
+        <ThemeContext.Provider value={theme}>
+            <div style={{ backgroundColor: theme.bgColor }} className='panel'>
+                <GlassBox />
+            </div>
+            <button onClick={toggleTheme}>Enable {theme.enable} theme</button>
+        </ThemeContext.Provider>
+    )
+}
+const GlassBox = () => {
+    const { glassColor } = useContext(ThemeContext)
+    return (
+        <div style={{ backgroundColor: glassColor }} className='glass-box'>
+            <TextBox />
+        </div>
+    )
+}
+const TextBox = () => {
+    const { fontColor } = useContext(ThemeContext);
+    return (
+        <div style={{ color: fontColor }} className='text'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+        </div>
+    )
+}
+export default Panel;`}
+                title='Set a global theme with React Context'
+            />
+            <CodeDemo demoComponent={<Panel />} />
+            <Paragraph>
+                With the above example we first initialise a Context with the light theme in <code>theme.js</code>. 
+                In <code>Panel.js</code> we import both <code>ThemeContext</code> and <code>themes</code>. 
+                In the top level <code>Panel</code> component, the Context's Provider component is inserted to provide the theme 
+                context to all the child components (<code>GlassBox</code> and <code>TextBox</code>). Notice that the Provider 
+                component does not render any real element in HTML structure, therefore do not treat it 
+                like <code>&lt;div&gt;</code> or apply <code>style</code> or <code>className</code> to 
+                it. Then we use the <code>useContext</code> Hook to pass properties to the child components. Lastly, we set theme 
+                with <code>useState</code> Hook and toggle themes on button click with the <code>toggleTheme</code> method. 
+            </Paragraph>
+            <Paragraph>
+                This is a typical example of using Context in React components. The theme is a global property, it does not 
+                follow the Panel =&gt; GlassBox =&gt; TextBox hierarchy, but applies horizontally to all child components. In this 
+                case Context is the best way to deal with it. 
             </Paragraph>
         </details>
     )

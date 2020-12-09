@@ -11,6 +11,9 @@ import ComponentDidUpdateCounter from './examples/useEffect/ComponentDidUpdateCo
 import UseEffectCounterDependency from './examples/useEffect/UseEffectCounterDependency';
 import UseEffectCounter1 from './examples/useEffect/UseEffectCounter1';
 import UseEffectUnchangedValue from './examples/useEffect/UseEffectUnchangedValue';
+import MyClassTheme from './examples/useContext/themeClass/MyClassTheme';
+import MyFunctionTheme from './examples/useContext/themeFunction/MyFunctionTheme';
+import Panel from './examples/useContext/themeDemo/Panel';
 
 const Playground = () => {
     return (
@@ -46,7 +49,14 @@ const Playground = () => {
             <ComponentBlock title={'useEffect counter with dependency'}
                 component={<UseEffectUnchangedValue />} />
 
-            <UseEffectCounter1 />
+            <ComponentBlock title={'useEffect counter without setTimeout'}
+                component={<UseEffectCounter1 />} />
+
+            <ComponentBlock title={'Official tutorial theme example with class components'}
+                component={<MyClassTheme />} />
+
+            <ComponentBlock title={'Official tutorial theme example with function components'}
+                component={<MyFunctionTheme />} />
         </>
     )
 }
