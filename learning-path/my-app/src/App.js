@@ -22,6 +22,8 @@ import SetStateMultiState from './components/examples/useState/SetStateMultiStat
 import UseEffectUserProfile from './components/examples/useEffect/UseEffectUserProfile';
 import UseEffectGreet from './components/examples/useEffect/UseEffectGreet';
 import UseRefVsUseState from './components/examples/useRef/UseRefVsUseState';
+import NestedComponent from './components/examples/useContext/NestedComponent';
+import Panel from './components/examples/useContext/themeDemo/Panel';
 import Playground from './components/Playground';
 
 const props = {
@@ -112,7 +114,11 @@ const App = () => {
           <ComponentBlock title={'Difference between useState and useRef'}
             component={<UseRefVsUseState />} key={14} />,
           <ComponentBlock title={'Access DOM element with useRef Hook'}
-            component={<UseRefAccessDOM />} key={15} />
+            component={<UseRefAccessDOM />} key={15} />,
+          <ComponentBlock title={'Share data among components to avoid prop drilling'}
+            component={<NestedComponent />} key={16} />,
+          <ComponentBlock title={'Set a global theme with React Context'}
+            component={<Panel />} key={17} />
         ]} />
       <h1>Code playground, examples are not showing in the tutorial</h1>
       <Playground />
