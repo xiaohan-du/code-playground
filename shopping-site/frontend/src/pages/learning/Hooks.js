@@ -952,6 +952,12 @@ export default Panel;`}
                 follow the Panel =&gt; GlassBox =&gt; TextBox hierarchy, but applies horizontally to all child components. In this 
                 case Context is the best way to deal with it. 
             </Paragraph>
+            <SectionTitle type={'title'}>
+                useCallback: the callback Hook
+            </SectionTitle>
+            <Paragraph>
+                
+            </Paragraph>
         </details>
     )
 }
