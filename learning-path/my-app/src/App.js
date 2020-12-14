@@ -107,10 +107,10 @@ const App = () => {
           <ComponentBlock title={'userId and userName should not be ignored in this example'}
             component={<UseEffectUserProfile userId={userProf.id} userName={userProf.name} />} key={10} />,
           <button onClick={updateUserProfile} key={11}>Update</button>,
-          <ComponentBlock title={'Difference between useState and useRef, open console'}
+/*           <ComponentBlock title={'Difference between useState and useRef, open console'}
             component={<UseStateCase />} key={12} />,
           <ComponentBlock title={''}
-            component={<UseRefCase />} key={13} />,
+            component={<UseRefCase />} key={13} />, */
           <ComponentBlock title={'Difference between useState and useRef'}
             component={<UseRefVsUseState />} key={14} />,
           <ComponentBlock title={'Access DOM element with useRef Hook'}
