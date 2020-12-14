@@ -13,7 +13,8 @@ import UseEffectCounter1 from './examples/useEffect/UseEffectCounter1';
 import UseEffectUnchangedValue from './examples/useEffect/UseEffectUnchangedValue';
 import MyClassTheme from './examples/useContext/themeClass/MyClassTheme';
 import MyFunctionTheme from './examples/useContext/themeFunction/MyFunctionTheme';
-import Panel from './examples/useContext/themeDemo/Panel';
+import UseMemoDemo from './examples/useMemo/UseMemoDemo';
+import UseCallbackDemo from './examples/useCallback/UseCallbackDemo';
 
 const Playground = () => {
     return (
@@ -40,8 +41,8 @@ const Playground = () => {
             <ComponentBlock title={'useEffect counter'}
                 component={<UseEffectCounter />} />
 
-            <ComponentBlock title={'componentDidUpdate counter'}
-                component={<ComponentDidUpdateCounter />} />
+{/*             <ComponentBlock title={'componentDidUpdate counter'}
+                component={<ComponentDidUpdateCounter />} /> */}
 
             <ComponentBlock title={'useEffect counter with dependency'}
                 component={<UseEffectCounterDependency />} />
@@ -57,6 +58,11 @@ const Playground = () => {
 
             <ComponentBlock title={'Official tutorial theme example with function components'}
                 component={<MyFunctionTheme />} />
+
+            <ComponentBlock title={'With useMemo'}
+                component={<UseMemoDemo />} />
+
+            <UseCallbackDemo />
         </>
     )
 }
