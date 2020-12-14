@@ -9,6 +9,7 @@ import SetStateMultiState from '../../components/tutorial/useState/SetStateMulti
 import UseEffectGreet from '../../components/tutorial/useEffect/Greeting';
 import SetUserProfileDemo from '../../components/tutorial/useEffect/SetUserProfileDemo';
 import Panel from '../../components/tutorial/useContext/Panel';
+import UseMemoDemo from '../../components/tutorial/useMemo/UseMemoDemo';
 
 const Hooks = () => {
     return (
@@ -875,7 +876,7 @@ const Title = () => {
                 React <code>Context</code> API and <code>useContext</code> Hook can also be used to set a theme, where the theme
                 is global with no hierarchy presented. Say we have a <code>Panel</code> component, which renders a <code>GlassBox</code> component.
                 The <code>GlassBox</code> component renders a <code>TextBox</code> component. A theme is applied globally to those components
-                and a button is used to switch between the light and dark theme. Check the following example 
+                and a button is used to switch between the light and dark theme. Check the following example
                 (left: <code>theme.js</code>, right: <code>Panel.js</code>):
             </Paragraph>
             <CodeBlockRow
@@ -938,19 +939,107 @@ export default Panel;`}
             />
             <CodeDemo demoComponent={<Panel />} />
             <Paragraph>
-                With the above example we first initialise a Context with the light theme in <code>theme.js</code>. 
-                In <code>Panel.js</code> we import both <code>ThemeContext</code> and <code>themes</code>. 
-                In the top level <code>Panel</code> component, the Context's Provider component is inserted to provide the theme 
-                context to all the child components (<code>GlassBox</code> and <code>TextBox</code>). Notice that the Provider 
-                component does not render any real element in HTML structure, therefore do not treat it 
-                like <code>&lt;div&gt;</code> or apply <code>style</code> or <code>className</code> to 
-                it. Then we use the <code>useContext</code> Hook to pass properties to the child components. Lastly, we set theme 
-                with <code>useState</code> Hook and toggle themes on button click with the <code>toggleTheme</code> method. 
+                With the above example we first initialise a Context with the light theme in <code>theme.js</code>.
+                In <code>Panel.js</code> we import both <code>ThemeContext</code> and <code>themes</code>.
+                In the top level <code>Panel</code> component, the Context's Provider component is inserted to provide the theme
+                context to all the child components (<code>GlassBox</code> and <code>TextBox</code>). Notice that the Provider
+                component does not render any real element in HTML structure, therefore do not treat it
+                like <code>&lt;div&gt;</code> or apply <code>style</code> or <code>className</code> to
+                it. Then we use the <code>useContext</code> Hook to pass properties to the child components. Lastly, we set theme
+                with <code>useState</code> Hook and toggle themes on button click with the <code>toggleTheme</code> method.
             </Paragraph>
             <Paragraph>
-                This is a typical example of using Context in React components. The theme is a global property, it does not 
-                follow the Panel =&gt; GlassBox =&gt; TextBox hierarchy, but applies horizontally to all child components. In this 
-                case Context is the best way to deal with it. 
+                This is a typical example of using Context in React components. The theme is a global property, it does not
+                follow the Panel =&gt; GlassBox =&gt; TextBox hierarchy, but applies horizontally to all child components. In this
+                case Context is the best way to deal with it.
+            </Paragraph>
+            <SectionTitle type={'title'}>
+                useMemo: the memorization Hook
+            </SectionTitle>
+            <Paragraph>
+                The <code>useMemo</code> Hook accepts a deps array and memorizes the output <b>value</b> of a function.
+                The memorized value will only be recomputed if one of the dependencies has changed. It is used to optimize
+                performance by preventing unnecessary expensive computations. The syntax is:
+            </Paragraph>
+            <div className='learning-content'>
+                <pre children={`const computeExpensiveValue = useMemo(() => {
+    // do the expensive computation here
+    return a + b
+}, [a, b])`} />
+            </div>
+            <Paragraph>
+                Check the following example, which has two variables: <code>count</code> and <code>val</code>.
+                In the left code snippet, the <code>computeExpensiveValue</code> function is irrelevant to <code>val</code>, but
+                is invoked everytime when there is input in the field. This is because the input <code>onChange</code> function
+                sets the <code>val</code> state thus triggers a re-render. On the re-render <code>computeExpensiveValue</code> is
+                executed again. This can be seen from the console log as well. If <code>computeExpensiveValue</code> is an
+                expensive computation, the performance of the component would be dramatically affected. The solution is
+                to use <code>useMemo</code> to make sure that the <code>computeExpensiveValue</code> only returns a cached value 
+                on the re-render, as demonstrated in the right code snippet. Notice that there is no bracket when
+                invoking <code>computeExpensiveValue</code> in the JSX:
+            </Paragraph>
+            <CodeBlockRow
+                language1='react'
+                code1={`const UseMemoDemo = () => {
+    const [count, setCount] = useState(0);
+    const [val, setVal] = useState('');
+    const computeExpensiveValue = () => {
+        console.log('Inside the expensive computation');
+        let sum = 0;
+        for (let i = 0; i < count; i++) {
+            sum += i;
+        };
+        return sum
+    }
+    return (
+        <div>
+            <div>
+                Input value: {val}
+                <input value={val} onChange={e => setVal(e.target.value)} />
+            </div>
+            <div>
+                Count: {count}
+                <button onClick={() => setCount(count + 1)}>+1</button>
+            </div>
+            <div>Function output: {computeExpensiveValue()}</div>
+        </div>
+    )
+}`}
+                language2='react'
+                code2={`const UseMemoDemo = () => {
+    const [count, setCount] = useState(0);
+    const [val, setVal] = useState('');
+    const computeExpensiveValue = useMemo(() => {
+        console.log('Inside the expensive computation');
+        let sum = 0;
+        for (let i = 0; i < count; i++) {
+            sum += i;
+        };
+        return sum
+    }, [count])
+    return (
+        <div>
+            <div>
+                Input value: {val}
+                <input value={val} onChange={e => setVal(e.target.value)} />
+            </div>
+            <div>
+                Count: {count}
+                <button onClick={() => setCount(count + 1)}>+1</button>
+            </div>
+            <div>Function output: {computeExpensiveValue}</div>
+        </div>
+    )
+}`}
+                title='Use useMemo Hook to do expensive computation only on deps change'
+            />
+            <CodeDemo demoComponent={<UseMemoDemo />} />
+            <Paragraph>
+                Although <code>useMemo</code> looks similar to <code>useEffect</code>, the side effects should not be placed
+                in <code>useMemo</code>. The <code>useMemo</code> Hook should only be used as a performance optimization, not
+                a semantic guarantee. You should write code which can be executed without <code>useMemo</code>, then
+                consider <code>useMemo</code> to optimize performance. In other words, your code should be running well
+                without <code>useMemo</code>.
             </Paragraph>
         </details>
     )
