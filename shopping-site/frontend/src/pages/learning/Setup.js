@@ -5,7 +5,7 @@ const Setup = () => {
     return (
         <details>
             <summary className='learning-subtitle'>
-                Basic set up with Create React App
+                Basic Set Up with Create React App
             </summary>
             <Paragraph>
                 Create React App is always my first choice when building React apps. The main reason is that

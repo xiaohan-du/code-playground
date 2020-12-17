@@ -9,6 +9,26 @@
         margin-top: 12rem;
         margin-bottom: 1rem;
     }
+    &-main {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    &-content {
+        width: 80%;
+    }
+    &-sidebar {
+        width: 17%;
+        & .menu {
+            &-label {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            &-list {
+                font-size: 1rem;
+            }
+        }
+    }
     &-section {
         &-title {
             font-size: 2rem;
@@ -39,7 +59,7 @@
             display: flex;
         }
     }
-    &-references{
+    &-references {
         @include ease-out-shadow;
         margin-bottom: 0.5rem;
         padding: 0.5rem;
