@@ -1,9 +1,9 @@
 import React from 'react';
 import { Paragraph } from '../../components/CMS/index.js';
 
-const Compare = ({ isOpen, setIsOpen }) => {
+const Compare = ({ isOpen }) => {
     return (
-        <details open={isOpen} onToggle={e => {setIsOpen(e.target.open)}}>
+        <details open={isOpen}>
             <summary className='learning-subtitle'>
                 Compare React (a JS library) with Angular, Vue, Ember (JS frameworks)
             </summary>

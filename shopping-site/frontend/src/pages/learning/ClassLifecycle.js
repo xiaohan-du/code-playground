@@ -4,11 +4,11 @@ import ComponentDidMountFetchApi from '../../components/tutorial/ComponentDidMou
 import ComponentDidUpdateDemo from '../../components/tutorial/ComponentDidUpdateDemo';
 import ComponentWillUnmountDemo from '../../components/tutorial/ComponentWillUnmountDemo.js';
 
-const ClassLifecycle = () => {
+const ClassLifecycle = ({ isOpen }) => {
     const [age, setAge] = useState(30);
     const [showUnmount, setShowUnmount] = useState(true);
     return (
-        <details>
+        <details open={isOpen}>
             <summary className='learning-subtitle'>
                 Component Lifecycle Methods for Class Components
             </summary>

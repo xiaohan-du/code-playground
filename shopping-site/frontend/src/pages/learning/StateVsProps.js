@@ -2,9 +2,9 @@ import React from 'react';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../../components/CMS/index.js';
 import UseStateCounter from '../../components/tutorial/UseStateCounter';
 
-const StateVsProps = () => {
+const StateVsProps = ({ isOpen }) => {
     return (
-        <details>
+        <details open={isOpen}>
             <summary className='learning-subtitle'>
                 State VS Props
             </summary>

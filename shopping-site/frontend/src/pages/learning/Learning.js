@@ -13,12 +13,18 @@ import Hooks from './Hooks';
 import LearningSidebar from '../../components/LearningSidebar';
 
 const Learning = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [openDetails, setOpenDetails] = useState([]);
+
     const toggleDetails = (name) => {
-        if (name === 'compare') {
-            setIsOpen((prev) => !prev)
+        if (openDetails.includes(name)) {
+            setOpenDetails(openDetails.filter((o) => o !== name));
+        } else {
+            setOpenDetails((pages) => {
+                return [...pages, name];
+            });
         }
-    }
+    };
+
     return (
         <>
             <ScrollToTopOnMount />
@@ -35,31 +41,31 @@ const Learning = () => {
                         Code can be found in <a href="https://github.com/xiaohan-du/code-playground/tree/master/learning-path/my-app">my Github page</a>
                     </Paragraph>
                     <div className='learning-main'>
-                        <LearningSidebar toggleDetails={toggleDetails}/>
+                        <LearningSidebar toggleDetails={toggleDetails} />
 
                         <div className='learning-content'>
                             <h3 className='learning-section-title'>
                                 React Basics
                             </h3>
 
-                            <Compare isOpen={isOpen} setIsOpen={setIsOpen}/>
+                            <Compare isOpen={openDetails.includes('compare')} />
 
-                            <Setup />
+                            <Setup isOpen={openDetails.includes('setup')} />
 
-                            <Rendering />
+                            <Rendering isOpen={openDetails.includes('rendering')} />
 
-                            <FirstComponent />
+                            <FirstComponent isOpen={openDetails.includes('firstComponent')} />
 
-                            <ClassLifecycle />
+                            <ClassLifecycle isOpen={openDetails.includes('componentLifecycle')} />
 
-                            <StateVsProps />
+                            <StateVsProps isOpen={openDetails.includes('stateVsProps')} />
 
-                            <Hooks />
+                            <Hooks isOpen={openDetails.includes('hooks')} />
 
                             <h3 className='learning-section-title'>
                                 Advanced
                             </h3>
-                            <details>
+                            <details open={openDetails.includes('pureComponent')}>
                                 <summary className='learning-subtitle'>
                                     React PureComponent
                                 </summary>
@@ -67,7 +73,7 @@ const Learning = () => {
                                     TBC
                                 </Paragraph>
                             </details>
-                            <details>
+                            <details open={openDetails.includes('unidirectional')}>
                                 <summary className='learning-subtitle'>
                                     Unidirectional Data flow
                             </summary>
@@ -75,7 +81,7 @@ const Learning = () => {
                                     TBC
                                 </Paragraph>
                             </details>
-                            <details>
+                            <details open={openDetails.includes('hoc')}>
                                 <summary className='learning-subtitle'>
                                     Higher Order Component (HOC)
                                 </summary>

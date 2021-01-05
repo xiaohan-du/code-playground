@@ -1,9 +1,9 @@
 import React from 'react';
 import { Paragraph, CodeBlock } from '../../components/CMS/index.js';
 
-const Rendering = () => {
+const Rendering = ({ isOpen }) => {
     return (
-        <details>
+        <details open={isOpen}>
             <summary className='learning-subtitle'>
                 Rendering Elements
             </summary>
