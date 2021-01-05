@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './GlassTile.scss';
 import HoverWindow from './HoverWindow';
-import Overlay from './Overlay';
 const GlassTile = () => {
 
     let [showHoverWindow, setShowHoverWindow] = useState(false);
@@ -23,7 +22,6 @@ const GlassTile = () => {
 
     return (
         <>
-
             <div className="tile is-ancestor glasstile" onClick={() => handleClick('on')}>
                 <div className="tile is-parent">
                     <article className="tile is-child notification is-success">
@@ -36,7 +34,7 @@ const GlassTile = () => {
                 </div>
             </div>
             {
-                showHoverWindow ? <Overlay overlayElement={<HoverWindow handleClick={handleClick} />} /> : null
+                showHoverWindow ? <HoverWindow handleClick={handleClick} /> : null
             }
         </>
     )

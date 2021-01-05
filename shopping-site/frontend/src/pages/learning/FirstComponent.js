@@ -1,9 +1,9 @@
 import React from 'react';
-import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../../components/CMS/index.js';
+import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow } from '../../components/CMS/index.js';
 
-const FirstComponent = () => {
+const FirstComponent = ({ isOpen }) => {
     return (
-        <details>
+        <details open={isOpen}>
             <summary className='learning-subtitle'>
                 First Component
             </summary>
@@ -163,6 +163,6 @@ export default App;`}
             />
         </details>
     )
-} 
+}
 
 export default FirstComponent;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Paragraph } from '../../components/CMS/index.js';
 
-const Compare = () => {
+const Compare = ({ isOpen }) => {
     return (
-        <details>
+        <details open={isOpen}>
             <summary className='learning-subtitle'>
                 Compare React (a JS library) with Angular, Vue, Ember (JS frameworks)
-                        </summary>
+            </summary>
             <Paragraph>
                 <a
                     href='https://app.pluralsight.com/course-player?clipId=d27a005e-3729-47e4-ab5e-5b3f2ea13023'

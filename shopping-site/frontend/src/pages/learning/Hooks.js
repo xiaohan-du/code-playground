@@ -11,9 +11,9 @@ import SetUserProfileDemo from '../../components/tutorial/useEffect/SetUserProfi
 import Panel from '../../components/tutorial/useContext/Panel';
 import UseMemoDemo from '../../components/tutorial/useMemo/UseMemoDemo';
 
-const Hooks = () => {
+const Hooks = ({ isOpen }) => {
     return (
-        <details>
+        <details open={isOpen}>
             <summary className='learning-subtitle'>
                 Hooks
             </summary>
@@ -974,7 +974,7 @@ export default Panel;`}
                 sets the <code>val</code> state thus triggers a re-render. On the re-render <code>computeExpensiveValue</code> is
                 executed again. This can be seen from the console log as well. If <code>computeExpensiveValue</code> is an
                 expensive computation, the performance of the component would be dramatically affected. The solution is
-                to use <code>useMemo</code> to make sure that the <code>computeExpensiveValue</code> only returns a cached value 
+                to use <code>useMemo</code> to make sure that the <code>computeExpensiveValue</code> only returns a cached value
                 on the re-render, as demonstrated in the right code snippet. Notice that there is no bracket when
                 invoking <code>computeExpensiveValue</code> in the JSX:
             </Paragraph>
