@@ -1,0 +1,27 @@
+@import "../main.scss";
+
+.learning-sidebar {
+    width: 17%;
+    float: right;
+    & .menu {
+        &-label {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        &-list {
+            font-size: 1rem;
+        }
+    }
+    &-fix-vertical {
+        top: 8.5rem;
+        position: sticky;
+        right: 7rem;   
+        transition: top 0.2s;
+    }
+}
+
+@include to-desktop {
+    .learning-sidebar {
+        display: none;
+    }
+}

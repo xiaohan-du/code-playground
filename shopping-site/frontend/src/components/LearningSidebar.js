@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import './LearningSidebar.scss';
 
-const LearningSidebar = ({ toggleDetails }) => {
+const LearningSidebar = ({ toggleDetails, detectScroll, fixClass }) => {
+
+    useEffect(() => {
+        window.addEventListener('scroll', detectScroll);
+    })
     return (
-        <div className='learning-sidebar'>
+        <div className={`learning-sidebar ${fixClass}`}>
             <aside className="menu">
                 <p className="menu-label">
                     React Basics

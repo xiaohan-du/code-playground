@@ -15,6 +15,19 @@ import LearningSidebar from '../../components/LearningSidebar';
 const Learning = () => {
     const [openDetails, setOpenDetails] = useState([]);
 
+    const [fixClass, setFixClass] = useState('');
+
+    const detectScroll = () => {
+        const scrolled = document.body.scrollTop || document.documentElement.scrollTop;
+
+        if (scrolled > 200) {
+            setFixClass('learning-sidebar-fix-vertical');
+        }
+        else {
+            setFixClass('');
+        }
+    }
+
     const toggleDetails = (name) => {
         if (openDetails.includes(name)) {
             setOpenDetails(openDetails.filter((o) => o !== name));
@@ -41,7 +54,10 @@ const Learning = () => {
                         Code can be found in <a href="https://github.com/xiaohan-du/code-playground/tree/master/learning-path/my-app">my Github page</a>
                     </Paragraph>
                     <div className='learning-main'>
-                        <LearningSidebar toggleDetails={toggleDetails} />
+                        <LearningSidebar
+                            toggleDetails={toggleDetails}
+                            detectScroll={detectScroll}
+                            fixClass={fixClass} />
 
                         <div className='learning-content'>
                             <h3 className='learning-section-title'>
