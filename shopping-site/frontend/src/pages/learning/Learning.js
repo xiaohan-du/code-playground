@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Learning.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../../functions/ScrollToTopOnMount';
@@ -16,6 +16,11 @@ const Learning = () => {
     const [openDetails, setOpenDetails] = useState([]);
 
     const [fixClass, setFixClass] = useState('');
+
+    const [booHighlighted, setBooHighlighted] = useState([]);
+
+    const highlightedArray = ['compare', 'setup', 'rendering', 'firstComponent',
+        'componentLifecycle', 'stateVsProps', 'hooks', 'pureComponent', 'unidirectional', 'hoc'];
 
     const detectScroll = () => {
         const scrolled = document.body.scrollTop || document.documentElement.scrollTop;
@@ -35,8 +40,23 @@ const Learning = () => {
             setOpenDetails((pages) => {
                 return [...pages, name];
             });
-        }
+        };
     };
+
+    const findHighlighted = (openDetails) => {
+        let _index = [];
+        for (let i = 0; i < openDetails.length; i++) {
+            _index.push(highlightedArray.indexOf(openDetails[i]));
+        };
+        _index.sort();
+        let _booHighlighted = Array(highlightedArray.length).fill(false);
+        _index.forEach(i => _booHighlighted[i] = true);
+        setBooHighlighted(_booHighlighted);
+    }
+
+    useEffect(() => {
+        findHighlighted(openDetails);
+    }, [openDetails]);
 
     return (
         <>
@@ -57,7 +77,8 @@ const Learning = () => {
                         <LearningSidebar
                             toggleDetails={toggleDetails}
                             detectScroll={detectScroll}
-                            fixClass={fixClass} />
+                            fixClass={fixClass}
+                            booHighlighted={booHighlighted} />
 
                         <div className='learning-content'>
                             <h3 className='learning-section-title'>

@@ -52,6 +52,8 @@ const Hooks = ({ isOpen }) => {
                     Do not call Hooks from regular JS functions.
                 </li>
             </ul>
+
+            {/* ============================================= */}
             <SectionTitle type={'title'}>
                 useState: the state Hook
             </SectionTitle>
@@ -238,6 +240,8 @@ const Hooks = ({ isOpen }) => {
                 the <code>handleAlertClick</code> which belongs to the fourth state update is executed and shows '4'.
                 This has nothing to do with the eighth button click.
             </Paragraph>
+
+            {/* ============================================= */}
             <SectionTitle type={'title'}>
                 useReducer: the action Hook
             </SectionTitle>
@@ -383,6 +387,8 @@ const UseReducerManageMultiState = () => {
                 Check the <a href='https://reactjs.org/docs/hooks-reference.html#:~:text=useReducer%20is%20usually%20preferable%20to,dispatch%20down%20instead%20of%20callbacks.'>official doc</a> for
                 more explanation.
             </Paragraph>
+
+            {/* ============================================= */}
             <SectionTitle type={'title'}>
                 useEffect: the side effect Hook
             </SectionTitle>
@@ -424,7 +430,6 @@ const UseReducerManageMultiState = () => {
     };
 });`}>
             </CodeBlock>
-
             <Paragraph>
                 We can also fetch API on component render with <code>useEffect</code>. Let's look at an example similar to
                 the code shown in class component <code>componentDidMount</code> method:
@@ -470,7 +475,6 @@ const UseEffectFetchApi = () => {
     }
 }`}>
             </CodeBlock>
-            <CodeDemo demoComponent={<UseEffectFetchApi />} />
             <SectionTitle type={'subtitle'}>
                 Each render has its own effects
             </SectionTitle>
@@ -628,6 +632,8 @@ const updateUserProfile = () => {
             <div className='learning-content'>
                 <pre children={`React Hook useEffect has missing dependencies: 'userId' and 'userName'. Either include them or remove the dependency array.`} />
             </div>
+
+            {/* ============================================= */}
             <SectionTitle type={'title'}>
                 useRef: the reference Hook
             </SectionTitle>
@@ -751,6 +757,8 @@ but useEffect either doesn't have a dependency array, or one of the dependencies
                 clicking the button, <code>inputRef.current</code> becomes the input element. Properties of the input
                 can then be modified.
             </Paragraph>
+            
+            {/* ============================================= */}
             <SectionTitle type={'title'}>
                 useContext: the context Hook
             </SectionTitle>
@@ -953,6 +961,8 @@ export default Panel;`}
                 follow the Panel =&gt; GlassBox =&gt; TextBox hierarchy, but applies horizontally to all child components. In this
                 case Context is the best way to deal with it.
             </Paragraph>
+
+            {/* ============================================= */}
             <SectionTitle type={'title'}>
                 useMemo: the memorization Hook
             </SectionTitle>
@@ -1041,6 +1051,7 @@ export default Panel;`}
                 consider <code>useMemo</code> to optimize performance. In other words, your code should be running well
                 without <code>useMemo</code>.
             </Paragraph>
+
         </details>
     )
 }
