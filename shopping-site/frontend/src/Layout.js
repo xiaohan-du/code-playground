@@ -8,9 +8,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import PhD from './pages/PhD';
 import Medium from './pages/Medium';
-import Hooks from './pages/Hooks';
-import Components from './pages/Components';
 import Learning from './pages/learning/Learning';
+import ArrayMethods from './pages/arrayMethods/ArrayMethods';
 
 const Layout = () => {
     return (
@@ -28,11 +27,8 @@ const Layout = () => {
                 <Route path="/my-projects/learn-react">
                     <Learning />
                 </Route>
-                <Route path="/my-projects/custom-hooks">
-                    <Hooks />
-                </Route>
-                <Route path="/my-projects/components-library">
-                    <Components />
+                <Route path="/my-projects/learn-array-methods">
+                    <ArrayMethods />
                 </Route>
                 <Route path="/my-phd">
                     <PhD />

@@ -1,7 +1,7 @@
-import { ShuffleArray } from "./ShuffleArray";
+import { shuffleArray } from "./ShuffleArray";
 
 const mockData = [1, 2, 3, 4, 5],
-    shuffledData = ShuffleArray([...mockData]);
+    shuffledData = shuffleArray([...mockData]);
 
 describe('test shuffle array method', () => {
     it('should differ from the original array', () => {

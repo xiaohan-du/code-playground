@@ -11,6 +11,7 @@ import ClassLifecycle from './ClassLifecycle';
 import StateVsProps from './StateVsProps';
 import Hooks from './Hooks';
 import LearningSidebar from '../../components/LearningSidebar';
+import { detectScroll } from '../../functions/DetectScroll';
 
 const Learning = () => {
     const [openDetails, setOpenDetails] = useState([]);
@@ -21,17 +22,6 @@ const Learning = () => {
 
     const highlightedArray = ['compare', 'setup', 'rendering', 'firstComponent',
         'componentLifecycle', 'stateVsProps', 'hooks', 'pureComponent', 'unidirectional', 'hoc'];
-
-    const detectScroll = () => {
-        const scrolled = document.body.scrollTop || document.documentElement.scrollTop;
-
-        if (scrolled > 200) {
-            setFixClass('learning-sidebar-fix-vertical');
-        }
-        else {
-            setFixClass('');
-        }
-    }
 
     const toggleDetails = (name) => {
         if (openDetails.includes(name)) {
@@ -76,7 +66,7 @@ const Learning = () => {
                     <div className='learning-main'>
                         <LearningSidebar
                             toggleDetails={toggleDetails}
-                            detectScroll={detectScroll}
+                            detectScroll={() => detectScroll(200, setFixClass, 'learning-sidebar-fix-vertical')}
                             fixClass={fixClass}
                             booHighlighted={booHighlighted} />
 
