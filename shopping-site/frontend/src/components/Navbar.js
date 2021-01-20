@@ -45,12 +45,9 @@ const Navbar = () => {
                                 <Link className="navbar-item" onClick={handleClick} to="/my-projects/learn-react">
                                     Learn React
                                 </Link>
-                                {/* <Link className="navbar-item" onClick={handleClick} to="/my-projects/custom-hooks">
-                                    Custom Hooks
+                                <Link className="navbar-item" onClick={handleClick} to="/my-projects/learn-array-methods">
+                                    Learn JS Array Methods
                                 </Link>
-                                <Link className="navbar-item" onClick={handleClick} to="/my-projects/components-library">
-                                    Components Library
-                                </Link> */}
                             </div>
                         </div>
                         <Link className="navbar-item" onClick={handleClick} to="/contact-me">Contact Me</Link>

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../../components/CMS/index.js';
-import UseStateManageMultiState from '../../components/tutorial/UseStateManageMultiState';
-import UseReducerCounter from '../../components/tutorial/UseReducerCounter';
-import UseEffectFetchApi from '../../components/tutorial/UseEffectFetchApi';
-import UseRefVsUseState1 from '../../components/tutorial/UseRefVsUseState1';
-import Counter from '../../components/tutorial/useEffect/Counter';
-import SetStateMultiState from '../../components/tutorial/useState/SetStateMultiState';
-import UseEffectGreet from '../../components/tutorial/useEffect/Greeting';
-import SetUserProfileDemo from '../../components/tutorial/useEffect/SetUserProfileDemo';
-import Panel from '../../components/tutorial/useContext/Panel';
-import UseMemoDemo from '../../components/tutorial/useMemo/UseMemoDemo';
+import UseStateManageMultiState from '../../components/Learning/UseStateManageMultiState';
+import UseReducerCounter from '../../components/Learning/UseReducerCounter';
+import UseRefVsUseState1 from '../../components/Learning/UseRefVsUseState1';
+import Counter from '../../components/Learning/useEffect/Counter';
+import SetStateMultiState from '../../components/Learning/useState/SetStateMultiState';
+import UseEffectGreet from '../../components/Learning/useEffect/Greeting';
+import SetUserProfileDemo from '../../components/Learning/useEffect/SetUserProfileDemo';
+import Panel from '../../components/Learning/useContext/Panel';
+import UseMemoDemo from '../../components/Learning/useMemo/UseMemoDemo';
 
 const Hooks = ({ isOpen }) => {
     return (

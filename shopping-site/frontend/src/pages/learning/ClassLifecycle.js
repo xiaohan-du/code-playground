@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../../components/CMS/index.js';
-import ComponentDidMountFetchApi from '../../components/tutorial/ComponentDidMountFetchApi';
-import ComponentDidUpdateDemo from '../../components/tutorial/ComponentDidUpdateDemo';
-import ComponentWillUnmountDemo from '../../components/tutorial/ComponentWillUnmountDemo.js';
+import ComponentDidMountFetchApi from '../../components/Learning/ComponentDidMountFetchApi';
+import ComponentDidUpdateDemo from '../../components/Learning/ComponentDidUpdateDemo';
+import ComponentWillUnmountDemo from '../../components/Learning/ComponentWillUnmountDemo.js';
 
 const ClassLifecycle = ({ isOpen }) => {
     const [age, setAge] = useState(30);

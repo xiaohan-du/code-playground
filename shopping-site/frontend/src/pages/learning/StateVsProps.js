@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../../components/CMS/index.js';
-import UseStateCounter from '../../components/tutorial/UseStateCounter';
+import UseStateCounter from '../../components/Learning/UseStateCounter';
 
 const StateVsProps = ({ isOpen }) => {
     return (
