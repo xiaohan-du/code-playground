@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../../components/CMS/index.js';
 import ComponentDidMountFetchApi from '../../components/Learning/ComponentDidMountFetchApi';
 import ComponentDidUpdateDemo from '../../components/Learning/ComponentDidUpdateDemo';
 import ComponentWillUnmountDemo from '../../components/Learning/ComponentWillUnmountDemo.js';
 
-const ClassLifecycle = ({ isOpen }) => {
+const ClassLifecycle = ({ toggleDetails, openDetails  }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        setIsOpen(openDetails.includes('classLifecycle'));
+    })
     const [age, setAge] = useState(30);
     const [showUnmount, setShowUnmount] = useState(true);
     return (
-        <details open={isOpen}>
+        <details open={isOpen} onClick={() => toggleDetails('classLifecycle')}>
             <summary className='learning-subtitle'>
                 Component Lifecycle Methods for Class Components
             </summary>

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Paragraph } from '../../components/CMS/index.js';
 
-const Setup = ({ isOpen }) => {
+const Setup = ({ toggleDetails, openDetails }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        setIsOpen(openDetails.includes('setup'));
+    })
     return (
-        <details open={isOpen}>
+        <details open={isOpen} onClick={() => toggleDetails('setup')}>
             <summary className='learning-subtitle'>
                 Basic Set Up with Create React App
             </summary>

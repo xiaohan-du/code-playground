@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Paragraph, CodeBlock } from '../../components/CMS/index.js';
 
-const Rendering = ({ isOpen }) => {
+const Rendering = ({ toggleDetails, openDetails }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        setIsOpen(openDetails.includes('rendering'));
+    })
     return (
-        <details open={isOpen}>
+        <details open={isOpen} onClick={() => toggleDetails('rendering')}>
             <summary className='learning-subtitle'>
                 Rendering Elements
             </summary>

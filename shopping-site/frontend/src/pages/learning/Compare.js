@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Paragraph } from '../../components/CMS/index.js';
 
-const Compare = ({ isOpen }) => {
+const Compare = ({ toggleDetails, openDetails }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        setIsOpen(openDetails.includes('compare'));
+    })
     return (
-        <details open={isOpen}>
+        <details open={isOpen} onClick={() => toggleDetails('compare')}>
             <summary className='learning-subtitle'>
                 Compare React (a JS library) with Angular, Vue, Ember (JS frameworks)
             </summary>
