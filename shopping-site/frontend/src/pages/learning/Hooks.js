@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../../components/CMS/index.js';
 import UseStateManageMultiState from '../../components/Learning/UseStateManageMultiState';
 import UseReducerCounter from '../../components/Learning/UseReducerCounter';
@@ -10,9 +10,13 @@ import SetUserProfileDemo from '../../components/Learning/useEffect/SetUserProfi
 import Panel from '../../components/Learning/useContext/Panel';
 import UseMemoDemo from '../../components/Learning/useMemo/UseMemoDemo';
 
-const Hooks = ({ isOpen }) => {
+const Hooks = ({ toggleDetails, openDetails }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        setIsOpen(openDetails.includes('hooks'));
+    })
     return (
-        <details open={isOpen}>
+        <details open={isOpen} onClick={() => toggleDetails('hooks')}>
             <summary className='learning-subtitle'>
                 Hooks
             </summary>
@@ -756,7 +760,7 @@ but useEffect either doesn't have a dependency array, or one of the dependencies
                 clicking the button, <code>inputRef.current</code> becomes the input element. Properties of the input
                 can then be modified.
             </Paragraph>
-            
+
             {/* ============================================= */}
             <SectionTitle type={'title'}>
                 useContext: the context Hook

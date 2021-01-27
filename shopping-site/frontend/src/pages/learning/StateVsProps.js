@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow, CodeDemo } from '../../components/CMS/index.js';
 import UseStateCounter from '../../components/Learning/UseStateCounter';
 
-const StateVsProps = ({ isOpen }) => {
+const StateVsProps = ({ toggleDetails, openDetails }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        setIsOpen(openDetails.includes('stateVsProps'));
+    })
     return (
-        <details open={isOpen}>
+        <details open={isOpen} onClick={() => toggleDetails('stateVsProps')}>
             <summary className='learning-subtitle'>
                 State VS Props
             </summary>

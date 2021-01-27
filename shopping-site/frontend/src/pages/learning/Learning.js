@@ -11,41 +11,48 @@ import ClassLifecycle from './ClassLifecycle';
 import StateVsProps from './StateVsProps';
 import Hooks from './Hooks';
 import LearningSidebar from '../../components/LearningSidebar';
+import PureComponent from './PureComponent';
+import UniDirectional from './UniDirectional';
+import Hoc from './Hoc';
 import { detectScroll } from '../../functions/DetectScroll';
+import '../../components/LearningSidebar.scss';
 
 const Learning = () => {
     const [openDetails, setOpenDetails] = useState([]);
 
     const [fixClass, setFixClass] = useState('');
 
-    const [booHighlighted, setBooHighlighted] = useState([]);
+    const idArray = ['compare', 'setup', 'rendering', 'firstComponent',
+        'classLifecycle', 'stateVsProps', 'hooks', 'pureComponent', 'unidirectional', 'hoc'];
 
-    const highlightedArray = ['compare', 'setup', 'rendering', 'firstComponent',
-        'componentLifecycle', 'stateVsProps', 'hooks', 'pureComponent', 'unidirectional', 'hoc'];
+    const titleArray = ['Compare', 'Basic Set Up', 'Rendering Elements', 'First Component', 'Component Lifecycle Methods',
+        'State VS Props', 'Hooks', 'React PureComponent', 'Unidirectional Data Flow', 'Higher Order Component'];
+
+    const booHighlight = Array(idArray.length).fill(false);
+
+    const [hlArray, setHlArray] = useState([booHighlight, idArray, titleArray]);
 
     const toggleDetails = (name) => {
         if (openDetails.includes(name)) {
             setOpenDetails(openDetails.filter((o) => o !== name));
         } else {
-            setOpenDetails((pages) => {
-                return [...pages, name];
-            });
+            setOpenDetails((pages) => { return [...pages, name] });
         };
     };
 
-    const findHighlighted = (openDetails) => {
+    const findHighlight = (openDetails) => {
         let _index = [];
         for (let i = 0; i < openDetails.length; i++) {
-            _index.push(highlightedArray.indexOf(openDetails[i]));
+            _index.push(idArray.indexOf(openDetails[i]));
         };
         _index.sort();
-        let _booHighlighted = Array(highlightedArray.length).fill(false);
-        _index.forEach(i => _booHighlighted[i] = true);
-        setBooHighlighted(_booHighlighted);
-    }
+        let _booHighlight = Array(idArray.length).fill(false);
+        _index.forEach(item => _booHighlight[item] = true);
+        setHlArray([_booHighlight, idArray, titleArray]);
+    };
 
     useEffect(() => {
-        findHighlighted(openDetails);
+        findHighlight(openDetails);
     }, [openDetails]);
 
     return (
@@ -68,54 +75,38 @@ const Learning = () => {
                             toggleDetails={toggleDetails}
                             detectScroll={() => detectScroll(200, setFixClass, 'learning-sidebar-fix-vertical')}
                             fixClass={fixClass}
-                            booHighlighted={booHighlighted} />
+                            highlightClass={'learning-sidebar-highlight'}
+                            hlArray={hlArray} />
 
                         <div className='learning-content'>
                             <h3 className='learning-section-title'>
                                 React Basics
                             </h3>
 
-                            <Compare isOpen={openDetails.includes('compare')} />
+                            <Compare toggleDetails={toggleDetails} openDetails={openDetails} />
 
-                            <Setup isOpen={openDetails.includes('setup')} />
+                            <Setup toggleDetails={toggleDetails} openDetails={openDetails} />
 
-                            <Rendering isOpen={openDetails.includes('rendering')} />
+                            <Rendering toggleDetails={toggleDetails} openDetails={openDetails} />
 
-                            <FirstComponent isOpen={openDetails.includes('firstComponent')} />
+                            <FirstComponent toggleDetails={toggleDetails} openDetails={openDetails} />
 
-                            <ClassLifecycle isOpen={openDetails.includes('componentLifecycle')} />
+                            <ClassLifecycle toggleDetails={toggleDetails} openDetails={openDetails} />
 
-                            <StateVsProps isOpen={openDetails.includes('stateVsProps')} />
+                            <StateVsProps toggleDetails={toggleDetails} openDetails={openDetails} />
 
-                            <Hooks isOpen={openDetails.includes('hooks')} />
+                            <Hooks toggleDetails={toggleDetails} openDetails={openDetails} />
 
                             <h3 className='learning-section-title'>
                                 Advanced
                             </h3>
-                            <details open={openDetails.includes('pureComponent')}>
-                                <summary className='learning-subtitle'>
-                                    React PureComponent
-                                </summary>
-                                <Paragraph>
-                                    TBC
-                                </Paragraph>
-                            </details>
-                            <details open={openDetails.includes('unidirectional')}>
-                                <summary className='learning-subtitle'>
-                                    Unidirectional Data flow
-                            </summary>
-                                <Paragraph>
-                                    TBC
-                                </Paragraph>
-                            </details>
-                            <details open={openDetails.includes('hoc')}>
-                                <summary className='learning-subtitle'>
-                                    Higher Order Component (HOC)
-                                </summary>
-                                <Paragraph>
-                                    TBC
-                                </Paragraph>
-                            </details>
+
+                            <PureComponent toggleDetails={toggleDetails} openDetails={openDetails} />
+
+                            <UniDirectional toggleDetails={toggleDetails} openDetails={openDetails} />
+
+                            <Hoc toggleDetails={toggleDetails} openDetails={openDetails} />
+                            
                             <h3 className='learning-section-title'>
                                 References
                             </h3>
