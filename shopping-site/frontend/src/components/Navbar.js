@@ -45,9 +45,9 @@ const Navbar = () => {
                                 <Link className="navbar-item" onClick={handleClick} to="/my-projects/learn-react">
                                     Learn React
                                 </Link>
-                                <Link className="navbar-item" onClick={handleClick} to="/my-projects/learn-array-methods">
+                                {/* <Link className="navbar-item" onClick={handleClick} to="/my-projects/learn-array-methods">
                                     Learn JS Array Methods
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                         <Link className="navbar-item" onClick={handleClick} to="/contact-me">Contact Me</Link>
