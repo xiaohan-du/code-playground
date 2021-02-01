@@ -22,6 +22,10 @@ const Learning = () => {
 
     const [fixClass, setFixClass] = useState('');
 
+    const basicComponents = [Compare, Setup, Rendering, FirstComponent, ClassLifecycle, StateVsProps, Hooks];
+
+    const advancedComponents = [PureComponent, UniDirectional, Hoc];
+
     const idArray = ['compare', 'setup', 'rendering', 'firstComponent',
         'classLifecycle', 'stateVsProps', 'hooks', 'pureComponent', 'unidirectional', 'hoc'];
 
@@ -83,30 +87,29 @@ const Learning = () => {
                                 React Basics
                             </h3>
 
-                            <Compare toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <Setup toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <Rendering toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <FirstComponent toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <ClassLifecycle toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <StateVsProps toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <Hooks toggleDetails={toggleDetails} openDetails={openDetails} />
+                            {basicComponents.map((Component, index) =>
+                                <Component
+                                    key={index}
+                                    toggleDetails={toggleDetails}
+                                    openDetails={openDetails}
+                                    id={idArray[index]}
+                                />)
+                            }
 
                             <h3 className='learning-section-title'>
                                 Advanced
                             </h3>
 
-                            <PureComponent toggleDetails={toggleDetails} openDetails={openDetails} />
+                            {
+                                advancedComponents.map((Component, index) =>
+                                    <Component
+                                        key={index + basicComponents.length}
+                                        toggleDetails={toggleDetails}
+                                        openDetails={openDetails}
+                                        id={idArray[index + basicComponents.length]}
+                                    />)
+                            }
 
-                            <UniDirectional toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <Hoc toggleDetails={toggleDetails} openDetails={openDetails} />
-                            
                             <h3 className='learning-section-title'>
                                 References
                             </h3>

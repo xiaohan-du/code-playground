@@ -1,45 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ArrayMethods.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../../functions/ScrollToTopOnMount';
-import { CodeBlock, CodeDemo, Paragraph } from '../../components/CMS';
+import { Paragraph } from '../../components/CMS';
 import LearningSidebar from '../../components/LearningSidebar';
 import { detectScroll } from '../../functions/DetectScroll';
+import ForEachMethod from './ForEachMethod';
+import MapMethod from './MapMethod';
+import FilterMethod from './FilterMethod';
+import EveryMethod from './EveryMethod';
+
+let openDetails = [];
 
 const ArrayMethods = () => {
 
-    const [openDetails, setOpenDetails] = useState([]);
+    const components = [ForEachMethod, MapMethod, FilterMethod, EveryMethod];
+
 
     const [fixClass, setFixClass] = useState('');
 
-    const [booHighlighted, setBooHighlighted] = useState([]);
+    const idArray = ['forEach', 'map', 'filter', 'every'];
 
-    const highlightedArray = ['forEach', 'filter', 'map'];
+    const titleArray = idArray;
+
+    const booHighlight = Array(idArray.length).fill(false);
+
+    const [hlArray, setHlArray] = useState([booHighlight, idArray, titleArray]);
 
     const toggleDetails = (name) => {
         if (openDetails.includes(name)) {
-            setOpenDetails(openDetails.filter((o) => o !== name));
+            openDetails = openDetails.filter((item) => item !== name)
         } else {
-            setOpenDetails((pages) => {
-                return [...pages, name];
-            });
+            openDetails = [...openDetails, name];
         };
+        findHighlight();
     };
 
-    const findHighlighted = (openDetails) => {
+    const findHighlight = () => {
         let _index = [];
         for (let i = 0; i < openDetails.length; i++) {
-            _index.push(highlightedArray.indexOf(openDetails[i]));
+            _index.push(idArray.indexOf(openDetails[i]));
         };
         _index.sort();
-        let _booHighlighted = Array(highlightedArray.length).fill(false);
-        _index.forEach(i => _booHighlighted[i] = true);
-        setBooHighlighted(_booHighlighted);
-    }
-
-    useEffect(() => {
-        findHighlighted(openDetails);
-    }, [openDetails]);
+        let _booHighlight = Array(idArray.length).fill(false);
+        _index.forEach(item => _booHighlight[item] = true);
+        setHlArray([_booHighlight, idArray, titleArray]);
+    };
 
     return (
         <>
@@ -51,7 +57,7 @@ const ArrayMethods = () => {
             <div className='array-methods'>
                 <div className='center-content'>
                     <h1 className='learning-title'>
-                        I use a lot of JS arrays, but I found it difficult to be proficient with JS array methods.
+                        Refresh JS array methods
                     </h1>
                     <Paragraph>
                         Code can be found in my Github page.
@@ -61,42 +67,33 @@ const ArrayMethods = () => {
                             toggleDetails={toggleDetails}
                             detectScroll={() => detectScroll(200, setFixClass, 'learning-sidebar-fix-vertical')}
                             fixClass={fixClass}
-                            booHighlighted={booHighlighted} />
+                            highlightClass={'learning-sidebar-highlight'}
+                            hlArray={hlArray} />
 
                         <div className='learning-content'>
                             <h3 className='learning-section-title'>
                                 Array Methods
                             </h3>
-                            <details>
-                                <summary className='learning-subtitle'>
-                                    Array.forEach()
-                                </summary>
-                                <Paragraph>
-                                    Apply a function to all elements of A and push to B
-                                </Paragraph>
-                                <CodeBlock language='javascript'
-                                    title='A.forEach'
-                                    code={`let A = [1, 2, 3]
-let func = (e) => {
-    return e -= 1;
-}
-let B = [];
-A.forEach((item) => {B.push(func(item))});
-`}
-                                />
-                                <Paragraph>
-                                    Apply a function to all elements of A and modify A
-                                </Paragraph>
-                            </details>
+
+                            {
+                                components.map((Component, index) =>
+                                    <Component
+                                        key={index}
+                                        toggleDetails={toggleDetails}
+                                        openDetails={openDetails}
+                                        id={idArray[index]}
+                                    />)
+                            }
+
                             <h3 className='learning-section-title'>
                                 Coding example
                             </h3>
                             <details>
                                 <summary className='learning-subtitle'>
-                                    Plot a response surface
+                                    Plot a surface
                                 </summary>
                                 <Paragraph>
-                                    Solve a mathematical problem 
+                                    Solve a mathematical problem
                                 </Paragraph>
                             </details>
                         </div>

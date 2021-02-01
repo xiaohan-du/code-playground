@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Paragraph, SectionTitle, CodeBlock, CodeBlockRow } from '../../components/CMS/index.js';
 
-const FirstComponent = ({ toggleDetails, openDetails }) => {
+const FirstComponent = ({ toggleDetails, openDetails, id }) => {
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
-        setIsOpen(openDetails.includes('firstComponent'));
+        setIsOpen(openDetails.includes(id));
     })
     return (
-        <details open={isOpen} onClick={() => toggleDetails('firstComponent')}>
-            <summary className='learning-subtitle'>
+        <details open={isOpen}>
+            <summary className='learning-subtitle' onClick={() => toggleDetails(id)}>
                 First Component
             </summary>
             <Paragraph>

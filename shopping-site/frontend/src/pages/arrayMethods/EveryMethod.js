@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Paragraph } from '../../components/CMS/index.js';
+import { Paragraph } from '../../components/CMS';
 
-const UniDirectional = ({ toggleDetails, openDetails, id }) => {
+const EveryMethod = ({ toggleDetails, openDetails, id }) => {
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         setIsOpen(openDetails.includes(id));
@@ -9,13 +9,13 @@ const UniDirectional = ({ toggleDetails, openDetails, id }) => {
     return (
         <details open={isOpen}>
             <summary className='learning-subtitle' onClick={() => toggleDetails(id)}>
-                Unidirectional Data flow
+                every()
             </summary>
             <Paragraph>
-                TBC
+                every
             </Paragraph>
         </details>
     )
 }
 
-export default UniDirectional;
+export default EveryMethod;
