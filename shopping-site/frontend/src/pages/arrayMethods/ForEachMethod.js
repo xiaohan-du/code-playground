@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Paragraph, CodeBlock } from '../../components/CMS';
 
-const ForEachMethod = ({ toggleDetails, openDetails, id }) => {
+const ForEachMethod = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         setIsOpen(openDetails.includes(id));
     })
     return (
         <details open={isOpen}>
-            <summary className='learning-subtitle' onClick={() => toggleDetails(id)}>
+            <summary className='learning-subtitle' onClick={() => toggleDetails(id, openDetails, setOpenDetails)}>
                 forEach()
             </summary>
             <Paragraph>

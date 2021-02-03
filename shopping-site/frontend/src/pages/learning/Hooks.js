@@ -10,14 +10,14 @@ import SetUserProfileDemo from '../../components/Learning/useEffect/SetUserProfi
 import Panel from '../../components/Learning/useContext/Panel';
 import UseMemoDemo from '../../components/Learning/useMemo/UseMemoDemo';
 
-const Hooks = ({ toggleDetails, openDetails, id }) => {
+const Hooks = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         setIsOpen(openDetails.includes(id));
     })
     return (
         <details open={isOpen}>
-            <summary className='learning-subtitle' onClick={() => toggleDetails(id)}>
+            <summary className='learning-subtitle' onClick={() => toggleDetails(id, openDetails, setOpenDetails)}>
                 Hooks
             </summary>
             <Paragraph>

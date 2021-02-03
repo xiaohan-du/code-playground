@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ArrayMethods.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../../functions/ScrollToTopOnMount';
@@ -9,13 +9,12 @@ import ForEachMethod from './ForEachMethod';
 import MapMethod from './MapMethod';
 import FilterMethod from './FilterMethod';
 import EveryMethod from './EveryMethod';
-
-let openDetails = [];
+import { toggleDetails } from '../../functions/Projects/toggleDetails';
+import { findHighlights } from '../../functions/Projects/findHighlights';
 
 const ArrayMethods = () => {
 
     const components = [ForEachMethod, MapMethod, FilterMethod, EveryMethod];
-
 
     const [fixClass, setFixClass] = useState('');
 
@@ -27,25 +26,11 @@ const ArrayMethods = () => {
 
     const [hlArray, setHlArray] = useState([booHighlight, idArray, titleArray]);
 
-    const toggleDetails = (name) => {
-        if (openDetails.includes(name)) {
-            openDetails = openDetails.filter((item) => item !== name)
-        } else {
-            openDetails = [...openDetails, name];
-        };
-        findHighlight();
-    };
+    const [openDetails, setOpenDetails] = useState([]);
 
-    const findHighlight = () => {
-        let _index = [];
-        for (let i = 0; i < openDetails.length; i++) {
-            _index.push(idArray.indexOf(openDetails[i]));
-        };
-        _index.sort();
-        let _booHighlight = Array(idArray.length).fill(false);
-        _index.forEach(item => _booHighlight[item] = true);
-        setHlArray([_booHighlight, idArray, titleArray]);
-    };
+    useEffect(() => {
+        findHighlights(openDetails, idArray, titleArray, setHlArray);
+    }, [openDetails]);
 
     return (
         <>
@@ -68,7 +53,10 @@ const ArrayMethods = () => {
                             detectScroll={() => detectScroll(200, setFixClass, 'learning-sidebar-fix-vertical')}
                             fixClass={fixClass}
                             highlightClass={'learning-sidebar-highlight'}
-                            hlArray={hlArray} />
+                            hlArray={hlArray}
+                            openDetails={openDetails}
+                            setOpenDetails={setOpenDetails}
+                        />
 
                         <div className='learning-content'>
                             <h3 className='learning-section-title'>
@@ -82,7 +70,9 @@ const ArrayMethods = () => {
                                         toggleDetails={toggleDetails}
                                         openDetails={openDetails}
                                         id={idArray[index]}
-                                    />)
+                                        setOpenDetails={setOpenDetails}
+                                    />
+                                )
                             }
 
                             <h3 className='learning-section-title'>

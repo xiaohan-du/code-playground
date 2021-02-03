@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import './LearningSidebar.scss';
 
-const LearningSidebar = ({ toggleDetails, detectScroll, fixClass, highlightClass, hlArray }) => {
+const LearningSidebar = ({ toggleDetails, detectScroll, fixClass, highlightClass, hlArray, openDetails, setOpenDetails }) => {
 
     const renderLi = () => {
-        let _li = []
+        let _li = [];
         for (let i = 0; i < hlArray[0].length; ++i) {
+            let id = hlArray[1][i];
             _li.push(
                 <li key={i}>
                     <a className={hlArray[0][i] ? highlightClass : ''}
-                        onClick={() => toggleDetails(hlArray[1][i])}>
+                        onClick={() => toggleDetails(id, openDetails, setOpenDetails)}>
                         {hlArray[2][i]}
                     </a>
                 </li>

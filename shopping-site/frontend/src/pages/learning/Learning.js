@@ -16,9 +16,10 @@ import UniDirectional from './UniDirectional';
 import Hoc from './Hoc';
 import { detectScroll } from '../../functions/DetectScroll';
 import '../../components/LearningSidebar.scss';
+import { toggleDetails } from '../../functions/Projects/toggleDetails';
+import { findHighlights } from '../../functions/Projects/findHighlights';
 
 const Learning = () => {
-    const [openDetails, setOpenDetails] = useState([]);
 
     const [fixClass, setFixClass] = useState('');
 
@@ -36,27 +37,10 @@ const Learning = () => {
 
     const [hlArray, setHlArray] = useState([booHighlight, idArray, titleArray]);
 
-    const toggleDetails = (name) => {
-        if (openDetails.includes(name)) {
-            setOpenDetails(openDetails.filter((o) => o !== name));
-        } else {
-            setOpenDetails((pages) => { return [...pages, name] });
-        };
-    };
-
-    const findHighlight = (openDetails) => {
-        let _index = [];
-        for (let i = 0; i < openDetails.length; i++) {
-            _index.push(idArray.indexOf(openDetails[i]));
-        };
-        _index.sort();
-        let _booHighlight = Array(idArray.length).fill(false);
-        _index.forEach(item => _booHighlight[item] = true);
-        setHlArray([_booHighlight, idArray, titleArray]);
-    };
+    const [openDetails, setOpenDetails] = useState([]);
 
     useEffect(() => {
-        findHighlight(openDetails);
+        findHighlights(openDetails, idArray, titleArray, setHlArray);
     }, [openDetails]);
 
     return (
@@ -80,7 +64,9 @@ const Learning = () => {
                             detectScroll={() => detectScroll(200, setFixClass, 'learning-sidebar-fix-vertical')}
                             fixClass={fixClass}
                             highlightClass={'learning-sidebar-highlight'}
-                            hlArray={hlArray} />
+                            hlArray={hlArray}
+                            openDetails={openDetails}
+                            setOpenDetails={setOpenDetails} />
 
                         <div className='learning-content'>
                             <h3 className='learning-section-title'>
@@ -93,6 +79,7 @@ const Learning = () => {
                                     toggleDetails={toggleDetails}
                                     openDetails={openDetails}
                                     id={idArray[index]}
+                                    setOpenDetails={setOpenDetails}
                                 />)
                             }
 
@@ -107,6 +94,7 @@ const Learning = () => {
                                         toggleDetails={toggleDetails}
                                         openDetails={openDetails}
                                         id={idArray[index + basicComponents.length]}
+                                        setOpenDetails={setOpenDetails}
                                     />)
                             }
 
@@ -128,4 +116,3 @@ const Learning = () => {
 }
 
 export default Learning;
-
