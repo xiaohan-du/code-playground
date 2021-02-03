@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Paragraph } from '../../components/CMS/index.js';
 
-const UniDirectional = ({ toggleDetails, openDetails }) => {
+const UniDirectional = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
-        setIsOpen(openDetails.includes('unidirectional'));
+        setIsOpen(openDetails.includes(id));
     })
     return (
-        <details open={isOpen} onClick={() => toggleDetails('unidirectional')}>
-            <summary className='learning-subtitle'>
+        <details open={isOpen}>
+            <summary className='learning-subtitle' onClick={() => toggleDetails(id, openDetails, setOpenDetails)}>
                 Unidirectional Data flow
             </summary>
             <Paragraph>

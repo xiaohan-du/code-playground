@@ -103,7 +103,8 @@ const Contact = () => {
                     handleSubmit={handleSubmit}
                     toggleAddress={toggleAddress}
                     validateFields={validateFields}
-                    stateInput={state} />
+                    stateInput={state}
+                />
             )
         }
         else if (state.showError) {

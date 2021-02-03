@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Paragraph } from '../../components/CMS/index.js';
+import { Paragraph, CodeBlock } from '../../components/CMS';
 
-const PureComponent = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
+const MapMethod = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         setIsOpen(openDetails.includes(id));
@@ -9,13 +9,13 @@ const PureComponent = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
     return (
         <details open={isOpen}>
             <summary className='learning-subtitle' onClick={() => toggleDetails(id, openDetails, setOpenDetails)}>
-                React PureComponent
+                map()
             </summary>
             <Paragraph>
-                TBC
+                map 
             </Paragraph>
         </details>
     )
 }
 
-export default PureComponent;
+export default MapMethod;

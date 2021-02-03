@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Paragraph } from '../../components/CMS/index.js';
+import { Paragraph } from '../../components/CMS';
 
-const PureComponent = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
+const EveryMethod = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         setIsOpen(openDetails.includes(id));
@@ -9,13 +9,13 @@ const PureComponent = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
     return (
         <details open={isOpen}>
             <summary className='learning-subtitle' onClick={() => toggleDetails(id, openDetails, setOpenDetails)}>
-                React PureComponent
+                every()
             </summary>
             <Paragraph>
-                TBC
+                every
             </Paragraph>
         </details>
     )
 }
 
-export default PureComponent;
+export default EveryMethod;

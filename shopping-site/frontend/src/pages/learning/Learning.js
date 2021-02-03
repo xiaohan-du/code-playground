@@ -16,11 +16,16 @@ import UniDirectional from './UniDirectional';
 import Hoc from './Hoc';
 import { detectScroll } from '../../functions/DetectScroll';
 import '../../components/LearningSidebar.scss';
+import { toggleDetails } from '../../functions/Projects/toggleDetails';
+import { findHighlights } from '../../functions/Projects/findHighlights';
 
 const Learning = () => {
-    const [openDetails, setOpenDetails] = useState([]);
 
     const [fixClass, setFixClass] = useState('');
+
+    const basicComponents = [Compare, Setup, Rendering, FirstComponent, ClassLifecycle, StateVsProps, Hooks];
+
+    const advancedComponents = [PureComponent, UniDirectional, Hoc];
 
     const idArray = ['compare', 'setup', 'rendering', 'firstComponent',
         'classLifecycle', 'stateVsProps', 'hooks', 'pureComponent', 'unidirectional', 'hoc'];
@@ -32,27 +37,10 @@ const Learning = () => {
 
     const [hlArray, setHlArray] = useState([booHighlight, idArray, titleArray]);
 
-    const toggleDetails = (name) => {
-        if (openDetails.includes(name)) {
-            setOpenDetails(openDetails.filter((o) => o !== name));
-        } else {
-            setOpenDetails((pages) => { return [...pages, name] });
-        };
-    };
-
-    const findHighlight = (openDetails) => {
-        let _index = [];
-        for (let i = 0; i < openDetails.length; i++) {
-            _index.push(idArray.indexOf(openDetails[i]));
-        };
-        _index.sort();
-        let _booHighlight = Array(idArray.length).fill(false);
-        _index.forEach(item => _booHighlight[item] = true);
-        setHlArray([_booHighlight, idArray, titleArray]);
-    };
+    const [openDetails, setOpenDetails] = useState([]);
 
     useEffect(() => {
-        findHighlight(openDetails);
+        findHighlights(openDetails, idArray, titleArray, setHlArray);
     }, [openDetails]);
 
     return (
@@ -76,37 +64,40 @@ const Learning = () => {
                             detectScroll={() => detectScroll(200, setFixClass, 'learning-sidebar-fix-vertical')}
                             fixClass={fixClass}
                             highlightClass={'learning-sidebar-highlight'}
-                            hlArray={hlArray} />
+                            hlArray={hlArray}
+                            openDetails={openDetails}
+                            setOpenDetails={setOpenDetails} />
 
                         <div className='learning-content'>
                             <h3 className='learning-section-title'>
                                 React Basics
                             </h3>
 
-                            <Compare toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <Setup toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <Rendering toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <FirstComponent toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <ClassLifecycle toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <StateVsProps toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <Hooks toggleDetails={toggleDetails} openDetails={openDetails} />
+                            {basicComponents.map((Component, index) =>
+                                <Component
+                                    key={index}
+                                    toggleDetails={toggleDetails}
+                                    openDetails={openDetails}
+                                    id={idArray[index]}
+                                    setOpenDetails={setOpenDetails}
+                                />)
+                            }
 
                             <h3 className='learning-section-title'>
                                 Advanced
                             </h3>
 
-                            <PureComponent toggleDetails={toggleDetails} openDetails={openDetails} />
+                            {
+                                advancedComponents.map((Component, index) =>
+                                    <Component
+                                        key={index + basicComponents.length}
+                                        toggleDetails={toggleDetails}
+                                        openDetails={openDetails}
+                                        id={idArray[index + basicComponents.length]}
+                                        setOpenDetails={setOpenDetails}
+                                    />)
+                            }
 
-                            <UniDirectional toggleDetails={toggleDetails} openDetails={openDetails} />
-
-                            <Hoc toggleDetails={toggleDetails} openDetails={openDetails} />
-                            
                             <h3 className='learning-section-title'>
                                 References
                             </h3>
@@ -125,4 +116,3 @@ const Learning = () => {
 }
 
 export default Learning;
-
