@@ -3,22 +3,33 @@ import './ArrayMethods.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../../functions/ScrollToTopOnMount';
 import { Paragraph } from '../../components/CMS';
-import LearningSidebar from '../../components/LearningSidebar';
 import { detectScroll } from '../../functions/DetectScroll';
+import { toggleDetails } from '../../functions/Projects/toggleDetails';
+import { findHighlights } from '../../functions/Projects/findHighlights';
+import LearningSidebar from '../../components/LearningSidebar';
+import CreateNewArray from './CreateNewArray';
 import ForEachMethod from './ForEachMethod';
 import MapMethod from './MapMethod';
 import FilterMethod from './FilterMethod';
 import EveryMethod from './EveryMethod';
-import { toggleDetails } from '../../functions/Projects/toggleDetails';
-import { findHighlights } from '../../functions/Projects/findHighlights';
+import SomeMethod from './SomeMethod';
+import FindMethod from './FindMethod';
+import FindIndexMethod from './FindIndexMethod';
+import FillMethod from './FillMethod';
+import ReduceMethod from './ReduceMethod';
 
 const ArrayMethods = () => {
 
-    const components = [ForEachMethod, MapMethod, FilterMethod, EveryMethod];
+    const basicComponents = [CreateNewArray, ForEachMethod, MapMethod, FilterMethod,
+        EveryMethod, SomeMethod, FindMethod, FindIndexMethod,
+        FillMethod];
+
+    const advancedComponents = [ReduceMethod];
 
     const [fixClass, setFixClass] = useState('');
 
-    const idArray = ['forEach', 'map', 'filter', 'every'];
+    const idArray = ['create a new array', 'forEach()', 'map()', 'filter()',
+        'every()', 'some()', 'find()', 'findIndex()', 'fill()', 'reduce()'];
 
     const titleArray = idArray;
 
@@ -60,11 +71,11 @@ const ArrayMethods = () => {
 
                         <div className='learning-content'>
                             <h3 className='learning-section-title'>
-                                Array Methods
+                                Basic Array Methods
                             </h3>
 
                             {
-                                components.map((Component, index) =>
+                                basicComponents.map((Component, index) =>
                                     <Component
                                         key={index}
                                         toggleDetails={toggleDetails}
@@ -75,6 +86,20 @@ const ArrayMethods = () => {
                                 )
                             }
 
+                            <h3 className='learning-section-title'>
+                                Advanced Array Methods
+                            </h3>
+                            {
+                                advancedComponents.map((Component, index) =>
+                                    <Component
+                                        key={index + basicComponents.length}
+                                        toggleDetails={toggleDetails}
+                                        openDetails={openDetails}
+                                        id={idArray[index + basicComponents.length]}
+                                        setOpenDetails={setOpenDetails}
+                                    />
+                                )
+                            }
                             <h3 className='learning-section-title'>
                                 Coding example
                             </h3>

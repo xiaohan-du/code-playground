@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Paragraph, CodeBlock, SectionTitle } from '../../components/CMS';
+import { Paragraph, SectionTitle, CodeBlock } from '../../components/CMS';
 
-const ForEachMethod = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
+const SomeMethod = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         setIsOpen(openDetails.includes(id));
@@ -9,62 +9,56 @@ const ForEachMethod = ({ toggleDetails, openDetails, id, setOpenDetails }) => {
     return (
         <details open={isOpen}>
             <summary className='learning-subtitle' onClick={() => toggleDetails(id, openDetails, setOpenDetails)}>
-                forEach()
+                some()
             </summary>
             <Paragraph>
-                <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach'>Array.forEach()</a> applies
-                a function for each element of an array.
+                <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some'>Array.some()</a> tests 
+                whether at least one element passes the provided function and returns true or false.
             </Paragraph>
             <SectionTitle type={'title'}>
                 Example 1
             </SectionTitle>
             <Paragraph>
-                Apply a function <code>demoFunc</code> to each element of array A, the output is pushed to array B.
+                Test if at least one array elements is larger than 1.
             </Paragraph>
             <CodeBlock language='javascript'
                 title=''
                 code={`const A = [1, 2, 3];
-let demoFunc = (e) => {
-    return e -= 1;
-};
-let B = [];
-A.forEach((item) => {B.push(demoFunc(item))});
+const B = A.some(item => item > 1);
 console.log(B);
-// [0, 1, 2]
+// true
 `}
             />
             <SectionTitle type={'title'}>
                 Example 2
             </SectionTitle>
             <Paragraph>
-                Extract first letter of each element of array A and form a new array B.
+                Test if at least one array elements is a string.
             </Paragraph>
             <CodeBlock language='javascript'
                 title=''
                 code={`const A = ['apple', 'orange', 'pear'];
-let B = [];
-A.forEach(item => B.push(item.split('')[0])); // split each array item to characters, then take the 0th character
+const B = A.some(item => typeof(item) === 'string');
 console.log(B);
-// ['a', 'o', 'p']
+// true
 `}
             />
             <SectionTitle type={'title'}>
                 Example 3
             </SectionTitle>
             <Paragraph>
-                Use the second parameter <code>index</code>.
+                Test if an element exists in the array
             </Paragraph>
             <CodeBlock language='javascript'
                 title=''
-                code={`const A = [1, 2, 3];
-let B = [];
-A.forEach((_, index) => {B.push(A[index] + 1)});
+                code={`const A = ['apple', 'orange', 'pear'];
+const B = A.some(item => item === 'pear');
 console.log(B);
-// [2, 3, 4]
+// true
 `}
             />
         </details>
     )
 }
 
-export default ForEachMethod;
+export default SomeMethod;
