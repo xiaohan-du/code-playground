@@ -100,17 +100,6 @@ const ArrayMethods = () => {
                                     />
                                 )
                             }
-                            <h3 className='learning-section-title'>
-                                Coding example
-                            </h3>
-                            <details>
-                                <summary className='learning-subtitle'>
-                                    Plot a surface
-                                </summary>
-                                <Paragraph>
-                                    Solve a mathematical problem
-                                </Paragraph>
-                            </details>
                         </div>
                     </div>
                 </div>
