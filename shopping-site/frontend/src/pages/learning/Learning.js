@@ -11,7 +11,6 @@ import ClassLifecycle from './ClassLifecycle';
 import StateVsProps from './StateVsProps';
 import Hooks from './Hooks';
 import LearningSidebar from '../../components/LearningSidebar';
-import PureComponent from './PureComponent';
 import UniDirectional from './UniDirectional';
 import Hoc from './Hoc';
 import { detectScroll } from '../../functions/DetectScroll';
@@ -25,13 +24,13 @@ const Learning = () => {
 
     const basicComponents = [Compare, Setup, Rendering, FirstComponent, ClassLifecycle, StateVsProps, Hooks];
 
-    const advancedComponents = [PureComponent, UniDirectional, Hoc];
+    const advancedComponents = [UniDirectional, Hoc];
 
     const idArray = ['compare', 'setup', 'rendering', 'firstComponent',
-        'classLifecycle', 'stateVsProps', 'hooks', 'pureComponent', 'unidirectional', 'hoc'];
+        'classLifecycle', 'stateVsProps', 'hooks', 'unidirectional', 'hoc'];
 
     const titleArray = ['Compare', 'Basic Set Up', 'Rendering Elements', 'First Component', 'Component Lifecycle Methods',
-        'State VS Props', 'Hooks', 'React PureComponent', 'Unidirectional Data Flow', 'Higher Order Component'];
+        'State VS Props', 'Hooks', 'Unidirectional Data Flow', 'Higher Order Component'];
 
     const booHighlight = Array(idArray.length).fill(false);
 

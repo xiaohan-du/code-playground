@@ -35,7 +35,7 @@ const mockData = [
         subtitle: 'Subtitle 3',
         imgUrl: require('../images/code.jpg')
     }
-]
+];
 
 describe('it renders correct elements', () => {
 
@@ -52,6 +52,5 @@ describe('it renders correct elements', () => {
 
     it('should go to the correct page when clicking the button', () => {
         wrapper.find('.btn').at(0).simulate('click', {});
-
-    })
-})
+    });
+});
