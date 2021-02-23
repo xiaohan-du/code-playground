@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './ArrayMethods.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../../functions/ScrollToTopOnMount';
 import { Paragraph } from '../../components/CMS';
@@ -7,29 +6,15 @@ import { detectScroll } from '../../functions/DetectScroll';
 import { toggleDetails } from '../../functions/Projects/toggleDetails';
 import { findHighlights } from '../../functions/Projects/findHighlights';
 import LearningSidebar from '../../components/LearningSidebar';
-import CreateNewArray from './CreateNewArray';
-import ForEachMethod from './ForEachMethod';
-import MapMethod from './MapMethod';
-import FilterMethod from './FilterMethod';
-import EveryMethod from './EveryMethod';
-import SomeMethod from './SomeMethod';
-import FindMethod from './FindMethod';
-import FindIndexMethod from './FindIndexMethod';
-import FillMethod from './FillMethod';
-import ReduceMethod from './ReduceMethod';
+import JsCallback from './JsCallback';
 
-const ArrayMethods = () => {
+const Concepts = () => {
 
-    const basicComponents = [CreateNewArray, ForEachMethod, MapMethod, FilterMethod,
-        EveryMethod, SomeMethod, FindMethod, FindIndexMethod,
-        FillMethod];
-
-    const advancedComponents = [ReduceMethod];
+    const components = [JsCallback];
 
     const [fixClass, setFixClass] = useState('');
 
-    const idArray = ['create a new array', 'forEach()', 'map()', 'filter()',
-        'every()', 'some()', 'find()', 'findIndex()', 'fill()', 'reduce()'];
+    const idArray = ['callback'];
 
     const titleArray = idArray;
 
@@ -48,13 +33,16 @@ const ArrayMethods = () => {
             <ScrollToTopOnMount />
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Learn JS Array Methods - Xiaohan Du</title>
+                <title>JS Concepts - Xiaohan Du</title>
             </Helmet>
             <div className='array-methods'>
                 <div className='center-content'>
                     <h1 className='learning-title'>
-                        Refresh JS array methods, content regularly updated
+                        Some popular JS concepts
                     </h1>
+                    <Paragraph>
+                        Code can be found in <a href="https://github.com/xiaohan-du/code-playground/tree/feature/portfolio-callback/shopping-site">my Github page</a>
+                    </Paragraph>
                     <div className='learning-main'>
                         <LearningSidebar
                             toggleDetails={toggleDetails}
@@ -68,31 +56,16 @@ const ArrayMethods = () => {
 
                         <div className='learning-content'>
                             <h3 className='learning-section-title'>
-                                Basic Array Methods
+                                Concepts
                             </h3>
 
                             {
-                                basicComponents.map((Component, index) =>
+                                components.map((Component, index) =>
                                     <Component
                                         key={index}
                                         toggleDetails={toggleDetails}
                                         openDetails={openDetails}
                                         id={idArray[index]}
-                                        setOpenDetails={setOpenDetails}
-                                    />
-                                )
-                            }
-
-                            <h3 className='learning-section-title'>
-                                Advanced Array Methods
-                            </h3>
-                            {
-                                advancedComponents.map((Component, index) =>
-                                    <Component
-                                        key={index + basicComponents.length}
-                                        toggleDetails={toggleDetails}
-                                        openDetails={openDetails}
-                                        id={idArray[index + basicComponents.length]}
                                         setOpenDetails={setOpenDetails}
                                     />
                                 )
@@ -105,4 +78,4 @@ const ArrayMethods = () => {
     )
 }
 
-export default ArrayMethods;
+export default Concepts;
