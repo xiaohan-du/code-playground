@@ -48,6 +48,9 @@ const Navbar = () => {
                                 <Link className="navbar-item" onClick={handleClick} to="/my-projects/learn-array-methods">
                                     Learn JS Array Methods
                                 </Link>
+                                <Link className="navbar-item" onClick={handleClick} to="/my-projects/concepts">
+                                    JS Concepts
+                                </Link>
                             </div>
                         </div>
                         <Link className="navbar-item" onClick={handleClick} to="/contact-me">Contact Me</Link>
