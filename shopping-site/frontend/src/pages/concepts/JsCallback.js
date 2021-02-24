@@ -55,10 +55,6 @@ console.log(output);
                 <code>callTestFunc</code> first, then run <code>testFunc</code>. Therefore we don't need to wait for the expensive computation 
                 in <code>testFunc</code> to finish. 
             </Paragraph>
-
-            <Paragraph>
-                
-            </Paragraph>
         </details>
     )
 }

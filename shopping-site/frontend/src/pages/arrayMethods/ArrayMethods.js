@@ -53,7 +53,7 @@ const ArrayMethods = () => {
             <div className='array-methods'>
                 <div className='center-content'>
                     <h1 className='learning-title'>
-                        Refresh JS array methods
+                        Refresh JS array methods, content regularly updated
                     </h1>
                     <Paragraph>
                         Code can be found in <a href="https://github.com/xiaohan-du/code-playground/tree/feature/portfolio-callback/shopping-site">my Github page</a>
