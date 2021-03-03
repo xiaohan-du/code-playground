@@ -95,14 +95,6 @@
         flex-direction: column;
 
         & #nav-toggle-state {
-            &:checked ~ {
-                & .navbar-menu {
-                    display: block;
-                }
-            }
-        }
-
-        & #nav-toggle-state {
             display: none;
             &:checked ~ {
                 & .navbar-menu {

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './ArrayMethods.scss';
 import { Helmet } from "react-helmet";
 import { ScrollToTopOnMount } from '../../functions/ScrollToTopOnMount';
-import { Paragraph } from '../../components/CMS';
 import { detectScroll } from '../../functions/DetectScroll';
 import { toggleDetails } from '../../functions/Projects/toggleDetails';
 import { findHighlights } from '../../functions/Projects/findHighlights';

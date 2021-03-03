@@ -26,8 +26,7 @@ const ImageGrid = ({ colNo, images }) => {
         }
         else if (_colNo < 2) {
             _colNo = 1;
-        };
-
+        }
 
         for (let i = 0; i < images.length; i = i + _colNo) {
             cardRows.push(

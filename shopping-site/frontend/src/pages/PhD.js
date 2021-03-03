@@ -62,7 +62,7 @@ const images = [
 ];
 
 
-const About = () => {
+const PhD = () => {
     return (
         <>
             <ScrollToTopOnMount />
@@ -139,5 +139,5 @@ const About = () => {
     )
 }
 
-export default About;
+export default PhD;
 

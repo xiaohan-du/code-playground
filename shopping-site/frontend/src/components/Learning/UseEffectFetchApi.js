@@ -24,9 +24,9 @@ const UseEffectFetchApi = () => {
                 }
             )
     })
-    const { userId, title, err } = userState;
-    if (err) {
-        return (<div>Error: {err}</div>)
+    const { userId, title, stateError } = userState;
+    if (stateError) {
+        return (<div>Error: {stateError}</div>)
     }
     else {
         return (

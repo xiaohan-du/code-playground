@@ -4,7 +4,7 @@ class ComponentWillUnmountDemo extends React.PureComponent {
 
     componentDidMount() {
         console.log('Mount');
-    };
+    }
     componentWillUnmount() {
         console.log('Unmount');
     }
