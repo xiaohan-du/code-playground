@@ -4,7 +4,7 @@ const Counter = () => {
     const [count, setCount] = useState(0);
     const handleAlertClick = () => {
         setTimeout(() => {
-            alert('You clicked on: ' + count);
+            console.log('You clicked on: ' + count);
         }, 3000)
     }
     return (

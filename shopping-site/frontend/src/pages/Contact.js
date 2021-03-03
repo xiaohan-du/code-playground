@@ -43,22 +43,22 @@ const Contact = () => {
         }
         else {
             setState({ ...state, EmailValid: emailRegex.test(state.EmailAddress.toLowerCase()) });
-        };
+        }
         if (state.PhoneA != null) {
             state.PhoneA.length > 20 || isNaN(state.PhoneA) ? state.PhoneAValid = false : state.PhoneAValid = true;
-        };
+        }
         if (state.PhoneB != null) {
             state.PhoneB.length > 20 || isNaN(state.PhoneB) ? state.PhoneBValid = false : state.PhoneBValid = true;
-        };
+        }
         if (state.Message != null) {
             state.Message.length > 500 ? state.MessageValid = false : state.MessageValid = true;
-        };
+        }
     }
 
     const toggleAddress = () => {
         if (state.showAddress === false) {
             setState({ ...state, AddressA: '', AddressB: '', City: '', State: '', Postcode: '', Country: '', Subject: '' });
-        };
+        }
         setState({ ...state, showAddress: !state.showAddress });
     }
 

@@ -55,7 +55,7 @@ const Banner = ({ props }) => {
                         </div>
                     </SwiperSlide>
                 )
-            };
+            }
         }
 
     }

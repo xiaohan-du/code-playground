@@ -3,5 +3,5 @@ export const toggleDetails = (id, openDetails, setOpenDetails) => {
         setOpenDetails(openDetails.filter((item) => item !== id));
     } else {
         setOpenDetails([...openDetails, id]);
-    };
+    }
 };
