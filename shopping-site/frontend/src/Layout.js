@@ -10,6 +10,7 @@ import PhD from './pages/PhD';
 import Medium from './pages/Medium';
 import Learning from './pages/learning/Learning';
 import ArrayMethods from './pages/arrayMethods/ArrayMethods';
+import Crypto from './pages/crypto/Crypto';
 
 const Layout = () => {
     return (
@@ -29,6 +30,9 @@ const Layout = () => {
                 </Route>
                 <Route path="/my-projects/learn-array-methods">
                     <ArrayMethods />
+                </Route>
+                <Route path="/crypto">
+                    <Crypto />
                 </Route>
                 <Route path="/my-phd">
                     <PhD />

@@ -50,6 +50,7 @@ const Navbar = () => {
                                 </Link>
                             </div>
                         </div>
+                        <Link className="navbar-item" onClick={handleClick} to="/crypto">Crypto currencies</Link>
                         <Link className="navbar-item" onClick={handleClick} to="/contact-me">Contact Me</Link>
                     </div>
                 </div>
