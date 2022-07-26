@@ -1,0 +1,31 @@
+@import '../../main.scss';
+
+.navbar {
+  height: 6.4rem;
+  background-color: $adm-purple;
+  &-container {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+  &-img {
+    &-xs {
+      width: 17rem;
+    }
+  }
+  &-toggler {
+    background-color: white;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+  }
+  &-nav {
+    width: 20rem;
+    float: right;
+    &-link {
+      display: flex;
+      justify-content: left;
+      color: white;
+      font-size: $font-basic;
+      font-weight: $font-weight-basic;
+    }
+  }
+}
