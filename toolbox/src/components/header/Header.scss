@@ -1,0 +1,19 @@
+@import '../../main.scss';
+
+.header {
+  height: 8rem;
+  background-color: $adm-purple;
+  color: white;
+  font-size: $font-medium;
+  font-weight: $font-weight-slim;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: end;
+  padding: 1.6rem 3.2rem;
+  &-quote {
+    &-number {
+      font-size: $font-extra-large;
+    }
+  }
+}
