@@ -1,0 +1,35 @@
+@import "../../main.scss";
+
+.card {
+  max-width: 30rem;
+  max-height: 40rem;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  &-body {
+    display: flex;
+    flex-direction: column;
+  }
+  &-img {
+    background-position: 50% 10%;
+    background-size: cover;
+  }
+  &-section {
+    &-title {
+      height: 20%;
+    }
+    &-text {
+      height: 40%;
+    }
+
+    &-icons {
+      height: 40%;
+    }
+  }
+  &-btn {
+    &-add {
+      background-color: $adm-purple;
+      color: white;
+    }
+  }
+}

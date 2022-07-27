@@ -8,8 +8,8 @@
   font-weight: $font-weight-slim;
   display: flex;
   flex-direction: row;
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
   padding: 1.6rem 3.2rem;
   &-quote {
     &-number {
