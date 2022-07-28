@@ -6,6 +6,7 @@ interface ICard {
   icon1: string;
   icon2: string;
   price: number;
+  calculateTotalPrice(price: number): void;
 }
 
 export default ICard;
