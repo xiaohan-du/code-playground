@@ -1,5 +1,5 @@
-import React from 'react';
-import './App.css';
+import React, { ReactNode, useState } from 'react';
+import './App.scss';
 import Header from './components/header/Header';
 import IHeader from './interfaces/IHeader';
 import Navbar from './components/navbar/Navbar';
@@ -8,8 +8,23 @@ import ICard from './interfaces/ICard';
 
 function App() {
 
+  const [priceSummary, setPriceSummary] = useState<number>(0);
+
+  const calculateTotalPrice = (price: number) => {
+    setPriceSummary(priceSummary + price);
+  };
+
+  const handlePayment = (): ReactNode => {
+    return (
+      <>
+      </>
+    )
+  }
+
   const headerDetails: IHeader = {
-    quoteNumber: 3
+    quoteNumber: 3,
+    totalPrice: priceSummary,
+    handlePayment: handlePayment
   };
 
   const cardDetails: ICard[] = [
@@ -20,7 +35,8 @@ function App() {
       content: 'Card 1 content',
       icon1: require('./static/icons/yes.png'),
       icon2: require('./static/icons/no.png'),
-      price: 100
+      price: 100,
+      calculateTotalPrice: calculateTotalPrice
     },
     {
       id: 2,
@@ -29,8 +45,19 @@ function App() {
       content: 'Card 2 content',
       icon1: require('./static/icons/yes.png'),
       icon2: require('./static/icons/no.png'),
-      price: 200
+      price: 200,
+      calculateTotalPrice: calculateTotalPrice
     },
+    {
+      id: 3,
+      imgPath: '',
+      title: 'Card 3 title',
+      content: 'Card 3 content',
+      icon1: require('./static/icons/yes.png'),
+      icon2: require('./static/icons/no.png'),
+      price: 150,
+      calculateTotalPrice: calculateTotalPrice
+    }
   ];
 
   const renderCards = (
@@ -38,17 +65,23 @@ function App() {
     return (
       cardDetails.map((c): React.ReactNode => {
         return (
-          <Card card={c} />
+          <div className='col' key={c.id}>
+            <Card card={c} />
+          </div>
         )
       })
     )
-  }
+  };
 
   return (
     <div className="App">
       <Navbar />
       <Header header={headerDetails} />
-      {renderCards(cardDetails)}
+      <div className='container'>
+        <div className='row mt-5'>
+        {renderCards(cardDetails)}
+        </div>
+      </div>
     </div>
   );
 }
