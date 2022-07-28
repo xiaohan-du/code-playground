@@ -2,9 +2,24 @@
 
 .app {
   text-align: center;
+  overflow: hidden;
   &-btn {
     &-confirm {
+      color: white;
       background-color: $adm-purple;
+      &:hover {
+        color: white;
+        background-color: $adm-purple;
+      }
+      &:focus {
+        background-color: $adm-purple;
+      }
     }
+  }
+  &-panel {
+    width: 11%;
+  }
+  &-card {
+    width: 29%
   }
 }

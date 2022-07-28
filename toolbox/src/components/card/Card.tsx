@@ -6,7 +6,7 @@ interface Props {
   card: ICard;
 }
 
-const Card = ({ card: { imgPath, title, content, icon1, icon2, price, calculateTotalPrice } }: Props) => {
+const Card = ({ card: { isPanel, imgPath, title, content, icon1, icon2, icon3, price, calculateTotalPrice } }: Props) => {
   const [btnText, setBtnText] = useState<string>('Add to cart');
   const [isAdded, setIsAdded] = useState<boolean>(false);
   const [quotePrice, setQuotePrice] = useState(price);
@@ -23,25 +23,42 @@ const Card = ({ card: { imgPath, title, content, icon1, icon2, price, calculateT
 
   return (
     <>
-      <div className="card">
+      <div className="card ms-2 me-2">
         <div style={{ backgroundImage: `url(${imgPath})` }} className='card-img'>
-          {/* <img src={imgPath} className="card-img" alt="img" /> */}
           <div className="card-body">
-            <div className='card-section-title'>
-              <h5 className="card-title">{title}</h5>
-            </div>
-            <div className='card-section-text'>
-              <p className="card-text">{content}</p>
-            </div>
-            <div className="card-section-icons">
-              <img src={icon1} alt="icon1" />
-              <img src={icon2} alt="icon2" />
-            </div>
+            {isPanel
+              ?
+              <div className='card-panel-title'>{title}</div>
+              :
+              <div className='card-section-title'>{title}</div>
+            }
+            <div className='card-section-text'>{content}</div>
+            {isPanel ?
+              <div className="mt-3">
+                <div className='card-panel-content'>
+                  <div className='card-panel-text'>{icon1}</div>
+                  <div className='card-panel-text'>{icon2}</div>
+                  <div className='card-panel-text'>{icon3}</div>
+                </div>
+              </div>
+              :
+              <div className="card-section-icons mt-3">
+                <div>
+                  <img className='card-section-icon' src={icon1} alt="icon1" />
+                  <img className='card-section-icon' src={icon2} alt="icon2" />
+                  <img className='card-section-icon' src={icon3} alt="icon3" />
+                </div>
+              </div>
+            }
             <div className='card-section-price'>
-              £{price}
+              {isPanel ? null : `Price: £${price}`}
             </div>
             <div className='card-section-buttons'>
-              <button type='button' className='btn card-btn-add' onClick={handleClick}>{btnText}</button>
+              {isPanel ? null : <button type='button'
+                className='btn toolbox-btn toolbox-btn-basic card-btn-add'
+                onClick={handleClick}>
+                {btnText}
+              </button>}
             </div>
           </div>
         </div>
