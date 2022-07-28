@@ -1,4 +1,3 @@
-import React from 'react';
 import IHeader from '../../interfaces/IHeader';
 import './Header.scss';
 
@@ -6,7 +5,7 @@ interface Props {
   header: IHeader;
 }
 
-const Header = ({ header: { quoteNumber, totalPrice, handlePayment } }: Props) => {
+const Header = ({ header: { quoteNumber, totalPrice } }: Props) => {
   return (
     <>
       <div className='header'>
@@ -15,10 +14,7 @@ const Header = ({ header: { quoteNumber, totalPrice, handlePayment } }: Props) =
             You have <span className='header-number'>{quoteNumber}</span> quotes to choose from
           </div>
           <div className='header-content-subtitle'>
-            Total price is <span className='header-number'>£{totalPrice}</span>
-            <div>
-              <button className='btn btn-outline-light mb-3 fs-4' onClick={handlePayment}>Go to payment</button>
-            </div>
+            Your price: <span className='header-number'>£{totalPrice}</span>
           </div>
         </div>
       </div>
