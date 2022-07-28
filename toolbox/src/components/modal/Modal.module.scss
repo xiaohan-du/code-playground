@@ -1,0 +1,88 @@
+@import "../../main.scss";
+
+.modal {
+  &-body {
+    min-width: 40rem;
+    height: 30rem;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 1.6rem;
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.4);
+    padding: 1rem 0;
+  }
+  &-bg {
+    &-dark {
+      background-color: rgba(0, 0, 0, 0.2);
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+    }
+  }
+  &-centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &-header {
+    background: white;
+    overflow: hidden;
+    border-top-left-radius: 1.6rem;
+    border-top-right-radius: 1.6rem;
+  }
+  &-heading {
+    margin: 0;
+    padding: 1.5rem;
+    color: black;
+    font-weight: 500;
+    font-size: $font-large;
+    text-align: center;
+  }
+  &-content {
+    padding: 10px;
+    font-size: $font-medium;
+    color: black;
+    text-align: center;
+  }
+  &-actions {
+    position: absolute;
+    bottom: 1rem;
+    margin-bottom: 10px;
+    width: 100%;
+    &-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+  &-btn {
+    &-confirm {
+      background-color: $adm-purple;
+    }
+    &-close {
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.8rem;
+      border: none;
+      font-size: $font-medium;
+      color: black;
+      background: white;
+      transition: all 0.25s ease;
+      box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.1);
+      position: absolute;
+      right: 0;
+      top: 0;
+      align-self: flex-end;
+      margin-top: -1rem;
+      margin-right: -1rem;
+      &:hover {
+        box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.2);
+        transform: translate(-0.5rem, 0.5rem);
+      }
+    }
+  }
+}

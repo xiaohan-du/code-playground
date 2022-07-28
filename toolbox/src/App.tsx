@@ -1,38 +1,38 @@
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import Header from './components/header/Header';
 import IHeader from './interfaces/IHeader';
 import Navbar from './components/navbar/Navbar';
 import Card from './components/card/Card';
 import ICard from './interfaces/ICard';
+import Modal from './components/modal/Modal';
+import IModal from './interfaces/IModal';
 
 function App() {
 
   const [priceSummary, setPriceSummary] = useState<number>(0);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const calculateTotalPrice = (price: number) => {
     setPriceSummary(priceSummary + price);
   };
 
-  const handlePayment = (): ReactNode => {
-    return (
-      <>
-      </>
-    )
-  }
+  const modalDetails: IModal = {
+    quotePrice: priceSummary,
+    setIsOpen: setIsOpen
+  };
 
   const headerDetails: IHeader = {
     quoteNumber: 3,
-    totalPrice: priceSummary,
-    handlePayment: handlePayment
+    totalPrice: priceSummary
   };
 
   const cardDetails: ICard[] = [
     {
       id: 1,
       imgPath: '',
-      title: 'Card 1 title',
-      content: 'Card 1 content',
+      title: 'Tools cover',
+      content: 'We will cover your tools when they are stored in your home overnight',
       icon1: require('./static/icons/yes.png'),
       icon2: require('./static/icons/no.png'),
       price: 100,
@@ -41,8 +41,8 @@ function App() {
     {
       id: 2,
       imgPath: '',
-      title: 'Card 2 title',
-      content: 'Card 2 content',
+      title: 'Laptop cover',
+      content: 'We will cover one business laptop or tablet you use for work',
       icon1: require('./static/icons/yes.png'),
       icon2: require('./static/icons/no.png'),
       price: 200,
@@ -51,11 +51,11 @@ function App() {
     {
       id: 3,
       imgPath: '',
-      title: 'Card 3 title',
-      content: 'Card 3 content',
+      title: 'Repair cover',
+      content: 'We will pay for the full original purchase price when your tools are not repairable',
       icon1: require('./static/icons/yes.png'),
       icon2: require('./static/icons/no.png'),
-      price: 150,
+      price: 50,
       calculateTotalPrice: calculateTotalPrice
     }
   ];
@@ -79,8 +79,15 @@ function App() {
       <Header header={headerDetails} />
       <div className='container'>
         <div className='row mt-5'>
-        {renderCards(cardDetails)}
+          {renderCards(cardDetails)}
         </div>
+        <button
+          className='btn btn-primary mb-3 fs-4'
+          onClick={() => setIsOpen(true)}
+        >
+          Buy now
+        </button>
+        {isOpen && <Modal modal={modalDetails} />}
       </div>
     </div>
   );
