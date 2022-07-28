@@ -1,3 +1,10 @@
-.App {
+@import './main.scss';
+
+.app {
   text-align: center;
+  &-btn {
+    &-confirm {
+      background-color: $adm-purple;
+    }
+  }
 }

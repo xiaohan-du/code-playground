@@ -2,7 +2,7 @@
 
 .modal {
   &-body {
-    min-width: 40rem;
+    min-width: 45rem;
     height: 30rem;
     background: white;
     color: white;
@@ -63,6 +63,15 @@
   &-btn {
     &-confirm {
       background-color: $adm-purple;
+      &:disabled {
+        background-color: black;
+      }
+      &:hover {
+        background-color: $adm-purple;
+      }
+      &:focus {
+        background-color: $adm-purple;
+      }
     }
     &-close {
       padding: 0.4rem 0.8rem;
@@ -80,8 +89,7 @@
       margin-top: -1rem;
       margin-right: -1rem;
       &:hover {
-        box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.2);
-        transform: translate(-0.5rem, 0.5rem);
+        box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.5);
       }
     }
   }

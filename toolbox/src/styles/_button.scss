@@ -1,9 +1,12 @@
 .toolbox-btn {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: white;
   &-basic {
-    padding: 1rem 2rem;
     font-size: 1.5rem;
     min-width: 10rem;
-    border-radius: 1rem;
-    color: white;
+  }
+  &-large {
+    min-width: 20rem;
   }
 }

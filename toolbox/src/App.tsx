@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 import Header from './components/header/Header';
 import IHeader from './interfaces/IHeader';
@@ -12,6 +12,11 @@ function App() {
 
   const [priceSummary, setPriceSummary] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsDisabled(priceSummary === 0 ? true : false);
+  }, [priceSummary]);
 
   const calculateTotalPrice = (price: number) => {
     setPriceSummary(priceSummary + price);
@@ -74,19 +79,20 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       <Navbar />
       <Header header={headerDetails} />
       <div className='container'>
         <div className='row mt-5'>
           {renderCards(cardDetails)}
         </div>
-        <button
-          className='btn btn-primary mb-3 fs-4'
-          onClick={() => setIsOpen(true)}
-        >
-          Buy now
-        </button>
+        <div className='row mt-5'>
+          <button className='btn toolbox-btn toolbox-btn-large app-btn-confirm mb-3 fs-4'
+            onClick={() => setIsOpen(true)}
+            disabled={isDisabled}>
+            Buy now
+          </button>
+        </div>
         {isOpen && <Modal modal={modalDetails} />}
       </div>
     </div>
