@@ -1,6 +1,6 @@
 # Toolbox App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), TypeScript and Bootstrap 5
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), TypeScript, Bootstrap 5, SASS and react-icons
 
 ## Available Scripts
 
