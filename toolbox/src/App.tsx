@@ -14,6 +14,8 @@ function App() {
   const [priceSummary, setPriceSummary] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
+  const [discount, setDiscount] = useState<number>(0);
+  const [isDiscountApplied, setIsDiscountApplied] = useState<boolean>(false);
 
   useEffect(() => {
     setIsDisabled(priceSummary === 0 ? true : false);
@@ -23,9 +25,26 @@ function App() {
     setPriceSummary(priceSummary + price);
   }, [priceSummary]);
 
+  const discountCodes:{} = {
+    aug50: 0.5,
+    adm20: 0.2
+  }
+
+  const handleDiscountCode = (discountCode: string) => {
+    setDiscount(0);
+    let keys = Object.keys(discountCodes);
+    if (keys.indexOf(discountCode) > -1) {
+      setDiscount(discountCodes[discountCode as keyof typeof discountCodes]);
+      setIsDiscountApplied(true);
+    }
+  }
+
   const modalDetails: IModal = {
     quotePrice: priceSummary,
-    setIsOpen: setIsOpen
+    setIsOpen: setIsOpen,
+    discount: discount,
+    isDiscountApplied: isDiscountApplied,
+    handleDiscountCode: handleDiscountCode
   };
 
   const headerDetails: IHeader = {
