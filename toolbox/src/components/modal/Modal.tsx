@@ -32,7 +32,7 @@ const Modal = ({ modal: { quotePrice, setIsOpen, discount, isDiscountApplied, ha
             :
             isDiscountApplied ?
               <div className={styles.modalContent}>
-                Code {input} applied!
+                {discount * 100}% discount applied!
               </div>
               :
               <div className={`${styles.modalInputGroup} input-group mb-3`}>
