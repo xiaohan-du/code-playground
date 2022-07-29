@@ -21,3 +21,5 @@ yarn-error.log*
 ./weather-app/.env
 # Local Netlify folder
 .netlify
+
+./toolbox/node_modules
