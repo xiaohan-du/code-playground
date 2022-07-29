@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import './App.scss';
 import Header from './components/header/Header';
 import IHeader from './interfaces/IHeader';
@@ -7,6 +7,7 @@ import Card from './components/card/Card';
 import ICard from './interfaces/ICard';
 import Modal from './components/modal/Modal';
 import IModal from './interfaces/IModal';
+import { cardDetails } from './data/cardDetails';
 
 function App() {
 
@@ -18,9 +19,9 @@ function App() {
     setIsDisabled(priceSummary === 0 ? true : false);
   }, [priceSummary]);
 
-  const calculateTotalPrice = (price: number) => {
+  const calculateTotalPrice = useCallback((price: number) => {
     setPriceSummary(priceSummary + price);
-  };
+  }, [priceSummary]);
 
   const modalDetails: IModal = {
     quotePrice: priceSummary,
@@ -28,60 +29,13 @@ function App() {
   };
 
   const headerDetails: IHeader = {
-    quoteNumber: 3,
+    quoteNumber: cardDetails.length - 1,
     totalPrice: priceSummary
   };
 
-  const cardDetails: ICard[] = [
-    {
-      id: 1,
-      isPanel: true,
-      imgPath: require('./static/images/tool.jpg'),
-      title: 'Features',
-      content: '',
-      icon1: 'Home',
-      icon2: 'Work',
-      icon3: 'All',
-      price: 0,
-      calculateTotalPrice: calculateTotalPrice
-    },
-    {
-      id: 2,
-      isPanel: false,
-      imgPath: require('./static/images/tool2.jpg'),
-      title: 'Cover at home',
-      content: 'We will cover your tools when they are stored in your home overnight',
-      icon1: require('./static/icons/yes.png'),
-      icon2: require('./static/icons/no.png'),
-      icon3: require('./static/icons/no.png'),
-      price: 100,
-      calculateTotalPrice: calculateTotalPrice
-    },
-    {
-      id: 3,
-      isPanel: false,
-      imgPath: require('./static/images/laptop1.jpg'),
-      title: 'Computer cover',
-      content: 'We will cover one business laptop or tablet you use for work',
-      icon1: require('./static/icons/yes.png'),
-      icon2: require('./static/icons/yes.png'),
-      icon3: require('./static/icons/no.png'),
-      price: 200,
-      calculateTotalPrice: calculateTotalPrice
-    },
-    {
-      id: 4,
-      isPanel: false,
-      imgPath: require('./static/images/repair2.jpg'),
-      title: 'Repair cover',
-      content: 'We will pay for the full original purchase price when your tools or laptops are not repairable',
-      icon1: require('./static/icons/yes.png'),
-      icon2: require('./static/icons/yes.png'),
-      icon3: require('./static/icons/yes.png'),
-      price: 50,
-      calculateTotalPrice: calculateTotalPrice
-    }
-  ];
+  const fullCardDetails = useMemo(() => (
+    cardDetails.map((card) => ({...card, calculateTotalPrice}))
+), [calculateTotalPrice]);
 
   const renderCards = (
     cardDetails: ICard[]): React.ReactNode => {
@@ -107,7 +61,7 @@ function App() {
       <Header header={headerDetails} />
       <div className='container'>
         <div className='row mt-4'>
-          {renderCards(cardDetails)}
+          {renderCards(fullCardDetails)}
         </div>
         <div className='row mt-5'>
           <button className='btn toolbox-btn toolbox-btn-large app-btn-confirm mb-3 fs-4'
