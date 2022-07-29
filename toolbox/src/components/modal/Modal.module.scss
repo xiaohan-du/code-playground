@@ -1,7 +1,7 @@
 @import "../../main.scss";
 
 .modal {
-  &-body {
+  &Body {
     min-width: 45rem;
     height: 30rem;
     background: white;
@@ -11,8 +11,8 @@
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.4);
     padding: 1rem 0;
   }
-  &-bg {
-    &-dark {
+  &Bg {
+    &Dark {
       background-color: rgba(0, 0, 0, 0.4);
       width: 100vw;
       height: 100vh;
@@ -23,19 +23,19 @@
       position: absolute;
     }
   }
-  &-centered {
+  &Centered {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  &-header {
+  &Header {
     background: white;
     overflow: hidden;
     border-top-left-radius: 1.6rem;
     border-top-right-radius: 1.6rem;
   }
-  &-heading {
+  &Heading {
     margin: 0;
     padding: 1.5rem;
     color: black;
@@ -43,25 +43,25 @@
     font-size: $font-large;
     text-align: center;
   }
-  &-content {
+  &Content {
     padding: 10px;
     font-size: $font-medium;
     color: black;
     text-align: center;
   }
-  &-actions {
+  &Actions {
     position: absolute;
     bottom: 1rem;
     margin-bottom: 10px;
     width: 100%;
-    &-container {
+    &Container {
       display: flex;
       justify-content: space-around;
       align-items: center;
     }
   }
-  &-btn {
-    &-confirm {
+  &Btn {
+    &Confirm {
       background-color: $adm-purple;
       &:disabled {
         background-color: black;
@@ -73,7 +73,7 @@
         background-color: $adm-purple;
       }
     }
-    &-close {
+    &Close {
       padding: 0.4rem 0.8rem;
       border-radius: 0.8rem;
       border: none;

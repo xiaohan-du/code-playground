@@ -13,24 +13,24 @@ const Modal = ({ modal: { quotePrice, setIsOpen } }: Props) => {
 
   return (
     <>
-      <div className={styles['modal-bg-dark']} onClick={() => setIsOpen(false)} />
-      <div className={styles['modal-centered']}>
-        <div className={styles['modal-body']}>
-          <div className={styles['modal-header']}>
-            <h5 className={styles['modal-heading']}>Your shopping cart</h5>
+      <div className={styles.modalBgDark} onClick={() => setIsOpen(false)} />
+      <div className={styles.modalCentered}>
+        <div className={styles.modalBody}>
+          <div className={styles.modalHeader}>
+            <h5 className={styles.modalHeading}>Your shopping cart</h5>
           </div>
-          <button aria-label="Close" type='button' className={styles['modal-btn-close']} onClick={() => setIsOpen(false)}>
+          <button aria-label="Close" type='button' className={styles.modalBtnClose} onClick={() => setIsOpen(false)}>
             <RiCloseLine />
           </button>
-          <div className={styles['modal-content']}>
+          <div className={styles.modalContent}>
             Total price: £{quotePrice}
           </div>
-          {isSuccessful ? <div className={styles['modal-content']}>Purchase successful!</div> : null}
-          <div className={styles['modal-actions']}>
-            <div className={styles['modal-actions-container']}>
+          {isSuccessful ? <div className={styles.modalContent}>Purchase successful!</div> : null}
+          <div className={styles.modalActions}>
+            <div className={styles.modalActionsContainer}>
               <button
                 type='button'
-                className={`${styles['modal-btn-confirm']} btn toolbox-btn toolbox-btn-basic`}
+                className={`${styles.modalBtnConfirm} btn toolbox-btn toolbox-btn-basic`}
                 onClick={() => setIsSuccessful(true)}
                 disabled={isSuccessful}
               >
