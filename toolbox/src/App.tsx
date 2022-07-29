@@ -8,6 +8,7 @@ import ICard from './interfaces/ICard';
 import Modal from './components/modal/Modal';
 import IModal from './interfaces/IModal';
 import { cardDetails } from './data/cardDetails';
+import { discountCodes } from './data/discountCodes';
 
 function App() {
 
@@ -24,11 +25,6 @@ function App() {
   const calculateTotalPrice = useCallback((price: number) => {
     setPriceSummary(priceSummary + price);
   }, [priceSummary]);
-
-  const discountCodes:{} = {
-    aug50: 0.5,
-    adm20: 0.2
-  }
 
   const handleDiscountCode = (discountCode: string) => {
     setDiscount(0);
