@@ -11,16 +11,16 @@
   justify-content: flex-end;
   align-items: flex-end;
   padding: 1.6rem 3.2rem;
-  &-number {
+  &Number {
     font-size: $font-extra-large;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
-  &-content {
+  &Content {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    &-subtitle {
+    &Subtitle {
       display: flex;
       align-items: baseline;
     }
