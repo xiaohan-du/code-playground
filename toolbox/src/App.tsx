@@ -35,31 +35,49 @@ function App() {
   const cardDetails: ICard[] = [
     {
       id: 1,
-      imgPath: '',
-      title: 'Tools cover',
-      content: 'We will cover your tools when they are stored in your home overnight',
-      icon1: require('./static/icons/yes.png'),
-      icon2: require('./static/icons/no.png'),
-      price: 100,
+      isPanel: true,
+      imgPath: require('./static/images/tool.jpg'),
+      title: 'Features',
+      content: '',
+      icon1: 'Home',
+      icon2: 'Work',
+      icon3: 'All',
+      price: 0,
       calculateTotalPrice: calculateTotalPrice
     },
     {
       id: 2,
-      imgPath: '',
-      title: 'Laptop cover',
-      content: 'We will cover one business laptop or tablet you use for work',
+      isPanel: false,
+      imgPath: require('./static/images/tool2.jpg'),
+      title: 'Cover at home',
+      content: 'We will cover your tools when they are stored in your home overnight',
       icon1: require('./static/icons/yes.png'),
       icon2: require('./static/icons/no.png'),
-      price: 200,
+      icon3: require('./static/icons/no.png'),
+      price: 100,
       calculateTotalPrice: calculateTotalPrice
     },
     {
       id: 3,
-      imgPath: '',
-      title: 'Repair cover',
-      content: 'We will pay for the full original purchase price when your tools are not repairable',
+      isPanel: false,
+      imgPath: require('./static/images/laptop1.jpg'),
+      title: 'Computer cover',
+      content: 'We will cover one business laptop or tablet you use for work',
       icon1: require('./static/icons/yes.png'),
-      icon2: require('./static/icons/no.png'),
+      icon2: require('./static/icons/yes.png'),
+      icon3: require('./static/icons/no.png'),
+      price: 200,
+      calculateTotalPrice: calculateTotalPrice
+    },
+    {
+      id: 4,
+      isPanel: false,
+      imgPath: require('./static/images/repair2.jpg'),
+      title: 'Repair cover',
+      content: 'We will pay for the full original purchase price when your tools or laptops are not repairable',
+      icon1: require('./static/icons/yes.png'),
+      icon2: require('./static/icons/yes.png'),
+      icon3: require('./static/icons/yes.png'),
       price: 50,
       calculateTotalPrice: calculateTotalPrice
     }
@@ -70,9 +88,14 @@ function App() {
     return (
       cardDetails.map((c): React.ReactNode => {
         return (
-          <div className='col' key={c.id}>
-            <Card card={c} />
-          </div>
+          c.id === 1 ?
+            <div className='app-panel' key={c.id}>
+              <Card card={c} />
+            </div>
+            :
+            <div className='app-card' key={c.id}>
+              <Card card={c} />
+            </div>
         )
       })
     )
@@ -83,7 +106,7 @@ function App() {
       <Navbar />
       <Header header={headerDetails} />
       <div className='container'>
-        <div className='row mt-5'>
+        <div className='row mt-4'>
           {renderCards(cardDetails)}
         </div>
         <div className='row mt-5'>

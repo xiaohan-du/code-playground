@@ -29,6 +29,9 @@
     width: 20rem;
     float: right;
     background-color: $adm-purple;
+    &-item {
+      white-space: nowrap;
+    }
     &-link {
       display: flex;
       justify-content: left;
@@ -36,6 +39,12 @@
       font-size: $font-basic;
       font-weight: $font-weight-basic;
       margin: 1.5rem;
+      &:hover {
+        color: white;
+      }
+      &:focus {
+        color: white;
+      }
     }
   }
 }
