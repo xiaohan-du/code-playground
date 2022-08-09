@@ -6,10 +6,11 @@ interface Props {
   card: ICard;
 }
 
-const Card = ({ card: { isPanel, imgPath, title, content, icon1, icon2, icon3, price, calculateTotalPrice } }: Props) => {
+const Card = ({ card: { isPanel, imgPath, title, content, icon1, icon2, icon3, price, quote, calculateTotalPrice, calculateTotalQuotes } }: Props) => {
   const [btnText, setBtnText] = useState<string>('Add to cart');
   const [isAdded, setIsAdded] = useState<boolean>(false);
   const [quotePrice, setQuotePrice] = useState(price);
+  const [quoteNumber, setQuoteNumber] = useState(quote);
 
   useEffect(() => {
     setBtnText(isAdded ? 'Remove from cart' : 'Add to cart');
@@ -17,8 +18,10 @@ const Card = ({ card: { isPanel, imgPath, title, content, icon1, icon2, icon3, p
 
   const handleClick = (): void => {
     calculateTotalPrice(quotePrice);
+    calculateTotalQuotes(quoteNumber);
     setIsAdded(value => !value);
     setQuotePrice(value => -value);
+    setQuoteNumber(isAdded ? 1 : -1);
   };
 
   return (

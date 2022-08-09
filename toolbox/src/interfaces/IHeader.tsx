@@ -1,5 +1,5 @@
 interface IHeader {
-  quoteNumber: number;
+  totalQuote: number;
   totalPrice: number;
 }
 

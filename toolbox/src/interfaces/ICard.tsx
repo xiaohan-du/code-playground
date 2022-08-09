@@ -8,7 +8,9 @@ interface ICard {
   icon2: string;
   icon3: string;
   price: number;
+  quote: number;
   calculateTotalPrice(price: number): void;
+  calculateTotalQuotes(quote: number): void;
 }
 
 export default ICard;

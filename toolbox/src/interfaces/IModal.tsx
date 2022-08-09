@@ -1,5 +1,6 @@
 interface IModal {
   quotePrice: number;
+  quoteNumber: number;
   setIsOpen(isOpen: boolean): void;
   discount: number;
   isDiscountApplied: boolean;

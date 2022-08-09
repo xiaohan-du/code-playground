@@ -7,7 +7,7 @@ interface Props {
   modal: IModal;
 }
 
-const Modal = ({ modal: { quotePrice, setIsOpen, discount, isDiscountApplied, handleDiscountCode } }: Props) => {
+const Modal = ({ modal: { quotePrice, quoteNumber, setIsOpen, discount, isDiscountApplied, handleDiscountCode } }: Props) => {
 
   const [isSuccessful, setIsSuccessful] = useState<boolean>(false);
   const [input, setInput] = useState<string>('');
@@ -18,7 +18,7 @@ const Modal = ({ modal: { quotePrice, setIsOpen, discount, isDiscountApplied, ha
       <div className={styles.modalCentered}>
         <div className={styles.modalBody}>
           <div className={styles.modalHeader}>
-            <h5 className={styles.modalHeading}>Your shopping cart</h5>
+            <h5 className={styles.modalHeading}>Your shopping cart has {quoteNumber <= 1 ? `${quoteNumber} cover` : `${quoteNumber} covers`} </h5>
           </div>
           <button aria-label="Close" type='button' className={styles.modalBtnClose} onClick={() => setIsOpen(false)}>
             <RiCloseLine />

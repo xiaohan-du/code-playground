@@ -13,6 +13,7 @@ import { discountCodes } from './data/discountCodes';
 function App() {
 
   const [priceSummary, setPriceSummary] = useState<number>(0);
+  const [quoteSummary, setQuoteSummary] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [discount, setDiscount] = useState<number>(0);
@@ -26,6 +27,10 @@ function App() {
     setPriceSummary(priceSummary + price);
   }, [priceSummary]);
 
+  const calculateTotalQuotes = useCallback((quote: number) => {
+    setQuoteSummary(quoteSummary + quote);
+  }, [quoteSummary]);
+
   const handleDiscountCode = (discountCode: string) => {
     setDiscount(0);
     let keys = Object.keys(discountCodes);
@@ -37,6 +42,7 @@ function App() {
 
   const modalDetails: IModal = {
     quotePrice: priceSummary,
+    quoteNumber: quoteSummary,
     setIsOpen: setIsOpen,
     discount: discount,
     isDiscountApplied: isDiscountApplied,
@@ -44,13 +50,13 @@ function App() {
   };
 
   const headerDetails: IHeader = {
-    quoteNumber: cardDetails.length - 1,
+    totalQuote: quoteSummary,
     totalPrice: priceSummary
   };
 
   const fullCardDetails = useMemo(() => (
-    cardDetails.map((card) => ({...card, calculateTotalPrice}))
-), [calculateTotalPrice]);
+    cardDetails.map((card) => ({...card, calculateTotalPrice, calculateTotalQuotes}))
+), [calculateTotalPrice, calculateTotalQuotes]);
 
   const renderCards = (
     cardDetails: ICard[]): React.ReactNode => {
@@ -63,7 +69,7 @@ function App() {
             </div>
             :
             <div className='app-card' key={c.id}>
-              <Card card={c} />
+              <Card card={{...c, quote: 1}} />
             </div>
         )
       })
