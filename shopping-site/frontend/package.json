@@ -9,7 +9,7 @@
     "emailjs-com": "^2.6.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
-    "netlify-cli": "^2.67.0",
+    "netlify-cli": "^12.12.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
